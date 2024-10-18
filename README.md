@@ -58,5 +58,5 @@
 | Contributor  | Subject matter experties | E-mail |
 | ------------- | ------------- | ------------- |
 | Vrunda Gadesha  | Large Language Models & Prompt engineering  | vrunda.gadesha@ibm.com |
-
+| Anna Gutowska  | Large Language Models & Prompt engineering  | vrunda.gadesha@ibm.com |
 
