@@ -1,4 +1,4 @@
-<h1>IBMdotcom Tutorials</h1>
+<h1>IBMdotcom Tutorials! :)</h1>
 <p><i>Cutting-edge AI, ML, NLP, and Data Governance Tutorials and Explainers</i></p>
 
 <p>Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by inbound ibm.com technical writing team. This repository focuses on cutting-edge technologies in the fields of:</p>
