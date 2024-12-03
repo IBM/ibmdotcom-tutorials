@@ -1,4 +1,4 @@
-![IBM Turorials Logo](./images/tutorials.png)
+![IBM Turorials Logo](./images/tutorialslogo.png)
 <hr noshade>
 <h1>IBMdotcom Tutorials</h1>
 <p><i>Cutting-edge AI, ML, NLP, and Data Governance Tutorials and Explainers</i></p>
