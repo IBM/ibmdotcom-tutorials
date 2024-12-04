@@ -3,28 +3,19 @@
 <hr noshade>
 <p>Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by inbound ibm.com technical writing team. This repository focuses on cutting-edge technologies in the fields of:</p>
 
-<h3> AI | Machine Learning | Natural Language Processing | LLMs | Prompt Engineering | Data Governance </h3>
+<h3> AI | Machine Learning | NLP | LLMs | Prompt Engineering | Data Governance </h3>
 
 <!-- EDIT SCOPE: Team can add the related fiels in this list -->
 
-<p>These tutorials provide educational materials, technical insights, and working demos to help both developers and non-developers understand the AI ecosystem. Whether you are just starting out or looking to deepen your understanding, you will find valuable content here.</p>
+<p>These tutorials provide walk-throughs, technical guides, and working demos to help both you better understand the AI ecosystem. Whether you are starting out or looking to deepen your understanding, you will find valuable content here.</p>
 </div>
 <hr noshade>
 
 <h2>Technologies</h2>
 
-<p>This repository contains tutorials and demos covering the following key technologies:</p>
-
-<ul>
-  <li>Artificial Intelligence (AI): Introduction to AI concepts, algorithms, and applications.</li>
-  <li>Machine Learning (ML): Supervised and unsupervised learning, model building, optimization and validation.</li>
-  <li>Natural Language Processing (NLP): Text analysis, sentiment detection, and language models.</li>
-  <li>Data Governance: Ensuring data integrity and security</li>
-</ul>
-
 <!-- EDIT SCOPE: Team can add the related fiels in this list -->
 
-<p>We also use the following technologies, programming language, tools and frameworks in our tutorials:</p>
+<p>We use the following technologies, programming language, tools and frameworks in our tutorials:</p>
 
 <ul>
   <li>Python for scripting and model development.</li>
