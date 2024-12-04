@@ -7,7 +7,7 @@
 
 <!-- EDIT SCOPE: Team can add the related fiels in this list -->
 
-<p>These tutorials provide walk-throughs, technical guides, and working demos to help both you better understand the AI ecosystem. Whether you are starting out or looking to deepen your understanding, you will find valuable content here.</p>
+<p>These tutorials provide walk-throughs, technical guides, and working demos to help you better understand the AI ecosystem. Whether you are starting out or looking to deepen your understanding, you will find valuable content here.</p>
 </div>
 <hr noshade>
 
