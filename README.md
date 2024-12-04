@@ -1,5 +1,5 @@
-<div align = 'center'>
 ![IBM Tutorials Logo](./images/tutorialslogo.png)
+<div align = 'center'>
 <hr noshade>
 <p>Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by inbound ibm.com technical writing team. This repository focuses on cutting-edge technologies in the fields of:</p>
 
@@ -8,6 +8,8 @@
 <!-- EDIT SCOPE: Team can add the related fiels in this list -->
 
 <p>These tutorials provide educational materials, technical insights, and working demos to help both developers and non-developers understand the AI ecosystem. Whether you are just starting out or looking to deepen your understanding, you will find valuable content here.</p>
+</div>
+<hr noshade>
 
 <h2>Technologies</h2>
 
@@ -31,7 +33,7 @@
   <li>IBM granite models for AI/ML/DL/NLP applications.</li>
 </ul>
 
-</div>
+
 <!-- EDIT SCOPE: Team can add the related fiels in this list -->
 
 <!-- ><h2>Repository Structure</h2>
