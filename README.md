@@ -1,7 +1,7 @@
 ![IBM Tutorials Logo](./images/tutorialslogo.png)
 <div align = 'center'>
 <hr noshade>
-<p>Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by inbound ibm.com technical writing team. This repository focuses on cutting-edge technologies in the fields of:</p>
+<p>Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by the ibm.com technical writing team. This repository focuses on cutting-edge technologies in the fields of:</p>
 
 <h3> AI | Machine Learning | NLP | LLMs | Prompt Engineering | Data Governance </h3>
 
