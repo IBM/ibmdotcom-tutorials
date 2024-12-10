@@ -1,2 +1,4 @@
-
-generative-ai/.env
+**/.env
+**/.venv
+**/__pycache__/
+.DS_Store
