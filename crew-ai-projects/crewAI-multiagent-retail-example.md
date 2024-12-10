@@ -2,9 +2,9 @@
 
 **Authors:** Yohan Bensoussan, Anna Gutowska
 
-Imagine transforming your retail store’s performance with just a smartphone and the power of [artificial intelligence (AI)](https://www.ibm.com/topics/artificial-intelligence). This isn’t a far-off future scenario—it’s a reality that small and mid-size retail stores can implement today! In this tutorial, we’ll explore an exciting real-world use case where store owners and managers can use AI to optimize their shelf arrangements, boost sales and enhance the customer experience. We will leverage both the IBM [Granite 3.0](https://www.ibm.com/granite) model in this project as well as Meta's Llama 3.2 vision model.
+Imagine transforming your retail store’s performance with just a smartphone and the power of [artificial intelligence (AI)](https://www.ibm.com/topics/artificial-intelligence). This isn’t a far-off future scenario—it’s a reality that small and mid-size retail stores can implement today! In this tutorial, we’ll explore an exciting real-world use case where store owners and managers can use AI to optimize their shelf arrangements, boost sales and enhance the customer experience. 
 
-<img src="https://assets.ibm.com/is/image/ibm/multimodal-agent-architecture?$original$&fmt=png-alpha"
+<img src="my_retail_advisor/images/crew-ai-watsonx.png"
      alt="crewAI and watsonx architecture"
      style="display: block; margin: auto; width: 800px; height: 500px;" />
 
@@ -110,14 +110,9 @@ create_action_plan:
     practical tasks for the Store manager and the Buyer.
   agent: store_manager
 ```
+## Step 1. Set up your environment
 
-## Steps
-
-You can find this project on [Github](https://github.com/IBM/ibmdotcom-tutorials/blob/main/crew-ai-projects).
-
-### Step 1. Set up your environment
-
-We first need to set up our environment. You can find these steps in the Markdown file on [GitHub](https://github.com/IBM/ibmdotcom-tutorials/blob/main/crew-ai-projects/crewAI-multiagent-retail-example.md) or by following along here. 
+We first need to set up our environment. You can find these steps in the Markdown file on [GitHub](https://github.com/IBM/ibmdotcom-tutorials/generative-ai/crew-ai-projects/crewAI-multiagent-retail-example.md) or by following along here. 
 
 1. Ensure you have Python >=3.10 <=3.13 installed on your system. You can check your Python version using the `python3 --version` command.
 
@@ -128,7 +123,7 @@ source ./myenv/bin/activate
 ```
 3. Clone the repository found here: `https://github.com/IBM/ibmdotcom-tutorials.git`. For detailed steps on how to clone a repository, refer to the [GitHub documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). 
 
-The project structure of the `crew-ai-projects` directory should resemble the following:
+The project structure of the crew-ai-projects directory should resemble the following:
 
 ```
 src/my_retail_advisor/
@@ -143,7 +138,7 @@ src/my_retail_advisor/
 └── main.py          # Application entry point
 ```
 
-### Step 2. Obtain watsonx API credentials
+## Step 2. Set up watsonx API credentials
 
 1. Log in to [watsonx.ai](https://dataplatform.cloud.ibm.com/registration/stepone?context=wx&apps=all) using your IBM Cloud account.
 
@@ -157,10 +152,10 @@ src/my_retail_advisor/
 5. Associate the watsonx.ai Runtime service to the project you created in [watsonx.ai](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/assoc-services.html?context=cpdaas). 
 
 
-### Step 3. Obtain Serper API credentials
+## Step 3. Set up Serper API credentials
 Generate and take note of your free [Serper API](https://serper.dev/) key. Serper is a Google Search API that we will be using in this project. 
 
-### Step 4. Install crewAI and set up your credentials 
+## Step 4. Install crewAI and set up your credentials 
 
 We need to install the crewAI framework for this tutorial and set out watsonx.ai credentials that we generated in step 2. 
 
@@ -178,7 +173,7 @@ WATSONX_URL=your_endpoint (e.g. "https://us-south.ml.cloud.ibm.com")
 SERPER_API_KEY=your_serper_api_key_here
 ```
 
-### Step 5. Customize the crew (optional)
+## Step 5. Customize the crew (optional)
 
 crewAI can be configured to use any open source large language model (LLM). LLMs can be connected through Ollama and several other APIs such as IBM watsonx™ and OpenAI. Users can also leverage pre-built tools available through the crewAI Toolkit as well as LangChain Tools. 
 
@@ -211,10 +206,10 @@ There are many ways you can customize your crew:
 - Modify `src/my_retail_advisor/tool/tool_helper.py` to change the custom vision tool based on llama vision model.
 - Replace `images/shelf.jpg` with an image of your own.
 
-### Step 6. Run the system
+## Step 6. Run the system
 Ensure you are in the proper working directory of this project. You can change directories by running the following command in your terminal.
 ```bash
-cd crew-ai-projects/my_retail_advisor
+cd crew-ai/my_retail_advisor
 ```
 
 To kickoff your crew of AI agents and begin task execution, run this command from the root folder of your project. **Note, the crew may run for several minutes before returning a final result.**
