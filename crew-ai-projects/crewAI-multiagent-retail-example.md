@@ -113,11 +113,11 @@ create_action_plan:
 
 ## Steps
 
-You can find this project on [Github](https://github.com/IBM/ibmdotcom-tutorials/crew-ai-projects).
+You can find this project on [Github](https://github.com/IBM/ibmdotcom-tutorials/blob/main/crew-ai-projects).
 
 ### Step 1. Set up your environment
 
-We first need to set up our environment. You can find these steps in the Markdown file on [GitHub](https://github.com/IBM/ibmdotcom-tutorials/crew-ai-projects/crewAI-multiagent-retail-example.md) or by following along here. 
+We first need to set up our environment. You can find these steps in the Markdown file on [GitHub](https://github.com/IBM/ibmdotcom-tutorials/blob/main/crew-ai-projects/crewAI-multiagent-retail-example.md) or by following along here. 
 
 1. Ensure you have Python >=3.10 <=3.13 installed on your system. You can check your Python version using the `python3 --version` command.
 
