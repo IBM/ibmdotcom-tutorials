@@ -2,7 +2,7 @@
 
 **Authors:** Yohan Bensoussan, Anna Gutowska
 
-Imagine transforming your retail store’s performance with just a smartphone and the power of [artificial intelligence (AI)](https://www.ibm.com/topics/artificial-intelligence). This isn’t a far-off future scenario—it’s a reality that small and mid-size retail stores can implement today! In this tutorial, we’ll explore an exciting real-world use case where store owners and managers can use AI to optimize their shelf arrangements, boost sales and enhance the customer experience. We will leverage both the IBM [Granite 3.0](https://www.ibm.com/granite) model in this project as well as Meta's Llama 3.2 vision model.
+Imagine transforming your retail store’s performance with just a smartphone and the power of [artificial intelligence (AI)](https://www.ibm.com/topics/artificial-intelligence). This isn’t a far-off future scenario—it’s a reality that small and mid-size retail stores can implement today! In this tutorial, we’ll explore an exciting real-world use case where store owners and managers can use AI to optimize their shelf arrangements, boost sales and enhance the customer experience. We will leverage the latest IBM [Granite](https://www.ibm.com/granite) model in this project as well as Meta's Llama 3.2 vision model.
 
 <img src="https://assets.ibm.com/is/image/ibm/multimodal-agent-architecture?$original$&fmt=png-alpha"
      alt="crewAI and watsonx architecture"
@@ -221,7 +221,7 @@ To kickoff your crew of AI agents and begin task execution, run this command fro
 ```bash
 crewai run
 ```
-This command initializes the my-retail-advisor Crew, assembling the agents and assigning them tasks as defined in your configuration. This example, unmodified, will run the create a `report.md` file with the output. crewAI can return JSON, Pydantic models and raw strings as output. Here is an example of the output produced by the crew.
+This command initializes the my-retail-advisor Crew, assembling the agents and assigning them tasks as defined in your configuration. This example, unmodified, will run Granite on watsonx.ai to create a `report.md` file with the output. crewAI can return JSON, Pydantic models and raw strings as output. Here is an example of the output produced by the crew.
 
 ### **Example output**:
 
