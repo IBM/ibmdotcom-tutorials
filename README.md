@@ -1,7 +1,9 @@
 ![IBM Tutorials Logo](./images/tutorialslogo.png)
+![Apache License Badge](./images/license.png)
+
 <div align = 'center'>
 <hr noshade>
-![Apache License Badge](./images/license.png)
+
 
 <p>Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by inbound ibm.com technical writing team. This repository focuses on cutting-edge technologies in the fields of:</p>
 
