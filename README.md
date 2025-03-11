@@ -1,5 +1,5 @@
 ![IBM Tutorials Logo](./images/tutorialslogo.png)
-![Apache License Badge](./images/license.png)
+![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 
 <div align = 'center'>
 <hr noshade>
