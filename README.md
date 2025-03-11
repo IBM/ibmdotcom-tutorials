@@ -1,6 +1,6 @@
 ![IBM Tutorials Logo](./images/tutorialslogo.png)
 <div align = 'center'>
-<p align = 'center'>![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)</p>
+
 <hr noshade>
 <p>Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by inbound ibm.com technical writing team. This repository focuses on cutting-edge technologies in the fields of:</p>
 
