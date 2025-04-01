@@ -1,0 +1,2 @@
+Annotating callable objects
+Functions – or other callable objects – can be annotated using collections.abc.Callable or deprecated typing.Callable. Callable[[int], str] signifies a function that takes a single parameter of type int and returns a str.
