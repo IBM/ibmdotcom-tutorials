@@ -50,7 +50,7 @@ To easily get started with deploying agents on watsonx.ai, clone this [GitHub re
 
 ```sh
 git clone git@github.com:IBM/ibmdotcom-tutorials.git
-cd react-agent-langgraph-it-support/base/langgraph-react-agent/
+cd react-agent-it-support/
 ```  
 
 Next, install poetry if you do not already have it installed.
