@@ -1,0 +1,46 @@
+# Agent: Quality Assurance Specialist
+## Thought: Thought: I need to research industry standards for customer service metrics to compare the agent's performance in the transcript.
+## Using tool: Search the internet
+## Tool Input: 
+"{\"search_query\": \"customer service metrics industry standards\"}"
+## Tool Output: 
+
+Search results: Title: Customer Service Metrics: Top 10 to Measure - Qualtrics
+Link: https://www.qualtrics.com/experience-management/customer/service-metrics/
+Snippet: 1. Customer Satisfaction (CSAT) · 2. Customer Effort Score (CES) · 3. Net Promoter Score (NPS) · 4. Social media metrics · 5. Customer churn · 6. First response time.
+---
+Title: Industry Standards For the Top Call Center KPIs - SQM Group
+Link: https://www.sqmgroup.com/resources/library/blog/industry-standards-top-call-center-kpis
+Snippet: The call center industry standard for a good Csat score is 75% to 84%. Therefore, call centers with a Csat score below 75% need improvement.
+---
+Title: Customer service metrics: Top 10 to measure - Zendesk
+Link: https://www.zendesk.com/blog/customer-service-metrics-matter/
+Snippet: 1. Customer satisfaction score · 2. Customer Effort Score · 3. Net Promoter Score® · 4. Social media metrics · 5. Churn metrics · 6. First reply time.
+---
+Title: The Top Customer Service Metrics You Should Know - Medallia
+Link: https://www.medallia.com/blog/the-top-customer-service-metrics-you-should-know/
+Snippet: Benchmark Against Industry Standards: Compare your metrics with industry standards to see how your service stacks up against competitors.
+---
+Title: Top Customer Service Metrics You Should Be Measuring - IBM
+Link: https://www.ibm.com/think/insights/top-customer-service-metrics-you-should-be-measuring
+Snippet: 12 customer service metrics · Customer satisfaction score (CSAT) · Customer effort score (CES) · Net promoter score (NPS) · Social media metrics.
+---
+Title: 12 Key Call Center Metrics & KPIs To Drive Better Performance
+Link: https://www.nextiva.com/blog/call-center-metrics.html
+Snippet: We'll walk you through 12 key call center metrics to focus on and how to use the data to improve performance and processes that boost productivity, efficiency,
+---
+Title: 21 Customer Service Metrics to Track in 2025 - Sprinklr
+Link: https://www.sprinklr.com/cxm/customer-service-metrics/
+Snippet: Learn all about the top customer service metrics used in the industry, how you can measure them and how these can help improve your support operations.
+---
+Title: The 12 key customer service metrics and KPIs you should care about
+Link: https://kaizo.com/blog/customer-service-metrics-kpis/
+Snippet: Customer service metrics and KPIs are the numbers that help you measure how well you're delivering on your business's brand promise.
+---
+Title: Key Customer Service Metrics and Their Importance - LiveX AI
+Link: https://www.livex.ai/benchmarks/key-customer-service-metrics-benchmarks-and-how-to-measure-them
+Snippet: A good score in customer service metrics depends on industry standards and business goals. Below are general benchmarks for evaluating Customer Satisfaction ...
+---
+Title: Call Center Metrics: The Industry Standards - CX Today
+Link: https://www.cxtoday.com/contact-center/call-center-metrics-the-industry-standards-enghouse/
+Snippet: Here are a handful of the UK standards for cornerstone contact center metrics, alongside commentary and ideas to move the needle for each.

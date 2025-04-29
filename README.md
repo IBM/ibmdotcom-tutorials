@@ -1,6 +1,10 @@
 ![IBM Tutorials Logo](./images/tutorialslogo.png)
+![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
+
 <div align = 'center'>
 <hr noshade>
+
+
 <p>Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by inbound ibm.com technical writing team. This repository focuses on cutting-edge technologies in the fields of:</p>
 
 <h3> AI | Machine Learning | NLP | LLMs | Prompt Engineering | Data Governance </h3>
