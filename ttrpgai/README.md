@@ -86,42 +86,9 @@ npm run dev
 - pdf-parse ^1.1.1
 - TypeScript ^5.3.3
 
-### AI Model
-- Ollama with Granite 3.2:8b model
 
-## Project Structure
 
-```
-dnd-rules-assistant/
-├── src/                    # Frontend source files
-│   ├── components/         # React components
-│   ├── services/          # API services
-│   └── App.tsx            # Main application component
-├── backend/               # Backend server
-│   ├── src/              # Backend source files
-│   └── uploads/          # Temporary PDF storage
-└── public/               # Static assets
-    └── assets/          # Images and other media
-```
 
-## Usage
-
-1. Start by selecting a game version from the dropdown menu or upload your own rule set PDF.
-2. To upload custom rules:
-   - Click "Upload Rule Set"
-   - Select or drag-and-drop a PDF file
-   - The rule set will appear in both the rule sets list and version dropdown
-
-3. To ask rules questions:
-   - Type your question in the text field
-   - Click "Ask the Sage"
-   - The answer will appear below
-
-4. To generate encounters:
-   - Enter party size and level
-   - Select an environment
-   - Click "Generate Encounter"
-   - The encounter details will appear below
 
 ## Environment Variables
 
