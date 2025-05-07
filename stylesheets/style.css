@@ -1,0 +1,22 @@
+/* Import IBM Plex Mono from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap');
+
+/* Apply IBM Plex Mono globally */
+html, body {
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+/* Apply IBM Plex Mono to specific elements */
+h1, h2, h3, h4, h5, h6,
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6,
+code, pre,
+.md-typeset code,
+.md-typeset pre,
+.md-typeset kbd {
+  font-family: 'IBM Plex Mono', monospace !important;
+} 

@@ -1,51 +1,79 @@
-![IBM Tutorials Logo](./images/tutorialslogo.png)
-![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
+# IBM Tutorials Documentation
 
-<div align = 'center'>
-<hr noshade>
+This repository contains the documentation for IBM Tutorials, built using MkDocs.
 
+## Getting Started
 
-<p>Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by inbound ibm.com technical writing team. This repository focuses on cutting-edge technologies in the fields of:</p>
+### Prerequisites
 
-<h3> AI | Machine Learning | NLP | LLMs | Prompt Engineering | Data Governance </h3>
+- Python 3.x
+- pip (Python package installer)
 
-<!-- EDIT SCOPE: Team can add the related fiels in this list -->
+### Installation
 
-<p>These tutorials provide walk-throughs, technical guides, and working demos to help you better understand the AI ecosystem. Whether you are starting out or looking to deepen your understanding, you will find valuable content here.</p>
-</div>
-<hr noshade>
+1. Clone this repository:
+```bash
+git clone <your-repo-url>
+cd ibm-tutorials
+```
 
-<h2>Technologies</h2>
+2. Install MkDocs and the required theme:
+```bash
+pip install mkdocs mkdocs-material
+```
 
-<!-- EDIT SCOPE: Team can add the related fiels in this list -->
+### Project Structure
 
-<p>We use the following technologies, programming language, tools and frameworks in our tutorials:</p>
+```
+ibm-tutorials/
+├── docs/               # Documentation source files
+├── stylesheets/        # Custom CSS styles
+└── mkdocs.yml         # MkDocs configuration file
+```
 
-<ul>
-  <li>Python for scripting and model development.</li>
-  <li>TensorFlow / PyTorch for deep learning models.</li>
-  <li>Hugging Face for NLP-related demos.</li>
-  <li>IBM granite models for AI/ML/DL/NLP applications.</li>
-</ul>
+### Running the Documentation Site
 
+1. Start the development server:
+```bash
+mkdocs serve
+```
 
-<!-- EDIT SCOPE: Team can add the related fiels in this list -->
+2. Open your browser and navigate to `http://127.0.0.1:8000`
 
-<!-- ><h2>Repository Structure</h2>
+### Building the Documentation
 
-<p>Coming Soon!</p>
+To build the static site:
 
-<h2>License</h2>
+```bash
+mkdocs build
+```
 
-<p>The license details of this repository will be updated soon.</p>
+This will create a `site` directory with the built documentation.
 
+## Documentation Structure
 
-<h2>Contact the team</h2>
+The documentation is organized as follows:
 
-<p>For any questions or discussions, feel free to reach out to us.</p> -->
+- Home (`index.md`)
+- About (`about.md`)
+- Getting Started (`getting-started.md`)
+- Tutorials (`tutorials-list.md`)
+- Projects (`projects-list.md`)
+- Code of Conduct (`coc.md`)
+- Contributing (`contributing.md`)
+- License (`license.md`)
 
+## Contributing
 
+1. Create a new branch for your changes
+2. Make your changes to the documentation
+3. Test your changes locally using `mkdocs serve`
+4. Submit a pull request
 
-<!--- JJ made a comment here --!>
+## Customization
 
+The site uses the Material theme for MkDocs with custom CSS. You can find the custom styles in the `stylesheets` directory.
 
+## License
+
+<PJ to Confirm>

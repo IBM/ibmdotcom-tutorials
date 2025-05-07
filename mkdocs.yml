@@ -1,0 +1,56 @@
+site_name: IBM Tutorials
+nav: 
+  - Home: index.md
+  - About: about.md
+  - Getting Started: getting-started.md
+  - Tutorials: tutorials-list.md
+  - Projects: projects-list.md
+  - Code of Conduct: coc.md
+  - Contributing: contributing.md
+  - License: license.md
+theme:
+  name: material
+  palette:
+    # Dark Mode
+    scheme: slate
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+    primary: custom
+    accent: custom
+  
+  # Light Mode
+    scheme: default
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+    primary: custom
+    accent: custom
+
+# theme:
+#   name: readthedocs
+#   palette:
+#     # Light mode
+#     - scheme: default
+#       primary: custom
+#       accent: custom
+#       toggle:
+#         icon: material/brightness-7
+#         name: Switch to dark mode
+#     # Dark mode
+#     - scheme: slate
+#       primary: custom
+#       accent: custom
+#       toggle:
+#         icon: material/brightness-4
+#         name: Switch to light mode
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - stylesheets/style.css
+site_name: IBM Tutorials
+repo_url: https://github.com/IBM/ibmdotcom-tutorials
