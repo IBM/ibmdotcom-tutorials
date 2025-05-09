@@ -2,7 +2,6 @@
 
 This repository contains the documentation for IBM Tutorials, built using MkDocs.
 
-## Getting Started
 
 ### Prerequisites
 
