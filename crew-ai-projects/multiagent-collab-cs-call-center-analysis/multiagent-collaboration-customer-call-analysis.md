@@ -109,11 +109,8 @@ recommendations for improvement.
 
 ## The Customer Service Call Analysis Crew
 
-<<<<<<< Updated upstream
 ![agent architecture](./Multi-agent-collaboration.png)
-=======
-![agent architecture diagram](Multi agent collaboration.png)
->>>>>>> Stashed changes
+
 
 The customer service call analysis crew consists of three agents with specialized
 roles and predefined goals. The agent configuration includes a Transcript
