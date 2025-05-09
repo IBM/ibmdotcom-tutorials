@@ -1,0 +1,14 @@
+// src/foundations/borders.ts
+var borders = {
+  none: 0,
+  "1px": "1px solid",
+  "2px": "2px solid",
+  "4px": "4px solid",
+  "8px": "8px solid"
+};
+var borders_default = borders;
+
+export {
+  borders_default
+};
+//# sourceMappingURL=chunk-B75T2J64.mjs.map

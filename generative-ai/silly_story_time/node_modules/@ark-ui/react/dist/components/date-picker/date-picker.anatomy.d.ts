@@ -1,0 +1,2 @@
+import { AnatomyInstance } from '@zag-js/anatomy';
+export declare const datePickerAnatomy: AnatomyInstance<"input" | "label" | "table" | "view" | "content" | "root" | "trigger" | "control" | "nextTrigger" | "prevTrigger" | "positioner" | "clearTrigger" | "tableHeader" | "tableBody" | "tableRow" | "viewTrigger" | "monthSelect" | "yearSelect" | "presetTrigger" | "rangeText" | "tableCell" | "tableCellTrigger" | "tableHead" | "viewControl">;

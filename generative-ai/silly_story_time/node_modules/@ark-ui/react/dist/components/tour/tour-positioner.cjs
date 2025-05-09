@@ -1,0 +1,24 @@
+'use client';
+'use strict';
+
+Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+
+const jsxRuntime = require('react/jsx-runtime');
+const react$1 = require('@zag-js/react');
+const react = require('react');
+const factory = require('../factory.cjs');
+const usePresenceContext = require('../presence/use-presence-context.cjs');
+const useTourContext = require('./use-tour-context.cjs');
+
+const TourPositioner = react.forwardRef((props, ref) => {
+  const tour = useTourContext.useTourContext();
+  const mergedProps = react$1.mergeProps(tour.getPositionerProps(), props);
+  const presence = usePresenceContext.usePresenceContext();
+  if (presence.unmounted) {
+    return null;
+  }
+  return /* @__PURE__ */ jsxRuntime.jsx(factory.ark.div, { ...mergedProps, ref });
+});
+TourPositioner.displayName = "TourPositioner";
+
+exports.TourPositioner = TourPositioner;
