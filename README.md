@@ -1,7 +1,8 @@
 # IBM Tutorials Documentation
 
-This repository contains the documentation for IBM Tutorials, built using MkDocs.
+This repository contains the documentation for IBM Tutorials.
 
+Check our [Interactive site here](https://ibm.github.io/ibmdotcom-tutorials/)
 
 ### Prerequisites
 
