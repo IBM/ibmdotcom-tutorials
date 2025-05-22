@@ -9,6 +9,7 @@ nav:
   - Contributing: contributing.md
   - License: license.md
 theme:
+  logo: assets/logo.png
   name: material
   palette:
     # Dark Mode
