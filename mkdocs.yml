@@ -28,6 +28,10 @@ theme:
     primary: custom
     accent: custom
 
+# Plugins
+plugins:
+  - mkdocs-jupyter
+
 # theme:
 #   name: readthedocs
 #   palette:
