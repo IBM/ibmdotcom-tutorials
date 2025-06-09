@@ -1,46 +1,13 @@
-# IBM Tutorials Documentation
+![IBM Tutorials Logo](assets/tutorialslogo.png)
+![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 
-This repository contains the documentation for IBM Tutorials.
+# Welcome to IBM Tutorials :bee:
 
-Check our [Interactive site here](https://ibm.github.io/ibmdotcom-tutorials/)
+Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by the [ibm.com](https://www.ibm.com/think) technical writing team. This repository focuses on cutting-edge technologies in the fields of:
 
-### Prerequisites
-
-- Python 3.x
-- pip (Python package installer)
-
-### Installation
-
-1. Clone this repository:
-```bash
-git clone <your-repo-url>
-cd ibm-tutorials
-```
-
-2. Install MkDocs and the required theme:
-```bash
-pip install mkdocs mkdocs-material
-```
-
-### Project Structure
-
-```
-ibm-tutorials/
-├── docs/               # Documentation source files
-├── stylesheets/        # Custom CSS styles
-└── mkdocs.yml         # MkDocs configuration file
-```
+[Generative AI](tutorials-list/#generative-ai) | [Machine Learning](https://www.ibm.com/think/topics/machine-learning) | [LLMs](https://www.ibm.com/granite) | [Prompt Engineering](tutorials-list/#prompt-engineering)
 
 
+To get started, head to our [Getting Started Guide](getting-started.md) to ensure your setup is ready for use. 
 
-## Contributing
-
-1. Create a new branch for your changes
-2. Make your changes to the documentation
-3. Test your changes locally using `mkdocs serve`
-4. Submit a pull request
-
-
-## License
-
-[Apache 2.0](https://ibm.github.io/ibmdotcom-tutorials/license/)
+If you have any questions, please reach out in our [Github Discussions](https://github.com/IBM/ibmdotcom-tutorials/discussions).
