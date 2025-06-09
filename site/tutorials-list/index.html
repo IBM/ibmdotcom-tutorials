@@ -119,46 +119,6 @@
     
     
     
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
-    
     
       <div class="md-header__source">
         <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
@@ -342,6 +302,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ai-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#generative-ai" class="md-nav__link">
     <span class="md-ellipsis">
       Generative AI
@@ -500,6 +469,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ai-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#generative-ai" class="md-nav__link">
     <span class="md-ellipsis">
       Generative AI
@@ -555,40 +533,50 @@
 
 
 <h1 id="tutorials">Tutorials 👩‍🏫</h1>
+<h2 id="ai-models">AI Models</h2>
+<ul>
+<li><a href="../tutorials/ai-models/gradient_boosting_classifier/">Gradient boosting classifiers in Scikit-Learn and Caret</a></li>
+</ul>
 <h2 id="generative-ai">Generative AI</h2>
 <ul>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/Agentic-chunking.ipynb" target="_blank">Implement agentic chunking to optimize LLM inputs with Langchain and watsonx.ai</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/agentic-rag.ipynb" target="_blank">Build a LangChain agentic RAG system using the Granite-3.0-8B-Instruct model in watsonx.ai</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/deepseek_rag_reasoning_docling_watsonx.ipynb" target="_blank">DeepSeek Reasoning: Improving the R1 distilled model with RAG and watsonx.ai</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/docling_granite_question_answering.ipynb" target="_blank">Build a document-based question answering system by using Docling with Granite 3.1</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/function-calling.ipynb" target="_blank">Implement function calling with the Granite-3.0-8B-Instruct model in Python with watsonx</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/langchain-rag.ipynb" target="_blank">Create a LangChain RAG system in Python with watsonx</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/langchain-tools.ipynb" target="_blank">LangChain tool calling using Granite-3.0-8B-Instruct in Python with watsonx.ai</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/llamaindex_rag.ipynb" target="_blank">Creating a RAG with Llamaindex</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/llm-agent-orchestration.ipynb" target="_blank">LLM Agent Orchestration with Retrieval and Action Framework</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/llm-guardrails.ipynb" target="_blank">Use LLM guardrails with Llama Guard 3-11b-vision using watsonx</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/multimodal-ai.ipynb" target="_blank">Use Llama 3.2-90b-vision-instruct for multimodal AI queries in Python with watsonx</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/ollama_tools.ipynb" target="_blank">Ollama Tooling</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/pixtral-multimodal-ai.ipynb" target="_blank">Use Pixtral 12B for multimodal AI queries in Python with watsonx</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/ppt-ai-analyzer-granite-vision.ipynb" target="_blank">Build a PPT AI image analysis question answering system with Granite vision model</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/rag-chunking-strategies.ipynb" target="_blank">Implement RAG chunking strategies with LangChain and watsonx.ai</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/rag-evaluation-ragas.ipynb" target="_blank">Evaluate RAG pipeline using Ragas in Python with watsonx</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/time-series-forecasting-api.ipynb" target="_blank">Using the watsonx.ai Time Series Forecasting API to predict energy demand</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/zero-shot-classification.ipynb" target="_blank">Perform zero-shot classification with a foundation model</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/crew-ai-projects/crewAI-multiagent-retail-example.md" target="_blank">Use crewAI to build multimodal multiagent systems for retail shelf optimization with watsonx.ai</a></li>
+<li><a href="../tutorials/generative-ai/Agentic-chunking/">Implement agentic chunking to optimize LLM inputs with Langchain and watsonx.ai</a></li>
+<li><a href="../tutorials/generative-ai/agentic-rag/">Build a LangChain agentic RAG system using the Granite-3.0-8B-Instruct model in watsonx.ai</a></li>
+<li><a href="../tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx/">DeepSeek Reasoning: Improving the R1 distilled model with RAG and watsonx.ai</a></li>
+<li><a href="../tutorials/generative-ai/docling_granite_question_answering/">Build a document-based question answering system by using Docling with Granite 3.1</a></li>
+<li><a href="../tutorials/generative-ai/function-calling/">Implement function calling with the Granite-3.0-8B-Instruct model in Python with watsonx</a></li>
+<li><a href="../tutorials/generative-ai/granite-speech-3.3-8b/">Use automatic speech recognition (ASR) to generate a podcast transcript using Granite 3.3 and watsonx.ai</a></li>
+<li><a href="../tutorials/generative-ai/graphrag/">Implementing graph RAG using knowledge graphs</a></li>
+<li><a href="../tutorials/generative-ai/langchain-rag/">Create a LangChain RAG system in Python with watsonx</a></li>
+<li><a href="../tutorials/generative-ai/langchain-tools/">LangChain tool calling using Granite-3.0-8B-Instruct in Python with watsonx.ai</a></li>
+<li><a href="../tutorials/generative-ai/llamaindex_rag/">Creating a RAG with Llamaindex</a></li>
+<li><a href="../tutorials/generative-ai/llm-agent-orchestration/">LLM Agent Orchestration with Retrieval and Action Framework</a></li>
+<li><a href="../tutorials/generative-ai/llm-guardrails/">Use LLM guardrails with Llama Guard 3-11b-vision using watsonx</a></li>
+<li><a href="../tutorials/generative-ai/multimodal-ai/">Use Llama 3.2-90b-vision-instruct for multimodal AI queries in Python with watsonx</a></li>
+<li><a href="../tutorials/generative-ai/ollama_tools/">Ollama Tooling</a></li>
+<li><a href="../tutorials/generative-ai/pixtral-multimodal-ai/">Use Pixtral 12B for multimodal AI queries in Python with watsonx</a></li>
+<li><a href="../tutorials/generative-ai/ppt-ai-analyzer-granite-vision/">Build a PPT AI image analysis question answering system with Granite vision model</a></li>
+<li><a href="../tutorials/generative-ai/rag-chunking-strategies/">Implement RAG chunking strategies with LangChain and watsonx.ai</a></li>
+<li><a href="../tutorials/generative-ai/rag-evaluation-ragas/">Evaluate RAG pipeline using Ragas in Python with watsonx</a></li>
+<li><a href="../tutorials/generative-ai/time-series-forecasting-api/">Using the watsonx.ai Time Series Forecasting API to predict energy demand</a></li>
+<li>
+<p><a href="../tutorials/generative-ai/time-series-forecasting-lag-llama/">Time Series Forecasting with Lag-Llama</a></p>
+</li>
+<li>
+<p><a href="../tutorials/generative-ai/zero-shot-classification/">Perform zero-shot classification with a foundation model</a></p>
+</li>
 </ul>
 <!-- * [Implement agentic chunking to optimize LLM inputs with Langchain and watsonx.ai](/notebooks/Agentic-chunking.ipynb) -->
 
 <h2 id="prompt-engineering">Prompt Engineering</h2>
 <ul>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/prompt-chaining-langchain.ipynb" target="_blank">Prompt Chaining with LangChain - A Comprehensive Overview</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/prompt-tuning.ipynb" target="_blank">Prompt tune a Granite model using watsonx</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/role-prompting-tutorial.ipynb" target="_blank">Use role prompting with IBM watsonx and Granite</a></li>
+<li><a href="../tutorials/prompt-engineering/prompt-chaining-langchain/">Prompt Chaining with LangChain - A Comprehensive Overview</a></li>
+<li><a href="../tutorials/prompt-engineering/prompt-tuning/">Prompt tune a Granite model using watsonx</a></li>
+<li><a href="../tutorials/prompt-engineering/role-prompting-tutorial/">Use role prompting with IBM watsonx and Granite</a></li>
 </ul>
 <h2 id="instructional-guides">Instructional Guides</h2>
 <ul>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/ibmredbook.pdf" target="_blank">Creating OpenShift Multiple Architecture Clusters with IBM Power</a></li>
-<li><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/post-training-quantization.md" target="_blank">Post training quantization of Granite-3.0-8B-Instruct in Python with watsonx</a></li>
+<li><a href="../tutorials/instructional-guides/ibmredbook.pdf">Creating OpenShift Multiple Architecture Clusters with IBM Power</a></li>
+<li><a href="../tutorials/instructional-guides/post-training-quantization/">Post training quantization of Granite-3.0-8B-Instruct in Python with watsonx</a></li>
 </ul>
 <h2 id="useful-test-data">Useful Test Data</h2>
 <p><a href="https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/nyc_hourly_temp.csv" target="_blank">NYC Hourly Temperature Data - CSV</a></p>
