@@ -1,4 +1,3 @@
-![IBM Tutorials Logo](assets/tutorialslogo.png)
 ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 
 # Welcome to IBM Tutorials :bee:
