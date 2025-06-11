@@ -7,6 +7,10 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="IBM.com Technical Content Team">
+      
+      
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/graphrag/">
       
       
       
@@ -37,8 +41,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
       
     
     
@@ -59,7 +63,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -114,6 +118,46 @@
     
     
     
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
     
     
       <div class="md-header__source">
@@ -902,6 +946,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Graph retrieval augmented generation (Graph RAG) is emerging as a powerful technique for generative AI applications to use domain-specific knowledge and relevant information. Graph RAG is an alternative to vector search methods that use a vector database. Knowledge graphs are knowledge systems where graph databases such as Neo4j or Amazon Neptune can represent structured data. In a knowledge graph, the relationships between data points, called edges, are as meaningful as the connections between data points, called vertices or sometimes nodes. A knowledge graph makes it easy to traverse a network and process complex queries about connected data. Knowledge graphs are especially well suited for use cases involving chatbots, identity resolution, network analysis, recommendation engines, customer 360 and fraud detection.</p>
 <p>A Graph RAG approach leverages the structured nature of graph databases to give greater depth and context of retrieved information about networks or complex relationships. When a graph database is paired with a large language model (LLM), a developer can automate significant parts of the graph creation process from unstructured data like text. An LLM can process text data and identify entities, understand their relationships and represent them in a graph structure.</p>
 <p>There are many ways to create a Graph RAG application, for instance Microsoft’s GraphRAG, or pairing GPT4 with LlamaIndex. For this tutorial you’ll use Memgraph, an open source graph database solution to create a rag system by using Meta’s Llama-3 on watsonx. Memgraph uses Cypher, a declarative query language. It shares some similarities with SQL but focuses on nodes and relationships rather than tables and rows. You’ll have Llama 3 both create and populate your graph database from unstructured text and query information in the database.</p>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/tTwBKXHIiMg?si=5QmwYF7Aq4ZoL-ny" title="YouTube video player" width="560"></iframe>
 </div>
 </div>
 </div>

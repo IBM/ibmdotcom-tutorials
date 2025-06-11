@@ -13,7 +13,7 @@ nav:
   - Contributing: contributing.md
   - License: license.md
 theme:
-  logo: assets/logo.png
+  logo: assets/official_logo.png
   name: material
   font:
     text: IBM Plex Sans
