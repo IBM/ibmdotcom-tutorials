@@ -1,0 +1,784 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Post training quantization of Granite-3.0-8B-Instruct in Python with watsonx - IBM Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#post-training-quantization-of-granite-30-8b-instruct-in-python-with-watsonx" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Tutorials" class="md-header__button md-logo" aria-label="IBM Tutorials" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Post training quantization of Granite-3.0-8B-Instruct in Python with watsonx
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Tutorials" class="md-nav__button md-logo" aria-label="IBM Tutorials" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    IBM Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../coc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code of Conduct
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-post-training-quantization" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is post training quantization?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantization-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantization methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-set-up-your-enviroment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1. Set up your enviroment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-prepare-to-quantize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2. Prepare to quantize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-running-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3. Running the model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-comparing-the-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4. Comparing the models
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="post-training-quantization-of-granite-30-8b-instruct-in-python-with-watsonx">Post training quantization of Granite-3.0-8B-Instruct in Python with watsonx</h1>
+<p><strong>Author</strong>: Joshua Noble</p>
+<h2 id="what-is-post-training-quantization">What is post training quantization?</h2>
+<p>Quantization of large language models (LLMs) is a model optimization technique that reduces memory space and latency by sacrificing some model accuracy. Large transformer-based models such as LLMs often require significant GPU resources to run. In turn, a quantized model can allow you to run machine learning inference on limited GPUs or even on a CPU. Frameworks such as TensorFlow Lite (tflite) can run quantized TensorFlow models on edge devices including phones or microcontrollers. In the era of larger and larger LLMs, quantization is an essential technique during the training, fine tuning and inference stages of modeling. Quantization is especially helpful for users who want to run models locally on limited hardware machines. Low-resource hardware that has a hardware machine learning accelerator can also run quantized models very efficiently.</p>
+<h2 id="quantization-methods">Quantization methods</h2>
+<p>Quantization is the process of mapping input values from a large set of continuous elements to a smaller set with a finite number of elements. Quantization methods have evolved rapidly and been an area of active research. For instance, a simple algorithm might be integer quantization, which is simply scaling 32-bit floating point (f32) numbers to 8-bit integers (int8). This technique is often called zero-point quantization. More sophisticated techniques use FP8, an 8-bit floating point with a dynamic range that can be set by the user. In this tutorial, we'll use k-means quantization to create very small models. That saves us from needing to do model calibration or the time-intensive step of creating an importance matrix that defines the importance of each activation in the neural network.</p>
+<p>We'll focus on post training quantization (PTQ) which focuses on decreasing the precision (and thus resource demands) after the model is trained. Quantization-Aware Training (QAT) is a common quantization technique for mitigating model accuracy and perplexity degradation that arises from quantization but is a more advanced technique with more limited use cases. In particular, we'll use k-means quantization via llama.cpp, an open source library that quantizes PyTorch models.</p>
+<p>When working with LLMs, model quantization allows us to convert high-precision floating-point numbers in the neural network layers to low-precision numbers that consume much less space. We'll be converting models to GPT-Generated Unified Format (GGUF) to run them efficiently in constrained resource scenarios. GGUF is a binary format optimized for quick loading and saving of models that makes it efficient for inference purposes. It achieves this efficiency by combining the model parameters (weights and biases) with more metadata for effective execution. Because it’s compatible with various programming languages such as Python and R and supports fine tuning so users can adapt LLMs to specialized applications, it has become a popular format.</p>
+<p>In this tutorial, we’ll quantize the IBM® Granite-3.0-8B-Instruct model in a few different ways to show the size of the models and compare how they perform on a task. To view more Granite tutorials, check out the <a href="https://github.com/ibm-granite-community">IBM Granite Community</a>. This tutorial is also available on <a href="https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/post-training-quantization.md">Github</a>.</p>
+<h2 id="step-1-set-up-your-enviroment">Step 1. Set up your enviroment</h2>
+<p>This can be done in either a terminal on OSX or Linux or in VS Code on Windows.</p>
+<p>First, we need to create a virtual environment in Python that we can use to save all of our libraries:</p>
+<pre><code>python3 -m venv .
+source ./bin/activate
+</code></pre>
+<p>Next, we'll want to install the HuggingFace Hub library so that we can use to download the Granite Model files</p>
+<pre><code>./bin/pip install huggingface_hub
+</code></pre>
+<p>Next, either save the following script to a file and run it, or simply start a Python3 session and run it there:</p>
+<pre><code>from huggingface_hub import snapshot_download
+
+snapshot_download(&quot;ibm-granite/granite-3.0-8b-instruct&quot;, local_dir=&quot;granite-3.0-8b-instruct&quot;)
+</code></pre>
+<p>Now we can copy the files into our local directory for easier access</p>
+<p>Next up, we need to install llama.cpp at a system level. The instructions here to build from source are rather complex but very well documented <a href="https://github.com/ggerganov/llama.cpp/blob/master/docs/build.md">here</a></p>
+<p>Alternatively on OSX you can use homebrew:</p>
+<pre><code>brew install llama.cpp
+</code></pre>
+<p>On Mac and Linux, the Nix package manager can be used:</p>
+<pre><code>nix profile install nixpkgs#llama-cpp
+</code></pre>
+<p>You can also look for prebuilt binaries at the <a href="https://github.com/ggerganov/llama.cpp/releases">Github Releases page</a></p>
+<p>Once we have llama.cpp installed, we can install the libraries to run the llama-cpp scripts in the virtual environment:</p>
+<pre><code>./bin/pip install 'llama-cpp-python[server]'
+</code></pre>
+<h2 id="step-2-prepare-to-quantize">Step 2. Prepare to quantize</h2>
+<p>We need to get the entire repository for llama.cpp in order to convert models to GGUF format.</p>
+<pre><code>git clone https://github.com/ggerganov/llama.cpp
+</code></pre>
+<p>Now we install libraries that we'll need in order to run the GGUF conversion:</p>
+<pre><code>./bin/pip install -r llama.cpp/requirements.txt
+</code></pre>
+<p>Now we're ready to convert the model to gguf using a script inside the repository:</p>
+<pre><code>./bin/python3 llama.cpp/convert_hf_to_gguf.py granite-3.0-8b-instruct
+</code></pre>
+<p>This gives us a new GGUF file based on our original model files.</p>
+<p>Now we're ready to quantize. Common quantization schemes that are supported by GGUF include:</p>
+<p>2-bit quantization: This offers the highest compression, significantly reducing model size and inference speed, though with a potential impact on accuracy.
+4-bit quantization: This balances compression and accuracy, making it suitable for many practical applications.
+6-bit quantization: This quantization setting provides higher accuracy than 4 or 2, with some reduction in memory requirements that can help in running it locally.</p>
+<p>For a the smallest possible model we can use 2 bit quantization:</p>
+<pre><code>/opt/homebrew/bin/llama-quantize \
+    granite-3.0-8b-instruct/granite-3.0-8b-instruct-F16.gguf \
+    granite-3.0-8b-instruct/granite-8B-instruct-Q2_K.gguf Q2_K
+</code></pre>
+<p>For a medium sized quanitized model, we can use 4 bit quantization:</p>
+<pre><code>/opt/homebrew/bin/llama-quantize \
+    granite-3.0-8b-instruct/granite-3.0-8b-instruct-F16.gguf \
+    granite-3.0-8b-instruct/granite-8B-instruct-Q4_K_M.gguf Q4_K_M
+</code></pre>
+<p>For a larger quanitized model on a machine with more resources, we can use 6 bit quantization:</p>
+<pre><code>/opt/homebrew/bin/llama-quantize \
+    granite-3.0-8b-instruct/granite-3.0-8b-instruct-F16.gguf \
+    granite-3.0-8b-instruct/granite-8B-instruct-Q6.gguf Q6_K
+</code></pre>
+<p>Here's a size comparison</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q2_K</td>
+<td>3.17 GB</td>
+</tr>
+<tr>
+<td>Q4_K_M</td>
+<td>5.06 GB</td>
+</tr>
+<tr>
+<td>Q6_K</td>
+<td>6.87 GB</td>
+</tr>
+</tbody>
+</table>
+<p>Each of these steps may take up to 15 minutes but when they're done we have multiple versions of the model that we can use to compare.</p>
+<h2 id="step-3-running-the-model">Step 3. Running the model</h2>
+<p>We could run the model in llamacpp with the following command:</p>
+<pre><code>llama-server -m granite-3.0-8b-instruct/granite-8B-instruct-Q4_K_M.gguf --port 8080
+</code></pre>
+<p>This allows you to open a webpage at <code>localhost:8080</code> which hosts an interactive session which runs Granite Instruct as a helpful assistant. </p>
+<p>We could also add the file to ollama. To do this, first we need to create a modelfile:</p>
+<pre><code># Modelfile
+FROM &quot;&lt;PATH_TO_MODEL&gt;/granite-8B-instruct-Q4_K_M.gguf&quot;
+
+PARAMETER stop &quot;&lt;|im_start|&gt;&quot;
+PARAMETER stop &quot;&lt;|im_end|&gt;&quot;
+
+TEMPLATE &quot;&quot;&quot;
+&lt;|im_start|&gt;system
+{{ .System }}&lt;|im_end|&gt;
+&lt;|im_start|&gt;user
+{{ .Prompt }}&lt;|im_end|&gt;
+&lt;|im_start|&gt;assistant
+&quot;&quot;&quot;
+</code></pre>
+<p>Save this file as <code>GCI_8b_modelfile_Q4</code>. Start ollama:</p>
+<pre><code>ollama serve
+</code></pre>
+<p>Then load the model into ollama:</p>
+<pre><code>ollama create Granite_Instruct:8b_Q4 -f GCI_8b_modelfile_Q4
+</code></pre>
+<p>Now you're ready to run it:</p>
+<pre><code>ollama run Granite_Instruct:8b_Q4
+</code></pre>
+<p>We repeat the process with two other model files, one for the 2 bit and one for the 6 bit quantization:</p>
+<pre><code># Modelfile
+FROM &quot;&lt;PATH_TO_MODEL&gt;/granite-8B-instruct-Q2.gguf&quot;
+
+PARAMETER stop &quot;&lt;|im_start|&gt;&quot;
+PARAMETER stop &quot;&lt;|im_end|&gt;&quot;
+
+TEMPLATE &quot;&quot;&quot;
+&lt;|im_start|&gt;system
+{{ .System }}&lt;|im_end|&gt;
+&lt;|im_start|&gt;user
+{{ .Prompt }}&lt;|im_end|&gt;
+&lt;|im_start|&gt;assistant
+&quot;&quot;&quot;
+</code></pre>
+<p>Save this as <code>GCI_8b_modelfile_Q2</code> and load it into ollama with the following command:</p>
+<pre><code>ollama create Granite_Instruct:8b_Q2 -f GCI_8b_modelfile_Q2
+</code></pre>
+<p>One last modelfile for the Q6 version:</p>
+<pre><code># Modelfile
+FROM &quot;&lt;PATH_TO_MODEL&gt;/granite-8B-instruct-Q6.gguf&quot;
+
+PARAMETER stop &quot;&lt;|im_start|&gt;&quot;
+PARAMETER stop &quot;&lt;|im_end|&gt;&quot;
+
+TEMPLATE &quot;&quot;&quot;
+&lt;|im_start|&gt;system
+{{ .System }}&lt;|im_end|&gt;
+&lt;|im_start|&gt;user
+{{ .Prompt }}&lt;|im_end|&gt;
+&lt;|im_start|&gt;assistant
+&quot;&quot;&quot;
+</code></pre>
+<p>Save this as <code>GCI_8b_modelfile_Q6</code> and load into ollama with the following command:</p>
+<pre><code>ollama create Granite_Instruct:8b_Q6 -f GCI_8b_modelfile_Q6
+</code></pre>
+<p>Now we're ready to compare our models.</p>
+<h2 id="step-4-comparing-the-models">Step 4. Comparing the models</h2>
+<p>Let's compare how the 2 bit version does to the 4 bit version with a prompt asking the model to fix bugs in code. First, we'll load the 2 bit version:</p>
+<pre><code>ollama run Granite_Instruct:8b_Q2
+</code></pre>
+<p>Once that's running, we can paste our prompt:</p>
+<pre><code>&gt;&gt;&gt;Fix any errors in the following Python function and format it correctly:
+
+import math
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi* self.radius** math.pi
+
+    def perimeter(self):
+        return math.pi* math.pi * self.radius
+
+def print_circle_properties(circles):
+    for circle in circles:
+        print(f&quot;Circle with radius {circle.radius}:&quot;)
+        print(f&quot;Area: {circle.area()}&quot;)
+        print(f&quot;Perimeter: {circle.perimeter()}\n&quot;)
+
+circles = [Circle(3), Circle(5), Circle(7)]
+print_circle_properties(circle)
+</code></pre>
+<p>With the 2 bit quantization, the model doesn't perform quite as well as we might hope. It misses that the equation for the area of a circle and the perimeters are both wrong. It also doesn't explain any of the errors.</p>
+<pre><code>I have fixed the errors in your Python code and formatted it as follows:
+import math
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi* self.radius** math.pi
+
+    def perimeter(self):
+        return math.pi * self.radius
+
+def print_circle_properties(circles):
+    for circle in circles:
+        print(f"Circle with radius {circle.radius}:")
+        print(f"Area: {circle.area()}")
+        print(f"Perimeter: {circle.perimeter()}\n")
+
+circles = [Circle(3), Circle(5), Circle(7)]
+print_circle_properties(circles)
+</code></pre>
+<p>Now let's load the Q4:</p>
+<pre><code>ollama run Granite_Instruct:8b_Q4
+</code></pre>
+<p>Copy/pasting in the previous prompt, we get a much better response, although the 3rd item doesn't quite make sense:</p>
+<pre><code>There are a few errors in the provided Python code:
+1. In the `area()` method of the `Circle` class, the `math.pi* self.radius** math.pi` should be `math.pi * (self.radius ** 2)`. This is because the area of a circle is given by pi times the 
+square of its radius.
+2. The `perimeter()` method in the `Circle` class should return `2 * math.pi * self.radius`, since the perimeter of a circle is given by 2 * pi * radius.
+3. In the `print_circle_properties(circles)` function, the parameter `circle` should be `circle`.
+4. The last line of code should be `print_circle_properties(circles)`, not `print_circle_properties(circle)`.
+Here is the corrected code:
+```python
+import math
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * (self.radius ** 2)
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+def print_circle_properties(circles):
+    for circle in circles:
+        print(f"Circle with radius {circle.radius}:")
+        print(f"Area: {circle.area()}")
+        print(f"Perimeter: {circle.perimeter()}\n")
+
+circles = [Circle(3), Circle(5), Circle(7)]
+print_circle_properties(circles)
+```
+</code></pre>
+<p>Finally, we can load the 6 bit quantized model:</p>
+<pre><code>ollama run Granite_Instruct:8b_Q6
+</code></pre>
+<p>This answer is much better than either of the two previous versions:</p>
+<pre><code>The provided Python function contains two errors:
+
+1. In the `area` method, there is an extra `math.pi` before `self.radius**`. It should be `return math.pi * self.radius ** 2`.
+2. In the `perimeter` method, there are two `math.pi` multiplications. The correct formula for perimeter of a circle is `2 * math.pi * radius`. Therefore, it should be `return 2 * math.pi * 
+self.radius`.
+3. At the end of the code, the variable name is misspelled as `circle` instead of `circles`.
+
+Here's the corrected version of the code:
+```python
+import math
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+def print_circle_properties(circles):
+    for circle in circles:
+        print(f"Circle with radius {circle.radius}:")
+        print(f"Area: {circle.area()}")
+        print(f"Perimeter: {circle.perimeter()}\n")
+
+circles = [Circle(3), Circle(5), Circle(7)]
+print_circle_properties(circles)
+```
+</code></pre>
+<p>We can see that the 2 bit quantized model does save space but also is less adept at picking out errors in our code as well as fixing them and explaining them. The 4 bit model corrects all of the code errors but doesn't fully explain its instructions. The 6 bit model corrects all of the errors and explains those errors correctly and in greater detail.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

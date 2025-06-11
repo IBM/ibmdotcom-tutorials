@@ -1,4 +1,8 @@
-site_name: IBM Tutorials
+# Project information
+site_name: IBM.com Tutorials
+site_url: https://ibm.github.io/ibmdotcom-tutorials/
+site_author: IBM.com Technical Content Team
+
 nav: 
   - Home: index.md
   - About: about.md
@@ -11,6 +15,9 @@ nav:
 theme:
   logo: assets/logo.png
   name: material
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
   palette:
     # Dark Mode
     scheme: slate
@@ -25,12 +32,13 @@ theme:
     toggle:
       icon: material/weather-night
       name: Switch to dark mode
-    primary: custom
+    primary: black
     accent: custom
 
 # Plugins
 plugins:
   - mkdocs-jupyter
+  - search
 
 # theme:
 #   name: readthedocs
