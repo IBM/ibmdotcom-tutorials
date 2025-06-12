@@ -2,16 +2,22 @@
 site_name: IBM.com Tutorials
 site_url: https://ibm.github.io/ibmdotcom-tutorials/
 site_author: IBM.com Technical Content Team
+repo_url: https://github.com/IBM/ibmdotcom-tutorials
 
 nav: 
-  - Home: index.md
-  - About: about.md
-  - Getting Started: getting-started.md
+  - Welcome:
+      - Home: index.md
+      - About: about.md
+      - Getting Started:
+          - Getting Started: getting-started.md
+      - References:
+          - Code of Conduct: coc.md
+          - Contributing: contributing.md
+          - License: license.md 
+  # - Getting Started: getting-started.md
   - Tutorials: tutorials-list.md
   - Projects: projects-list.md
-  - Code of Conduct: coc.md
-  - Contributing: contributing.md
-  - License: license.md
+
 theme:
   logo: assets/official_logo.png
   name: material
@@ -19,21 +25,34 @@ theme:
     text: IBM Plex Sans
     code: IBM Plex Mono
   palette:
-    # Dark Mode
-    scheme: slate
-    toggle:
-      icon: material/weather-sunny
-      name: Switch to light mode
-    primary: custom
-    accent: custom
-  
-  # Light Mode
-    scheme: default
-    toggle:
-      icon: material/weather-night
-      name: Switch to dark mode
-    primary: black
-    accent: custom
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+      primary: custom
+      accent: custom
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+      primary: black
+      accent: custom
+  features:
+     - navigation.instant
+     - navigation.instant.progress
+     - navigation.tracking
+     - navigation.tabs
+     - navigation.tabs.sticky
+     - navigation.sections
+     - navigation.path
+     - navigation.indexes 
+     - toc.follow
+     - toc.integrate
+     - navigation.top
+     - navigation.footer
+
+
+
 
 # Plugins
 plugins:
@@ -64,6 +83,5 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_css:
-  - stylesheets/style.css
-site_name: IBM Tutorials
-repo_url: https://github.com/IBM/ibmdotcom-tutorials
+  - stylesheets/style.css 
+
