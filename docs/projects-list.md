@@ -2,6 +2,7 @@
 
 * [AI Stylist](./tutorials/projects/ai-stylist-tutorial.ipynb)
 * [AI Personal Trainer](./tutorials/projects/ai-personal-trainer-llama/ai-personal-trainer-llama.ipynb)
+* [ChatDev with watsonX]()
 * [Multi-agent Call Center Analysis](./tutorials/projects/multiagent-collaboration-customer-call-analysis.md)
 * [My Retail Advisor](./tutorials/projects/crewAI-multiagent-retail-example.md)
 * [React Agent IT Support](./tutorials/projects/react-agent-tutorial.md)
