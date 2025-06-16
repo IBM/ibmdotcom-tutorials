@@ -3,6 +3,7 @@
 ## AI Models
 
 * [Gradient boosting classifiers in Scikit-Learn and Caret](./tutorials/ai-models/gradient_boosting_classifier.ipynb)
+* [Time Series Sales Forecsting](./tutorials/ai-models/time-series-forecasting-api.ipynb)
 
 ## Generative AI
 
