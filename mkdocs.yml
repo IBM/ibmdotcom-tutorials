@@ -29,7 +29,7 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-      primary: black
+      primary: grey
       accent: custom
     - scheme: default
       toggle:
