@@ -22,6 +22,7 @@
 - [Docling Granite QA](./tutorials/generative-ai/docling_granite_question_answering.ipynb)
 - [Function Calling](./tutorials/generative-ai/function-calling.ipynb)
 - [Agentic Chunking](./tutorials/generative-ai/Agentic-chunking.ipynb)
+- [ReWOO](./tutorials/generative-ai/ReWOO - Content Summarization.ipynb)
 
 ### Agent orchestration
 
