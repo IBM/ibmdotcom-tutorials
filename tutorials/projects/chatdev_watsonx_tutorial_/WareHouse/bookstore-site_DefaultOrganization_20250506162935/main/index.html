@@ -1117,7 +1117,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3817e3eb">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9422709e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1139,7 +1139,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="sd">Main application file for Turn the Page bookstore website.</span>
 <span class="sd">Defines routes for homepage, about page, and products page.</span>
 <span class="sd">'''</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 <span class="c1"># Sample data for demonstration purposes</span>
 <span class="n">books</span> <span class="o">=</span> <span class="p">[</span>
@@ -1148,19 +1148,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     <span class="p">{</span><span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Book 3"</span><span class="p">,</span> <span class="s2">"author"</span><span class="p">:</span> <span class="s2">"Author 3"</span><span class="p">}</span>
 <span class="p">]</span>
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Render the homepage template.</span>
 <span class="sd">    '''</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">'index.html'</span><span class="p">)</span>
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/about'</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">about</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">about</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Render the about page template.</span>
 <span class="sd">    '''</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">'about.html'</span><span class="p">)</span>
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/products'</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">products</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">products</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Render the products page template, passing in sample book data.</span>
 <span class="sd">    '''</span>

@@ -1196,10 +1196,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">langchain_ibm</span>
 <span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">ibm_watsonx_ai</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_ibm</span><span class="w"> </span><span class="kn">import</span> <span class="n">WatsonxLLM</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_watsonx_ai.metanames</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenTextParamsMetaNames</span> <span class="k">as</span> <span class="n">GenParams</span>
+<span class="kn">from</span> <span class="nn">langchain_ibm</span> <span class="kn">import</span> <span class="n">WatsonxLLM</span>
+<span class="kn">from</span> <span class="nn">ibm_watsonx_ai.metanames</span> <span class="kn">import</span> <span class="n">GenTextParamsMetaNames</span> <span class="k">as</span> <span class="n">GenParams</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1">%pip install -U langchain_ibm
 %pip install ibm_watsonx_ai
@@ -1354,7 +1354,7 @@ from ibm_watsonx_ai.metanames import GenTextParamsMetaNames as GenParams</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_text</span><span class="p">(</span><span class="n">prompt</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">generate_text</span><span class="p">(</span><span class="n">prompt</span><span class="p">):</span>
     <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Ensure the variable is defined before the try block</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">([</span><span class="n">prompt</span><span class="p">])</span>

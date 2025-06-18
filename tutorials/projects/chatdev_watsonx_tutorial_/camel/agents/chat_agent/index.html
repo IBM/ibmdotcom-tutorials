@@ -1117,7 +1117,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9c29a4ea">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a5a38cce">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1148,8 +1148,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
 <span class="c1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========
 # Licensed under the Apache License, Version 2.0 (the “License”);
@@ -1172,7 +1172,7 @@ from typing import Any, Dict, List, Optional</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9d81bcfb">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=117940b7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1190,9 +1190,9 @@ from typing import Any, Dict, List, Optional</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tenacity</span><span class="w"> </span><span class="kn">import</span> <span class="n">retry</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">tenacity.stop</span><span class="w"> </span><span class="kn">import</span> <span class="n">stop_after_attempt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">tenacity.wait</span><span class="w"> </span><span class="kn">import</span> <span class="n">wait_exponential</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">tenacity</span> <span class="kn">import</span> <span class="n">retry</span>
+<span class="kn">from</span> <span class="nn">tenacity.stop</span> <span class="kn">import</span> <span class="n">stop_after_attempt</span>
+<span class="kn">from</span> <span class="nn">tenacity.wait</span> <span class="kn">import</span> <span class="n">wait_exponential</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">from tenacity import retry
 from tenacity.stop import stop_after_attempt
@@ -1203,7 +1203,7 @@ from tenacity.wait import wait_exponential</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d86bbe1f">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=45da7cfa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1221,19 +1221,19 @@ from tenacity.wait import wait_exponential</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">camel.agents</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseAgent</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.configs</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatGPTConfig</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.messages</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatMessage</span><span class="p">,</span> <span class="n">MessageType</span><span class="p">,</span> <span class="n">SystemMessage</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.model_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelBackend</span><span class="p">,</span> <span class="n">ModelFactory</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelType</span><span class="p">,</span> <span class="n">RoleType</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">camel.agents</span> <span class="kn">import</span> <span class="n">BaseAgent</span>
+<span class="kn">from</span> <span class="nn">camel.configs</span> <span class="kn">import</span> <span class="n">ChatGPTConfig</span>
+<span class="kn">from</span> <span class="nn">camel.messages</span> <span class="kn">import</span> <span class="n">ChatMessage</span><span class="p">,</span> <span class="n">MessageType</span><span class="p">,</span> <span class="n">SystemMessage</span>
+<span class="kn">from</span> <span class="nn">camel.model_backend</span> <span class="kn">import</span> <span class="n">ModelBackend</span><span class="p">,</span> <span class="n">ModelFactory</span>
+<span class="kn">from</span> <span class="nn">camel.typing</span> <span class="kn">import</span> <span class="n">ModelType</span><span class="p">,</span> <span class="n">RoleType</span>
+<span class="kn">from</span> <span class="nn">camel.utils</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">get_model_token_limit</span><span class="p">,</span>
     <span class="n">num_tokens_from_messages</span><span class="p">,</span>
     <span class="n">openai_api_key_required</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">chatdev.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">log_visualize</span>
+<span class="kn">from</span> <span class="nn">chatdev.utils</span> <span class="kn">import</span> <span class="n">log_visualize</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">openai.types.chat</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatCompletion</span>
+    <span class="kn">from</span> <span class="nn">openai.types.chat</span> <span class="kn">import</span> <span class="n">ChatCompletion</span>
 
     <span class="n">openai_new_api</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># new openai api version</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
@@ -1262,7 +1262,7 @@ except ImportError:
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f3f22afd">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=92f3111f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1281,7 +1281,7 @@ except ImportError:
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">ChatAgentResponse</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">ChatAgentResponse</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""Response of a ChatAgent.</span>
 
 <span class="sd">    Attributes:</span>
@@ -1298,7 +1298,7 @@ except ImportError:
     <span class="n">info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">msg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">msg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminated</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"error in ChatAgentResponse, info:</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)))</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
@@ -1347,7 +1347,7 @@ class ChatAgentResponse:
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4d978fbe">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7dd08df7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1365,7 +1365,7 @@ class ChatAgentResponse:
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ChatAgent</span><span class="p">(</span><span class="n">BaseAgent</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span> <span class="nc">ChatAgent</span><span class="p">(</span><span class="n">BaseAgent</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""Class for managing conversations of CAMEL Chat Agents.</span>
 
 <span class="sd">    Args:</span>
@@ -1382,7 +1382,7 @@ class ChatAgentResponse:
 <span class="sd">            (default: :obj:`None`)</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="n">system_message</span><span class="p">:</span> <span class="n">SystemMessage</span><span class="p">,</span>
             <span class="n">memory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1410,7 +1410,7 @@ class ChatAgentResponse:
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">MessageType</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">MessageType</span><span class="p">]:</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">"""Resets the :obj:`ChatAgent` to its initial state and returns the</span>
 <span class="sd">        stored messages.</span>
 
@@ -1421,7 +1421,7 @@ class ChatAgentResponse:
         <span class="bp">self</span><span class="o">.</span><span class="n">init_messages</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stored_messages</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_info</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
             <span class="n">usage</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
@@ -1448,13 +1448,13 @@ class ChatAgentResponse:
             <span class="s2">"num_tokens"</span><span class="p">:</span> <span class="n">num_tokens</span><span class="p">,</span>
         <span class="p">}</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">init_messages</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">init_messages</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">"""Initializes the stored messages list with the initial system</span>
 <span class="sd">        message.</span>
 <span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stored_messages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">MessageType</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">system_message</span><span class="p">]</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">update_messages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">ChatMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">MessageType</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">update_messages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">ChatMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">MessageType</span><span class="p">]:</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">"""Updates the stored messages list with a new message.</span>
 
 <span class="sd">        Args:</span>
@@ -1467,7 +1467,7 @@ class ChatAgentResponse:
         <span class="bp">self</span><span class="o">.</span><span class="n">stored_messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stored_messages</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">use_memory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_message</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">MessageType</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">use_memory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_message</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">MessageType</span><span class="p">]:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1503,7 +1503,7 @@ class ChatAgentResponse:
 
     <span class="nd">@retry</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="n">wait_exponential</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span> <span class="n">stop</span><span class="o">=</span><span class="n">stop_after_attempt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
     <span class="nd">@openai_api_key_required</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_message</span><span class="p">:</span> <span class="n">ChatMessage</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_message</span><span class="p">:</span> <span class="n">ChatMessage</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">"""Performs a single step in the chat session by generating a response</span>
 <span class="sd">        to the input message.</span>
 
@@ -1528,7 +1528,7 @@ class ChatAgentResponse:
             <span class="n">num_tokens</span> <span class="o">=</span> <span class="n">num_tokens_from_messages</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error calculating token count: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"Invalid input format for num_tokens_from_messages"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"Invalid input format for num_tokens_from_messages"</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
 
         <span class="k">if</span> <span class="n">num_tokens</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_token_limit</span><span class="p">:</span>
             <span class="c1"># Call the appropriate model backend</span>
@@ -1558,7 +1558,7 @@ class ChatAgentResponse:
             <span class="c1"># Handle the case where the input exceeds the model's token limit</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"Input exceeds model token limit"</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">"""Returns a string representation of the :obj:`ChatAgent`.</span>
 
 <span class="sd">        Returns:</span>

@@ -1117,7 +1117,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a467fc09">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=150c7d1f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1135,18 +1135,18 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Edge</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">openai</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">codes</span><span class="w"> </span><span class="kn">import</span> <span class="n">Codes</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_easyDict_from_filepath</span><span class="p">,</span><span class="n">OpenAIModel</span><span class="p">,</span><span class="n">log_and_print_online</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">embedding</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAIEmbedding</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">graph</span> <span class="kn">import</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Edge</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">openai</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">codes</span> <span class="kn">import</span> <span class="n">Codes</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">get_easyDict_from_filepath</span><span class="p">,</span><span class="n">OpenAIModel</span><span class="p">,</span><span class="n">log_and_print_online</span>
+<span class="kn">from</span> <span class="nn">embedding</span> <span class="kn">import</span> <span class="n">OpenAIEmbedding</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="s2">"ecl"</span><span class="p">))</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Shortcut</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourceMID</span><span class="p">,</span> <span class="n">targetMID</span><span class="p">,</span> <span class="n">valueGain</span><span class="p">,</span><span class="n">instructionStar</span><span class="p">,</span><span class="n">edgeIDPath</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Shortcut</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourceMID</span><span class="p">,</span> <span class="n">targetMID</span><span class="p">,</span> <span class="n">valueGain</span><span class="p">,</span><span class="n">instructionStar</span><span class="p">,</span><span class="n">edgeIDPath</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sourceMID</span> <span class="o">=</span> <span class="n">sourceMID</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">targetMID</span> <span class="o">=</span> <span class="n">targetMID</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">valueGain</span> <span class="o">=</span> <span class="n">valueGain</span>
@@ -1154,7 +1154,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         <span class="bp">self</span><span class="o">.</span><span class="n">instructionStar</span> <span class="o">=</span> <span class="n">instructionStar</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">edgeIDPath</span> <span class="o">=</span> <span class="n">edgeIDPath</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">"</span><span class="si">{}</span><span class="s2"> -&gt; </span><span class="si">{}</span><span class="s2">  valueGain=</span><span class="si">{:.6f}</span><span class="s2"> len(instructionPath)=</span><span class="si">{}</span><span class="s2"> instructionStar=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sourceMID</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">targetMID</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">valueGain</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edgeIDPath</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">instructionStar</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1">import os
@@ -1184,7 +1184,7 @@ class Shortcut:
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e57768de">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=160f53fd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1202,8 +1202,8 @@ class Shortcut:
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Experience</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span> <span class="nc">Experience</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">cfg</span> <span class="o">=</span> <span class="n">get_easyDict_from_filepath</span><span class="p">(</span><span class="s2">"./ecl/config.yaml"</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span> <span class="o">=</span> <span class="n">graph</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">directory</span>
@@ -1223,7 +1223,7 @@ class Shortcut:
             <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span>
             <span class="n">node</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">1.0</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">reap_zombie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">reap_zombie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="n">pathNodes</span><span class="p">,</span> <span class="n">pathEdges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">find_shortest_path</span><span class="p">()</span>
 
@@ -1241,7 +1241,7 @@ class Shortcut:
             <span class="n">log_zombienodes</span> <span class="o">+=</span> <span class="s2">"Zombie Node </span><span class="si">{}</span><span class="s2"> Removed</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">mID</span><span class="p">)</span>
         <span class="n">log_and_print_online</span><span class="p">(</span><span class="n">log_zombienodes</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span>
 
@@ -1262,13 +1262,13 @@ class Shortcut:
 
         <span class="n">log_and_print_online</span><span class="p">(</span><span class="s2">"Init value:"</span><span class="o">+</span> <span class="nb">str</span><span class="p">({</span><span class="n">mid</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">mid</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">()})</span><span class="o">+</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Estimated value:"</span><span class="o">+</span><span class="nb">str</span><span class="p">({</span><span class="n">mid</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">mid</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">keys</span><span class="p">()}))</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_cosine_similarity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">embeddingi</span><span class="p">,</span> <span class="n">embeddingj</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_cosine_similarity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">embeddingi</span><span class="p">,</span> <span class="n">embeddingj</span><span class="p">):</span>
         <span class="n">embeddingi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">embeddingi</span><span class="p">)</span>
         <span class="n">embeddingj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">embeddingj</span><span class="p">)</span>
         <span class="n">cos_sim</span> <span class="o">=</span> <span class="n">embeddingi</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">embeddingj</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">embeddingi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">embeddingj</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">cos_sim</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_pairwise_estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vi</span><span class="p">:</span> <span class="n">Node</span><span class="p">,</span> <span class="n">vj</span><span class="p">:</span> <span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_pairwise_estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vi</span><span class="p">:</span> <span class="n">Node</span><span class="p">,</span> <span class="n">vj</span><span class="p">:</span> <span class="n">Node</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">vi</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
             <span class="k">return</span> <span class="mf">0.0</span>
@@ -1335,8 +1335,8 @@ class Shortcut:
             <span class="k">return</span> <span class="n">code_code_cos_sim</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">distance</span> <span class="o">*</span> <span class="n">code_text_cos_sim</span> <span class="o">*</span> <span class="n">compile_weight</span> <span class="o">*</span> <span class="n">degree_weight</span>
         <span class="c1">#return distance_weight * compile_weight * degree_weight</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_transitive_closure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">print_matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_transitive_closure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">print_matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">nodei</span> <span class="ow">in</span> <span class="n">matrix</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="k">for</span> <span class="n">nodej</span> <span class="ow">in</span> <span class="n">matrix</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                     <span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="n">nodei</span><span class="p">][</span><span class="n">nodej</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
@@ -1368,7 +1368,7 @@ class Shortcut:
 
         <span class="k">return</span> <span class="n">matrix</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">extract_thresholded_experiences</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extract_thresholded_experiences</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
@@ -1486,7 +1486,7 @@ class Shortcut:
 
 
         <span class="k">return</span> <span class="n">experiences</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">merged_data</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">ex</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">experiences</span><span class="p">):</span>
             <span class="n">merged_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>

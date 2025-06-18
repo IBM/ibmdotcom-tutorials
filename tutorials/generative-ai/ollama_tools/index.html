@@ -1157,9 +1157,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pymupdf</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">ollama</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pymupdf</span>
+<span class="kn">import</span> <span class="nn">ollama</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pymupdf</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1">!pip install pymupdf
 
@@ -1267,7 +1267,7 @@ Successfully installed pymupdf-1.25.4
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">search_text_files</span><span class="p">(</span><span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">search_text_files</span><span class="p">(</span><span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
   
   <span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">"./files/"</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">directory</span><span class="p">:</span>
@@ -1394,7 +1394,7 @@ Successfully installed pymupdf-1.25.4
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">search_image_files</span><span class="p">(</span><span class="n">keyword</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">search_image_files</span><span class="p">(</span><span class="n">keyword</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 
     <span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">"./files/"</span><span class="p">)</span>
     <span class="n">image_file_types</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"jpg"</span><span class="p">,</span> <span class="s2">"png"</span><span class="p">,</span> <span class="s2">"jpeg"</span><span class="p">)</span>
@@ -1660,7 +1660,7 @@ ollama_tools=[
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># if ollama is not currently running, start it</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">"ollama"</span><span class="p">,</span><span class="s2">"serve"</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-7"># if ollama is not currently running, start it

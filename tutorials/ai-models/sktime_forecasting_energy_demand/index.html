@@ -1246,21 +1246,21 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">wget</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">ListedColormap</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">wget</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">sktime.split</span><span class="w"> </span><span class="kn">import</span> <span class="n">temporal_train_test_split</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sktime.param_est.stationarity</span><span class="w"> </span><span class="kn">import</span> <span class="n">StationarityADF</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sktime.transformations.series.difference</span><span class="w"> </span><span class="kn">import</span> <span class="n">Differencer</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.stattools</span><span class="w"> </span><span class="kn">import</span> <span class="n">grangercausalitytests</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sktime.utils.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_series</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sktime.forecasting.naive</span><span class="w"> </span><span class="kn">import</span> <span class="n">NaiveForecaster</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sktime.forecasting.var</span><span class="w"> </span><span class="kn">import</span> <span class="n">VAR</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sktime.performance_metrics.forecasting</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_absolute_percentage_error</span>
+<span class="kn">from</span> <span class="nn">sktime.split</span> <span class="kn">import</span> <span class="n">temporal_train_test_split</span>
+<span class="kn">from</span> <span class="nn">sktime.param_est.stationarity</span> <span class="kn">import</span> <span class="n">StationarityADF</span>
+<span class="kn">from</span> <span class="nn">sktime.transformations.series.difference</span> <span class="kn">import</span> <span class="n">Differencer</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">grangercausalitytests</span>
+<span class="kn">from</span> <span class="nn">sktime.utils.plotting</span> <span class="kn">import</span> <span class="n">plot_series</span>
+<span class="kn">from</span> <span class="nn">sktime.forecasting.naive</span> <span class="kn">import</span> <span class="n">NaiveForecaster</span>
+<span class="kn">from</span> <span class="nn">sktime.forecasting.var</span> <span class="kn">import</span> <span class="n">VAR</span>
+<span class="kn">from</span> <span class="nn">sktime.performance_metrics.forecasting</span> <span class="kn">import</span> <span class="n">mean_absolute_percentage_error</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">import os
 import wget
@@ -3009,7 +3009,7 @@ total load actual, stationary: True
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># use a Granger causality test to determine which features are predictive of the target variable</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
     <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 

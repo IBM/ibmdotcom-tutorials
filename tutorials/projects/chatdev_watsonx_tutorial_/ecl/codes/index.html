@@ -1117,7 +1117,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f6c5cbfb">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=57607196">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1135,14 +1135,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">difflib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_easyDict_from_filepath</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">signal</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">get_easyDict_from_filepath</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1">import difflib
 import os
@@ -1158,7 +1158,7 @@ from utils import get_easyDict_from_filepath</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=36d31903">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=72cd2768">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1176,22 +1176,22 @@ from utils import get_easyDict_from_filepath</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Codes</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">generated_content</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span> <span class="nc">Codes</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">generated_content</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
         <span class="n">cfg</span> <span class="o">=</span> <span class="n">get_easyDict_from_filepath</span><span class="p">(</span><span class="s2">"./ecl/config.yaml"</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">directory</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">tmp_directory</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">main_script</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">main_script</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">generated_content</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">generated_content</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">codebooks</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="k">def</span><span class="w"> </span><span class="nf">extract_filename_from_line</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">extract_filename_from_line</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
             <span class="n">file_name</span> <span class="o">=</span> <span class="s2">""</span>
             <span class="k">for</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\w+\.\w+)"</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">):</span>
                 <span class="n">file_name</span> <span class="o">=</span> <span class="n">candidate</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
                 <span class="n">file_name</span> <span class="o">=</span> <span class="n">file_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
             <span class="k">return</span> <span class="n">file_name</span>
 
-        <span class="k">def</span><span class="w"> </span><span class="nf">extract_filename_from_code</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">extract_filename_from_code</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
             <span class="n">file_name</span> <span class="o">=</span> <span class="s2">""</span>
             <span class="n">regex_extract</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"class (\S+?):\n"</span>
             <span class="n">matches_extract</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">regex_extract</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
@@ -1217,11 +1217,11 @@ from utils import get_easyDict_from_filepath</div>
                 <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">codebooks</span><span class="p">[</span><span class="n">filename</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_code</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_format_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_format_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
         <span class="n">code</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">code</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">code</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_update_codes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">generated_content</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_update_codes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">generated_content</span><span class="p">):</span>
         <span class="n">new_codes</span> <span class="o">=</span> <span class="n">Codes</span><span class="p">(</span><span class="n">generated_content</span><span class="p">)</span>
         <span class="n">differ</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">Differ</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">new_codes</span><span class="o">.</span><span class="n">codebooks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -1243,7 +1243,7 @@ from utils import get_easyDict_from_filepath</div>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">codebooks</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_codes</span><span class="o">.</span><span class="n">codebooks</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_rewrite_codes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_rewrite_codes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">directory</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span>
         <span class="n">rewrite_codes_content</span> <span class="o">=</span> <span class="s2">"**[Rewrite Codes]**</span><span class="se">\n</span><span class="s2">"</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
@@ -1259,7 +1259,7 @@ from utils import get_easyDict_from_filepath</div>
                 <span class="n">rewrite_codes_content</span> <span class="o">+=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" Wrote</span><span class="se">\n</span><span class="s2">"</span>
         <span class="c1"># print(rewrite_codes_content)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_run_codes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_run_codes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">directory</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">main_script</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2"> Not Found"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">main_script</span><span class="p">)</span>
@@ -1313,7 +1313,7 @@ from utils import get_easyDict_from_filepath</div>
 
         <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">success_info</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_get_codes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_get_codes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">content</span> <span class="o">=</span> <span class="s2">""</span>
         <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">codebooks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">content</span> <span class="o">+=</span> <span class="s2">"</span><span class="si">{}</span><span class="se">\n</span><span class="s2">```</span><span class="si">{}</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">```</span><span class="se">\n\n</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span>
@@ -1321,7 +1321,7 @@ from utils import get_easyDict_from_filepath</div>
                                                            <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">codebooks</span><span class="p">[</span><span class="n">filename</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">content</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_load_from_hardware</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_load_from_hardware</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">assert</span> <span class="nb">len</span><span class="p">([</span><span class="n">filename</span> <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".py"</span><span class="p">)])</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">directories</span><span class="p">,</span> <span class="n">filenames</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>

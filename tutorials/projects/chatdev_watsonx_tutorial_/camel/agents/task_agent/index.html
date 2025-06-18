@@ -1117,7 +1117,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b4052504">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a01d3b0b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1148,7 +1148,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
 <span class="c1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========
 # Licensed under the Apache License, Version 2.0 (the “License”);
@@ -1170,7 +1170,7 @@ from typing import Any, Dict, Optional, Union</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bbeadccc">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3146c58f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1188,11 +1188,11 @@ from typing import Any, Dict, Optional, Union</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">camel.agents</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatAgent</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.configs</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatGPTConfig</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.messages</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemMessage</span><span class="p">,</span> <span class="n">UserChatMessage</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.prompts</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptTemplateGenerator</span><span class="p">,</span> <span class="n">TextPrompt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelType</span><span class="p">,</span> <span class="n">RoleType</span><span class="p">,</span> <span class="n">TaskType</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">camel.agents</span> <span class="kn">import</span> <span class="n">ChatAgent</span>
+<span class="kn">from</span> <span class="nn">camel.configs</span> <span class="kn">import</span> <span class="n">ChatGPTConfig</span>
+<span class="kn">from</span> <span class="nn">camel.messages</span> <span class="kn">import</span> <span class="n">SystemMessage</span><span class="p">,</span> <span class="n">UserChatMessage</span>
+<span class="kn">from</span> <span class="nn">camel.prompts</span> <span class="kn">import</span> <span class="n">PromptTemplateGenerator</span><span class="p">,</span> <span class="n">TextPrompt</span>
+<span class="kn">from</span> <span class="nn">camel.typing</span> <span class="kn">import</span> <span class="n">ModelType</span><span class="p">,</span> <span class="n">RoleType</span><span class="p">,</span> <span class="n">TaskType</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">from camel.agents import ChatAgent
 from camel.configs import ChatGPTConfig
@@ -1205,7 +1205,7 @@ from camel.typing import ModelType, RoleType, TaskType</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8783c177">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=478eb3e9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1223,7 +1223,7 @@ from camel.typing import ModelType, RoleType, TaskType</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TaskSpecifyAgent</span><span class="p">(</span><span class="n">ChatAgent</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span> <span class="nc">TaskSpecifyAgent</span><span class="p">(</span><span class="n">ChatAgent</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""An agent that Specifies a given task prompt by prompting the user to</span>
 <span class="sd">    provide more details.</span>
 
@@ -1246,7 +1246,7 @@ from camel.typing import ModelType, RoleType, TaskType</div>
         
     <span class="n">DEFAULT_WORD_LIMIT</span> <span class="o">=</span> <span class="mi">50</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">model</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ModelType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">task_type</span><span class="p">:</span> <span class="n">TaskType</span> <span class="o">=</span> <span class="n">TaskType</span><span class="o">.</span><span class="n">AI_SOCIETY</span><span class="p">,</span>
@@ -1273,7 +1273,7 @@ from camel.typing import ModelType, RoleType, TaskType</div>
         <span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">system_message</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">model_config</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">original_task_prompt</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TextPrompt</span><span class="p">],</span>
         <span class="n">meta_dict</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1406,7 +1406,7 @@ from camel.typing import ModelType, RoleType, TaskType</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3dd14e95">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c65c1542">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1424,7 +1424,7 @@ from camel.typing import ModelType, RoleType, TaskType</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TaskPlannerAgent</span><span class="p">(</span><span class="n">ChatAgent</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span> <span class="nc">TaskPlannerAgent</span><span class="p">(</span><span class="n">ChatAgent</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""An agent that helps divide a task into subtasks based on the input</span>
 <span class="sd">    task prompt.</span>
 
@@ -1438,7 +1438,7 @@ from camel.typing import ModelType, RoleType, TaskType</div>
 <span class="sd">        model_config (Any): The configuration for the model.</span>
 <span class="sd">            (default: :obj:`None`)</span>
 <span class="sd">    """</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">model</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ModelType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">model_config</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1454,7 +1454,7 @@ from camel.typing import ModelType, RoleType, TaskType</div>
         <span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">system_message</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">model_config</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">task_prompt</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TextPrompt</span><span class="p">],</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TextPrompt</span><span class="p">:</span>

@@ -1314,21 +1314,21 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">islice</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mdates</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.autonotebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">tqdm.autonotebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">gluonts.evaluation</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_evaluation_predictions</span><span class="p">,</span> <span class="n">Evaluator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">gluonts.dataset.repository.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_dataset</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">gluonts.dataset.pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasDataset</span>
+<span class="kn">from</span> <span class="nn">gluonts.evaluation</span> <span class="kn">import</span> <span class="n">make_evaluation_predictions</span><span class="p">,</span> <span class="n">Evaluator</span>
+<span class="kn">from</span> <span class="nn">gluonts.dataset.repository.datasets</span> <span class="kn">import</span> <span class="n">get_dataset</span>
+<span class="kn">from</span> <span class="nn">gluonts.dataset.pandas</span> <span class="kn">import</span> <span class="n">PandasDataset</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">lag_llama.gluon.estimator</span><span class="w"> </span><span class="kn">import</span> <span class="n">LagLlamaEstimator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_watson_studio_lib</span><span class="w"> </span><span class="kn">import</span> <span class="n">access_project_or_space</span>
+<span class="kn">from</span> <span class="nn">lag_llama.gluon.estimator</span> <span class="kn">import</span> <span class="n">LagLlamaEstimator</span>
+<span class="kn">from</span> <span class="nn">ibm_watson_studio_lib</span> <span class="kn">import</span> <span class="n">access_project_or_space</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-5">from itertools import islice
 

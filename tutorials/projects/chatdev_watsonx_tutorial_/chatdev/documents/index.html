@@ -1117,7 +1117,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5a967fcf">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=95b327b9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1135,10 +1135,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">colorama</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fore</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">colorama</span> <span class="kn">import</span> <span class="n">Fore</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1">import re
 import os
@@ -1150,7 +1150,7 @@ from colorama import Fore</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bbe27f2f">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=083e4844">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1168,8 +1168,8 @@ from colorama import Fore</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Documents</span><span class="p">():</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">generated_content</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">parse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">predifined_filename</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span> <span class="nc">Documents</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">generated_content</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">parse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">predifined_filename</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">directory</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">generated_content</span> <span class="o">=</span> <span class="n">generated_content</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">docbooks</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1185,7 +1185,7 @@ from colorama import Fore</div>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">docbooks</span><span class="p">[</span><span class="n">predifined_filename</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generated_content</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_update_docs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">generated_content</span><span class="p">,</span> <span class="n">parse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">predifined_filename</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_update_docs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">generated_content</span><span class="p">,</span> <span class="n">parse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">predifined_filename</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
         <span class="n">new_docs</span> <span class="o">=</span> <span class="n">Documents</span><span class="p">(</span><span class="n">generated_content</span><span class="p">,</span> <span class="n">parse</span><span class="p">,</span> <span class="n">predifined_filename</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">new_docs</span><span class="o">.</span><span class="n">docbooks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">docbooks</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">docbooks</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">!=</span> <span class="n">new_docs</span><span class="o">.</span><span class="n">docbooks</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
@@ -1194,7 +1194,7 @@ from colorama import Fore</div>
                 <span class="bp">self</span><span class="o">.</span><span class="n">docbooks</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_docs</span><span class="o">.</span><span class="n">docbooks</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_rewrite_docs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_rewrite_docs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">directory</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
             <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
@@ -1204,7 +1204,7 @@ from colorama import Fore</div>
                 <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">docbooks</span><span class="p">[</span><span class="n">filename</span><span class="p">])</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s2">"Writen"</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_get_docs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_get_docs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">content</span> <span class="o">=</span> <span class="s2">""</span>
         <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">docbooks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">content</span> <span class="o">+=</span> <span class="s2">"</span><span class="si">{}</span><span class="se">\n</span><span class="s2">```</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">```</span><span class="se">\n\n</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">docbooks</span><span class="p">[</span><span class="n">filename</span><span class="p">])</span>

@@ -1187,10 +1187,10 @@ which is a free instance).</p>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
  
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_community.chains.graph_qa.memgraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">MemgraphQAChain</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_community.graphs</span><span class="w"> </span><span class="kn">import</span> <span class="n">MemgraphGraph</span>
+<span class="kn">from</span> <span class="nn">langchain_community.chains.graph_qa.memgraph</span> <span class="kn">import</span> <span class="n">MemgraphQAChain</span>
+<span class="kn">from</span> <span class="nn">langchain_community.graphs</span> <span class="kn">import</span> <span class="n">MemgraphGraph</span>
  
 <span class="n">url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"MEMGRAPH_URI"</span><span class="p">,</span> <span class="s2">"bolt://localhost:7687"</span><span class="p">)</span>
 <span class="n">username</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"MEMGRAPH_USERNAME"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
@@ -1291,7 +1291,7 @@ John's title is Director of the Digital Marketing Group. John works with Jane wh
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
 
 <span class="n">watsonx_api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"WATSONX_APIKEY"</span><span class="p">]</span> <span class="o">=</span> <span class="n">watsonx_api_key</span>
@@ -1390,8 +1390,8 @@ os.environ["WATSONX_PROJECT_ID"] = watsonx_project_id</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_ibm</span><span class="w"> </span><span class="kn">import</span> <span class="n">WatsonxLLM</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_watsonx_ai.metanames</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenTextParamsMetaNames</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_ibm</span> <span class="kn">import</span> <span class="n">WatsonxLLM</span>
+<span class="kn">from</span> <span class="nn">ibm_watsonx_ai.metanames</span> <span class="kn">import</span> <span class="n">GenTextParamsMetaNames</span>
 
 <span class="n">graph_gen_parameters</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">GenTextParamsMetaNames</span><span class="o">.</span><span class="n">DECODING_METHOD</span><span class="p">:</span> <span class="s2">"sample"</span><span class="p">,</span>
@@ -1463,8 +1463,8 @@ watsonx_llm = WatsonxLLM(
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_experimental.graph_transformers.llm</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLMGraphTransformer</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.documents</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_experimental.graph_transformers.llm</span> <span class="kn">import</span> <span class="n">LLMGraphTransformer</span>
+<span class="kn">from</span> <span class="nn">langchain_core.documents</span> <span class="kn">import</span> <span class="n">Document</span>
 
 <span class="n">llm_transformer</span> <span class="o">=</span> <span class="n">LLMGraphTransformer</span><span class="p">(</span>
     <span class="n">llm</span><span class="o">=</span><span class="n">watsonx_llm</span><span class="p">,</span> 
@@ -1703,7 +1703,7 @@ Nodes are connected with the following relationships:
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.prompts</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptTemplate</span><span class="p">,</span> <span class="n">FewShotPromptTemplate</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">PromptTemplate</span><span class="p">,</span> <span class="n">FewShotPromptTemplate</span>
 
 <span class="n">examples</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>

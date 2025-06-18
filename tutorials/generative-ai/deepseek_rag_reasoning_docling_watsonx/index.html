@@ -1244,28 +1244,28 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Required imports</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_ibm</span><span class="w"> </span><span class="kn">import</span> <span class="n">WatsonxLLM</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">langchain_ibm</span> <span class="kn">import</span> <span class="n">WatsonxLLM</span>
 
 <span class="c1"># Docling imports</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">docling.datamodel.base_models</span><span class="w"> </span><span class="kn">import</span> <span class="n">InputFormat</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">docling.datamodel.pipeline_options</span><span class="w"> </span><span class="kn">import</span> <span class="n">PdfPipelineOptions</span><span class="p">,</span> <span class="n">TesseractCliOcrOptions</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">docling.document_converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">DocumentConverter</span><span class="p">,</span> <span class="n">PdfFormatOption</span><span class="p">,</span> <span class="n">WordFormatOption</span><span class="p">,</span> <span class="n">SimplePipeline</span>
+<span class="kn">from</span> <span class="nn">docling.datamodel.base_models</span> <span class="kn">import</span> <span class="n">InputFormat</span>
+<span class="kn">from</span> <span class="nn">docling.datamodel.pipeline_options</span> <span class="kn">import</span> <span class="n">PdfPipelineOptions</span><span class="p">,</span> <span class="n">TesseractCliOcrOptions</span>
+<span class="kn">from</span> <span class="nn">docling.document_converter</span> <span class="kn">import</span> <span class="n">DocumentConverter</span><span class="p">,</span> <span class="n">PdfFormatOption</span><span class="p">,</span> <span class="n">WordFormatOption</span><span class="p">,</span> <span class="n">SimplePipeline</span>
 
 <span class="c1"># LangChain imports</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_community.document_loaders</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnstructuredMarkdownLoader</span><span class="p">,</span> <span class="n">WebBaseLoader</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain.text_splitter</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecursiveCharacterTextSplitter</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_ollama</span><span class="w"> </span><span class="kn">import</span> <span class="n">OllamaEmbeddings</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_community.vectorstores</span><span class="w"> </span><span class="kn">import</span> <span class="n">FAISS</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain.chains</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConversationalRetrievalChain</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">langchain.memory</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConversationBufferMemory</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_watsonx_ai.metanames</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenTextParamsMetaNames</span> <span class="k">as</span> <span class="n">GenParams</span>
+<span class="kn">from</span> <span class="nn">langchain_community.document_loaders</span> <span class="kn">import</span> <span class="n">UnstructuredMarkdownLoader</span><span class="p">,</span> <span class="n">WebBaseLoader</span>
+<span class="kn">from</span> <span class="nn">langchain.text_splitter</span> <span class="kn">import</span> <span class="n">RecursiveCharacterTextSplitter</span>
+<span class="kn">from</span> <span class="nn">langchain_ollama</span> <span class="kn">import</span> <span class="n">OllamaEmbeddings</span>
+<span class="kn">from</span> <span class="nn">langchain_community.vectorstores</span> <span class="kn">import</span> <span class="n">FAISS</span>
+<span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">ConversationalRetrievalChain</span>
+<span class="kn">from</span> <span class="nn">langchain.memory</span> <span class="kn">import</span> <span class="n">ConversationBufferMemory</span>
+<span class="kn">from</span> <span class="nn">ibm_watsonx_ai.metanames</span> <span class="kn">import</span> <span class="n">GenTextParamsMetaNames</span> <span class="k">as</span> <span class="n">GenParams</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2"># Required imports
 import os
@@ -1433,7 +1433,7 @@ URL = "https://us-south.ml.cloud.ibm.com"</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_document_format</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">InputFormat</span><span class="p">:</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">get_document_format</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">InputFormat</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Determine the document format based on file extension"""</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">file_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
@@ -1508,7 +1508,7 @@ URL = "https://us-south.ml.cloud.ibm.com"</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_document_to_markdown</span><span class="p">(</span><span class="n">doc_path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">convert_document_to_markdown</span><span class="p">(</span><span class="n">doc_path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Convert document to markdown using simplified pipeline"""</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Convert to absolute path string</span>
@@ -1696,7 +1696,7 @@ URL = "https://us-south.ml.cloud.ibm.com"</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_qa_chain</span><span class="p">(</span><span class="n">markdown_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">web_pages</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">embeddings_model_name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">"nomic-embed-text:latest"</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"deepseek-ai/deepseek-r1-distill-llama-70b"</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">setup_qa_chain</span><span class="p">(</span><span class="n">markdown_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">web_pages</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">embeddings_model_name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">"nomic-embed-text:latest"</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"deepseek-ai/deepseek-r1-distill-llama-70b"</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Set up the QA chain for document processing"""</span>
     <span class="c1"># Load and split the document metadata</span>
     <span class="n">loader</span> <span class="o">=</span> <span class="n">UnstructuredMarkdownLoader</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">markdown_path</span><span class="p">))</span> 
@@ -1846,7 +1846,7 @@ URL = "https://us-south.ml.cloud.ibm.com"</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ask_question</span><span class="p">(</span><span class="n">qa_chain</span><span class="p">,</span> <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">ask_question</span><span class="p">(</span><span class="n">qa_chain</span><span class="p">,</span> <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Ask a question and display the answer"""</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">qa_chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">"question"</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
     <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">"**Question:** </span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">**Answer:** </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'answer'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
