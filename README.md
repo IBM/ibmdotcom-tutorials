@@ -4,8 +4,9 @@
 
 Welcome to the centralized repository for all technical explainers, tutorials, and demos developed by the [ibm.com](https://www.ibm.com/think) technical writing team. This repository focuses on cutting-edge technologies in the fields of:
 
-[Generative AI](tutorials-list/#generative-ai) | [Machine Learning](https://www.ibm.com/think/topics/machine-learning) | [LLMs](https://www.ibm.com/granite) | [Prompt Engineering](tutorials-list/#prompt-engineering)
+[Generative AI](https://github.com/IBM/ibmdotcom-tutorials/blob/main/docs/tutorials-list.md) | [Machine Learning](https://www.ibm.com/think/topics/machine-learning) | [LLMs](https://www.ibm.com/granite) | [Prompt Engineering](https://github.com/IBM/ibmdotcom-tutorials/blob/main/docs/tutorials-list.md#prompt-engineering)
 
+Visit the repo's [docs site](https://ibm.github.io/ibmdotcom-tutorials/) or follow along here to get started!
 
 # Getting Started :gear:
 

@@ -1,5 +1,5 @@
-/* Import IBM Plex Mono from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap');
+/* Import IBM Plex Sans from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
 :root {
   /* Primary colors - IBM Blue */
@@ -56,12 +56,12 @@
   --md-custom-gray: #c1c7cd;
 }
 
-/* Apply IBM Plex Mono globally */
+/* Apply IBM Plex Sans globally */
 html, body {
-  font-family: 'IBM Plex Mono', monospace !important;
+  font-family: 'IBM Plex Sans', monospace !important;
 }
 
-/* Apply IBM Plex Mono to specific elements */
+/* Apply IBM Plex Sans to specific elements */
 h1, h2, h3, h4, h5, h6,
 .md-typeset h1,
 .md-typeset h2,
@@ -73,7 +73,7 @@ code, pre,
 .md-typeset code,
 .md-typeset pre,
 .md-typeset kbd {
-  font-family: 'IBM Plex Mono', monospace !important;
+  font-family: 'IBM Plex Sans', monospace !important;
 }
 
 /* Custom styling for specific elements */
