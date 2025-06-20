@@ -9,14 +9,14 @@ nav:
       - Home: index.md
       - About: about.md
       - Getting Started:
-          - Getting Started: getting-started.md
-      - References:
-          - Code of Conduct: coc.md
-          - Contributing: contributing.md
-          - License: license.md 
-  # - Getting Started: getting-started.md
-  - Tutorials: tutorials-list.md
-  - Projects: projects-list.md
+          - Setup: getting-started/setup.md
+      - Tutorials: tutorials-list.md
+      - Projects: projects-list.md 
+
+  - References:
+      - Code of Conduct: references/coc.md
+      - Contributing: references/contributing.md
+      - License: references/license.md
 
 theme:
   logo: assets/official_logo.png
@@ -50,6 +50,7 @@ theme:
      - toc.integrate
      - navigation.top
      - navigation.footer
+     - navigation.expand
 
 
 
@@ -82,6 +83,6 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-extra_css:
-  - stylesheets/style.css 
+# extra_css:
+#   - stylesheets/style.css 
 

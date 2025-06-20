@@ -1,4 +1,4 @@
-# Getting Started :gear:
+# Setup :gear:
 
 # Local Setup
 For each tutorial or application, the local set up can vary. We recommend having Python 3.11 and pip installed. For any activities with JavaScript/TypeScript, we recommend having NodeJS version 23.10.0 and npm installed, though yarn may also be required depending on the project.
