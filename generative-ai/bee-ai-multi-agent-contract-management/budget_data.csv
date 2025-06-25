@@ -1,0 +1,10 @@
+"Category","Subcategory","Budgeted Amount","Actual Spend","Variance"
+"Salaries","Employee Salaries",100000,95000,-5000
+"Rent","Office Rent",50000,48000,-2000
+"Marketing","Online Advertising",15000,12000,-3000
+"Marketing","Print Advertising",10000,8000,-2000
+"Utilities","Electricity",5000,4500,-500
+"Utilities","Water",2000,1800,-200
+"Facilities","Landscaping",5200,0,0
+"Facilities","Janitorial Services",3000,2800,-200
+"Facilities","Maintenance and Repairs",10000,9000,-1000
