@@ -27,6 +27,7 @@
 ### Agent orchestration
 
 - [LLM Agent Orchestration with Retrieval and Action Framework](./tutorials/generative-ai/llm-agent-orchestration.ipynb)
+- [BeeAI Multi-agent Contract Management](https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/bee-ai-multi-agent-contract-management)
 
 ### Guardrails and safety
 
