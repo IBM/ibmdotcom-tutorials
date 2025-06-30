@@ -52,6 +52,8 @@ theme:
      - navigation.footer
      - navigation.expand
 
+hooks:
+  - hooks.py
 
 
 
