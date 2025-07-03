@@ -28,6 +28,7 @@
 
 - [LLM Agent Orchestration with Retrieval and Action Framework](./tutorials/generative-ai/llm-agent-orchestration.ipynb)
 - [BeeAI Multi-agent Contract Management](https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/bee-ai-multi-agent-contract-management)
+- [LangGraph SQL Agent Tutorial using Mistral Medium 3](./tutorials/generative-ai/langgraph-mistral-sql-agent.ipynb)
 
 ### Guardrails and safety
 
