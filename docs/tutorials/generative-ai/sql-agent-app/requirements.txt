@@ -1,0 +1,9 @@
+streamlit
+ibm-watsonx-ai 
+langchain-ibm
+langgraph
+langchain_experimental
+tavily-python
+langchain-community
+python-dotenv
+image
