@@ -6,6 +6,7 @@ from src.watsonx import get_llm
 from src.agent import ReActAgent
 from src.tools import get_tools
 from src.database import create_sql_database
+import time
 
 st.title("SQL Agent")
 st.write("This app allows you to interact with an SQL database using a generative AI agent.")
@@ -33,10 +34,10 @@ st.text_input(label="User query", placeholder="E.g. How many cars were sold in 2
 
 def clear_memory(): 
     st.session_state['thread_id'] += 1
-    st.info('Memory is cleared.', icon="ℹ️", width="stretch")
+    st.info('Memory is cleared.', icon="ℹ️") #, width="stretch")
 
 def invoke_agent():
-    try:
+    # try:
         result = agent.graph.invoke({"messages": [HumanMessage(content=st.session_state['query'])]}, {"configurable": {"thread_id": st.session_state['thread_id']}})
         print(result)
         for message in result["messages"]:
@@ -54,15 +55,32 @@ def invoke_agent():
             if message.content:
                 st.code(message.content)
         st.badge("Success", icon=":material/check:", color="green")
-    except Exception as e:
-        st.error(f"LangGraph invocation failed: {e}", icon="🚨")
+    # except Exception as e:
+    #     st.error(f"LangGraph invocation failed: {e}", icon="🚨")
+        
+max_retries = 5
+retry_delay_seconds = 1
 
-# col1, col2, col3, col4 = st.columns([1,1,1,1])
+col1, col2, col3, col4 = st.columns([1,1,1,1])
 
-# with col1:
-if st.button('Invoke'):
-    invoke_agent()
-# with col4:
-if st.button('Start new chat'):
+with col1:
+    invoke_button = st.button('Invoke')
+with col4:
+    clear_button = st.button('Start new chat')
+
+if invoke_button:
+    for attempt in range(max_retries):
+        try:
+            invoke_agent()
+            print(f"Attempt {attempt + 1})")
+            break  # Exit the loop if successful
+        except  Exception as e:
+            print(f"Attempt {attempt + 1} failed: {e}")
+            if attempt < max_retries - 1:
+                print(f"Retrying in {retry_delay_seconds} seconds...")
+                time.sleep(retry_delay_seconds)
+            else:
+                print("Max retries reached. Giving up.")
+if clear_button:
     clear_memory()
     print(f"New thread_id: {st.session_state['thread_id']}")
