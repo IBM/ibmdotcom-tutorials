@@ -2,6 +2,7 @@ import os
 import glob
 import json
 import re
+from datetime import datetime
 
 def extract_title_from_notebook(notebook_data):
     """Extract title from Jupyter notebook - looks in metadata or first markdown cell"""
@@ -80,6 +81,90 @@ def extract_author_from_notebook(notebook_data):
     
     return None
 
+def extract_date_from_notebook(notebook_data):
+    """Extract date from Jupyter notebook - looks in metadata or first markdown cell"""
+    
+    # Try to get date from notebook metadata
+    if 'metadata' in notebook_data:
+        metadata = notebook_data['metadata']
+        # Check common date fields in metadata
+        date_fields = ['date', 'created', 'created_date', 'last_modified', 'updated']
+        for field in date_fields:
+            if field in metadata:
+                date_value = metadata[field]
+                if isinstance(date_value, str):
+                    return parse_date_string(date_value)
+    
+    # Look for date in the first few markdown cells
+    if 'cells' in notebook_data:
+        for i, cell in enumerate(notebook_data['cells'][:3]):  # Check first 3 cells
+            if cell.get('cell_type') == 'markdown' and 'source' in cell:
+                # Join source lines if it's a list
+                source = cell['source']
+                if isinstance(source, list):
+                    source = ''.join(source)
+                
+                # Look for date patterns
+                lines = source.split('\n')
+                for line in lines:
+                    line = line.strip()
+                    # Common date patterns
+                    date_patterns = [
+                        r'^(?:\*\*)?Date(?:\*\*)?\s*:\s*(.+)$',
+                        r'^(?:\*\*)?Created(?:\*\*)?\s*:\s*(.+)$',
+                        r'^(?:\*\*)?Last updated(?:\*\*)?\s*:\s*(.+)$',
+                        r'^(?:\*\*)?Updated(?:\*\*)?\s*:\s*(.+)$',
+                        r'^(?:\*\*)?Published(?:\*\*)?\s*:\s*(.+)$',
+                    ]
+                    
+                    for pattern in date_patterns:
+                        match = re.match(pattern, line, re.IGNORECASE)
+                        if match:
+                            date_str = match.group(1).strip()
+                            # Clean up markdown formatting
+                            date_str = re.sub(r'\*\*([^*]+)\*\*', r'\1', date_str)  # Remove bold
+                            date_str = re.sub(r'\*([^*]+)\*', r'\1', date_str)      # Remove italic
+                            parsed_date = parse_date_string(date_str)
+                            if parsed_date:
+                                return parsed_date
+    
+    return None
+
+def parse_date_string(date_str):
+    """Parse various date string formats and return ISO format"""
+    if not date_str:
+        return None
+    
+    # Common date formats to try
+    date_formats = [
+        '%Y-%m-%d',           # 2024-01-15
+        '%m/%d/%Y',           # 01/15/2024
+        '%d/%m/%Y',           # 15/01/2024
+        '%Y-%m-%d %H:%M:%S',  # 2024-01-15 10:30:00
+        '%B %d, %Y',          # January 15, 2024
+        '%b %d, %Y',          # Jan 15, 2024
+        '%d %B %Y',           # 15 January 2024
+        '%d %b %Y',           # 15 Jan 2024
+    ]
+    
+    for fmt in date_formats:
+        try:
+            parsed = datetime.strptime(date_str.strip(), fmt)
+            return parsed.strftime('%Y-%m-%d')  # Return in consistent ISO format
+        except ValueError:
+            continue
+    
+    return None
+
+def get_file_creation_date(filepath):
+    """Get file creation/modification date as fallback"""
+    try:
+        # Use modification time as a fallback
+        mtime = os.path.getmtime(filepath)
+        return datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+    except:
+        return None
+
 def path_to_url(filepath, base_url=""):
     """Convert file path to URL"""
     # Remove docs/ prefix and .ipynb extension
@@ -118,6 +203,12 @@ def on_post_build(config):
             
             # Extract author from notebook
             author = extract_author_from_notebook(notebook_data)
+            
+            # Extract date from notebook
+            date = extract_date_from_notebook(notebook_data)
+            # Use file modification date as fallback if no date found in notebook
+            if not date:
+                date = get_file_creation_date(filepath)
                 
             # Generate full URL
             url = path_to_url(filepath, base_url)
@@ -131,14 +222,33 @@ def on_post_build(config):
             if author:
                 tutorial_entry["author"] = author
             
+            # Add date if found
+            if date:
+                tutorial_entry["date"] = date
+            
             tutorials.append(tutorial_entry)
             
         except (json.JSONDecodeError, FileNotFoundError, KeyError) as e:
             print(f"Error processing {filepath}: {e}")
             continue
     
-    # Sort by title for consistency
-    tutorials.sort(key=lambda x: x['title'])
+    # Sort by date (newest first), then by title if no date
+    # Entries without dates will appear at the end
+    tutorials.sort(key=lambda x: (x.get('date', '0000-00-00'), x['title']), reverse=True)
+    
+    # Alternative sorting options (replace the line above with one of these):
+    
+    # Option 1: Oldest first, then by title
+    # tutorials.sort(key=lambda x: (x.get('date', '9999-99-99'), x['title']))
+    
+    # Option 2: Alphabetical by title only (original behavior)
+    # tutorials.sort(key=lambda x: x['title'])
+    
+    # Option 3: By author, then date, then title
+    # tutorials.sort(key=lambda x: (x.get('author', 'ZZZ'), x.get('date', '0000-00-00'), x['title']))
+    
+    # Option 4: Newest first, but undated entries at the beginning
+    # tutorials.sort(key=lambda x: (x.get('date', '9999-99-99'), x['title']), reverse=True)
     
     with open("docs_index.json", "w", encoding="utf-8") as f:
         json.dump(tutorials, f, ensure_ascii=False, indent=2)
