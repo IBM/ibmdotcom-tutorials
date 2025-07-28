@@ -1,5 +1,11 @@
 [
   {
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/zero-shot-classification",
+    "title": "Perform zero-shot classification with a foundation model",
+    "author": "** Vanna Winland",
+    "date": "2025-07-28"
+  },
+  {
     "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/ReWOO - Content Summarization",
     "title": "Building a ReWOO Reasoning Agent Using IBM Granite",
     "date": "2025-06-24"
@@ -40,12 +46,6 @@
   {
     "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/llamaindex_rag",
     "title": "Title: Creating a RAG with Llamaindex",
-    "date": "2025-06-17"
-  },
-  {
-    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/zero-shot-classification",
-    "title": "Perform zero-shot classification with a foundation model",
-    "author": "** Vanna Winland",
     "date": "2025-06-17"
   },
   {

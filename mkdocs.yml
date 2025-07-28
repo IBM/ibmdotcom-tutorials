@@ -29,7 +29,7 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-      primary: grey
+      primary: blue
       accent: custom
     - scheme: default
       toggle:
@@ -61,6 +61,7 @@ hooks:
 plugins:
   - mkdocs-jupyter
   - search
+  - social
 
 # theme:
 #   name: readthedocs
