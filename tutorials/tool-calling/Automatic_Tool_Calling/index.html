@@ -10,24 +10,24 @@
         <meta name="author" content="IBM.com Technical Content Team">
       
       
-        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/chatdev_watsonx_tutorial_/camel/messages/base/">
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/tool-calling/Automatic_Tool_Calling/">
       
       
       
       
-      <link rel="icon" href="../../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Base - IBM.com Tutorials</title>
+        <title>Implement Automatic Tool Calling with Granite-3 Models in LM Studio - IBM.com Tutorials</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#implement-automatic-tool-calling-with-granite-3-models-in-lm-studio" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,9 +88,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+    <a href="../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
       
-  <img src="../../../../../../assets/official_logo.png" alt="logo">
+  <img src="../../../assets/official_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -102,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Base
+              Implement Automatic Tool Calling with Granite-3 Models in LM Studio
             
           </span>
         </div>
@@ -209,7 +214,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
   
@@ -231,7 +236,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../references/coc/" class="md-tabs__link">
+        <a href="../../../references/coc/" class="md-tabs__link">
           
   
   
@@ -275,9 +280,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+    <a href="../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
       
-  <img src="../../../../../../assets/official_logo.png" alt="logo">
+  <img src="../../../assets/official_logo.png" alt="logo">
 
     </a>
     IBM.com Tutorials
@@ -337,7 +342,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../.." class="md-nav__link ">
+            <a href="../../.." class="md-nav__link ">
               
   
   
@@ -372,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   
@@ -444,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../getting-started/setup/" class="md-nav__link">
+      <a href="../../../getting-started/setup/" class="md-nav__link">
         
   
   
@@ -475,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorials-list/" class="md-nav__link">
+      <a href="../../../tutorials-list/" class="md-nav__link">
         
   
   
@@ -498,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../projects-list/" class="md-nav__link">
+      <a href="../../../projects-list/" class="md-nav__link">
         
   
   
@@ -581,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../references/coc/" class="md-nav__link">
+      <a href="../../../references/coc/" class="md-nav__link">
         
   
   
@@ -604,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../references/contributing/" class="md-nav__link">
+      <a href="../../../references/contributing/" class="md-nav__link">
         
   
   
@@ -627,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../references/license/" class="md-nav__link">
+      <a href="../../../references/license/" class="md-nav__link">
         
   
   
@@ -668,8 +673,6 @@
   
   
 
-
-  <h1>Base</h1>
 
 <script>
 (function (global, factory) {
@@ -1107,8 +1110,51 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0d449339">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="implement-automatic-tool-calling-with-granite-3-models-in-lm-studio">Implement Automatic Tool Calling with Granite-3 Models in LM Studio<a class="anchor-link" href="#implement-automatic-tool-calling-with-granite-3-models-in-lm-studio">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This notebook serves as a practical guide to implementing automatic tool calling with Large Language Models (LLMs) like the Granite-3 series in LM Studio. While LLMs excel at understanding and generating human-like text, they often face limitations when tasks require precise computation, access to real-time external data, or the execution of specific, well-defined procedures. By equipping LLMs with a set of "tools"—essentially external functions they can choose to call—we can significantly extend their capabilities. This tutorial will demonstrate how to define these tools and integrate them, enabling the LLM to perform a wider range of tasks with greater reliability.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="getting-started-with-granite-models-on-lm-studio">Getting Started with Granite models on LM Studio<a class="anchor-link" href="#getting-started-with-granite-models-on-lm-studio">¶</a></h3><p><a href="https://lmstudio.ai/download">Download LM Studio</a> and follow <a href="https://lmstudio.ai/docs/app/basics/download-model">these instructions</a> to download models to your local machine. We will be using the <a href="https://huggingface.co/ibm-granite/granite-3.3-8b-instruct-GGUF">granite-3.3-8b-instruct model</a> for this recipe, but feel free to use any LLM of your choice.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We first need to install the necessary libraries:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1126,44 +1172,20 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========</span>
-<span class="c1"># Licensed under the Apache License, Version 2.0 (the “License”);</span>
-<span class="c1"># you may not use this file except in compliance with the License.</span>
-<span class="c1"># You may obtain a copy of the License at</span>
-<span class="c1">#</span>
-<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
-<span class="c1">#</span>
-<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
-<span class="c1"># distributed under the License is distributed on an “AS IS” BASIS,</span>
-<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span class="c1"># See the License for the specific language governing permissions and</span>
-<span class="c1"># limitations under the License.</span>
-<span class="c1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ibm</span><span class="o">-</span><span class="n">granite</span><span class="o">-</span><span class="n">community</span><span class="o">/</span><span class="n">utils</span> \
+    <span class="n">lmstudio</span> \
+    <span class="n">chess</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========
-# Licensed under the Apache License, Version 2.0 (the “License”);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an “AS IS” BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========
-from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Tuple, Union</div>
+<div class="clipboard-copy-txt" id="cell-1">%pip install git+https://github.com/ibm-granite-community/utils \
+    lmstudio \
+    chess</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=83971da1">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1181,28 +1203,27 @@ from typing import Any, Dict, List, Optional, Tuple, Union</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">camel.messages</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">OpenAIAssistantMessage</span><span class="p">,</span>
-    <span class="n">OpenAIChatMessage</span><span class="p">,</span>
-    <span class="n">OpenAIMessage</span><span class="p">,</span>
-    <span class="n">OpenAISystemMessage</span><span class="p">,</span>
-    <span class="n">OpenAIUserMessage</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lmstudio</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lms</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">from camel.messages import (
-    OpenAIAssistantMessage,
-    OpenAIChatMessage,
-    OpenAIMessage,
-    OpenAISystemMessage,
-    OpenAIUserMessage,
-)</div>
+<div class="clipboard-copy-txt" id="cell-2">import lmstudio as lms</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>And now you can load your desired model and start chatting!</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=461fcb34">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1220,18 +1241,31 @@ from typing import Any, Dict, List, Optional, Tuple, Union</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">camel.prompts</span><span class="w"> </span><span class="kn">import</span> <span class="n">CodePrompt</span><span class="p">,</span> <span class="n">TextPrompt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelType</span><span class="p">,</span> <span class="n">RoleType</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">lms</span><span class="o">.</span><span class="n">llm</span><span class="p">(</span><span class="s2">"ibm-granite/granite-3.3-8b-instruct-GGUF"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">respond</span><span class="p">(</span><span class="s2">"Hello Granite!"</span><span class="p">))</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">from camel.prompts import CodePrompt, TextPrompt
-from camel.typing import ModelType, RoleType</div>
+<div class="clipboard-copy-txt" id="cell-3">model = lms.llm("ibm-granite/granite-3.3-8b-instruct-GGUF")
+
+print(model.respond("Hello Granite!"))</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="performing-calculations-without-tools">Performing Calculations Without Tools<a class="anchor-link" href="#performing-calculations-without-tools">¶</a></h3><p>Let's start by asking the model to do a straightforward calculation.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=53d332ea">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1249,28 +1283,50 @@ from camel.typing import ModelType, RoleType</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">openai.types.chat.chat_completion_message_tool_call</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatCompletionMessageToolCall</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">openai.types.chat.chat_completion_message</span><span class="w"> </span><span class="kn">import</span> <span class="n">FunctionCall</span>
-
-    <span class="n">openai_new_api</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># new openai api version</span>
-<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="n">openai_new_api</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># old openai api version</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">respond</span><span class="p">(</span><span class="s2">"What is 26.97 divided by 6.28? Don't round."</span><span class="p">))</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">try:
-    from openai.types.chat.chat_completion_message_tool_call import ChatCompletionMessageToolCall
-    from openai.types.chat.chat_completion_message import FunctionCall
-
-    openai_new_api = True  # new openai api version
-except ImportError:
-    openai_new_api = False  # old openai api version</div>
+<div class="clipboard-copy-txt" id="cell-4">print(model.respond("What is 26.97 divided by 6.28? Don't round."))</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=10">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>While the model may be able to provide a close approximation, it won't return the exact answer, because it can't actually calculate the quotient on it's own.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=11">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="creating-tools">Creating Tools<a class="anchor-link" href="#creating-tools">¶</a></h3><p>To solve this, we will provide the model some tools. Tools are python functions that we provide to the model at inference. The model can choose to call one or more of these tools to answer the user's query.</p>
+<p>Take a look at the <a href="https://lmstudio.ai/docs/python">LM Studio Docs</a> for more information on how to write tools. In general, you should make sure your tooling functions have an appropriate name, defined input and output types, and a description that explains the purpose of the tool. All of this information is passed to the model, and can help it select the correct tool to answer your query.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=12">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We will write several simple math functions for the model to use as tools:</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c4544600">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=13">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1288,443 +1344,754 @@ except ImportError:
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">BaseMessage</span><span class="p">:</span>
-<span class="w">    </span><span class="sa">r</span><span class="sd">"""Base class for message objects used in CAMEL chat system.</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Given two numbers a and b, return a + b."""</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        role_name (str): The name of the user or assistant role.</span>
-<span class="sd">        role_type (RoleType): The type of role, either</span>
-<span class="sd">            :obj:`RoleType.ASSISTANT` or :obj:`RoleType.USER`.</span>
-<span class="sd">        meta_dict (Optional[Dict[str, str]]): Additional metadata dictionary</span>
-<span class="sd">            for the message.</span>
-<span class="sd">        role (str): The role of the message in the chat system, either</span>
-<span class="sd">            :obj:`"system"`, :obj:`"user"`, or :obj:`"assistant"`.</span>
-<span class="sd">        content (str): The content of the message.</span>
-<span class="sd">    """</span>
-    <span class="n">role_name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">role_type</span><span class="p">:</span> <span class="n">RoleType</span>
-    <span class="n">meta_dict</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span>
-    <span class="n">role</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">content</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="k">if</span> <span class="n">openai_new_api</span><span class="p">:</span>
-        <span class="n">function_call</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FunctionCall</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">tool_calls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ChatCompletionMessageToolCall</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Given two numbers a and b, return a - b."""</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">"""Get attribute override to delegate string methods to the</span>
-<span class="sd">        :obj:`content`.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Given two numbers a and b, return a * b."""</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            name (str): The name of the attribute.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Given two numbers a and b, return a / b."""</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Any: The attribute value.</span>
-<span class="sd">        """</span>
-        <span class="n">delegate_methods</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">method</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">method</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'_'</span><span class="p">)</span>
-        <span class="p">]</span>
-        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">delegate_methods</span><span class="p">:</span>
-            <span class="n">content</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="s1">'content'</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-                <span class="n">content_method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-                <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">content_method</span><span class="p">):</span>
-
-                    <span class="k">def</span><span class="w"> </span><span class="nf">modify_arg</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">                        </span><span class="sa">r</span><span class="sd">"""Modify the argument for delegate method.</span>
-
-<span class="sd">                        Args:</span>
-<span class="sd">                            arg (Any): The argument value.</span>
-
-<span class="sd">                        Returns:</span>
-<span class="sd">                            Any: The modified argument value.</span>
-<span class="sd">                        """</span>
-                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">BaseMessage</span><span class="p">):</span>
-                            <span class="k">return</span> <span class="n">arg</span><span class="o">.</span><span class="n">content</span>
-                        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
-                            <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">arg</span><span class="p">)(</span><span class="n">modify_arg</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">)</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="k">return</span> <span class="n">arg</span>
-
-                    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">                        </span><span class="sa">r</span><span class="sd">"""Wrapper function for delegate method.</span>
-
-<span class="sd">                        Args:</span>
-<span class="sd">                            *args (Any): Variable length argument list.</span>
-<span class="sd">                            **kwargs (Any): Arbitrary keyword arguments.</span>
-
-<span class="sd">                        Returns:</span>
-<span class="sd">                            Any: The result of the delegate method.</span>
-<span class="sd">                        """</span>
-                        <span class="n">modified_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">modify_arg</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
-                        <span class="n">modified_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-                            <span class="n">k</span><span class="p">:</span> <span class="n">modify_arg</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-                            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-                        <span class="p">}</span>
-                        <span class="n">output</span> <span class="o">=</span> <span class="n">content_method</span><span class="p">(</span><span class="o">*</span><span class="n">modified_args</span><span class="p">,</span>
-                                                <span class="o">**</span><span class="n">modified_kwargs</span><span class="p">)</span>
-                        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_new_instance</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span>
-                            <span class="n">output</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">output</span>
-
-                    <span class="k">return</span> <span class="n">wrapper</span>
-
-        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_create_new_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"BaseMessage"</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">"""Create a new instance of the :obj:`BaseMessage` with updated</span>
-<span class="sd">        content.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            content (str): The new content value.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            BaseMessage: The new instance of :obj:`BaseMessage`.</span>
-<span class="sd">        """</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">role_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">role_name</span><span class="p">,</span>
-                              <span class="n">role_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">role_type</span><span class="p">,</span>
-                              <span class="n">meta_dict</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_dict</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">role</span><span class="p">,</span>
-                              <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s2">"BaseMessage"</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">"""Addition operator override for :obj:`BaseMessage`.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            other (Any): The value to be added with.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Union[BaseMessage, Any]: The result of the addition.</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">BaseMessage</span><span class="p">):</span>
-            <span class="n">combined_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="n">combined_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"Unsupported operand type(s) for +: '</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">' and "</span>
-                <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_new_instance</span><span class="p">(</span><span class="n">combined_content</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s2">"BaseMessage"</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">"""Multiplication operator override for :obj:`BaseMessage`.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            other (Any): The value to be multiplied with.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Union[BaseMessage, Any]: The result of the multiplication.</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-            <span class="n">multiplied_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_new_instance</span><span class="p">(</span><span class="n">multiplied_content</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"Unsupported operand type(s) for *: '</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">' and "</span>
-                <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">"""Length operator override for :obj:`BaseMessage`.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            int: The length of the content.</span>
-<span class="sd">        """</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">"""Contains operator override for :obj:`BaseMessage`.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            item (str): The item to check for containment.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            bool: :obj:`True` if the item is contained in the content,</span>
-<span class="sd">                :obj:`False` otherwise.</span>
-<span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">token_len</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">ModelType</span> <span class="o">=</span> <span class="n">ModelType</span><span class="o">.</span><span class="n">WATSONX</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">"""Calculate the token length of the message for the specified model.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            model (ModelType, optional): The model type to calculate the token</span>
-<span class="sd">                length. (default: :obj:`ModelType.WATSONX`)</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            int: The token length of the message.</span>
-<span class="sd">        """</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">camel.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">num_tokens_from_messages</span>
-        <span class="k">return</span> <span class="n">num_tokens_from_messages</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()],</span> <span class="n">model</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">extract_text_and_code_prompts</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">TextPrompt</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">CodePrompt</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">"""Extract text and code prompts from the message content.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Tuple[List[TextPrompt], List[CodePrompt]]: A tuple containing a</span>
-<span class="sd">                list of text prompts and a list of code prompts extracted</span>
-<span class="sd">                from the content.</span>
-<span class="sd">        """</span>
-        <span class="n">text_prompts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TextPrompt</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">code_prompts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">CodePrompt</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="n">lines</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-        <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">start_idx</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
-            <span class="k">while</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
-                    <span class="ow">not</span> <span class="n">lines</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"```"</span><span class="p">)):</span>
-                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">text</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">start_idx</span><span class="p">:</span><span class="n">idx</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="n">text_prompts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TextPrompt</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
-
-            <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
-                <span class="k">break</span>
-
-            <span class="n">code_type</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()[</span><span class="mi">3</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">start_idx</span> <span class="o">=</span> <span class="n">idx</span>
-            <span class="k">while</span> <span class="ow">not</span> <span class="n">lines</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"```"</span><span class="p">):</span>
-                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">code</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">start_idx</span><span class="p">:</span><span class="n">idx</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="n">code_prompts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CodePrompt</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">code_type</span><span class="o">=</span><span class="n">code_type</span><span class="p">))</span>
-
-            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">start_idx</span> <span class="o">=</span> <span class="n">idx</span>
-
-        <span class="k">return</span> <span class="n">text_prompts</span><span class="p">,</span> <span class="n">code_prompts</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sa">r</span><span class="sd">"""Converts the message to a dictionary.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            dict: The converted dictionary.</span>
-<span class="sd">        """</span>
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="s2">"role_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">role_name</span><span class="p">,</span>
-            <span class="s2">"role_type"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">role_type</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-            <span class="o">**</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_dict</span> <span class="ow">or</span> <span class="p">{}),</span>
-            <span class="s2">"role"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">role</span><span class="p">,</span>
-            <span class="s2">"content"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">,</span>
-        <span class="p">}</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Given two numbers a and b, return a^b"""</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">**</span> <span class="n">b</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">@dataclass
-class BaseMessage:
-    r"""Base class for message objects used in CAMEL chat system.
+<div class="clipboard-copy-txt" id="cell-5">def add(a: float, b:float):
+    """Given two numbers a and b, return a + b."""
+    return a + b
 
-    Args:
-        role_name (str): The name of the user or assistant role.
-        role_type (RoleType): The type of role, either
-            :obj:`RoleType.ASSISTANT` or :obj:`RoleType.USER`.
-        meta_dict (Optional[Dict[str, str]]): Additional metadata dictionary
-            for the message.
-        role (str): The role of the message in the chat system, either
-            :obj:`"system"`, :obj:`"user"`, or :obj:`"assistant"`.
-        content (str): The content of the message.
+def subtract(a: float, b:float):
+    """Given two numbers a and b, return a - b."""
+    return a - b
+
+def multiply(a: float, b: float):
+    """Given two numbers a and b, return a * b."""
+    return a * b
+
+def divide(a: float, b: float):
+    """Given two numbers a and b, return a / b."""
+    return a / b
+
+def exp(a: float, b:float):
+    """Given two numbers a and b, return a^b"""
+    return a ** b
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=14">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now, we can rerun the same query, but provide the model some tools to help it answer.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=15">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">act</span><span class="p">(</span>
+  <span class="s2">"What is 26.97 divided by 6.28? Don't round."</span><span class="p">,</span>
+  <span class="p">[</span><span class="n">add</span><span class="p">,</span> <span class="n">subtract</span><span class="p">,</span> <span class="n">multiply</span><span class="p">,</span> <span class="n">divide</span><span class="p">,</span> <span class="n">exp</span><span class="p">],</span>
+  <span class="n">on_message</span><span class="o">=</span><span class="nb">print</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-6">model.act(
+  "What is 26.97 divided by 6.28? Don't round.",
+  [add, subtract, multiply, divide, exp],
+  on_message=print,
+)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=16">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The model was able to select the correct tool, and call it to get an exact answer to the question. It was also able to avoid using the irrelevant tools.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=17">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="how-many-rs-in-strawberry">How Many R's in Strawberry?<a class="anchor-link" href="#how-many-rs-in-strawberry">¶</a></h3><p>A very simple question that stumps even the smartest language models. Almost every single LLM with a training cutoff prior to 2024 answers that there are only 2 r's in the word "strawberry". As a bonus, it might even hallucinate incorrect positions for the letters.</p>
+<p>Nowadays LLMs tend to get this specific question right, purely because it's virality landed it in most training datasets. However LLMs still commonly fail on similar letter counting tasks.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=18">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">respond</span><span class="p">(</span><span class="s2">"How many b's are in the word 'blackberry'?"</span><span class="p">))</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-7">print(model.respond("How many b's are in the word 'blackberry'?"))
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=19">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Let's write a tool to help the model do a better job.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=20">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_letter_frequency</span><span class="p">(</span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Takes in a word (string) and returns a dictionary containing the counts of each letter that appears in the word. """</span>
+
+    <span class="n">letter_frequencies</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">letter_frequencies</span><span class="p">:</span>
+            <span class="n">letter_frequencies</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">letter_frequencies</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">letter_frequencies</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-8">def get_letter_frequency(word: str) -&gt; dict:
+    """Takes in a word (string) and returns a dictionary containing the counts of each letter that appears in the word. """
+
+    letter_frequencies = {}
+
+    for letter in word:
+        if letter in letter_frequencies:
+            letter_frequencies[letter] += 1
+        else:
+            letter_frequencies[letter] = 1
+
+    return letter_frequencies</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=21">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now we can pass the tool to the model, and rerun the prompt.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=22">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">act</span><span class="p">(</span>
+  <span class="s2">"How many b's are in the word 'blackberry'?"</span><span class="p">,</span>
+  <span class="p">[</span><span class="n">get_letter_frequency</span><span class="p">],</span>
+  <span class="n">on_message</span><span class="o">=</span><span class="nb">print</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-9">model.act(
+  "How many b's are in the word 'blackberry'?",
+  [get_letter_frequency],
+  on_message=print,
+)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=23">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="an-interactive-example">An Interactive Example ♟️<a class="anchor-link" href="#an-interactive-example">¶</a></h3><p>One of the best use-cases of this automatic tool calling workflow is to give your model the ability to interact with it's external environment.</p>
+<p>Let's build an agent that uses tools to play chess!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>While language models may have strong conceptual knowledge of chess, they aren't inherently designed to understand a chess board. If you try to play a game of chess with an online chatbot, it will often derail after several turns, making illegal or irrational moves.</p>
+<p>We are providing the model several tools that help it understand and interact with the board.</p>
+<ul>
+<li><strong>get_move_history()</strong>: provides a list of all moves played so far</li>
+<li><strong>legal_moves()</strong>: provides a list of all legal moves in the current position</li>
+<li><strong>possible_captures()</strong>: provides a list of all possible captures in the current position</li>
+<li><strong>possible_checks()</strong>: provides a list of all possible checks in the current position</li>
+<li><strong>make_ai_move()</strong>: an interface to let the model input it's move</li>
+</ul>
+<p>It's not a lot: but it is enough for the model to play a full game of chess without hallucinating, and use some intelligent reasoning to base it's decisions.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=25">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-10">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">chess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span><span class="p">,</span> <span class="n">clear_output</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="n">board</span> <span class="o">=</span> <span class="n">chess</span><span class="o">.</span><span class="n">Board</span><span class="p">()</span>
+<span class="n">ai_pos</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">legal_moves</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Returns a list of legal moves in standard algebraic notation.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">board</span><span class="o">.</span><span class="n">san</span><span class="p">(</span><span class="n">move</span><span class="p">)</span> <span class="k">for</span> <span class="n">move</span> <span class="ow">in</span> <span class="n">board</span><span class="o">.</span><span class="n">legal_moves</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">possible_captures</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Returns a list of possible captures in standard algebraic notation.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">board</span><span class="o">.</span><span class="n">san</span><span class="p">(</span><span class="n">move</span><span class="p">)</span> <span class="k">for</span> <span class="n">move</span> <span class="ow">in</span> <span class="n">board</span><span class="o">.</span><span class="n">generate_legal_captures</span><span class="p">()]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">possible_checks</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Returns a list of possible checks in standard algebraic notation.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">board</span><span class="o">.</span><span class="n">san</span><span class="p">(</span><span class="n">move</span><span class="p">)</span> <span class="k">for</span> <span class="n">move</span> <span class="ow">in</span> <span class="n">board</span><span class="o">.</span><span class="n">legal_moves</span> <span class="k">if</span> <span class="n">board</span><span class="o">.</span><span class="n">gives_check</span><span class="p">(</span><span class="n">move</span><span class="p">)]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_move_history</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Returns a list of moves made in the game so far in standard algebraic notation.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">board</span><span class="o">.</span><span class="n">san</span><span class="p">(</span><span class="n">move</span><span class="p">)</span> <span class="k">for</span> <span class="n">move</span> <span class="ow">in</span> <span class="n">board</span><span class="o">.</span><span class="n">move_stack</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_ai_turn</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">turn</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">ai_pos</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_ai_move</span><span class="p">(</span><span class="n">move</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Given a string representing a valid move in chess notation, pushes move onto chess board.</span>
+<span class="sd">    If non-valid move, raises a ValueError with message "Illegal move.</span>
+<span class="sd">    If called when it is not the AI's turn, raises a ValueError with message "Not AI's turn."</span>
+<span class="sd">    THIS FUNCTION DIRECTLY ENABLES THE AI TO MAKE A MOVE ON THE CHESS BOARD.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">is_ai_turn</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">board</span><span class="o">.</span><span class="n">push_san</span><span class="p">(</span><span class="n">move</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Not AI's turn."</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_user_move</span><span class="p">(</span><span class="n">move</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Given a string representing a valid move in chess notation, pushes move onto chess board.</span>
+<span class="sd">    If non-valid move, raises a ValueError with message "Illegal move.</span>
+<span class="sd">    If called when it is not the player's turn, raises a ValueError with message "Not player's turn."</span>
+<span class="sd">    If valid-move, updates the board and displays the current state of the board.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_ai_turn</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">board</span><span class="o">.</span><span class="n">push_san</span><span class="p">(</span><span class="n">move</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Not player's turn."</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">print_fragment</span><span class="p">(</span><span class="n">fragment</span><span class="p">,</span> <span class="n">round_index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fragment</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-10">import chess
+from IPython.display import display, SVG, clear_output
+import random
+
+board = chess.Board()
+ai_pos = 0
+
+def legal_moves() -&gt; list[str]:
     """
-    role_name: str
-    role_type: RoleType
-    meta_dict: Optional[Dict[str, str]]
-    role: str
-    content: str
-    if openai_new_api:
-        function_call: Optional[FunctionCall] = None
-        tool_calls: Optional[ChatCompletionMessageToolCall] = None
+    Returns a list of legal moves in standard algebraic notation.
+    """
+    return [board.san(move) for move in board.legal_moves]
 
-    def __getattribute__(self, name: str) -&gt; Any:
-        r"""Get attribute override to delegate string methods to the
-        :obj:`content`.
+def possible_captures() -&gt; list[str]:
+    """
+    Returns a list of possible captures in standard algebraic notation.
+    """
+    return [board.san(move) for move in board.generate_legal_captures()]
 
-        Args:
-            name (str): The name of the attribute.
+def possible_checks() -&gt; list[str]:
+    """
+    Returns a list of possible checks in standard algebraic notation.
+    """
+    return [board.san(move) for move in board.legal_moves if board.gives_check(move)]
 
-        Returns:
-            Any: The attribute value.
-        """
-        delegate_methods = [
-            method for method in dir(str) if not method.startswith('_')
-        ]
-        if name in delegate_methods:
-            content = super().__getattribute__('content')
-            if isinstance(content, str):
-                content_method = getattr(content, name, None)
-                if callable(content_method):
+def get_move_history() -&gt; list[str]:
+    """
+    Returns a list of moves made in the game so far in standard algebraic notation.
+    """
+    return [board.san(move) for move in board.move_stack]
 
-                    def modify_arg(arg: Any) -&gt; Any:
-                        r"""Modify the argument for delegate method.
+def is_ai_turn() -&gt; bool:
+    return bool(board.turn) == (ai_pos == 0)
 
-                        Args:
-                            arg (Any): The argument value.
+def make_ai_move(move: str) -&gt; None:
+    """
+    Given a string representing a valid move in chess notation, pushes move onto chess board.
+    If non-valid move, raises a ValueError with message "Illegal move.
+    If called when it is not the AI's turn, raises a ValueError with message "Not AI's turn."
+    THIS FUNCTION DIRECTLY ENABLES THE AI TO MAKE A MOVE ON THE CHESS BOARD.
+    """
+    if is_ai_turn():
+        try:
+            board.push_san(move)
+        except ValueError as e:
+            raise ValueError(e)
+    else:
+        raise ValueError("Not AI's turn.")
 
-                        Returns:
-                            Any: The modified argument value.
-                        """
-                        if isinstance(arg, BaseMessage):
-                            return arg.content
-                        elif isinstance(arg, (list, tuple)):
-                            return type(arg)(modify_arg(item) for item in arg)
-                        else:
-                            return arg
+def make_user_move(move: str) -&gt; None:
+    """
+    Given a string representing a valid move in chess notation, pushes move onto chess board.
+    If non-valid move, raises a ValueError with message "Illegal move.
+    If called when it is not the player's turn, raises a ValueError with message "Not player's turn."
+    If valid-move, updates the board and displays the current state of the board.
+    """
+    if not is_ai_turn():
+        try:
+            board.push_san(move)
+        except ValueError as e:
+            raise ValueError(e)
+    else:
+        raise ValueError("Not player's turn.")
 
-                    def wrapper(*args: Any, **kwargs: Any) -&gt; Any:
-                        r"""Wrapper function for delegate method.
+def print_fragment(fragment, round_index=0):
+    print(fragment.content, end="", flush=True)
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=26">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now we can play a match with the AI!</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=27">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-11">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">move</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">chess.svg</span>
 
-                        Args:
-                            *args (Any): Variable length argument list.
-                            **kwargs (Any): Arbitrary keyword arguments.
+<span class="n">board</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">ai_pos</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
 
-                        Returns:
-                            Any: The result of the delegate method.
-                        """
-                        modified_args = [modify_arg(arg) for arg in args]
-                        modified_kwargs = {
-                            k: modify_arg(v)
-                            for k, v in kwargs.items()
-                        }
-                        output = content_method(*modified_args,
-                                                **modified_kwargs)
-                        return self._create_new_instance(output) if isinstance(
-                            output, str) else output
+<span class="k">def</span><span class="w"> </span><span class="nf">update_board</span><span class="p">(</span><span class="n">move</span> <span class="o">=</span> <span class="n">move</span><span class="p">,</span> <span class="n">ai_pos</span> <span class="o">=</span> <span class="n">ai_pos</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Updates the chess board display in the notebook.</span>
+<span class="sd">    """</span>
+    <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Clear previous output</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Board after move </span><span class="si">{</span><span class="n">move</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ai_pos</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">chess</span><span class="o">.</span><span class="n">svg</span><span class="o">.</span><span class="n">board</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">400</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">chess</span><span class="o">.</span><span class="n">svg</span><span class="o">.</span><span class="n">board</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">orientation</span> <span class="o">=</span> <span class="n">chess</span><span class="o">.</span><span class="n">BLACK</span><span class="p">)))</span>
 
-                    return wrapper
+<span class="k">def</span><span class="w"> </span><span class="nf">get_end_state</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Returns the end state of the chess game.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">board</span><span class="o">.</span><span class="n">is_checkmate</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">"Checkmate!"</span>
+    <span class="k">elif</span> <span class="n">board</span><span class="o">.</span><span class="n">is_stalemate</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">"Stalemate!"</span>
+    <span class="k">elif</span> <span class="n">board</span><span class="o">.</span><span class="n">is_insufficient_material</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">"Draw by insufficient material!"</span>
+    <span class="k">elif</span> <span class="n">board</span><span class="o">.</span><span class="n">is_seventyfive_moves</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">"Draw by 75-move rule!"</span>
+    <span class="k">elif</span> <span class="n">board</span><span class="o">.</span><span class="n">is_fivefold_repetition</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">"Draw by fivefold repetition!"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
 
-        return super().__getattribute__(name)
+<span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Clear any previous output from the cell</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ai_pos</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">chess</span><span class="o">.</span><span class="n">svg</span><span class="o">.</span><span class="n">board</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">400</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">chess</span><span class="o">.</span><span class="n">svg</span><span class="o">.</span><span class="n">board</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">orientation</span> <span class="o">=</span> <span class="n">chess</span><span class="o">.</span><span class="n">BLACK</span><span class="p">)))</span>
 
-    def _create_new_instance(self, content: str) -&gt; "BaseMessage":
-        r"""Create a new instance of the :obj:`BaseMessage` with updated
-        content.
+<span class="c1"># 2. Loop through moves, apply each move, clear previous output, and display new board</span>
+<span class="n">userEndGame</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 
-        Args:
-            content (str): The new content value.
+    <span class="k">if</span> <span class="n">ai_pos</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># AI's turn</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">act</span><span class="p">(</span>
+<span class="w">            </span><span class="sd">"""</span>
+<span class="sd">            You are a chess AI, playing for black. Your task is to make the best move in the current position, using the provided tools. You should use your overall chess knowledge, including openings, tactics, and strategies, as your primary method to determine good moves. Use the provided tools as an assistant to improve your understanding of the board state and to make your moves.</span>
+<span class="sd">            """</span><span class="p">,</span>
+            <span class="p">[</span><span class="n">get_move_history</span><span class="p">,</span> <span class="n">legal_moves</span><span class="p">,</span> <span class="n">possible_captures</span><span class="p">,</span> <span class="n">possible_checks</span><span class="p">,</span> <span class="n">make_ai_move</span><span class="p">],</span>
+            <span class="n">max_prediction_rounds</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="p">)</span>
 
-        Returns:
-            BaseMessage: The new instance of :obj:`BaseMessage`.
-        """
-        return self.__class__(role_name=self.role_name,
-                              role_type=self.role_type,
-                              meta_dict=self.meta_dict, role=self.role,
-                              content=content)
+        <span class="k">if</span> <span class="n">is_ai_turn</span><span class="p">():</span> <span class="c1"># failsafe in case AI does not make a move</span>
+           <span class="n">make_ai_move</span><span class="p">(</span><span class="n">legal_moves</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Default to the first legal move if AI does not respond</span>
 
-    def __add__(self, other: Any) -&gt; Union["BaseMessage", Any]:
-        r"""Addition operator override for :obj:`BaseMessage`.
+        <span class="n">update_board</span><span class="p">(</span><span class="n">move</span><span class="p">)</span>
+        <span class="n">move</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">game_over_message</span> <span class="o">=</span> <span class="n">get_end_state</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">game_over_message</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">game_over_message</span><span class="p">)</span>
+            <span class="k">break</span>
 
-        Args:
-            other (Any): The value to be added with.
+        <span class="c1"># User's turn</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">user_move</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"User (Playing Black): Input your move. Input 'help' to see the list of possible moves. Input 'quit' to end the game -&gt;"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">user_move</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'quit'</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Game ended by user."</span><span class="p">)</span>
+                <span class="n">userEndGame</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">user_move</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'help'</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Possible moves:"</span><span class="p">,</span> <span class="n">legal_moves</span><span class="p">())</span>
+                <span class="k">continue</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">make_user_move</span><span class="p">(</span><span class="n">user_move</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
-        Returns:
-            Union[BaseMessage, Any]: The result of the addition.
-        """
-        if isinstance(other, BaseMessage):
-            combined_content = self.content.__add__(other.content)
-        elif isinstance(other, str):
-            combined_content = self.content.__add__(other)
-        else:
-            raise TypeError(
-                f"Unsupported operand type(s) for +: '{type(self)}' and "
-                f"'{type(other)}'")
-        return self._create_new_instance(combined_content)
+        <span class="k">if</span> <span class="n">userEndGame</span><span class="p">:</span>
+            <span class="k">break</span>
 
-    def __mul__(self, other: Any) -&gt; Union["BaseMessage", Any]:
-        r"""Multiplication operator override for :obj:`BaseMessage`.
+        <span class="n">update_board</span><span class="p">(</span><span class="n">move</span><span class="p">)</span>
+        <span class="n">move</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">game_over_message</span> <span class="o">=</span> <span class="n">get_end_state</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">game_over_message</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">game_over_message</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># User's turn</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">user_move</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"User (Playing White): Input your move. Input 'help' to see the list of possible moves. Input 'quit' to end the game -&gt;"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">user_move</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'quit'</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Game ended by user."</span><span class="p">)</span>
+                <span class="n">userEndGame</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">user_move</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'help'</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Possible moves:"</span><span class="p">,</span> <span class="n">legal_moves</span><span class="p">())</span>
+                <span class="k">continue</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">make_user_move</span><span class="p">(</span><span class="n">user_move</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
-        Args:
-            other (Any): The value to be multiplied with.
+        <span class="k">if</span> <span class="n">userEndGame</span><span class="p">:</span>
+            <span class="k">break</span>
 
-        Returns:
-            Union[BaseMessage, Any]: The result of the multiplication.
-        """
-        if isinstance(other, int):
-            multiplied_content = self.content.__mul__(other)
-            return self._create_new_instance(multiplied_content)
-        else:
-            raise TypeError(
-                f"Unsupported operand type(s) for *: '{type(self)}' and "
-                f"'{type(other)}'")
+        <span class="n">update_board</span><span class="p">(</span><span class="n">move</span><span class="p">)</span>
+        <span class="n">move</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">game_over_message</span> <span class="o">=</span> <span class="n">get_end_state</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">game_over_message</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">game_over_message</span><span class="p">)</span>
+            <span class="k">break</span>
 
-    def __len__(self) -&gt; int:
-        r"""Length operator override for :obj:`BaseMessage`.
+        <span class="n">model</span><span class="o">.</span><span class="n">act</span><span class="p">(</span>
+<span class="w">            </span><span class="sd">"""</span>
+<span class="sd">            You are a chess AI, playing for black. Your task is to make the best move in the current position, using the provided tools. You should use your overall chess knowledge, including openings, tactics, and strategies, as your primary method to determine good moves. Use the provided tools as an assistant to improve your understanding of the board state and to make your moves.</span>
+<span class="sd">            """</span><span class="p">,</span>
+            <span class="p">[</span><span class="n">get_move_history</span><span class="p">,</span> <span class="n">legal_moves</span><span class="p">,</span> <span class="n">possible_captures</span><span class="p">,</span> <span class="n">possible_checks</span><span class="p">,</span> <span class="n">make_ai_move</span><span class="p">],</span>
+            <span class="n">max_prediction_rounds</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="p">)</span>
 
-        Returns:
-            int: The length of the content.
-        """
-        return len(self.content)
+        <span class="k">if</span> <span class="n">is_ai_turn</span><span class="p">():</span> <span class="c1"># failsafe in case AI does not make a move</span>
+           <span class="n">make_ai_move</span><span class="p">(</span><span class="n">legal_moves</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Default to the first legal move if AI does not respond</span>
 
-    def __contains__(self, item: str) -&gt; bool:
-        r"""Contains operator override for :obj:`BaseMessage`.
+        <span class="n">update_board</span><span class="p">(</span><span class="n">move</span><span class="p">)</span>
+        <span class="n">move</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">game_over_message</span> <span class="o">=</span> <span class="n">get_end_state</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">game_over_message</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">game_over_message</span><span class="p">)</span>
+            <span class="k">break</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-11">move = 0
+import chess.svg
 
-        Args:
-            item (str): The item to check for containment.
+board.reset()
+ai_pos = round(random.random())
 
-        Returns:
-            bool: :obj:`True` if the item is contained in the content,
-                :obj:`False` otherwise.
-        """
-        return item in self.content
+def update_board(move = move, ai_pos = ai_pos):
+    """
+    Updates the chess board display in the notebook.
+    """
+    clear_output(wait=True)  # Clear previous output
+    print(f"Board after move {move+1}")
+    if (ai_pos == 1):
+        display(SVG(chess.svg.board(board, size=400)))
+    else:
+        display(SVG(chess.svg.board(board, size=400, orientation = chess.BLACK)))
 
-    def token_len(self, model: ModelType = ModelType.WATSONX) -&gt; int:
-        r"""Calculate the token length of the message for the specified model.
+def get_end_state():
+    """
+    Returns the end state of the chess game.
+    """
+    if board.is_checkmate():
+        return "Checkmate!"
+    elif board.is_stalemate():
+        return "Stalemate!"
+    elif board.is_insufficient_material():
+        return "Draw by insufficient material!"
+    elif board.is_seventyfive_moves():
+        return "Draw by 75-move rule!"
+    elif board.is_fivefold_repetition():
+        return "Draw by fivefold repetition!"
+    else:
+        return None
 
-        Args:
-            model (ModelType, optional): The model type to calculate the token
-                length. (default: :obj:`ModelType.WATSONX`)
+clear_output(wait=True) # Clear any previous output from the cell
+if (ai_pos == 1):
+    display(SVG(chess.svg.board(board, size=400)))
+else:
+    display(SVG(chess.svg.board(board, size=400, orientation = chess.BLACK)))
 
-        Returns:
-            int: The token length of the message.
-        """
-        from camel.utils import num_tokens_from_messages
-        return num_tokens_from_messages([self.to_dict()], model)
+# 2. Loop through moves, apply each move, clear previous output, and display new board
+userEndGame = False
+while True:
 
-    def extract_text_and_code_prompts(
-            self) -&gt; Tuple[List[TextPrompt], List[CodePrompt]]:
-        r"""Extract text and code prompts from the message content.
+    if ai_pos == 0:
+        # AI's turn
+        model.act(
+            """
+            You are a chess AI, playing for black. Your task is to make the best move in the current position, using the provided tools. You should use your overall chess knowledge, including openings, tactics, and strategies, as your primary method to determine good moves. Use the provided tools as an assistant to improve your understanding of the board state and to make your moves.
+            """,
+            [get_move_history, legal_moves, possible_captures, possible_checks, make_ai_move],
+            max_prediction_rounds = 5,
+        )
 
-        Returns:
-            Tuple[List[TextPrompt], List[CodePrompt]]: A tuple containing a
-                list of text prompts and a list of code prompts extracted
-                from the content.
-        """
-        text_prompts: List[TextPrompt] = []
-        code_prompts: List[CodePrompt] = []
+        if is_ai_turn(): # failsafe in case AI does not make a move
+           make_ai_move(legal_moves()[0])  # Default to the first legal move if AI does not respond
 
-        lines = self.content.split("\n")
-        idx = 0
-        start_idx = 0
-        while idx &lt; len(lines):
-            while idx &lt; len(lines) and (
-                    not lines[idx].lstrip().startswith("```")):
-                idx += 1
-            text = "\n".join(lines[start_idx:idx]).strip()
-            text_prompts.append(TextPrompt(text))
+        update_board(move)
+        move += 1
+        game_over_message = get_end_state()
+        if game_over_message:
+            print(game_over_message)
+            break
 
-            if idx &gt;= len(lines):
+        # User's turn
+        while True:
+            user_move = input("User (Playing Black): Input your move. Input 'help' to see the list of possible moves. Input 'quit' to end the game -&gt;")
+            if user_move.lower() == 'quit':
+                print("Game ended by user.")
+                userEndGame = True
                 break
+            if user_move.lower() == 'help':
+                print("Possible moves:", legal_moves())
+                continue
+            try:
+                make_user_move(user_move)
+                break
+            except ValueError as e:
+                print(e)
 
-            code_type = lines[idx].strip()[3:].strip()
-            idx += 1
-            start_idx = idx
-            while not lines[idx].lstrip().startswith("```"):
-                idx += 1
-            code = "\n".join(lines[start_idx:idx]).strip()
-            code_prompts.append(CodePrompt(code, code_type=code_type))
+        if userEndGame:
+            break
 
-            idx += 1
-            start_idx = idx
+        update_board(move)
+        move += 1
+        game_over_message = get_end_state()
+        if game_over_message:
+            print(game_over_message)
+            break
+    else:
+        # User's turn
+        while True:
+            user_move = input("User (Playing White): Input your move. Input 'help' to see the list of possible moves. Input 'quit' to end the game -&gt;")
+            if user_move.lower() == 'quit':
+                print("Game ended by user.")
+                userEndGame = True
+                break
+            if user_move.lower() == 'help':
+                print("Possible moves:", legal_moves())
+                continue
+            try:
+                make_user_move(user_move)
+                break
+            except ValueError as e:
+                print(e)
 
-        return text_prompts, code_prompts
+        if userEndGame:
+            break
 
-    def to_dict(self) -&gt; Dict:
-        r"""Converts the message to a dictionary.
+        update_board(move)
+        move += 1
+        game_over_message = get_end_state()
+        if game_over_message:
+            print(game_over_message)
+            break
 
-        Returns:
-            dict: The converted dictionary.
-        """
-        return {
-            "role_name": self.role_name,
-            "role_type": self.role_type.name,
-            **(self.meta_dict or {}),
-            "role": self.role,
-            "content": self.content,
-        }</div>
+        model.act(
+            """
+            You are a chess AI, playing for black. Your task is to make the best move in the current position, using the provided tools. You should use your overall chess knowledge, including openings, tactics, and strategies, as your primary method to determine good moves. Use the provided tools as an assistant to improve your understanding of the board state and to make your moves.
+            """,
+            [get_move_history, legal_moves, possible_captures, possible_checks, make_ai_move],
+            max_prediction_rounds = 5,
+        )
+
+        if is_ai_turn(): # failsafe in case AI does not make a move
+           make_ai_move(legal_moves()[0])  # Default to the first legal move if AI does not respond
+
+        update_board(move)
+        move += 1
+        game_over_message = get_end_state()
+        if game_over_message:
+            print(game_over_message)
+            break</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=28">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="summary">Summary<a class="anchor-link" href="#summary">¶</a></h3><p>In this notebook, we demonstrated how integrating tools can enhance the utility and agentic capability of LLMs. We illustrated that by providing an LLM with access to predefined external functions, it can transcend its core language processing capabilities to perform tasks like accurate calculations or interface with external systems, which it cannot do reliably on its own. The key takeaway is that tool-use empowers LLMs to delegate specific sub-problems to specialized routines, allowing them to ground their responses in factual data or precise operations. This approach not only improves accuracy but also enables LLMs to engage in more complex, interactive workflows, effectively transforming them into more versatile and powerful assistants.</p>
 </div>
 </div>
 </div>
@@ -1732,6 +2099,10 @@ class BaseMessage:
 </div> <!-- jp-Notebook -->
 </div> <!-- jupyter-wrapper -->
 
+        <style>
+        ['pre { line-height: 125%; }\ntd.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }\nspan.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }\ntd.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }\nspan.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }\n.highlight-ipynb .hll { background-color: var(--jp-cell-editor-active-background) }\n.highlight-ipynb { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }\n.highlight-ipynb .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */\n.highlight-ipynb .err { color: var(--jp-mirror-editor-error-color) } /* Error */\n.highlight-ipynb .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */\n.highlight-ipynb .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */\n.highlight-ipynb .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */\n.highlight-ipynb .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */\n.highlight-ipynb .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */\n.highlight-ipynb .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */\n.highlight-ipynb .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */\n.highlight-ipynb .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */\n.highlight-ipynb .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */\n.highlight-ipynb .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */\n.highlight-ipynb .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */\n.highlight-ipynb .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */\n.highlight-ipynb .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */\n.highlight-ipynb .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */\n.highlight-ipynb .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */\n.highlight-ipynb .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */\n.highlight-ipynb .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */\n.highlight-ipynb .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */\n.highlight-ipynb .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */\n.highlight-ipynb .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */\n.highlight-ipynb .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */\n.highlight-ipynb .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */\n.highlight-ipynb .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */\n.highlight-ipynb .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */\n.highlight-ipynb .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */\n.highlight-ipynb .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */\n.highlight-ipynb .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */\n.highlight-ipynb .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */\n.highlight-ipynb .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */\n.highlight-ipynb .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */\n.highlight-ipynb .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */\n.highlight-ipynb .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */\n.highlight-ipynb .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */\n.highlight-ipynb .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */\n.highlight-ipynb .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */\n.highlight-ipynb .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */\n.highlight-ipynb .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */\n.highlight-ipynb .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */\n.highlight-ipynb .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */']
+        </style>
+        
 
 
 
@@ -1790,10 +2161,10 @@ class BaseMessage:
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
