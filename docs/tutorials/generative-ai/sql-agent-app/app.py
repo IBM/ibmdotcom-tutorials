@@ -13,6 +13,7 @@ from streamlit_chat_widget import chat_input_widget
 torch.classes.__path__ = [] 
 
 st.markdown("### 🤖 SQL Agent ")
+st.session_state['clear'] = 0
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -78,7 +79,9 @@ if audio: #if user recorded audio input
         st.session_state.messages.append({"role": "user", "content": transcript})
         invoke_agent(transcript)
 
-with st.container(height=500): 
+container = st.empty()
+
+with container.container(height=500): 
     for message in st.session_state.messages:
         if message['role'] == "tool":
             with st.chat_message("tool", avatar="⚙️"):
@@ -89,8 +92,10 @@ with st.container(height=500):
 
 def clear_memory(): 
     st.session_state['thread_id'] += 1
+    container.empty()
     st.session_state.messages = []
     st.info('Memory is cleared.', icon="ℹ️")
+
 
 if clear_button:
     clear_memory()
