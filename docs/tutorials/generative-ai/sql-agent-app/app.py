@@ -1,19 +1,38 @@
 import streamlit as st
 from langchain import hub  
 from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
-import pandas as pd
 from src.watsonx import get_llm
 from src.agent import ReActAgent
 from src.tools import get_tools
 from src.database import create_sql_database
-import time
+from src.speech import transcribe_audio
+import torch
+from streamlit_extras.stylable_container import stylable_container
+from streamlit_chat_widget import chat_input_widget
 
-st.title("SQL Agent")
-st.write("This app allows you to interact with an SQL database using a generative AI agent.")
-st.caption("Powered by watsonx.ai.")
-st.divider()
+torch.classes.__path__ = [] 
 
-llm, client = get_llm(model_id="mistralai/mistral-medium-2505")
+st.markdown("### 🤖 SQL Agent ")
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# container to provide a chat-like UI
+with stylable_container(
+        key="chat_input",
+        css_styles="""
+            {
+                position: fixed;
+                bottom: 50px;
+            }
+            """,
+    ):
+        audio = st.audio_input("", key="audio_input")
+        prompt = st.chat_input("Say something", key="prompt")
+        clear_button = st.button('Start new chat')
+
+
+llm, client = get_llm(model_id="mistralai/mistral-medium-2505",)
 tools=get_tools(llm)
 db = create_sql_database()
 
@@ -30,57 +49,49 @@ agent = ReActAgent(
 if 'thread_id' not in st.session_state:
     st.session_state['thread_id'] = 1
 
-st.text_input(label="User query", placeholder="E.g. How many cars were sold in 2022?", disabled=False, key="query")
-
-def clear_memory(): 
-    st.session_state['thread_id'] += 1
-    st.info('Memory is cleared.', icon="ℹ️") #, width="stretch")
-
-def invoke_agent():
-    # try:
-        result = agent.graph.invoke({"messages": [HumanMessage(content=st.session_state['query'])]}, {"configurable": {"thread_id": st.session_state['thread_id']}})
+def invoke_agent(user_query: str):
+    try:
+        result = agent.graph.invoke({"messages": [HumanMessage(content=user_query)]}, {"configurable": {"thread_id": st.session_state['thread_id']}})
         print(result)
         for message in result["messages"]:
             if isinstance(message, AIMessage):
-                st.markdown("**AI Response:**")
                 if message.tool_calls:
                     for tool_call in message.tool_calls:
-                        st.markdown(f"*Tool Name:* {tool_call['name']}")
-                        if tool_call['args']:
-                            st.markdown(f"*Arguments:* {tool_call['args']}")
-            elif isinstance(message, ToolMessage):
-                st.markdown("**Tool Response:**")
-            elif isinstance(message, HumanMessage):
-                st.markdown("**User Message:**")
-            if message.content:
-                st.code(message.content)
-        st.badge("Success", icon=":material/check:", color="green")
-    # except Exception as e:
-    #     st.error(f"LangGraph invocation failed: {e}", icon="🚨")
-        
-max_retries = 5
-retry_delay_seconds = 1
+                        st.session_state.messages.append({"role": "assistant", "content":f"Calling tool {tool_call['name']} with the following arguments: {tool_call['args']}"})
+                else:
+                    st.session_state.messages.append({"role": "assistant", "content": message.content})
+            elif isinstance(message, ToolMessage) and message.content != "":
+                st.session_state.messages.append({"role": "tool", "content": "Tool output: " + '\n' + message.content})
+    except Exception as e:
+        st.error(f"LangGraph invocation failed: {e}", icon="🚨")
 
-col1, col2, col3, col4 = st.columns([1,1,1,1])
 
-with col1:
-    invoke_button = st.button('Invoke')
-with col4:
-    clear_button = st.button('Start new chat')
+if prompt: #if user typed their input
+    st.session_state.messages.append({"role": "user", "content": st.session_state.get("prompt")})
+    invoke_agent(st.session_state.get("prompt"))
+    
+if audio: #if user recorded audio input
+    transcript = transcribe_audio(st.session_state.get("audio_input")) 
+    if transcript is None:
+        st.error("No speech detected in the audio file. Please try again or type your input directly.")
+    else:
+        st.session_state.messages.append({"role": "user", "content": transcript})
+        invoke_agent(transcript)
 
-if invoke_button:
-    for attempt in range(max_retries):
-        try:
-            invoke_agent()
-            print(f"Attempt {attempt + 1})")
-            break  # Exit the loop if successful
-        except  Exception as e:
-            print(f"Attempt {attempt + 1} failed: {e}")
-            if attempt < max_retries - 1:
-                print(f"Retrying in {retry_delay_seconds} seconds...")
-                time.sleep(retry_delay_seconds)
-            else:
-                print("Max retries reached. Giving up.")
+with st.container(height=500): 
+    for message in st.session_state.messages:
+        if message['role'] == "tool":
+            with st.chat_message("tool", avatar="⚙️"):
+                st.markdown(message['content'])
+        else: 
+            with st.chat_message(message["role"]):
+                st.markdown(message['content'])
+
+def clear_memory(): 
+    st.session_state['thread_id'] += 1
+    st.session_state.messages = []
+    st.info('Memory is cleared.', icon="ℹ️")
+
 if clear_button:
     clear_memory()
     print(f"New thread_id: {st.session_state['thread_id']}")

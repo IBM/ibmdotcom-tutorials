@@ -7,3 +7,5 @@ tavily-python
 langchain-community
 python-dotenv
 image
+ibm-watson>=7.0.0
+streamlit-extras
