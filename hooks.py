@@ -172,7 +172,7 @@ def path_to_url(filepath, base_url=""):
     
     # Convert .ipynb to / for clean URLs
     if url_path.endswith('.ipynb'):
-        url_path = url_path[:-6]  # Remove .ipynb
+        url_path = url_path[:-6]  # Remove .ipynba
         if not url_path.endswith('/'):
             url_path += '/'
     
@@ -185,8 +185,8 @@ def path_to_url(filepath, base_url=""):
 def on_post_build(config):
     tutorials = []
     
-    # Get base URL from config if available
-    base_url = getattr(config, 'site_url', '') or ''
+    # Always use GitHub as the base URL
+    base_url = 'https://ibm.github.io/ibmdotcom-tutorials'
     
     # Only look for .ipynb files in generative-ai directories
     for filepath in glob.glob("docs/tutorials/generative-ai/**/*.ipynb", recursive=True):
