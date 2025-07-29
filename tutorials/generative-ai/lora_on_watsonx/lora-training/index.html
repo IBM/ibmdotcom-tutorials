@@ -10,24 +10,24 @@
         <meta name="author" content="IBM.com Technical Content Team">
       
       
-        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/chatdev_watsonx_tutorial_/ecl/ecl/">
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/lora_on_watsonx/lora-training/">
       
       
       
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Ecl - IBM.com Tutorials</title>
+        <title>Fine-tuning Granite with LoRA - IBM.com Tutorials</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -55,11 +55,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Ecl - IBM.com Tutorials" >
+        <meta  property="og:title"  content="Fine-tuning Granite with LoRA - IBM.com Tutorials" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/chatdev_watsonx_tutorial_/ecl/ecl.png" >
+        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/generative-ai/lora_on_watsonx/lora-training.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -67,15 +67,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/chatdev_watsonx_tutorial_/ecl/ecl/" >
+        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/lora_on_watsonx/lora-training/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Ecl - IBM.com Tutorials" >
+        <meta  name="twitter:title"  content="Fine-tuning Granite with LoRA - IBM.com Tutorials" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/chatdev_watsonx_tutorial_/ecl/ecl.png" >
+        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/generative-ai/lora_on_watsonx/lora-training.png" >
       
     
     
@@ -97,6 +97,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#fine-tuning-granite-with-lora" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,9 +114,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
       
-  <img src="../../../../../assets/official_logo.png" alt="logo">
+  <img src="../../../../assets/official_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -128,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ecl
+              Fine-tuning Granite with LoRA
             
           </span>
         </div>
@@ -235,7 +240,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../.." class="md-tabs__link">
+        <a href="../../../.." class="md-tabs__link">
           
   
   
@@ -257,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../references/coc/" class="md-tabs__link">
+        <a href="../../../../references/coc/" class="md-tabs__link">
           
   
   
@@ -301,9 +306,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
       
-  <img src="../../../../../assets/official_logo.png" alt="logo">
+  <img src="../../../../assets/official_logo.png" alt="logo">
 
     </a>
     IBM.com Tutorials
@@ -363,7 +368,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../.." class="md-nav__link ">
+            <a href="../../../.." class="md-nav__link ">
               
   
   
@@ -398,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../about/" class="md-nav__link">
+      <a href="../../../../about/" class="md-nav__link">
         
   
   
@@ -470,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../getting-started/setup/" class="md-nav__link">
+      <a href="../../../../getting-started/setup/" class="md-nav__link">
         
   
   
@@ -501,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../tutorials-list/" class="md-nav__link">
+      <a href="../../../../tutorials-list/" class="md-nav__link">
         
   
   
@@ -524,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../projects-list/" class="md-nav__link">
+      <a href="../../../../projects-list/" class="md-nav__link">
         
   
   
@@ -607,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../references/coc/" class="md-nav__link">
+      <a href="../../../../references/coc/" class="md-nav__link">
         
   
   
@@ -630,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../references/contributing/" class="md-nav__link">
+      <a href="../../../../references/contributing/" class="md-nav__link">
         
   
   
@@ -653,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../references/license/" class="md-nav__link">
+      <a href="../../../../references/license/" class="md-nav__link">
         
   
   
@@ -694,8 +699,6 @@
   
   
 
-
-  <h1>Ecl</h1>
 
 <script>
 (function (global, factory) {
@@ -1133,8 +1136,75 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="fine-tuning-granite-with-lora">Fine-tuning Granite with LoRA<a class="anchor-link" href="#fine-tuning-granite-with-lora">¶</a></h1><p>LoRA is an efficient method of fine tuning transformers and LLMs which reduces the number of trainable parameters that increases the speed and resource usage of training while retaining the same quality of output. Instead of updating all model weights in a neural network during a full finetuning, LoRA freezes the original pre-trained weights and adds small, trainable low-rank matrices that approximate the changes needed for the new task.</p>
+<p>One additional benefit of LoRA is that since the pre-trained model weights from the original model are kept frozen, the generated LoRA weight matrix is lightweight and portable and can easily be stored.</p>
+<p>In this step-by-step tutorial, you'll use <a href="https://llamafactory.readthedocs.io/">LLaMa Factory</a>. LLaMa Factory is a platform for training and fine-tuning LLMs that allows users to tune LLMs on domain-specific datasets, evaluate model performance for specific tasks, and serve models. It has both a web UI and CLI that is user-friendly and supports over 100 LLMs. The platform supports datasets in Alpaca and ShareGPT formats. LLaMa Factory isn’t the only way to fine-tune LLMs, the PEFT library for Parameter-efficient fine-tuning is another option for updating large models. PEFT provides the ability to perform quantized LoRA (QLoRA) to even further compact the fine-tuned model. In this tutorial, you’ll use a non-quantized version of Granite 3.3.</p>
+<p>Although LLaMa Factory can runs without the use of extensive compute resources, it does require a GPU and a great deal of memory. In this tutorial you'll use LLaMa Factory on watsonx to provide GPU resources and storage for generated adapter.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="watson-studio-config">Watson Studio Config<a class="anchor-link" href="#watson-studio-config">¶</a></h2><p>a. Log in to <a href="https://dataplatform.cloud.ibm.com/registration/stepone?context=wx&amp;apps=all">watsonx.ai</a> using your IBM Cloud account.</p>
+<p>b. Create a <a href="https://www.ibm.com/docs/en/watsonx/saas?topic=projects-creating-project#create-a-project">watsonx.ai project</a>.
+&gt;Take note of your project ID in project &gt; Manage &gt; General &gt; Project ID.<br/>
+You'll need this ID for this tutorial.</p>
+<p>c. Create a <a href="https://cloud.ibm.com/catalog/services/watsonxai-runtime">watsonx.ai Runtime</a> service instance. For this tutorial you'll need to create a paid instance to access a GPU.</p>
+<p>d. Generate a watsonx <a href="https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-authentication.html">API Key</a>.</p>
+<p>e. Associate the watsonx.ai Runtime service to the project you created in <a href="https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/assoc-services.html?context=cpdaas">watsonx.ai</a>.</p>
+<h2 id="cloud-object-storage">Cloud Object Storage<a class="anchor-link" href="#cloud-object-storage">¶</a></h2><p>a. In order to create COS for your notebook you'll go to <a href="https://cloud.ibm.com/">https://cloud.ibm.com/</a> and then select "Create Instance".</p>
+<p>b. That will take you to a Create dialog where you can select a pricing plan. For this tutorial a Standard Plan will be adequate.</p>
+<p>c. Then give your COS Instance a name.</p>
+<p>d. Once you've created your Instance, go back to the Project and select "New Asset", then select "Connect to a data source".</p>
+<p><a href="connect_to_data.png">Connect to Data Source</a></p>
+<p>e. Select "Cloud Object Storage"</p>
+<p>f. In the next dialogue, select the Instance that you created in steps <strong>a</strong>-<strong>d</strong> by name.</p>
+<p>g. Select "Create".</p>
+<h3 id="create-a-jupyter-notebook">Create a Jupyter Notebook<a class="anchor-link" href="#create-a-jupyter-notebook">¶</a></h3><p>Create a Jupyter Notebook.</p>
+<p>a. Select the Assets tab in your project environment.</p>
+<p>b. Click New asset.</p>
+<p>c. Select the Working with models option in the left panel.</p>
+<p>d. Click Working with data and models using Python and R notebooks.</p>
+<p>e. Enter a name for your notebook in the Name field. Choose Runtime 23.1 on Python (4 vCPU 16 GB RAM) to define the configuration.</p>
+<p>f. Select Create.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="install-dependencies">Install Dependencies<a class="anchor-link" href="#install-dependencies">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Next, you'll install dependencies onto the runtime. First, Llama-Factory in order to generate the Low Rank Adapters, and then Pandas to format the dataset in Alpaca format.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d02408e5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1152,21 +1222,36 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> <span class="n">llamafactory</span> <span class="mi">2</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="c1"># pandas needed to format the dataset</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pandas</span> <span class="mi">2</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1"></div>
+<div class="clipboard-copy-txt" id="cell-1">!pip install -q llamafactory 2&gt;/dev/null
+# pandas needed to format the dataset
+!pip install -q --upgrade pandas 2&gt;/dev/null</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="check-gpu-environment">Check GPU environment<a class="anchor-link" href="#check-gpu-environment">¶</a></h3><p>Next, you'll ensure that your watsonx environment has provides a Torch compatible GPU that will be required to use LLaMa-Factory.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8bd83f6d">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-2">
@@ -1179,37 +1264,43 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graph</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">experience</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experience</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_easyDict_from_filepath</span><span class="p">,</span><span class="n">now</span> <span class="p">,</span><span class="n">log_and_print_online</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">memory</span><span class="w"> </span><span class="kn">import</span> <span class="n">Memory</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span> 
-<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="s2">"ecl"</span><span class="p">))</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="k">assert</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">"No GPU found, please set up a GPU before using LLaMA Factory."</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">import argparse
-from graph import Graph
-from experience import Experience
-from utils import get_easyDict_from_filepath,now ,log_and_print_online
-from memory import Memory
-import sys
-import os 
-import logging
-sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
+<div class="clipboard-copy-txt" id="cell-2">import torch
+
+try:
+  assert torch.cuda.is_available() is True
+except AssertionError:
+  print("No GPU found, please set up a GPU before using LLaMA Factory.")</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>If the above code snippet doesn't print "No GPU found" then you're good to go.</p>
+<p>Next you'll import libraries to manipulate data and to create the LLaMa Factory configuration file used for training.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=de35b047">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-3">
@@ -1222,88 +1313,35 @@ sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">memorize</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-    <span class="n">cfg</span> <span class="o">=</span> <span class="n">get_easyDict_from_filepath</span><span class="p">(</span><span class="s2">"./ecl/config.yaml"</span><span class="p">)</span>
-    
-    <span class="n">folder_path</span> <span class="o">=</span> <span class="s2">"ecl/logs"</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder_path</span><span class="p">):</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
-    <span class="n">log_filename</span> <span class="o">=</span> <span class="n">folder_path</span><span class="o">+</span><span class="s2">"/ecl_</span><span class="si">{}</span><span class="s2">.log"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">directory</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">log_filename</span><span class="p">)</span>
-    <span class="n">root_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="n">root_logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">[:]:</span>
-        <span class="n">root_logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
-    <span class="n">file_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">log_filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
-    <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">'[</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">'%Y-</span><span class="si">%d</span><span class="s1">-%m %H:%M:%S'</span><span class="p">)</span>
-    <span class="n">file_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
-    <span class="n">root_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handler</span><span class="p">)</span>
-    <span class="n">root_logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-
-    <span class="n">log_and_print_online</span><span class="p">(</span><span class="s2">"[Config]:"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">cfg</span><span class="p">))</span>
-    <span class="n">graph</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">()</span>
-    <span class="n">graph</span><span class="o">.</span><span class="n">create_from_log</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-    <span class="n">graph</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-
-    <span class="n">experience</span> <span class="o">=</span> <span class="n">Experience</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">log_and_print_online</span><span class="p">(</span><span class="s2">"No node or no edges constrcuted from the task execution process, maybe due to a unfinished software production or sometimes single node appears"</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">experience</span><span class="o">.</span><span class="n">reap_zombie</span><span class="p">:</span>
-            <span class="n">experience</span><span class="o">.</span><span class="n">reap_zombie</span><span class="p">()</span>
-            <span class="n">graph</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-    <span class="n">experience</span><span class="o">.</span><span class="n">estimate</span><span class="p">()</span>
-    <span class="n">experiences</span> <span class="o">=</span> <span class="n">experience</span><span class="o">.</span><span class="n">extract_thresholded_experiences</span><span class="p">()</span>
-
-    <span class="c1"># memory upload </span>
-    <span class="n">memory</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">()</span>
-    <span class="n">memory</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>
-    <span class="n">memory</span><span class="o">.</span><span class="n">upload_from_experience</span><span class="p">(</span><span class="n">experience</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">def memorize(directory):
-    print(directory)
-    cfg = get_easyDict_from_filepath("./ecl/config.yaml")
-    
-    folder_path = "ecl/logs"
-    if not os.path.exists(folder_path):
-        os.mkdir(folder_path)
-    log_filename = folder_path+"/ecl_{}.log".format(os.path.basename(directory))
-    print(log_filename)
-    root_logger = logging.getLogger()
-    for handler in root_logger.handlers[:]:
-        root_logger.removeHandler(handler)
-    file_handler = logging.FileHandler(log_filename, mode='w', encoding='utf-8')
-    formatter = logging.Formatter('[%(asctime)s %(levelname)s] %(message)s', datefmt='%Y-%d-%m %H:%M:%S')
-    file_handler.setFormatter(formatter)
-    root_logger.addHandler(file_handler)
-    root_logger.setLevel(logging.INFO)
-
-    log_and_print_online("[Config]:"+str(cfg))
-    graph = Graph()
-    graph.create_from_log(directory)
-    graph.print()
-
-    experience = Experience(graph, directory)
-    if len(graph.nodes)==0 or len(graph.edges) == 0:
-        log_and_print_online("No node or no edges constrcuted from the task execution process, maybe due to a unfinished software production or sometimes single node appears")
-    else:
-        if cfg.experience.reap_zombie:
-            experience.reap_zombie()
-            graph.print()
-    experience.estimate()
-    experiences = experience.extract_thresholded_experiences()
-
-    # memory upload 
-    memory = Memory()
-    memory.upload()
-    memory.upload_from_experience(experience)</div>
+<div class="clipboard-copy-txt" id="cell-3"># Import libraries
+import pandas as pd
+import json
+import yaml</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="download-and-process-medreason-dataset">Download and Process MedReason Dataset<a class="anchor-link" href="#download-and-process-medreason-dataset">¶</a></h2><p>In this tutorial you'll use a part of the <a href="https://arxiv.org/abs/2504.00993">MedReason</a> dataset. MedReason is an in-depth medical reasoning dataset designed to help enable explainable real-world medical problem-solving in large language models (LLMs). While MedReason focuses on the reasoning of a model and validating the chains of thought that a model uses, in this case it is also helpful to provide a dataset that is too recent to be included in the training data for Granite 3.3.</p>
+<p>Granite 3.3 has been designed to learn through fine-tuning, both of which will be run with LLaMa Factory. Granite models can be efficiently fine-tuned even with limited computing resources.</p>
+<p>You'll load a selection of the MedReason dataset from Github:</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=dff3967b">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1321,24 +1359,40 @@ sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_directory</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
-            <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
-            <span class="n">memorize</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
+
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/UCSC-VLAA/MedReason/refs/heads/main/eval_data/medbullets_op4.jsonl"</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">def process_directory(directory):
-    for root, dirs, files in os.walk(directory):
-        for directory in dirs:
-            file_path = os.path.join(root, directory)
-            memorize(file_path)</div>
+<div class="clipboard-copy-txt" id="cell-4">from datasets import load_dataset
+
+train_dataset = pd.read_json("https://raw.githubusercontent.com/UCSC-VLAA/MedReason/refs/heads/main/eval_data/medbullets_op4.jsonl", lines=True)</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>LLaMa Factory requires the dataset to be preformatted in Alpaca or ShareGPT formats. Thus, we reformat the question and answer fields of the original legal dataset to contain instruction, input, and output fields as per <a href="(https://github.com/hiyouga/LLaMA-Factory/tree/main/data#alpaca-format">Alpaca format</a>).</p>
+<p>Alpaca is a JSON format to represent an instruction, user input, and system output like so:</p>
+<pre><code>{
+    "instruction": "user instruction (required)",
+    "input": "user input (optional)",
+    "output": "model response (required)",
+    "system": "system prompt (optional)",
+}
+</code></pre>
+<p>Since MedReason isn't formatted in Alpaca, you'll create an Alpaca dataset in the next cell:</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e414f792">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1356,39 +1410,60 @@ sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Memorize one software or softwares from the directory."</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"path"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"The file or directory to process"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">,</span> <span class="s2">"--directory"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"Process all files in the given directory."</span><span class="p">)</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">data</span>
 
-    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">directory</span><span class="p">:</span>
-        <span class="n">process_directory</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">memorize</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="c1"># Format Legal Dataset to Alpaca Format</span>
+<span class="n">formatted_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"instruction"</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">"question"</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"options"</span><span class="p">]),</span>
+        <span class="s2">"input"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"output"</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">"answer"</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># output formatted MedReason dataset</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data/med.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">formatted_data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">def main():
-    parser = argparse.ArgumentParser(description="Memorize one software or softwares from the directory.")
-    parser.add_argument("path", help="The file or directory to process")
-    parser.add_argument("-d", "--directory", action="store_true", help="Process all files in the given directory.")
-    args = parser.parse_args()
+<div class="clipboard-copy-txt" id="cell-5">!mkdir -p data
 
-    if args.directory:
-        process_directory(args.path)
-    else:
-        memorize(args.path)</div>
+# Format Legal Dataset to Alpaca Format
+formatted_data = [
+    {
+        "instruction": row["question"] + str(row["options"]),
+        "input": "",
+        "output": row["answer"]
+    }
+    for _, row in train_dataset.iterrows()
+]
+
+# output formatted MedReason dataset
+with open("data/med.json", "w", encoding="utf-8") as f:
+  json.dump(formatted_data, f, indent=2, ensure_ascii=False)</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Llama Factory utilizes a specific file to understand how to load datasets for training. This file must exist at path <code>data/dataset_info.json</code>. Thus, we must create a <code>dataset_info.json</code> file that includes the path to the new formatted medical dataset we created in order for the Llama Factory CLI to access the dataset. For details on the <code>dataset_info.json</code> file see the <a href="https://github.com/hiyouga/LLaMA-Factory/blob/v0.9.2/data/README.md">documentation</a>. Within the Llama Factory repository there are datasets available to use, however, since we are using our own custom dataset we must add our dataset to the JSON file.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=33f766dd">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
@@ -1401,13 +1476,919 @@ sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># "med" will be the identifier for the dataset </span>
+<span class="c1"># which points to the local file that contains the dataset</span>
+<span class="n">dataset_info</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"med"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"file_name"</span><span class="p">:</span> <span class="s2">"med.json"</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Create dataset_info.json with legal dataset so can reference with llama factory</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data/dataset_info.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dataset_info</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">if __name__ == "__main__":
-    main()</div>
+<div class="clipboard-copy-txt" id="cell-6"># "med" will be the identifier for the dataset 
+# which points to the local file that contains the dataset
+dataset_info = {
+  "med": {
+    "file_name": "med.json",
+  }
+}
+
+# Create dataset_info.json with legal dataset so can reference with llama factory
+with open("data/dataset_info.json", "w", encoding="utf-8") as f:
+  json.dump(dataset_info, f, indent=2, ensure_ascii=False)</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now that the Alpaca formatted JSON object has been saved into the environment, you're ready to start training.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="lora-fine-tune-model-with-llama-factory-via-command-line">LoRA fine-tune model with LLaMa Factory via Command Line<a class="anchor-link" href="#lora-fine-tune-model-with-llama-factory-via-command-line">¶</a></h2><p>The next step is to set up the training configurations and then write the configs to a YAML file that LLaMa-Factory uses to run training.</p>
+<p>Now you'll run Supervised Fine-Tuning (SFT) on the subset of the MedReason dataset. LLaMa Factory supports several different types of training. Some of the most commonly used are:</p>
+<p>Pre-Training: where a model undergoes initial training using an extensive dataset to generate responses to fundamental language and ideas.
+Supervised Fine-Tuning (SFT): where a model receives additional training with annotated data to enhance precision for a particular function or on a specific topic.
+Reward Modeling: where the model acquires knowledge on how to achieve a specific incentive or reward that will inform its output
+Proximal Policy Optimization (PPO) Training: is a reinforcement learning (RL) technique where the model is further honed through policy gradient techniques to boost its effectiveness in a specific setting.</p>
+<p>There are many settings used in configuring LoRA but a few of the most commonly used are:</p>
+<p>Learning Rate (LR): the learning rate determines how significantly model parameters are updated during each iteration of training. A higher LR can speed up convergence by allowing larger updates but risks overshooting the optimal solution or oscillating around it. A lower LR leads to slower but more stable convergence, reducing the risk of instability near the optimal solution.</p>
+<p>loraplus_lr_ratio: this sets the the ratio of learning rates. Generally it should be &gt; 1, but the optimal choice of loraplus_lr_ratio is model and task dependent. As a rule of thumb, loraplus_lr_ratio should be larger when the task is more difficult and the model needs to update its features to learn well. In this case, it helps to make the learning rate slightly smaller (e.g., by a factor of 2) than typical vanilla LoRA learning rates.</p>
+<p>Effective Batch Size: Correctly configuring your batch size is critical for balancing training stability with the VRAM limitations of the GPU you're using. The Effective Batch Size is set by the product of <code>per_device_train_batch_size</code> * <code>gradient_accumulation_steps</code>. A larger Effective Batch Size generally leads to smoother, more stable training, but also may require more VRAM than your GPU contains. A smaller Effective Batch Size may introduce more variance.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># setup training configurations</span>
+<span class="n">loraconfig</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+  <span class="n">stage</span><span class="o">=</span><span class="s2">"sft"</span><span class="p">,</span>                                                      <span class="c1"># do supervised fine-tuning</span>
+  <span class="n">do_train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                                                    <span class="c1"># we're actually training</span>
+  <span class="n">model_name_or_path</span><span class="o">=</span><span class="s2">"ibm-granite/granite-3.3-2b-instruct"</span><span class="p">,</span>         <span class="c1"># use IBM Granite 3.3 2b instruct model</span>
+  <span class="n">dataset</span><span class="o">=</span><span class="s2">"med"</span><span class="p">,</span>                                                    <span class="c1"># use medical datasets we created</span>
+  <span class="n">template</span><span class="o">=</span><span class="s2">"granite3"</span><span class="p">,</span>                                              <span class="c1"># use granite3 prompt template</span>
+  <span class="n">finetuning_type</span><span class="o">=</span><span class="s2">"lora"</span><span class="p">,</span>                                           <span class="c1"># use LoRA adapters to save memory</span>
+  <span class="n">lora_target</span><span class="o">=</span><span class="s2">"all"</span><span class="p">,</span>                                                <span class="c1"># attach LoRA adapters to all linear layers</span>
+  <span class="n">loraplus_lr_ratio</span><span class="o">=</span><span class="mf">16.0</span><span class="p">,</span>                                           <span class="c1"># use LoRA+ algorithm with lambda=16.0</span>
+  <span class="n">output_dir</span><span class="o">=</span><span class="s2">"granite3_lora"</span><span class="p">,</span>                                       <span class="c1"># the path to save LoRA adapters</span>
+  <span class="n">per_device_train_batch_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>                                    <span class="c1"># the batch size</span>
+  <span class="n">gradient_accumulation_steps</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>                                    <span class="c1"># the gradient accumulation steps</span>
+  <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>                                               <span class="c1"># the learning rate</span>
+  <span class="n">num_train_epochs</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>                                             <span class="c1"># the epochs of training</span>
+  <span class="n">max_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>                                                  <span class="c1"># use 500 examples in each dataset</span>
+  <span class="n">fp16</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                                                        <span class="c1"># use float16 mixed precision training</span>
+  <span class="n">report_to</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span>                                                 <span class="c1"># disable wandb logging</span>
+<span class="p">)</span>
+
+<span class="c1"># create training config file to run with llama factory</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"train_granite3_lora_med.yaml"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+  <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">loraconfig</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-7"># setup training configurations
+loraconfig = dict(
+  stage="sft",                                                      # do supervised fine-tuning
+  do_train=True,                                                    # we're actually training
+  model_name_or_path="ibm-granite/granite-3.3-2b-instruct",         # use IBM Granite 3.3 2b instruct model
+  dataset="med",                                                    # use medical datasets we created
+  template="granite3",                                              # use granite3 prompt template
+  finetuning_type="lora",                                           # use LoRA adapters to save memory
+  lora_target="all",                                                # attach LoRA adapters to all linear layers
+  loraplus_lr_ratio=16.0,                                           # use LoRA+ algorithm with lambda=16.0
+  output_dir="granite3_lora",                                       # the path to save LoRA adapters
+  per_device_train_batch_size=4,                                    # the batch size
+  gradient_accumulation_steps=2,                                    # the gradient accumulation steps
+  learning_rate=1e-4,                                               # the learning rate
+  num_train_epochs=3.0,                                             # the epochs of training
+  max_samples=500,                                                  # use 500 examples in each dataset
+  fp16=True,                                                        # use float16 mixed precision training
+  report_to="none",                                                 # disable wandb logging
+)
+
+# create training config file to run with llama factory
+with open("train_granite3_lora_med.yaml", "w", encoding="utf-8") as file:
+  yaml.dump(loraconfig, file, indent=2)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The next cell will train the model and may take up to 10 minutes to run:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="n">llamafactory</span><span class="o">-</span><span class="n">cli</span> <span class="n">train</span> <span class="n">train_granite3_lora_med</span><span class="o">.</span><span class="n">yaml</span><span class="p">;</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-8">!llamafactory-cli train train_granite3_lora_med.yaml;</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Next you'll create two methods to upload and download data from IBM Cloud Object Storage:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ibm_botocore.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ibm_boto3</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">upload_file_cos</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span> <span class="n">local_file_name</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>  
+    <span class="n">cos</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="n">service_name</span><span class="o">=</span><span class="s1">'s3'</span><span class="p">,</span>
+    <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">'IBM_API_KEY_ID'</span><span class="p">],</span>
+    <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">'IAM_SERVICE_ID'</span><span class="p">],</span>
+    <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">'IBM_AUTH_ENDPOINT'</span><span class="p">],</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="n">signature_version</span><span class="o">=</span><span class="s1">'oauth'</span><span class="p">),</span>
+    <span class="n">endpoint_url</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">'ENDPOINT'</span><span class="p">])</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">res</span><span class="o">=</span><span class="n">cos</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">Filename</span><span class="o">=</span><span class="n">local_file_name</span><span class="p">,</span> <span class="n">Bucket</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">'BUCKET'</span><span class="p">],</span><span class="n">Key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">' File Uploaded'</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">download_file_cos</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span><span class="n">local_file_name</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>  
+    <span class="n">cos</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="n">service_name</span><span class="o">=</span><span class="s1">'s3'</span><span class="p">,</span>
+    <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">'IBM_API_KEY_ID'</span><span class="p">],</span>
+    <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">'IAM_SERVICE_ID'</span><span class="p">],</span>
+    <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">'IBM_AUTH_ENDPOINT'</span><span class="p">],</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="n">signature_version</span><span class="o">=</span><span class="s1">'oauth'</span><span class="p">),</span>
+    <span class="n">endpoint_url</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">'ENDPOINT'</span><span class="p">])</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">res</span><span class="o">=</span><span class="n">cos</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">'BUCKET'</span><span class="p">],</span><span class="n">Key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span><span class="n">Filename</span><span class="o">=</span><span class="n">local_file_name</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'File Downloaded'</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-9">from ibm_botocore.client import Config
+import ibm_boto3
+
+def upload_file_cos(credentials, local_file_name, key):  
+    cos = ibm_boto3.client(service_name='s3',
+    ibm_api_key_id=credentials['IBM_API_KEY_ID'],
+    ibm_service_instance_id=credentials['IAM_SERVICE_ID'],
+    ibm_auth_endpoint=credentials['IBM_AUTH_ENDPOINT'],
+    config=Config(signature_version='oauth'),
+    endpoint_url=credentials['ENDPOINT'])
+    try:
+        res=cos.upload_file(Filename=local_file_name, Bucket=credentials['BUCKET'],Key=key)
+    except Exception as e:
+        print(Exception, e)
+    else:
+        print(' File Uploaded')
+
+
+def download_file_cos(credentials,local_file_name,key):  
+    cos = ibm_boto3.client(service_name='s3',
+    ibm_api_key_id=credentials['IBM_API_KEY_ID'],
+    ibm_service_instance_id=credentials['IAM_SERVICE_ID'],
+    ibm_auth_endpoint=credentials['IBM_AUTH_ENDPOINT'],
+    config=Config(signature_version='oauth'),
+    endpoint_url=credentials['ENDPOINT'])
+    try:
+        res=cos.download_file(Bucket=credentials['BUCKET'],Key=key,Filename=local_file_name)
+    except Exception as e:
+        print(Exception, e)
+    else:
+        print('File Downloaded')</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The next cell contains the credentials of Cloud Object Storage (COS).</p>
+<p>In your Notebook, click on the Code Snippets tab in the right corner. This will bring up a menu with several options for generated code snippets. Select "Read Data":</p>
+<p><a href="read_data.png">Read Data option</a></p>
+<p>This will bring up a menu to select a data file. If you haven't uploaded anything to your COS Instance you'll need to upload something in order to generate credentials. That can be a classic dataset like <code>wine.csv</code>.</p>
+<p><a href="select_data.png">Select Data option</a></p>
+<p>After clicking "Select" you can now generate the credentials snippet under the "Load as" option:</p>
+<p><a href="insert_credentials.png">Load as option</a></p>
+<p>This will generate a cell like the one below with the correct assets:</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<pre><code># @hidden_cell 
+# The following code contains metadata for a file in your project storage. You might want to remove secret properties before you share your notebook.# 
+storage_metadata = { 
+    'IAM_SERVICE_ID': '&lt;&gt;', 
+    'IAM_API_KEY_ID': '&lt;&gt;', 
+    'ENDPOINT': '&lt;&gt;', 
+    'IBM_AUTH_ENDPOINT': '&lt;&gt;', 
+    'BUCKET ': '&lt;&gt;' 
+}
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now zip folder containing the adapter and the information about the adapter itself:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-10">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="nb">zip</span> <span class="o">-</span><span class="n">r</span> <span class="s2">"granite3_lora.zip"</span> <span class="s2">"granite3_lora"</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-10">!zip -r "granite3_lora.zip" "granite3_lora"</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>  adding: granite3_lora/ (stored 0%)
+  adding: granite3_lora/adapter_config.json (deflated 56%)
+  adding: granite3_lora/trainer_log.jsonl (deflated 29%)
+  adding: granite3_lora/training_args.bin (deflated 51%)
+  adding: granite3_lora/added_tokens.json (deflated 58%)
+  adding: granite3_lora/special_tokens_map.json (deflated 78%)
+  adding: granite3_lora/vocab.json (deflated 57%)
+  adding: granite3_lora/trainer_state.json (deflated 59%)
+  adding: granite3_lora/tokenizer_config.json (deflated 81%)
+  adding: granite3_lora/merges.txt (deflated 51%)
+  adding: granite3_lora/adapter_model.safetensors (deflated 8%)
+  adding: granite3_lora/README.md (deflated 47%)
+  adding: granite3_lora/train_results.json (deflated 39%)
+  adding: granite3_lora/tokenizer.json (deflated 81%)
+  adding: granite3_lora/checkpoint-114/ (stored 0%)
+  adding: granite3_lora/checkpoint-114/adapter_config.json (deflated 56%)
+  adding: granite3_lora/checkpoint-114/training_args.bin (deflated 51%)
+  adding: granite3_lora/checkpoint-114/added_tokens.json (deflated 58%)
+  adding: granite3_lora/checkpoint-114/rng_state.pth (deflated 25%)
+  adding: granite3_lora/checkpoint-114/special_tokens_map.json (deflated 78%)
+  adding: granite3_lora/checkpoint-114/scaler.pt (deflated 60%)
+  adding: granite3_lora/checkpoint-114/vocab.json (deflated 57%)
+  adding: granite3_lora/checkpoint-114/trainer_state.json (deflated 56%)
+  adding: granite3_lora/checkpoint-114/tokenizer_config.json (deflated 81%)
+  adding: granite3_lora/checkpoint-114/optimizer.pt (deflated 8%)
+  adding: granite3_lora/checkpoint-114/merges.txt (deflated 51%)
+  adding: granite3_lora/checkpoint-114/adapter_model.safetensors (deflated 8%)
+  adding: granite3_lora/checkpoint-114/README.md (deflated 66%)
+  adding: granite3_lora/checkpoint-114/tokenizer.json (deflated 81%)
+  adding: granite3_lora/checkpoint-114/scheduler.pt (deflated 53%)
+  adding: granite3_lora/all_results.json (deflated 39%)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Check that you've created the zip correctly:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-11">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="n">ls</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-11">!ls</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now it's time to upload the results of the LoRA SFT so that you can use it elsewhere without needing to re-run LLaMa Factory training.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-12">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">upload_file_cos</span><span class="p">(</span><span class="n">storage_metadata</span><span class="p">,</span> <span class="s2">"granite3_lora.zip"</span><span class="p">,</span> <span class="s2">"granite3_lora.zip"</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-12">upload_file_cos(storage_metadata, "granite3_lora.zip", "granite3_lora.zip")</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre> File Uploaded
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="infer-with-the-granite-base-model">Infer with the Granite Base Model<a class="anchor-link" href="#infer-with-the-granite-base-model">¶</a></h2><p>Now it's time to run inference. The inference will be backed by <a href="https://huggingface.co/docs/transformers/en/main_classes/text_generation">HuggingFace generation</a>, which provides a <code>model.generate()</code> method for text generation using PyTorch.</p>
+<p>This tutorial shows asking the base model a medical question pulled from the MedReason dataset. It's reasonable that the base model may not be able to answer this question since it is a general-purpose model trained on large, diverse datasets.</p>
+<p>Let's ask the chatbot the question: <code>What does assessing unit mean?</code></p>
+<p>Note: The input typed into the prompt box created from the chat service will be hidden if running in Google Colab as Google Colab hides user input in case a secret is being passed. However, the chat service will print out the input provided so you can see what you inputted.</p>
+<p>That chat stream is ongoing so you will have to stop the code block in order to continue.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-13">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># setup inference configurations</span>
+<span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+  <span class="n">model_name_or_path</span><span class="o">=</span><span class="s2">"ibm-granite/granite-3.3-2b-instruct"</span><span class="p">,</span>       <span class="c1"># use IBM Granite 3.3 2b instruct model</span>
+  <span class="n">template</span><span class="o">=</span><span class="s2">"granite3"</span><span class="p">,</span>                                            <span class="c1"># set to the same one used in training, template for constructing prompts</span>
+  <span class="n">infer_backend</span><span class="o">=</span><span class="s2">"huggingface"</span>                                     <span class="c1"># choices： [huggingface, vllm]</span>
+<span class="p">)</span>
+
+<span class="c1"># create inference config file to run with llama factory</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"inference_config.yaml"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+  <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-13"># setup inference configurations
+args = dict(
+  model_name_or_path="ibm-granite/granite-3.3-2b-instruct",       # use IBM Granite 3.3 2b instruct model
+  template="granite3",                                            # set to the same one used in training, template for constructing prompts
+  infer_backend="huggingface"                                     # choices： [huggingface, vllm]
+)
+
+# create inference config file to run with llama factory
+with open("inference_config.yaml", "w", encoding="utf-8") as file:
+  yaml.dump(args, file, indent=2)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-14">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">llamafactory.chat</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatModel</span>
+<span class="n">chat_model</span> <span class="o">=</span> <span class="n">ChatModel</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-14">from llamafactory.chat import ChatModel
+chat_model = ChatModel(args)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-15">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># run inference chatbot</span>
+<span class="n">question</span> <span class="o">=</span> <span class="s1">'''</span>
+<span class="s1">A 1-year-old girl is brought to a neurologist due to increasing seizure frequency over the past 2 months. </span>
+<span class="s1">She recently underwent a neurology evaluation which revealed hypsarrhythmia on electroencephalography (EEG) with a mix of slow waves, multifocal spikes, and asynchrony. </span>
+<span class="s1">Her parents have noticed the patient occasionally stiffens and spreads her arms at home. She was born at 38-weeks gestational age without complications. </span>
+<span class="s1">She has no other medical problems. Her medications consist of lamotrigine and valproic acid. Her temperature is 98.3</span><span class="se">\u00b0</span><span class="s1">F (36.8</span><span class="se">\u00b0</span><span class="s1">C), blood pressure is 90/75 mmHg, pulse is 94/min, and respirations are 22/min. </span>
+<span class="s1">Physical exam reveals innumerable hypopigmented macules on the skin and an irregularly shaped, thickened, and elevated plaque on the lower back. </span>
+<span class="s1">Which of the following is most strongly associated with this patient's condition?"</span>
+<span class="s1">"A": "Cardiac rhabdomyoma", "B": "Glaucoma", "C": "Optic glioma", "D": "Polyostotic fibrous dysplasia"</span>
+<span class="s1">'''</span>
+<span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="s2">""</span>
+<span class="k">for</span> <span class="n">new_text</span> <span class="ow">in</span> <span class="n">chat_model</span><span class="o">.</span><span class="n">stream_chat</span><span class="p">(</span><span class="n">messages</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">+=</span> <span class="n">new_text</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"assistant"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">response</span><span class="p">})</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-15">messages = []
+
+# run inference chatbot
+question = '''
+A 1-year-old girl is brought to a neurologist due to increasing seizure frequency over the past 2 months. 
+She recently underwent a neurology evaluation which revealed hypsarrhythmia on electroencephalography (EEG) with a mix of slow waves, multifocal spikes, and asynchrony. 
+Her parents have noticed the patient occasionally stiffens and spreads her arms at home. She was born at 38-weeks gestational age without complications. 
+She has no other medical problems. Her medications consist of lamotrigine and valproic acid. Her temperature is 98.3\u00b0F (36.8\u00b0C), blood pressure is 90/75 mmHg, pulse is 94/min, and respirations are 22/min. 
+Physical exam reveals innumerable hypopigmented macules on the skin and an irregularly shaped, thickened, and elevated plaque on the lower back. 
+Which of the following is most strongly associated with this patient's condition?"
+"A": "Cardiac rhabdomyoma", "B": "Glaucoma", "C": "Optic glioma", "D": "Polyostotic fibrous dysplasia"
+'''
+messages.append({"role": "user", "content": question})
+
+response = ""
+for new_text in chat_model.stream_chat(messages):
+    response += new_text
+
+print(response)
+messages.append({"role": "assistant", "content": response})</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Here's the sample output from the base Granite 3.3 model:</p>
+<ul>
+<li><strong>User</strong>:</li>
+</ul>
+<pre><code>A 1-year-old girl is brought to a neurologist due to increasing seizure frequency over the past 2 months. 
+She recently underwent a neurology evaluation which revealed hypsarrhythmia on electroencephalography (EEG) with a mix of slow waves, multifocal spikes, and asynchrony. 
+Her parents have noticed the patient occasionally stiffens and spreads her arms at home. She was born at 38-weeks gestational age without complications. 
+She has no other medical problems. Her medications consist of lamotrigine and valproic acid. Her temperature is 98.3\F (36.8\C), blood pressure is 90/75 mmHg, pulse is 94/min, and respirations are 22/min. 
+Physical exam reveals innumerable hypopigmented macules on the skin and an irregularly shaped, thickened, and elevated plaque on the lower back. 
+Which of the following is most strongly associated with this patient's condition?"
+"A": "Cardiac rhabdomyoma", "B": "Glaucoma", "C": "Optic glioma", "D": "Polyostotic fibrous dysplasia"
+</code></pre>
+<ul>
+<li><strong>Response</strong>:</li>
+</ul>
+<pre><code>The most strongly associated condition with this patient's condition is "C": "Optic glioma".
+
+The patient's symptoms of hypsarrhythmia on EEG, seizure frequency increase, and the presence of hypopigmented macules and a thickened plaque on the lower back are indicative of a neurological disorder. Optic glioma is a type of brain tumor that can present with these symptoms, including seizures and visual disturbances.
+
+Option A, "Cardiac rhabdomyoma", typically presents with cardiac involvement and is not associated with the described EEG findings or skin manifestations.
+
+Option B, "Glaucoma", is an eye disease that can lead to vision loss but is not associated with the EEG findings or skin lesions described.
+
+Option D, "Polyostotic fibrous dysplasia", is a bone disorder characterized by multiple bone lesions and is not associated with the neurological symptoms and EEG findings presented.
+
+Therefore, based on the clinical presentation, the most likely diagnosis is an optic glioma.
+</code></pre>
+<p>The correct response from the dataset is:</p>
+<pre><code>answer: Cardiac rhabdomyoma
+</code></pre>
+<p>The base model doesn't generate the correct answer.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="infer-with-the-lora-fine-tuned-adapter">Infer with the LoRA fine-tuned adapter<a class="anchor-link" href="#infer-with-the-lora-fine-tuned-adapter">¶</a></h2><p>We will compare the results by running against the base model and the LoRA tuned adapter and asking the same question to see how tuning with the legal dataset allowed the model to better understand and answer medical questions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The following cell won't be necessary if you've performed LoRA in the same session, however, if you're coming back to the Jupyter Notebook and don't want to retrain, you can download the fine-tuned adapters from your COS Instance.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-16">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">download_file_cos</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span> <span class="s2">"granite3_lora.zip"</span><span class="p">,</span> <span class="s2">"granite3_lora.zip"</span><span class="p">)</span>
+<span class="err">!</span><span class="n">unzip</span> <span class="n">granite3_lora</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-16">download_file_cos(credentials, "granite3_lora.zip", "granite3_lora.zip")
+!unzip granite3_lora.zip</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now you'll configure the options for the ChatModel so that it will incorporate the adapters.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-17">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># setup inference configurations</span>
+<span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+  <span class="n">model_name_or_path</span><span class="o">=</span><span class="s2">"ibm-granite/granite-3.3-2b-instruct"</span><span class="p">,</span>       <span class="c1"># use IBM Granite 3.3 2b instruct model</span>
+  <span class="n">adapter_name_or_path</span><span class="o">=</span><span class="s2">"granite3_lora"</span><span class="p">,</span>                           <span class="c1"># load the saved LoRA adapters</span>
+  <span class="n">template</span><span class="o">=</span><span class="s2">"granite3"</span><span class="p">,</span>                                            <span class="c1"># set to the same one used in training, template for constructing prompts</span>
+  <span class="n">finetuning_type</span><span class="o">=</span><span class="s2">"lora"</span><span class="p">,</span>                                         <span class="c1"># which fine-tuning technique used in training</span>
+  <span class="n">infer_backend</span><span class="o">=</span><span class="s2">"huggingface"</span>                                     <span class="c1"># choices： [huggingface, vllm]</span>
+<span class="p">)</span>
+
+<span class="c1"># create inference config file to run with llama factory</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"inference_config.yaml"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+  <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">llamafactory.chat</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatModel</span>
+<span class="n">chat_model</span> <span class="o">=</span> <span class="n">ChatModel</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-17"># setup inference configurations
+args = dict(
+  model_name_or_path="ibm-granite/granite-3.3-2b-instruct",       # use IBM Granite 3.3 2b instruct model
+  adapter_name_or_path="granite3_lora",                           # load the saved LoRA adapters
+  template="granite3",                                            # set to the same one used in training, template for constructing prompts
+  finetuning_type="lora",                                         # which fine-tuning technique used in training
+  infer_backend="huggingface"                                     # choices： [huggingface, vllm]
+)
+
+# create inference config file to run with llama factory
+with open("inference_config.yaml", "w", encoding="utf-8") as file:
+  yaml.dump(args, file, indent=2)
+
+
+from llamafactory.chat import ChatModel
+chat_model = ChatModel(args)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now we can test the same reasoning challenge to the fine-tuned model:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-18">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># run inference chatbot</span>
+<span class="n">question</span> <span class="o">=</span> <span class="s1">'''</span>
+<span class="s1">A 1-year-old girl is brought to a neurologist due to increasing seizure frequency over the past 2 months. </span>
+<span class="s1">She recently underwent a neurology evaluation which revealed hypsarrhythmia on electroencephalography (EEG) with a mix of slow waves, multifocal spikes, and asynchrony. </span>
+<span class="s1">Her parents have noticed the patient occasionally stiffens and spreads her arms at home. She was born at 38-weeks gestational age without complications. </span>
+<span class="s1">She has no other medical problems. Her medications consist of lamotrigine and valproic acid. Her temperature is 98.3</span><span class="se">\u00b0</span><span class="s1">F (36.8</span><span class="se">\u00b0</span><span class="s1">C), blood pressure is 90/75 mmHg, pulse is 94/min, and respirations are 22/min. </span>
+<span class="s1">Physical exam reveals innumerable hypopigmented macules on the skin and an irregularly shaped, thickened, and elevated plaque on the lower back. </span>
+<span class="s1">Which of the following is most strongly associated with this patient's condition?"</span>
+<span class="s1">"A": "Cardiac rhabdomyoma", "B": "Glaucoma", "C": "Optic glioma", "D": "Polyostotic fibrous dysplasia"</span>
+<span class="s1">'''</span>
+<span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="s2">""</span>
+<span class="k">for</span> <span class="n">new_text</span> <span class="ow">in</span> <span class="n">chat_model</span><span class="o">.</span><span class="n">stream_chat</span><span class="p">(</span><span class="n">messages</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">+=</span> <span class="n">new_text</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"assistant"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">response</span><span class="p">})</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-18">messages = []
+
+# run inference chatbot
+question = '''
+A 1-year-old girl is brought to a neurologist due to increasing seizure frequency over the past 2 months. 
+She recently underwent a neurology evaluation which revealed hypsarrhythmia on electroencephalography (EEG) with a mix of slow waves, multifocal spikes, and asynchrony. 
+Her parents have noticed the patient occasionally stiffens and spreads her arms at home. She was born at 38-weeks gestational age without complications. 
+She has no other medical problems. Her medications consist of lamotrigine and valproic acid. Her temperature is 98.3\u00b0F (36.8\u00b0C), blood pressure is 90/75 mmHg, pulse is 94/min, and respirations are 22/min. 
+Physical exam reveals innumerable hypopigmented macules on the skin and an irregularly shaped, thickened, and elevated plaque on the lower back. 
+Which of the following is most strongly associated with this patient's condition?"
+"A": "Cardiac rhabdomyoma", "B": "Glaucoma", "C": "Optic glioma", "D": "Polyostotic fibrous dysplasia"
+'''
+messages.append({"role": "user", "content": question})
+
+response = ""
+for new_text in chat_model.stream_chat(messages):
+    response += new_text
+
+print(response)
+messages.append({"role": "assistant", "content": response})</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Cardiac rhabdomyoma
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="sample-output-from-fine-tuned-model">Sample output from fine-tuned model:<a class="anchor-link" href="#sample-output-from-fine-tuned-model">¶</a></h3><ul>
+<li><strong>User</strong>:</li>
+</ul>
+<pre><code>A 1-year-old girl is brought to a neurologist due to increasing seizure frequency over the past 2 months. 
+She recently underwent a neurology evaluation which revealed hypsarrhythmia on electroencephalography (EEG) with a mix of slow waves, multifocal spikes, and asynchrony. 
+Her parents have noticed the patient occasionally stiffens and spreads her arms at home. She was born at 38-weeks gestational age without complications. 
+She has no other medical problems. Her medications consist of lamotrigine and valproic acid. Her temperature is 98.3\u00b0F (36.8\u00b0C), blood pressure is 90/75 mmHg, pulse is 94/min, and respirations are 22/min. 
+Physical exam reveals innumerable hypopigmented macules on the skin and an irregularly shaped, thickened, and elevated plaque on the lower back. 
+Which of the following is most strongly associated with this patient's condition?"
+"A": "Cardiac rhabdomyoma", "B": "Glaucoma", "C": "Optic glioma", "D": "Polyostotic fibrous dysplasia"
+</code></pre>
+<ul>
+<li><strong>Response</strong>:</li>
+</ul>
+<pre><code>Cardiac rhabdomyoma
+</code></pre>
+<p>This time the model did generate the correct answer, thanks to the trained adapter.</p>
+<p>One aspect to note: the model no longer responds with its reasoning. This is because the dataset that was used for LoRA has only the correct answer as the desired model output. LoRA fine-tuning can be used both to provide new information but also to instruct the model how to respond.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="summary">Summary<a class="anchor-link" href="#summary">¶</a></h2><p>In this tutorial you LoRA fine-tuned the IBM Granite-3.3-2b-Instruct model with new medical knowledge and a detailed template for how to respond. You saw Granite 3.3's capacity to learn even with a small model and limited samples from the dataset.</p>
 </div>
 </div>
 </div>
@@ -1415,6 +2396,10 @@ sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
 </div> <!-- jp-Notebook -->
 </div> <!-- jupyter-wrapper -->
 
+        <style>
+        ['pre { line-height: 125%; }\ntd.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }\nspan.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }\ntd.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }\nspan.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }\n.highlight-ipynb .hll { background-color: var(--jp-cell-editor-active-background) }\n.highlight-ipynb { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }\n.highlight-ipynb .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */\n.highlight-ipynb .err { color: var(--jp-mirror-editor-error-color) } /* Error */\n.highlight-ipynb .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */\n.highlight-ipynb .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */\n.highlight-ipynb .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */\n.highlight-ipynb .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */\n.highlight-ipynb .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */\n.highlight-ipynb .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */\n.highlight-ipynb .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */\n.highlight-ipynb .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */\n.highlight-ipynb .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */\n.highlight-ipynb .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */\n.highlight-ipynb .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */\n.highlight-ipynb .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */\n.highlight-ipynb .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */\n.highlight-ipynb .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */\n.highlight-ipynb .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */\n.highlight-ipynb .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */\n.highlight-ipynb .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */\n.highlight-ipynb .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */\n.highlight-ipynb .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */\n.highlight-ipynb .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */\n.highlight-ipynb .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */\n.highlight-ipynb .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */\n.highlight-ipynb .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */\n.highlight-ipynb .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */\n.highlight-ipynb .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */\n.highlight-ipynb .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */\n.highlight-ipynb .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */\n.highlight-ipynb .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */\n.highlight-ipynb .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */\n.highlight-ipynb .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */\n.highlight-ipynb .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */\n.highlight-ipynb .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */\n.highlight-ipynb .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */\n.highlight-ipynb .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */\n.highlight-ipynb .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */\n.highlight-ipynb .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */\n.highlight-ipynb .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */\n.highlight-ipynb .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */\n.highlight-ipynb .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */']
+        </style>
+        
 
 
 
@@ -1476,10 +2461,10 @@ sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
