@@ -33,6 +33,7 @@
 ### Guardrails and safety
 
 - [Use LLM guardrails with Llama Guard 3-11b-vision using watsonx](./tutorials/generative-ai/llm-guardrails.ipynb)
+- [Evaluating LLMs for Risk & Reliability with Granite Guardian](./tutorials/generative-ai/Guardian_Risk Detection in Agents.ipynb)
 
 ### Multimodal AI
 
@@ -70,3 +71,4 @@
 ### watsonX
 
 - [Post training quantization of Granite-3.0-8B-Instruct in Python with watsonx](./tutorials/instructional-guides/post-training-quantization.md)
+- [Fine Tuning Granite with LoRA](./tutorials/generative-ai/lora_on_watsonx/lora-training.ipynb)

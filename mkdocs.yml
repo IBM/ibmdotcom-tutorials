@@ -29,7 +29,7 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-      primary: grey
+      primary: blue
       accent: custom
     - scheme: default
       toggle:
@@ -52,6 +52,8 @@ theme:
      - navigation.footer
      - navigation.expand
 
+hooks:
+  - hooks.py
 
 
 
@@ -59,6 +61,7 @@ theme:
 plugins:
   - mkdocs-jupyter
   - search
+  - social
 
 # theme:
 #   name: readthedocs
@@ -85,4 +88,3 @@ markdown_extensions:
 
 # extra_css:
 #   - stylesheets/style.css 
-
