@@ -6,6 +6,16 @@
     "date": "2025-07-28"
   },
   {
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/graphrag",
+    "title": "Learn how to use AI, watsonx & Granite models",
+    "date": "2025-07-28"
+  },
+  {
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/llamaindex_rag",
+    "title": "Creating a RAG with Llamaindex",
+    "date": "2025-07-28"
+  },
+  {
     "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/ReWOO - Content Summarization",
     "title": "Building a ReWOO Reasoning Agent Using IBM Granite",
     "date": "2025-06-24"
@@ -44,11 +54,6 @@
     "date": "2025-06-17"
   },
   {
-    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/llamaindex_rag",
-    "title": "Title: Creating a RAG with Llamaindex",
-    "date": "2025-06-17"
-  },
-  {
     "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/langchain-tools",
     "title": "LangChain tool calling using Granite-3.0-8B-Instruct in Python with watsonx.ai",
     "author": "Anna Gutowska",
@@ -80,11 +85,6 @@
     "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/rag-chunking-strategies",
     "title": "Implement RAG chunking strategies with LangChain and watsonx.ai",
     "author": "Anna Gutowska",
-    "date": "2025-06-17"
-  },
-  {
-    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/graphrag",
-    "title": "Graph retrieval augmented generation (Graph RAG) is emerging as a powerful technique for generative AI applications to use domain-specific knowledge and relevant information. Graph RAG is an alternative to vector search methods that use a vector database. Knowledge graphs are knowledge systems where graph databases such as Neo4j or Amazon Neptune can represent structured data. In a knowledge graph, the relationships between data points, called edges, are as meaningful as the connections between data points, called vertices or sometimes nodes. A knowledge graph makes it easy to traverse a network and process complex queries about connected data. Knowledge graphs are especially well suited for use cases involving chatbots, identity resolution, network analysis, recommendation engines, customer 360 and fraud detection.",
     "date": "2025-06-17"
   },
   {
