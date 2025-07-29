@@ -1,132 +1,137 @@
 [
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/Guardian_Risk Detection in Agents",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/lora_on_watsonx/lora-training",
+    "title": "Fine-tuning Granite with LoRA",
+    "date": "2025-07-29"
+  },
+  {
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/Guardian_Risk Detection in Agents",
     "title": "Evaluating LLM Agents for Risk & Reliability with Granite Guardian: A Step-by-Step Guide.",
     "date": "2025-07-29"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/langgraph-mistral-sql-agent",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/langgraph-mistral-sql-agent",
     "title": "Build an SQL agent with LangGraph and Mistral Medium 3 by using watsonx.ai",
     "author": "Anna Gutowska",
     "date": "2025-07-28"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/ReWOO - Content Summarization",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/ReWOO - Content Summarization",
     "title": "Building a ReWOO Reasoning Agent Using IBM Granite",
     "date": "2025-06-24"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/time-series-forecasting-lag-llama",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/time-series-forecasting-lag-llama",
     "title": "In this tutorial, we'll use the Lag-Llama model, an open source foundation model, to predict the overnight low temperatures in a [zero-shot learning scenario](https://www.ibm.com/think/topics/zero-shot-learning). Zero-shot learning is when the model is not trained on the data it’s trying to predict. It’s an interesting test of how well our model can detect and respond to the patterns present in the time series.",
     "date": "2025-06-09"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/graphrag",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/graphrag",
     "title": "Graph retrieval augmented generation (Graph RAG) is emerging as a powerful technique for generative AI applications to use domain-specific knowledge and relevant information. Graph RAG is an alternative to vector search methods that use a vector database. Knowledge graphs are knowledge systems where graph databases such as Neo4j or Amazon Neptune can represent structured data. In a knowledge graph, the relationships between data points, called edges, are as meaningful as the connections between data points, called vertices or sometimes nodes. A knowledge graph makes it easy to traverse a network and process complex queries about connected data. Knowledge graphs are especially well suited for use cases involving chatbots, identity resolution, network analysis, recommendation engines, customer 360 and fraud detection.",
     "date": "2025-06-09"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/langchain-rag",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/langchain-rag",
     "title": "Create a LangChain RAG system in Python with watsonx",
     "date": "2025-06-09"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/time-series-forecasting-api",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/time-series-forecasting-api",
     "title": "Using the watsonx.ai Time Series Forecasting API to predict energy demand",
     "author": "** Aleksandra Kłeczek and Meredith Syed",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/granite-speech-3.3-8b",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/granite-speech-3.3-8b",
     "title": "Use automatic speech recognition (ASR) to generate a podcast transcript using Granite 3.3 and watsonx.ai",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/pixtral-multimodal-ai",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/pixtral-multimodal-ai",
     "title": "Use Pixtral 12B for multimodal AI queries in Python with watsonx",
     "author": "** Anna Gutowska and Erika Russi",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/multimodal-ai",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/multimodal-ai",
     "title": "Use Llama 3.2-90b-vision-instruct for multimodal AI queries in Python with watsonx",
     "author": "** Anna Gutowska, Erika Russi, Jess Bozorg",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/llm-guardrails",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/llm-guardrails",
     "title": "Use LLM guardrails with Llama Guard 3-11b-vision using watsonx",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/ollama_tools",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/ollama_tools",
     "title": "Tool calling in large language models (LLMs) is the ability of the LLM to interact with external tools, services or application programming interfaces (APIs) to perform tasks. This relationship allows LLMs to extend their functionality, enhancing their ability to handle real-world tasks that might require access to external data, real-time information or specific applications. When an LLM uses a web search tool, it can call the web to fetch real-time data that isn’t available in the model's training data. Other types of tools might include Python for calculations, data analysis or visualization, or calling a service endpoint for data. Tool calling can make a chatbot more dynamic and adaptable allowing it to provide more accurate, relevant and detailed responses based on live data or specialized tasks outside its immediate knowledge base. Popular frameworks for tool-calling include Langchain and now Ollama.",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/llamaindex_rag",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/llamaindex_rag",
     "title": "Title: Creating a RAG with Llamaindex",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/zero-shot-classification",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/zero-shot-classification",
     "title": "Perform zero-shot classification with a foundation model",
     "author": "** Vanna Winland",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/langchain-tools",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/langchain-tools",
     "title": "LangChain tool calling using Granite-3.0-8B-Instruct in Python with watsonx.ai",
     "author": "Anna Gutowska",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/llm-agent-orchestration",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/llm-agent-orchestration",
     "title": "LLM Agent Orchestration with Retrieval and Action Framework",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/function-calling",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/function-calling",
     "title": "Implement function calling with the Granite-3.0-8B-Instruct model in Python with watsonx",
     "author": "** Erika Russi, Anna Gutowska, Jess Bozorg",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/Agentic-chunking",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/Agentic-chunking",
     "title": "Implement agentic chunking to optimize LLM inputs with Langchain and watsonx.ai",
     "author": "Shalini Harkar",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/rag-chunking-strategies",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/rag-chunking-strategies",
     "title": "Implement RAG chunking strategies with LangChain and watsonx.ai",
     "author": "Anna Gutowska",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/rag-evaluation-ragas",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/rag-evaluation-ragas",
     "title": "Evaluate RAG pipeline using Ragas in Python with watsonx",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx",
     "title": "DeepSeek Reasoning: Improving the R1 distilled model with RAG and watsonx.ai",
     "author": "** Ash Minhas, Anna Gutowska",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/docling_granite_question_answering",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/docling_granite_question_answering",
     "title": "Build a document-based question answering system by using Docling with Granite 3.1",
     "author": "** Ash Minhas, Anna Gutowska",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/ppt-ai-analyzer-granite-vision",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/ppt-ai-analyzer-granite-vision",
     "title": "Build a PPT AI image analysis question answering system with Granite vision model",
     "date": "2025-05-22"
   },
   {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/agentic-rag",
+    "url": "http://127.0.0.1:8000/ibmdotcom-tutorials/tutorials/generative-ai/agentic-rag",
     "title": "Build a LangChain agentic RAG system using the Granite-3.0-8B-Instruct model in watsonx.ai",
     "author": "Anna Gutowska",
     "date": "2025-05-22"

@@ -71,3 +71,4 @@
 ### watsonX
 
 - [Post training quantization of Granite-3.0-8B-Instruct in Python with watsonx](./tutorials/instructional-guides/post-training-quantization.md)
+- [Fine Tuning Granite with LoRA](./tutorials/generative-ai/lora_on_watsonx/lora-training.ipynb)
