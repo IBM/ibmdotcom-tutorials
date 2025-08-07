@@ -1,0 +1,1546 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="IBM.com Technical Content Team">
+      
+      
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/metagpt_tutorial/metagpt_ollama_tutorial/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Multi-agent PRD automation with MetaGPT, Ollama, and DeepSeek - IBM.com Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Multi-agent PRD automation with MetaGPT, Ollama, and DeepSeek - IBM.com Tutorials" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/metagpt_tutorial/metagpt_ollama_tutorial.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/metagpt_tutorial/metagpt_ollama_tutorial/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Multi-agent PRD automation with MetaGPT, Ollama, and DeepSeek - IBM.com Tutorials" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/metagpt_tutorial/metagpt_ollama_tutorial.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#multi-agent-prd-automation-with-metagpt-ollama-and-deepseek" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM.com Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multi-agent PRD automation with MetaGPT, Ollama, and DeepSeek
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../references/coc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  References
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    IBM.com Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Welcome
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../getting-started/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/coc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code of Conduct
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="multi-agent-prd-automation-with-metagpt-ollama-and-deepseek">Multi-agent PRD automation with MetaGPT, Ollama, and DeepSeek</h1>
+<p><strong>Author</strong> Vanna Winland </p>
+<p>Learn how to build an AI-powered tool with MetaGPT, DeepSeek, and Ollama that helps
+product managers quickly create comprehensive PRDs using a team of specialized
+AI agents.</p>
+<p><a href="https://www.ibm.com/think/topics/metagpt">MetaGPT</a> is a multi-agent framework
+developed by DeepWisdom, a tech startup focused on developing opensource tools
+that automate work using artificial intelligence, multi-agent systems, and agentic
+workflows.  </p>
+<p>Unlike a single-agent approach, where one model attempts to handle all aspects
+of the task, this multi-agent system assigns each agent a specific role and
+clearly defined responsibilities. By following structured workflows and reviewing
+each other’s outputs, the team collectively generates a high-quality PRD that is
+more aligned with stakeholder goals, better organized, and less prone to
+oversight.  </p>
+<p>Before we begin, here's a few terms to help familiarize yourself with the application's
+tech stack:</p>
+<p><strong>MetaGPT:</strong> A framework that structures large language model (<a href="https://www.ibm.com/think/topics/large-language-models">LLM</a>)
+agents into collaborative roles, enabling them to work together like a coordinated
+team.<br />
+<strong>Ollama:</strong> A local runtime for running and managing opensource LLMs directly on
+your personal computer or workstation.<br />
+<strong>DeepSeek</strong>: An opensource language model optimized for tasks like research,
+reasoning, and technical writing.  </p>
+<h2 id="automating-prds-with-multi-agent-collaboration">Automating PRD's with multi-agent collaboration</h2>
+<p>Creating PRD's can be time-consuming but artificial intelligence can assist by
+accelerating the process of completion.</p>
+<p>Multi-agent collaboration is implemented in frameworks like MetaGPT, an AI
+tool that orchestrates the coordination of multiple role-playing agents to
+complete a complex task. A complex task can be considered anything that
+requires more than one step to complete.</p>
+<p>AI PRD creation is an excellent use case for multi-agent collaboration because it
+mirrors a real-world product development process, where multiple stakeholders
+contribute to stages like research, planning, review, and refinement. To get the
+full advantage of AI generated content, one should consider using a multi-agent
+system versus a single chatbot like OpenAI's ChatGPT or Microsoft's Copilot.</p>
+<h3 id="why-use-a-multi-agent-system-like-metagpt">Why use a multi-agent system like MetaGPT?</h3>
+<p>MetaGPT uses specialized AI agents with distinct roles where each different role
+can be customized to fit nearly any workflow with minimal coding. This flexibility
+is possible because of the LLM's strong ability to understand natural language.
+Users define agent behaviors and workflows through prompt engineering and lightweight
+software development.  </p>
+<p>The goal of MetaGPT is to enable effective multi-agent collaboration. By simulating
+a structured team, it enables role-specific reasoning and task delegation, producing
+more context-aware and consistent outputs like high-quality PRDs.  </p>
+<p>Later in this tutorial, we'll show how a single agent generates an initial PRD
+draft-- similar to using a standalone chatbot. We'll then compare this draft to
+the final, more accurate PRD produced through multi-agent collaboration. This will
+demonstrate how teamwork improves quality beyond what one agent can achieve alone.</p>
+<h3 id="why-use-deepseek-for-prd-automation">Why Use DeepSeek for PRD Automation?</h3>
+<p><a href="https://www.ibm.com/think/topics/deepseek">DeepSeek</a>, developed by DeepSeek-AI,
+is a family of cutting-edge open-source LLMs optimized for reasoning tasks,
+structured content creation, and efficient AI development workflows. In this
+project, we use deepseek-r1, a performant base model ideal for automating product
+documentation.</p>
+<p>Here’s why DeepSeek stands out for building PRDs with a multi-agent system like MetaGPT:</p>
+<ul>
+<li>Structured output for automation: DeepSeek models generate consistent markdown
+output,  which aligns well with workflows that require formal document structures
+such as PRDs or technical specs.</li>
+<li>Reasoning capabilities: The model supports multi-agent interaction loops by
+handling sequential reasoning and revision steps.</li>
+<li>Performance benchmarks: According to published benchmarks, DeepSeek’s models
+perform competitively with other open-source models in the 7–13B parameter range,
+including those from Mistral, LLaMA, and IBM’s Granite models. Granite, developed
+by IBM Research, is designed for enterprise-grade use cases, with a strong
+emphasis on governance, robustness, and structured business reasoning</li>
+<li>Local inference: Running deepseek-r1 via Ollama on local GPUs enables
+lower-latency experimentation without relying on external APIs like OpenAI or
+Microsoft Azure endpoints (no need for an API key!). This can be useful for workflows
+requiring data privacy or offline development.</li>
+<li>Language support and context window: DeepSeek offers strong multilingual support,
+including Chinese, and includes a reasonably long context window, which supports
+extended memory across multi-agent sessions.</li>
+<li>While DeepSeek is used in this tutorial, the same multi-agent system can be
+configured to run with other LLMs compatible with Ollama, Hugging Face, or
+OpenAI’s API. The choice of model depends on the trade-off between reasoning
+accuracy, output structure, resource availability, and intended deployment environment.</li>
+</ul>
+<h2 id="how-does-metagpt-work">How does MetaGPT work?</h2>
+<p>MetaGPT uses the concept of Standard Operating Procedures (SOPs) to align human
+and AI collaboration by structuring workflows based on real-world teams
+(i.e. a software company, or product development team).  </p>
+<p>A SOP provides detailed, step-by-step guidelines for completing a specific task
+or process. MetaGPT applies this concept by decomposing complex tasks,
+(like creating a PRD), into clear, actionable steps.</p>
+<p>Each action is assigned to a designated "team member" or role-playing AI agent.</p>
+<h3 id="metagpt-base-agent">MetaGPT base agent</h3>
+<p>MetaGPT agents operate within a structured, role-based system designed to
+simulate and coordinate on their tasks through collaborative
+workflows.</p>
+<p>Each agent follows an organized agentic workflow grounded in four
+core concepts:  </p>
+<p>-<strong>Role:</strong> A specialized persona to achieve a specific purpose (i.e. Project Manager,
+Designer, Analyst).<br />
+-<strong>Action</strong>: The ability to perform certain tasks (write, review, research, etc.).<br />
+-<strong>Memory</strong>: Individual memory stored as a list of <code>Message</code> objects that include
+past interactions, observations, and actions. These messages are published to a shared
+message pool for communication between agents.  Memories inform agent actions.<br />
+-<strong>Environment</strong>: A common space (the global message pool) to access information
+from other agents without direct interaction. This acts as a shared context for
+all agents.  </p>
+<p>Together, these components form the foundation for agent autonomy and task
+execution in MetaGPT. Next, we'll explore how these agents communicate and
+collaborate to complete multistep tasks like generating a PRD.</p>
+<h3 id="how-metagpt-agents-work-together">How MetaGPT agents work together</h3>
+<p>MetaGPT agents follow a coordinated process where each agent contributes to
+a shared goal. Each agent processes information, reasons based on its
+role, takes action, and shares results with others. This enables a dynamic, step-by-step
+collaboration that builds towards the final output</p>
+<p><strong>MetaGPT agent workflow:</strong></p>
+<ol>
+<li><strong>Observe</strong>: The agent reviews the current states (e.g., the latest PRD draft).</li>
+<li><strong>Think</strong>: Using the LLM, it decides what to do next based on its roles and
+the available information.</li>
+<li><strong>Act</strong>: The agent performs its assigned task--such as writing, reviewing, or
+researching.</li>
+<li><strong>Share</strong>: The agent logs its output and broadcasts a message to the shared
+environment for other agents on the team to access.</li>
+<li><strong>Next agent</strong>: The process moves to the next agent who picks up where the last
+one left off and repeats the process until consensus is reached.</li>
+</ol>
+<p>Agents iterate on this structured loop, building on each other's work in each
+round until reaching a final, more complete and accurate output.</p>
+<p>With MetaGPT, it's possible to build a fully automated AI product development
+team by customizing agent roles, SOPs, PRD templates, stakeholder priorities, and
+overall project goals. The framework is extensible, allowing teams to adapt it to
+specific workflows and requirements.  </p>
+<p>Now that we understand how individual agents operate and collaborate, let's look
+at how this process is orchestrated at the application level in the full PRD
+generation workflow.</p>
+<h3 id="how-the-multi-agent-prd-workflow-operates">How the multi-agent PRD workflow operates</h3>
+<p>This section acts as a step-by-step guide to understand the workflow
+of this multi-agent PRD Generation application's team of MetaGPT agents.</p>
+<h4 id="defining-the-standard-operating-procedure-sop">Defining the Standard Operating Procedure (SOP)</h4>
+<p>Let's define a structured agentic workflow with our MetaGPT team by creating a SOP.
+This SOP breaks down the complex task of creating a PRD into clear, actionable steps,
+assigning each to a specialized agent.  </p>
+<h5 id="roles-and-responsibilities">Roles and responsibilities</h5>
+<p>A well-defined SOP clarifies each agent's role and actions. This promotes accountability,
+and smooth execution across the PRD lifecycle: drafting, research enrichment,
+peer review, and revision.</p>
+<p><strong>Team roles:</strong></p>
+<ul>
+<li><strong>Product Manager (Team Lead):</strong> Orchestrates the workflow, drafts the initial
+PRD, collects research and review feedback, revises the document and saves all versions.
+The Project Manager (PM) agent leads the process and coordinates the other agents</li>
+<li><strong>Researcher:</strong> Enriches the PRD with relevant research and supporting data.  </li>
+<li><strong>Reviewer:</strong> Reviews the PRD and provides actionable feedback for improvement.</li>
+</ul>
+<h4 id="workflow-stages">Workflow stages</h4>
+<ol>
+<li><strong>User idea:</strong> The user provides a project idea (i.e.
+"Write a PRD for a banking application for wealth management") via the command line.</li>
+<li><strong>Team setup:</strong> The app creates a team and assigns the roles: 
+Product Manager, Researcher, Reviewer.</li>
+<li><strong>Drafting:</strong> The Product Manager (as team lead) generates and saves the 
+initial PRD as <code>DraftPRD.md</code> that outlines the products goals, user personas,
+key features, and functional requirements.</li>
+<li><strong>Research:</strong> The Researcher reviews the draft and provides supporting research.</li>
+<li><strong>Review:</strong> The Reviewer examines the draft and gives feedback.</li>
+<li><strong>Revision:</strong> The PM collects the research and review feedback, revises the
+PRD, and saves the final document as <code>PRD.md</code>.  </li>
+<li><strong>Output:</strong> The final PRD (with research and revisions) is saved as a markdown
+file in the project directory.</li>
+</ol>
+<p>This SOP ensures the Project Manager leads the team, coordinating all contributions
+to automate the creation of a research-backed and reviewed PRD.  </p>
+<h2 id="system-requirements">System Requirements</h2>
+<p>To run this tutorial effectively, users will need the following:</p>
+<ul>
+<li><strong>Operating System:</strong> macOS, Linux, or Windows</li>
+<li><strong>Memory (RAM):</strong> &gt;= <strong>16GB</strong>  </li>
+<li><strong>Disk Space:</strong> &gt;= <strong>10GB</strong> free (for Python environment, Ollama models, and
+generated files)</li>
+<li><strong>Ollama:</strong> Installed and running locally (default port <code>11434</code>)</li>
+<li><strong>Python version:</strong> 3.11.x</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Running larger models or multiple agents may require more memory
+(32 GB+ recommended for best performance). Intermittent timeout errors may
+occur. If you encounter timeout errors, try restarting the process and
+ensuring your system has sufficient resources.</p>
+</blockquote>
+<h2 id="steps">Steps</h2>
+<h3 id="step-1-create-a-venv">Step 1. Create a venv</h3>
+<p>First, create virtual environment to avoid Python dependency issues.
+<strong>This project works most stable with Python 3.11.</strong></p>
+<pre><code class="language-bash">python3.11 -m venv myvenv
+source myvenv/bin/activate
+</code></pre>
+<h3 id="step-2-install-metagpt">Step 2. Install MetaGPT</h3>
+<p>Install the latest development version of MetaGPT.</p>
+<pre><code class="language-bash">pip install git+https://github.com/geekan/MetaGPT
+</code></pre>
+<blockquote>
+<p><strong>Important:</strong>
+For this tutorial, you must install MetaGPT using the command above.
+Do <strong>not</strong> install MetaGPT from PyPI or other sources, as only the latest
+development version is supported here.</p>
+</blockquote>
+<h3 id="step-3-install-ollama">Step 3. Install Ollama</h3>
+<p>Install Ollama using any of the following methods dependent on your OS:</p>
+<p><strong>For macOS (using Homebrew)</strong></p>
+<pre><code class="language-bash">brew install ollama
+</code></pre>
+<p><strong>Download from the <a href="https://ollama.com/download">official Ollama website</a> (macOS, Linux, Windows)</strong></p>
+<h3 id="step-4-start-the-ollama-server-and-pull-deepseek-r18b">Step 4. Start the Ollama server and pull deepseek-r1:8b</h3>
+<p>After installation, you can start the Ollama server and pull a model (<code>deepseek-r1:8b</code>)
+with:  </p>
+<pre><code class="language-bash">ollama serve
+ollama pull deepseek-r1:8b
+</code></pre>
+<h3 id="step-5-configure-metagpt-to-use-ollama">Step 5. Configure MetaGPT to use Ollama</h3>
+<p>To configure the Ollama and Deepseek to work with MetaGPT, we need to create and
+edit a config file.</p>
+<p>Initialize the MetaGPT configuration:</p>
+<pre><code class="language-bash">metagpt --init-config
+</code></pre>
+<p>This creates a file at <code>~/.metagpt/config2.yaml</code></p>
+<p>Edit the file to configure your LLM with the following steps:</p>
+<ol>
+<li>In a terminal window run the following command to open the config file
+in the nano editor:</li>
+</ol>
+<pre><code class="language-bash">nano ~/.metagpt/config2.yaml
+</code></pre>
+<ol>
+<li>Edit the file to match this Ollama configuration that uses
+the deepseek-r1:8b model.</li>
+</ol>
+<pre><code class="language-yaml">llm:
+  api_type: 'ollama'
+  base_url: 'http://127.0.0.1:11434/api'
+  model: 'deepseek-r1:8b'
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> If the field <code>api_key:</code> appears in the YAML file, do not leave it blank.
+Either provide a valid key or remove the field entirely. The program will not run
+if <code>api_key:</code> exists and is empty.</p>
+</blockquote>
+<ol>
+<li>
+<p>After you've made the above changes, press <code>Ctrl + O</code> to save, then press
+<code>Enter</code> to confirm.</p>
+</li>
+<li>
+<p>Press <code>Ctrl + X</code> to exit nano</p>
+</li>
+</ol>
+<p>Your LLM configuration changes are now saved!</p>
+<p>For additional config examples, see these two
+provided in the MetaGPT docs <a href="https://github.com/FoundationAgents/MetaGPT/blob/main/config/config2.example.yaml">here</a>
+and <a href="https://github.com/FoundationAgents/MetaGPT/blob/main/metagpt/config2.py">here</a></p>
+<h3 id="step-6-learn-how-metagpt-agents-work-actions-and-roles">Step 6. Learn How MetaGPT Agents work: Actions and Roles</h3>
+<p>MetaGPT agents are built from two main components:</p>
+<ul>
+<li><strong>Actions:</strong> Discrete tasks or operations an agent can perform (e.g., writing a
+PRD, conducting research).</li>
+<li><strong>Roles:</strong> Defines the agent's responsibilities and which actions it can take
+(e.g., Project Manager, Researcher).</li>
+</ul>
+<h4 id="actions">Actions</h4>
+<p>An <code>Action</code> is a Python class that defines a specific task for an agent.<br />
+Actions tell each agent what to do and how to interact with the language model.</p>
+<p>Each action typically includes:  </p>
+<ul>
+<li>A <code>PROMPT_TEMPLATE</code>: The instruction or message sent to the LLM (e.g., "Write
+a PRD in markdown format").</li>
+<li>A <code>run()</code> method: Fills in the prompt template, sends it to the LLM, and returns
+the model's response.</li>
+<li>Optionally, a <code>parse_text()</code> method: Processes the LLM's output to extract the
+relevant information (such as markdown, code, or JSON).  </li>
+</ul>
+<p><strong>Require imports for actions:</strong></p>
+<pre><code class="language-python">import re
+import os
+from metagpt.actions import Action
+</code></pre>
+<ul>
+<li><code>re</code> is for regular expressions (used in <code>parse_text</code>)</li>
+<li><code>os</code> is for file operations (used in <code>SavePRD</code>)</li>
+<li><code>Action</code> is the base class for all actions in MetaGPT</li>
+</ul>
+<h4 id="roles">Roles</h4>
+<p>The <code>Role</code> class represents an AI agent or team member in the workflow.
+Roles instruct the model how to act and define which specific part of the process
+it should follow (such as managing, researching, or reviewing).  </p>
+<p>Each <code>Role</code> typically includes:  </p>
+<ul>
+<li><code>__init__</code>: Initializes the role, sets up its actions, and defines what events
+or messages it should watch for.  </li>
+<li><code>_act</code>: Executes the assigned action(s) when it's the agents turn to act. This
+method defines the agent's behavior in the workflow.</li>
+</ul>
+<p><strong>Required imports for roles:</strong>  </p>
+<pre><code class="language-python">from metagpt.roles import Role
+from metagpt.schema import Message
+from metagpt.logs import logger
+</code></pre>
+<ul>
+<li><code>Role</code> is a base class for all agent roles in MetaGPT.</li>
+<li><code>Message</code> is used to return results from actions.</li>
+<li><code>logger</code> is used for logging output and debugging information.</li>
+</ul>
+<h4 id="workflow-overview">Workflow overview</h4>
+<p>MetaGPT organizes workflow into rounds, which are iterative cycles where
+agents collaborate to improve the PRD. Each round consists of the following
+steps:</p>
+<p><strong>Round 1: Initial Draft</strong></p>
+<ul>
+<li>The Project Manager creates and saves the first PRD draft based on the user's
+prompt.  </li>
+<li>The Researcher and Reviewer receive this draft for their tasks.  </li>
+</ul>
+<p><strong>Round 2 (and beyond): Review and Revision:</strong></p>
+<ul>
+<li>The Researcher generates supporting research for the PRD.  </li>
+<li>The Reviewer provides feedback on the PRD draft.  </li>
+<li>The Project Manager revises the PRD using the new research and review feedback,
+then saves the updated version.  </li>
+</ul>
+<p><strong>Repeat</strong></p>
+<ul>
+<li>The process can repeat for multiple rounds, allowing the PRD to be incrementally
+improved with each cycle.</li>
+</ul>
+<p><strong>Multi-agent PRD generation workflow diagram:</strong>  </p>
+<pre><code class="language-txt">User prompt
+   ↓
+Team initialization
+   ↓
+PRD draft (Project Manager)
+   ↓
+Research and review (Researcher &amp; Reviewer)
+   ↓
+Draft revision (Project Manager)
+   ↓
+Save final PRD
+</code></pre>
+<p>In the next step, you'll build a team of agents for PRD AI automation.<br />
+We'll define each agent's role and connect its relevant workflow actions.</p>
+<h3 id="step-7-build-a-multi-agent-prd-team-with-metagpt">Step 7. Build a multi-agent PRD team with MetaGPT</h3>
+<p>In this section, you'll see how to define agent <strong>actions</strong>, create
+agent <strong>roles</strong>, and assemble a team to automate PRD generation, research, and review.</p>
+<h4 id="define-agent-actions">Define agent actions</h4>
+<p>Here are the agent actions that the PRD team will perform using the <code>Action</code>
+class:  </p>
+<pre><code class="language-python">import re
+import os
+from metagpt.actions import Action
+
+def clean_response(rsp):
+    # Cleans LLM output, extracting markdown and removing extra tags
+    rsp = re.sub(r&quot;&lt;think&gt;.*?&lt;/think&gt;&quot;, &quot;&quot;, rsp, flags=re.DOTALL)
+    pattern = r&quot;```(?:markdown)?(.*?)```&quot;
+    match = re.search(pattern, rsp, re.DOTALL)
+    text = match.group(1) if match else rsp
+    return text.strip()
+
+class WritePRD(Action):
+    PROMPT_TEMPLATE: str = &quot;&quot;&quot;
+    Write a comprehensive product requirements document (PRD) for {instruction} and provide the output in markdown format. 
+    **Important:**
+    - Do NOT include any code, programming language, or technical implementation details.
+    - Only write markdown for a PRD document (sections like Introduction, Goals, User Stories, Requirements, etc.).
+    - Do NOT include code blocks, scripts, or pseudocode.
+    - Limit your response to a maximum of 1,500-3,000 words and no more than 7 unique sections.
+    - Ensure that no sections are repeated.
+    - Ensure that each section is ordered and formatted correctly with appropriate headings and subheadings.
+
+    Return ```your markdown text here with NO other texts, your text:
+    &quot;&quot;&quot;
+
+    name: str = &quot;WritePRD&quot;
+
+    async def run(self, instruction: str):
+        prompt = self.PROMPT_TEMPLATE.format(instruction=instruction)
+        rsp = await self._aask(prompt)
+        prd_text = self.parse_text(rsp)
+        return prd_text
+
+    @staticmethod
+    def parse_text(rsp):
+        return clean_response(rsp)
+
+class SavePRD(Action):
+    name: str = &quot;SavePRD&quot;
+
+    async def run(self, content: str, filename: str = &quot;PRD.md&quot;):
+        filepath = os.path.join(os.getcwd(), filename)
+        with open(filepath, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+            f.write(content)
+        return f&quot;PRD saved to {filepath}&quot;
+
+class ConductResearch(Action):
+    PROMPT_TEMPLATE: str = &quot;&quot;&quot;
+   Context: {context}
+    You are a research assistant working with the Project Manager to ensure that
+    the PRD includes information from a detailed research report for the given PRD.
+    Use the {instruction} to generate a detailed research report on relevant details
+    that should be included in the PRD and provide the output in markdown format.
+    Include relevant data, statistics, and references to support the PRD.
+    **Important**:
+    1. Return only the markdown text.
+    2. Do not include any other text or explanations.
+    3. Limit your response to the content that is relevant to the PRD and a maximum of 500-1,500 words.
+    Return ```your markdown text here``` with NO other texts, your text:
+    &quot;&quot;&quot;
+
+    name: str = &quot;ConductResearch&quot;
+
+    async def run(self, instruction: str, context: str = &quot;&quot;):  
+        prompt = self.PROMPT_TEMPLATE.format(instruction=instruction, context=context)
+        rsp = await self._aask(prompt)
+        research_content = self.parse_text(rsp)
+        return research_content     
+
+    @staticmethod
+    def parse_text(rsp):
+        return clean_response(rsp)
+
+class PerformReview(Action):
+    PROMPT_TEMPLATE: str = &quot;&quot;&quot;
+    You are a product reviewer. The following is a Product Requirements Document
+    (PRD) generated for a project.
+
+    Please review the PRD below and provide critical, actionable feedback to improve
+    its clarity, completeness, and effectiveness. Highlight any missing sections,
+    unclear requirements, or potential risks. Ensure that no sections are repeated.
+
+    **Important**:
+    1.  Return only the markdown text.
+    2. Do not include any other text or explanations.
+    3. Limit your response to the content that is relevant to the PRD.
+    4. Limit your response to a maximum of 500-1,000 words.
+
+    Return your feedback in markdown format only.
+
+    PRD to review:
+    {context}
+    &quot;&quot;&quot;
+
+    name: str = &quot;PerformReview&quot;
+    async def run(self, context: str):
+        prompt = self.PROMPT_TEMPLATE.format(context=context)
+        rsp = await self._aask(prompt)
+        review_content = self.parse_text(rsp)
+        return review_content
+
+    @staticmethod
+    def parse_text(rsp):
+        return clean_response(rsp)
+
+class RevisePRD(Action):
+    PROMPT_TEMPLATE: str = &quot;&quot;&quot;
+    Revise the Product Requirements Document (PRD) based on the following review feedback.
+    Revise the PRD to address all reviewer suggestions, clarifying vague terms, adding
+    measurable goals, expanding on integrations, including user stories, functional requirements, and adding 
+    any missing sections as suggested.
+    **Important**:
+    1. Return only the markdown text.
+    2. Do not include any other text or explanations.
+    3. Include a section at the end titled &quot;Document revision notes&quot; that summarizes the key revisions.
+    4. Limit your response to a maximum of 1,500-4,000 words and no more than unique 12 sections.
+    5. Ensure that no sections are repeated.
+    6. Ensure that each section is ordered and formatted correctly with appropriate headings and subheadings.
+
+    PRD:
+    {prd}
+
+    Review Feedback:
+    {review}
+
+    Return ```your markdown text here``` with NO other texts, your text:
+    &quot;&quot;&quot;
+
+    name: str = &quot;RevisePRD&quot;
+
+    async def run(self, prd: str, review: str):
+        prompt = self.PROMPT_TEMPLATE.format(prd=prd, review=review)
+        rsp = await self._aask(prompt)
+        revised_prd = self.parse_text(rsp)
+        return revised_prd
+
+    @staticmethod
+    def parse_text(rsp):
+        return clean_response(rsp)
+</code></pre>
+<p><strong>Core tasks</strong></p>
+<p>The following 5 action classes define the core tasks performed by the agents
+in this AI-powered PRD generation workflow:</p>
+<ol>
+<li><code>WritePRD</code> creates the PRD.</li>
+<li><code>SavePRD</code> saves the PRD to disk.</li>
+<li><code>ConductResearch</code> generates supporting research.</li>
+<li><code>PerformReview</code> reviews the PRD.</li>
+<li><code>RevisePRD</code> revises the PRD based on feedback.</li>
+</ol>
+<h4 id="define-agent-roles">Define agent roles</h4>
+<p>Here are the agent roles that represent the multi-agent PRD team. Below is the
+code that specifies which actions they perform.  </p>
+<pre><code class="language-python">class ProjectManager(Role):
+    name: str = &quot;Pam&quot;
+    profile: str = &quot;Project Manager&quot;
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.write_action = WritePRD()
+        self.save_action = SavePRD()
+        self.revise_action = RevisePRD()
+        self._watch([UserRequirement, ConductResearch, PerformReview])
+        self.set_actions([self.write_action, self.save_action, self.revise_action])
+
+    async def _act(self) -&gt; Message:
+        logger.info(f&quot;{self.profile}: Starting PRD generation process.&quot;)
+        memories = self.get_memories()
+        # If this is the first round, generate and save the draft PRD
+        if not any(m.role == &quot;Researcher&quot; or m.role == &quot;Reviewer&quot; for m in memories):
+            msg = self.get_memories(k=1)[0]
+            prd_content = await self.write_action.run(msg.content)
+            draft_save_result = await self.save_action.run(prd_content, filename=&quot;DraftPRD.md&quot;)
+            return Message(
+                content=draft_save_result,
+                role=self.profile,
+                cause_by=type(self.write_action)
+            )
+        # If this is the second round, combine revised PRD and research, then save
+        else:
+            research_msgs = [m for m in memories if m.role == &quot;Researcher&quot;]
+            review_msgs = [m for m in memories if m.role == &quot;Reviewer&quot;]
+            research_content = research_msgs[-1].content if research_msgs else &quot;No research found.&quot;
+            review_content = review_msgs[-1].content if review_msgs else &quot;No review found.&quot;
+            # Load the draft PRD from file or memory
+            with open(&quot;DraftPRD.md&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+                prd_content = f.read()
+            # Only revise if review feedback exists and is not empty
+            if review_msgs and review_content.strip() and review_content.strip() != &quot;No PRD draft found.&quot;:
+                revised_prd = await self.revise_action.run(prd_content, review_content)
+            else:
+                logger.info(f&quot;{self.profile}: No review feedback found, skipping revision this round.&quot;)
+                revised_prd = prd_content.strip()
+            final_content = (
+                f&quot;{revised_prd}\n\n&quot;
+                f&quot;---\n\n&quot;
+                f&quot;## Research\n{research_content}\n&quot;
+            )
+            await self.save_action.run(final_content, filename=&quot;PRD.md&quot;)
+            return Message(
+                content=final_content,  # Only the markdown document
+                role=self.profile,
+                cause_by=type(self.write_action)
+            )
+
+class Reviewer(Role):
+    name: str = &quot;Rico&quot;
+    profile: str = &quot;Reviewer&quot;
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.review_action = PerformReview() 
+        self.set_actions([self.review_action])    
+        self._watch([WritePRD])
+
+    async def _act(self) -&gt; Message:
+        try:
+            with open(&quot;DraftPRD.md&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+                prd_content = f.read()
+        except FileNotFoundError:
+            prd_content = &quot;No PRD draft found.&quot;
+        logger.info(f&quot;{self.profile}: Reviewing PRD...&quot;)
+        review_content = await self.review_action.run(prd_content)
+        return Message(content=review_content, role=self.profile, cause_by=type(self.review_action))
+
+class Researcher(Role):
+    name: str = &quot;Rita&quot;
+    profile: str = &quot;Researcher&quot;
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.research_action = ConductResearch()
+        self.set_actions([self.research_action])
+        self._watch([UserRequirement, WritePRD])
+
+    async def _act(self) -&gt; Message:
+        try:
+            with open(&quot;DraftPRD.md&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+                prd_content = f.read()
+        except FileNotFoundError:
+            prd_content = &quot;No PRD draft found.&quot;
+        logger.info(f&quot;{self.profile}: Researching for PRD...&quot;)
+        research_content = await self.research_action.run(
+            &quot;Provide supporting research for the following PRD.&quot;, context=prd_content
+        )
+        return Message(content=research_content, role=self.profile, cause_by=type(self.research_action))
+</code></pre>
+<p><strong>Core workflow and role definitions</strong>  </p>
+<p>The following agents collaborate to automate each step
+of the PRD creation process:</p>
+<ul>
+<li><code>ProjectManager</code> (Pam) creates, saves, and revises the PRD.</li>
+<li><code>Reviewer</code> (Rico) reviews the PRD and provides feedback.</li>
+<li><code>Researcher</code> (Rita) generates supporting research for the PRD.</li>
+</ul>
+<h3 id="step-8-assemble-and-run-the-team">Step 8. Assemble and run the Team</h3>
+<p>Use the <code>Team</code> class to hire agents and run the workflow. This app uses Typer to
+run the process interactively from the command line.  </p>
+<pre><code class="language-python">import typer
+import asyncio
+from metagpt.team import Team
+
+app = typer.Typer()
+
+@app.command()
+def main(
+    idea: str = typer.Argument(..., help=&quot;A PRD for a banking application for wealth management&quot;),
+    investment: float = typer.Option(3.0, &quot;--investment&quot;, &quot;-i&quot;, help=&quot;Dollar amount to invest in the project.&quot;),
+    n_round: int = typer.Option(2, &quot;--n-round&quot;, &quot;-n&quot;, help=&quot;Number of rounds to run the simulation.&quot;),
+):
+    async def runner():
+        team = Team(use_mgx=False)
+        team.hire([
+            ProjectManager(),
+            Researcher(),
+            Reviewer(),
+        ])
+        team.idea = idea
+        team.invest(investment=investment)
+        team.run_project(idea)
+        await team.run(n_round=n_round)
+    asyncio.run(runner())
+
+if __name__ == &quot;__main__&quot;:
+    app()
+</code></pre>
+<h4 id="how-the-cli-works">How the CLI works</h4>
+<ul>
+<li><code>@app.command()</code>: Tells Typer that the function below (<code>main</code>) is a command that
+can be run from the terminal.</li>
+<li><code>main(...)</code>: The main function that runs the program. It takes three arguments:</li>
+<li><code>idea</code>: The project idea (e.g., "A PRD for a banking application for wealth management.")</li>
+<li><code>investment</code>: An optional investment amount (default: <code>3.0</code>). This simulates
+  the team's budget and can affect agent decision-making and planning.</li>
+<li><code>n_round</code>: Optional argument specifying how many rounds the simulation should
+  run (default: <code>2</code>).</li>
+</ul>
+<h4 id="team-assembly-and-execution">Team assembly and execution</h4>
+<ul>
+<li><code>runner()</code>: An asynchronous function that runs the workflow:</li>
+<li><code>team = Team(use_mgx=False)</code>: Creates a new <code>Team</code> object representing a group
+  of AI agents. The <code>use_mgx=False</code> option disables the advanced MGX communication
+  mode, using standard team behavior.</li>
+<li><code>team.hire([...])</code>: Hires (adds) the agents to the team.</li>
+<li><code>team.idea = idea</code>: Sets the team's project idea from the CLI input.</li>
+<li><code>team.invest(investment=investment)</code>: Allocates the team's "funding,"
+  influencing how agents simulate planning and resource allocation.</li>
+<li><code>team.run_project(idea)</code>: Starts the project with the given idea.</li>
+<li><code>await team.run(n_round=n_round)</code>: Runs the workflow for the specified number
+  of rounds, allowing agents to iteratively improve the PRD.</li>
+</ul>
+<h4 id="note-on-output-variability">Note on output variability</h4>
+<blockquote>
+<p><strong>Important Note:</strong><br />
+The documents and outputs generated by this tutorial use large language models
+(LLMs), which are probabilistic and may occasionally produce incomplete, inaccurate,
+or inconsistent results.<br />
+<strong>Always review and validate all generated content yourself.</strong><br />
+LLMs are helpful tools, but cannot fully replace the expertise and judgement
+of a real product development team.</p>
+</blockquote>
+<h4 id="example-command">Example command</h4>
+<p>To run the program with default values for <code>n_round</code> and <code>investment</code>:</p>
+<pre><code class="language-bash">python metagpt_prd_generator.py &quot;Write a PRD for a banking app for wealth managers.&quot;
+</code></pre>
+<p>This command will launch the team of agents, automate the PRD creation process,
+and iterate for the specified number of rounds.</p>
+<h4 id="summary-of-team-creation-process">Summary of team creation process</h4>
+<ul>
+<li><strong>Actions</strong> define what each agent can do.</li>
+<li><strong>Roles</strong> represent agents and connect them to actions.</li>
+<li>The <strong>Team</strong> class brings agents together to automate the PRD workflow.</li>
+</ul>
+<p>This modular approach allows room for fine-tuning the process of  automating
+complex product development tasks.</p>
+<h2 id="example-output-draft-vs-final-prd">Example Output Draft vs. Final PRD</h2>
+<p>When you run the application, the agents collaborate to produce and refine
+a PRD. </p>
+<ul>
+<li><strong>Draft PRD</strong> (<code>DraftPRD.md</code>): The initial PRD created by the Project Manager agent.</li>
+<li><strong>Review Feedback</strong>: Suggestions and critiques from the Reviewer agent.</li>
+<li><strong>Research Report</strong>: Supporting technical and market research from the Researcher
+agent.</li>
+<li><strong>Final PRD</strong> (<code>PRD.md</code>): The revised PRD, incorporating review and research.</li>
+</ul>
+<h3 id="draft-prd-excerpt">Draft PRD (Excerpt)</h3>
+<pre><code class="language-markdown"># Product Requirements Document: Wealth Manager Banking App
+
+## 1. Introduction &amp; Overview
+*   **Product Name:** [Proposed Name - e.g., &quot;WealthBank Pro&quot;, &quot;Portfolio Navigator&quot;]
+*   **Version:** v0.1 (Initial Draft)
+*   **Author:** [Your Team/Name]
+*   **Date:** October 26, 2
+*   **Status:** Draft
+
+## 2. Purpose &amp; Goals
+The purpose of this app is to solve key pain points faced by wealth managers and
+their clients with a seamless, integrated digital platform for managing assets,
+monitoring portfolio performance, accessing banking services, and facilitating
+communication within the financial advisory context.
+
+... (see full draft (`example_DraftPRD.md`) for more sections)
+</code></pre>
+<h3 id="final-prd-excerpt">Final PRD (Excerpt)</h3>
+<pre><code class="language-markdown"># Product Requirements Document: Wealth Manager Banking App
+
+## 1. Introduction &amp; Overview
+*   **Product Name:** WealthBank Pro (or Portfolio Navigator - to be confirmed)
+*   **Version:** v0.2
+*   **Author:** [Your Team/Name]
+*   **Date:** October 26, 2023
+*   **Status:** Draft
+*   **Document Revision Notes:** Addressed reviewer suggestions by clarifying
+terms, adding measurable goals, expanding integrations, including user stories,
+and added missing sections (User Roles, Data Flow).
+
+## 2. Purpose &amp; Goals
+This app provides a secure digital platform for financial advisors to manage client
+portfolios and offers clients an intuitive interface to monitor their investments
+alongside core banking services.
+
+### Measurable Key Goals:
+1.  **Enhance Advisor Efficiency:** Reduce investment monitoring time by
+[Specify %]%,decrease report generation time by [Specify %]%.
+2.  **Improve Client Experience:** Achieve a Net Promoter Score (NPS) of
+[Target NPS score], increase client engagement via app to [Target percentage]%.
+3.  **Secure Collaboration:** Reduce email inquiries between advisor and clients
+by [Target reduction %]%, ensure all messages are traceable within the platform.
+
+## 3. User Roles
+*   **Wealth Manager/Financial Advisor:** Full access to assigned portfolios,
+    reporting, and communication.
+*   **High-Net-Worth Client:** View-only access to their own portfolio and
+    account information.
+*   **Administrative Staff (Optional):** Read-only access for reporting/client onboarding.
+
+... (see full final PRD (`example_PRD.md`)for more sections)
+</code></pre>
+<h4 id="improvements-made-by-the-agents">Improvements Made by the Agents</h4>
+<p>The final <code>PRD.md</code> file includes a section titled  <strong>Document Revision Notes:</strong>
+which summarizes the key changes made during the review and revision process.
+This section helps stakeholders quickly understand what was updated in the document.</p>
+<p>Here are the main enhancements found in the final PRD for the wealth manager application:</p>
+<ul>
+<li><strong>Measurable Goals Added:</strong> Added success metrics like clear KPIs like NPS
+scores and time reductions to inform MVP and optimization.</li>
+<li><strong>User Roles:</strong> Defined roles and permissions for advisors, clients and staff.</li>
+<li><strong>Integrations:</strong> Specified APIs and security protocols for data flow.</li>
+<li><strong>Document Revision Notes:</strong> Summarized key changes for easy tracking.</li>
+<li><strong>User Stories:</strong> Expanded and clarified scenarios for actionable requirements.</li>
+<li><strong>Research:</strong> Incorporated go-to-market strategy like pricing models and technical
+data to support decisions.</li>
+</ul>
+<h4 id="example-output-files">Example Output Files</h4>
+<ul>
+<li><code>DraftPRD.md</code>: Initial requirements document.</li>
+<li><code>PRD.md</code>: Final, revised requirements document.</li>
+<li>(Optional) <code>Research.md</code>: Market and technical research supporting the PRD.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>By following this tutorial, you’ve learned how to automate the creation and
+refinement of a Product Requirements Document using MetaGPT and Ollama.
+You set up a multi-agent team, defined custom actions and roles, and ran an iterative
+workflow that produces high-quality, actionable PRDs. This modular approach can
+be adapted for other collaborative AI tasks, making it a powerful tool to
+streamline AI product management.  </p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
