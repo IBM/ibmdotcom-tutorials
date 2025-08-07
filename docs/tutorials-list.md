@@ -33,7 +33,7 @@
 ### Guardrails and safety
 
 - [Use LLM guardrails with Llama Guard 3-11b-vision using watsonx](./tutorials/generative-ai/llm-guardrails.ipynb)
-- [Evaluating LLMs for Risk & Reliability with Granite Guardian](./tutorials/generative-ai/Guardian_Risk Detection in Agents.ipynb)
+
 
 ### Multimodal AI
 
