@@ -10,24 +10,24 @@
         <meta name="author" content="IBM.com Technical Content Team">
       
       
-        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/chatdev_watsonx_tutorial_/camel/agents/tool_agents/__init__/">
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/autogen-local-multi-agent-rag/">
       
       
       
       
-      <link rel="icon" href="../../../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>init - IBM.com Tutorials</title>
+        <title>Multi-agent RAG with AutoGen: Build locally with Granite - IBM.com Tutorials</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -55,11 +55,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="  init   - IBM.com Tutorials" >
+        <meta  property="og:title"  content="Multi-agent RAG with AutoGen: Build locally with Granite - IBM.com Tutorials" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/chatdev_watsonx_tutorial_/camel/agents/tool_agents/__init__.png" >
+        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/generative-ai/autogen-local-multi-agent-rag.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -67,15 +67,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/chatdev_watsonx_tutorial_/camel/agents/tool_agents/__init__/" >
+        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/autogen-local-multi-agent-rag/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="  init   - IBM.com Tutorials" >
+        <meta  name="twitter:title"  content="Multi-agent RAG with AutoGen: Build locally with Granite - IBM.com Tutorials" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/chatdev_watsonx_tutorial_/camel/agents/tool_agents/__init__.png" >
+        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/generative-ai/autogen-local-multi-agent-rag.png" >
       
     
     
@@ -97,6 +97,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#multi-agent-rag-with-autogen-build-locally-with-granite" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,9 +114,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+    <a href="../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
       
-  <img src="../../../../../../../assets/official_logo.png" alt="logo">
+  <img src="../../../assets/official_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -128,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-                init  
+              Multi-agent RAG with AutoGen: Build locally with Granite
             
           </span>
         </div>
@@ -235,7 +240,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
   
@@ -257,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../../references/coc/" class="md-tabs__link">
+        <a href="../../../references/coc/" class="md-tabs__link">
           
   
   
@@ -301,9 +306,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+    <a href="../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
       
-  <img src="../../../../../../../assets/official_logo.png" alt="logo">
+  <img src="../../../assets/official_logo.png" alt="logo">
 
     </a>
     IBM.com Tutorials
@@ -363,7 +368,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../.." class="md-nav__link ">
+            <a href="../../.." class="md-nav__link ">
               
   
   
@@ -398,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   
@@ -470,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../getting-started/setup/" class="md-nav__link">
+      <a href="../../../getting-started/setup/" class="md-nav__link">
         
   
   
@@ -501,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tutorials-list/" class="md-nav__link">
+      <a href="../../../tutorials-list/" class="md-nav__link">
         
   
   
@@ -524,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../projects-list/" class="md-nav__link">
+      <a href="../../../projects-list/" class="md-nav__link">
         
   
   
@@ -607,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../references/coc/" class="md-nav__link">
+      <a href="../../../references/coc/" class="md-nav__link">
         
   
   
@@ -630,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../references/contributing/" class="md-nav__link">
+      <a href="../../../references/contributing/" class="md-nav__link">
         
   
   
@@ -653,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../references/license/" class="md-nav__link">
+      <a href="../../../references/license/" class="md-nav__link">
         
   
   
@@ -694,8 +699,6 @@
   
   
 
-
-  <h1>  init  </h1>
 
 <script>
 (function (global, factory) {
@@ -1133,8 +1136,82 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3a0ae320">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=843fb740">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="multi-agent-rag-with-autogen-build-locally-with-granite">Multi-agent RAG with AutoGen: Build locally with Granite<a class="anchor-link" href="#multi-agent-rag-with-autogen-build-locally-with-granite">¶</a></h1><p><strong>Authors:</strong> Kelly Abuelsaad, Anna Gutowska</p>
+<p>Can you build <a href="https://www.ibm.com/think/topics/agentic-workflows">agentic workflows</a> without needing extremely large, costly <a href="https://www.ibm.com/think/topics/large-language-model">large language models (LLMs)</a>? The answer is yes. In this tutorial, we will demonstrate how to build a multi-agent RAG system locally with AutoGen by using IBM® <a href="https://www.ibm.com/granite">Granite™</a>.</p>
+<h2 id="agentic-rag-overview">Agentic RAG overview<a class="anchor-link" href="#agentic-rag-overview">¶</a></h2><p><a href="https://www.ibm.com/think/topics/retrieval-augmented-generation">Retrieval-augmented generation (RAG)</a> is an effective way of providing an LLM with additional datasets from various data sources without the need for expensive fine-tuning. Similarly, <a href="https://www.ibm.com/think/topics/agentic-rag">agentic RAG</a> leverages an <a href="https://www.ibm.com/think/topics/ai-agents">AI agent</a>’s ability to plan and execute subtasks along with the retrieval of relevant information to supplement an LLM's knowledge base. This ability allows for the optimization and greater scalability of RAG applications compared to traditional <a href="https://www.ibm.com/think/topics/chatbots">chatbots</a>. No longer do we need to write complex SQL queries to extract relevant data from a knowledge base.</p>
+<p>The future of agentic RAG is multi-agent RAG, where several specialized agents <a href="https://www.ibm.com/think/topics/multi-agent-collaboration">collaborate</a> to achieve optimal latency and efficiency. We will demonstrate this collaboration by using a small, efficient model such as Granite 3.2 and combining it with a modular agent architecture. We will use multiple specialized "mini agents" that collaborate to achieve tasks through adaptive planning and tool or function calling. Like humans, a team of agents, or a <a href="https://www.ibm.com/think/topics/multiagent-system">multi-agent system</a>, often outperforms the heroic efforts of an individual, especially when they have clearly defined roles and effective <a href="https://www.ibm.com/think/topics/ai-agent-communication">communication</a>.</p>
+<p>For the <a href="https://www.ibm.com/think/topics/ai-agent-orchestration">orchestration</a> of this collaboration, we can use AutoGen (AG2) as the core <a href="https://www.ibm.com/think/insights/top-ai-agent-frameworks">framework</a> to manage workflows and decision-making, alongside other tools like Ollama for local LLM serving and Open WebUI for interaction. AutoGen is a framework for creating multi-agent AI applications developed by Microsoft.1 Notably, every one of the components leveraged in this tutorial is open source. Notably, every component leveraged in this tutorial is <a href="https://www.ibm.com/think/topics/open-source">open source</a>. Together, these tools enable you to build an AI system that is both powerful and privacy-conscious, without leaving your laptop.</p>
+<h2 id="multi-agent-architecture-when-collaboration-beats-competition">Multi-agent architecture: When collaboration beats competition<a class="anchor-link" href="#multi-agent-architecture-when-collaboration-beats-competition">¶</a></h2><p>Our Granite retrieval agent relies on a modular architecture in which each agent has a specialized role. Like humans, agents perform best when they have targeted instructions and just enough context to make an informed decision. Too much extraneous information, such as an unfiltered chat history, can create a “needle in the haystack” problem, where it becomes increasingly difficult to decipher signal from noise.</p>
+<p>In this <a href="https://www.ibm.com/think/topics/agentic-architecture">agentic AI architecture</a>, the agents work together sequentially to achieve the goal. Here is how the generative AI system is organized:</p>
+<p><strong>Planner agent</strong>: Creates the initial high-level plan, once in the beginning of the workflow. For example, if a user asks, “What are comparable open source projects to the ones my team is using?” then, the agent will put together a step-by-step plan that might look something like this: “1. Search team documents for open source technologies. 2. Search the web for similar open source projects to the ones found in step 1.” If any of these steps fail or provide insufficient results, the steps can be later adapted by the reflection agent.</p>
+<p><strong>Research Aasistant</strong>: The research assistant is the workhorse of the system. It takes in and executes instructions such as “Search team documents for open source technologies.” For step 1 of the plan, it uses the initial instruction from the planner agent. For subsequent steps, it also receives curated context from the outcomes of previous steps.</p>
+<p>For example, if asked to “Search the web for similar open source projects,” it will also receive the output from the previous document search step. Depending on the instruction, the research assistant can use tools like web search or document search, or both, to fulfill its task.</p>
+<p><strong>Step critic</strong>: The step critic is responsible for deciding whether the output of the previous step satisfactorily fulfilled the instruction it was given. It receives two pieces of information: the single-step instruction that was just executed and the output of that instruction. Having a step critic weigh in on the conversation brings clarity around whether the goal was achieved, which is needed for the planning of the next step.</p>
+<p><strong>Goal judge</strong>: The goal judge determines whether the ultimate objective has been met, based on all of the requirements of the provided goal, the plans drafted to achieve it, and the information gathered so far. The output of the judge is either "YES" or "NOT YET" followed by a brief explanation that is no longer than one or two sentences.</p>
+<p><strong>Reflection agent</strong>: The reflection agent is our executive decision-maker. It decides what step to take next, whether that is encroaching onto the next planned step, pivoting course to make up for mishaps or confirming that the goal has been completed. Like a real-life CEO, it performs its best decision-making when it has a clear goal in mind and is presented with concise findings on the progress that has or has not been made to reach that goal. The output of the reflection agent is either the next step to take or the instructions to terminate if the goal has been reached. We present the reflection agent with the following items:</p>
+<ul>
+<li>The goal</li>
+<li>The original plan</li>
+<li>The last step that was executed</li>
+<li>The result of the last step indicating success or failure</li>
+<li>A concise sequence of previously executed instructions (just the instructions, not their output)</li>
+</ul>
+<p>Presenting these items in a structured format makes it clear to our decision maker what has been done so that it can decide what needs to happen next.</p>
+<p><strong>Report Generator</strong>: Once the goal is achieved, the Report Generator synthesizes all findings into a cohesive output that directly answers the original query. While each step in the process generates targeted outputs, the Report Generator ties everything together into a final report.</p>
+<h2 id="leveraging-open-source-tools">Leveraging open source tools<a class="anchor-link" href="#leveraging-open-source-tools">¶</a></h2><p>For beginners, it can be difficult to build an agentic AI application from scratch. Hence, we will use a set of open source tools. The Granite Retrieval Agent integrates multiple tools for agentic RAG.</p>
+<p><strong>Open WebUI</strong>: The user interacts with the system through an intuitive chat interface hosted in Open WebUI. This interface acts as the primary point for submitting queries (such as “Fetch me the latest news articles pertaining to my project notes”) and viewing the outputs.</p>
+<p><strong>Python-based agent (AG2 framework)</strong>: At the core of the system is a Python-based agent built by using AutoGen (AG2). This agent coordinates the workflow by breaking down tasks and dynamically calling tools to execute steps.</p>
+<p>The agent has access to two primary tools:</p>
+<ul>
+<li><p>Document search tool: Fetches relevant information from a vector database containing uploaded project notes or documents stored as embeddings. This vector search leverages the built-in documental retrieval APIs inside Open WebUI, rather than setting up an entirely separate data store.</p>
+</li>
+<li><p>Web search tool: Performs web-based searches to gather external knowledge and real-time information. In this case, we are using SearXNG as our metasearch engine.</p>
+</li>
+</ul>
+<p><strong>Ollama</strong>: The IBM Granite 3.2 LLM serves as the language model powering the system. It is hosted locally by using Ollama, ensuring fast inference, cost efficiency and data privacy. If you are interested in running this project with larger models, API access through IBM <a href="https://www.ibm.com/products/watsonx-ai">watsonx.ai®</a> or OpenAI, for example, is preferred. This approach, however, requires a watsonx.ai or OpenAI API key. Instead, we use locally hosted Ollama in this tutorial.</p>
+<p>Other common open source, agent frameworks not covered in this tutorial include <a href="https://www.ibm.com/think/topics/langchain">LangChain</a>, <a href="https://www.ibm.com/think/topics/langgraph">LangGraph</a> and <a href="https://www.ibm.com/think/topics/crew-ai">crewAI</a>.</p>
+<h2 id="steps">Steps<a class="anchor-link" href="#steps">¶</a></h2><p>Detailed setup instructions as well as the entire project can be viewed on the <a href="https://github.com/ibm-granite-community/granite-retrieval-agent">IBM Granite Community GitHub</a>. The Jupyter Notebook version of this tutorial can be found on <a href="https://github.com/IBM/ibmdotcom-tutorials">GitHub</a> as well.</p>
+<p>The following steps provide a quick setup for the Granite Retrieval agent.</p>
+<h3 id="step-1-install-ollama">Step 1: Install Ollama<a class="anchor-link" href="#step-1-install-ollama">¶</a></h3><p>Installing Ollama is as simple as downloading the client from the <a href="https://ollama.com/">official Ollama site</a>. After installing Ollama, run the following command to pull the Granite 3.2 LLM.</p>
+<div class="highlight"><pre><span></span>ollama<span class="w"> </span>pull<span class="w"> </span>granite3.2:8b
+</pre></div>
+<p>You are now up and running with Ollama and Granite.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=37616154">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="step-2-build-a-simple-agent-optional">Step 2. Build a simple agent (optional)<a class="anchor-link" href="#step-2-build-a-simple-agent-optional">¶</a></h3><p>Before we begin the setup of the complete multi-agent RAG project, let’s unpack a simpler example. To continue, set up a Jupyter Notebook in your preferred integrated development environment (IDE) and activate a virtual environment by running the following commands in your terminal.</p>
+<div class="highlight"><pre><span></span>python3.11<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f97c5a3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We'll need a few libraries and modules for this simple agent. Make sure to install and import the following ones.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8d95d1ba">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1152,44 +1229,16 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========</span>
-<span class="c1"># Licensed under the Apache License, Version 2.0 (the “License”);</span>
-<span class="c1"># you may not use this file except in compliance with the License.</span>
-<span class="c1"># You may obtain a copy of the License at</span>
-<span class="c1">#</span>
-<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
-<span class="c1">#</span>
-<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
-<span class="c1"># distributed under the License is distributed on an “AS IS” BASIS,</span>
-<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span class="c1"># See the License for the specific language governing permissions and</span>
-<span class="c1"># limitations under the License.</span>
-<span class="c1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseToolAgent</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.hugging_face_tool_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">HuggingFaceToolAgent</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">qU</span> <span class="n">langchain</span> <span class="n">chromadb</span> <span class="n">tf</span><span class="o">-</span><span class="n">keras</span> <span class="n">pyautogen</span> <span class="s2">"ag2[ollama]"</span> <span class="n">sentence_transformers</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========
-# Licensed under the Apache License, Version 2.0 (the “License”);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an “AS IS” BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========
-from .base import BaseToolAgent
-from .hugging_face_tool_agent import HuggingFaceToolAgent</div>
+<div class="clipboard-copy-txt" id="cell-1">!pip install -qU langchain chromadb tf-keras pyautogen "ag2[ollama]" sentence_transformers</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=41ded073">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c4ff2f71">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1207,17 +1256,617 @@ from .hugging_face_tool_agent import HuggingFaceToolAgent</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'BaseToolAgent'</span><span class="p">,</span>
-    <span class="s1">'HuggingFaceToolAgent'</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">autogen.agentchat.contrib.retrieve_assistant_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">AssistantAgent</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">autogen.agentchat.contrib.retrieve_user_proxy_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">RetrieveUserProxyAgent</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">__all__ = [
-    'BaseToolAgent',
-    'HuggingFaceToolAgent',
-]</div>
+<div class="clipboard-copy-txt" id="cell-2">import getpass
+from autogen.agentchat.contrib.retrieve_assistant_agent import AssistantAgent
+from autogen.agentchat.contrib.retrieve_user_proxy_agent import RetrieveUserProxyAgent</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f3cb65e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>There are several configuration parameters to set locally to invoke the correct LLM that we pulled by using Ollama.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b9b13281">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-3">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">ollama_llm_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"config_list"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"granite3.2:8b"</span><span class="p">,</span>
+            <span class="s2">"api_type"</span><span class="p">:</span> <span class="s2">"ollama"</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-3">ollama_llm_config = {
+    "config_list": [
+        {
+            "model": "granite3.2:8b",
+            "api_type": "ollama",
+        }
+    ],
+}</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4b532b01">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We can pass these configuration parameters in the <code>llm_config</code> parameter of the <code>AssistantAgent</code> class to instantiate our first AI agent.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=03039df6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-4">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">assistant</span> <span class="o">=</span> <span class="n">AssistantAgent</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"assistant"</span><span class="p">,</span>
+    <span class="n">system_message</span><span class="o">=</span><span class="s2">"You are a helpful assistant."</span><span class="p">,</span>
+    <span class="n">llm_config</span><span class="o">=</span><span class="n">ollama_llm_config</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-4">assistant = AssistantAgent(
+    name="assistant",
+    system_message="You are a helpful assistant.",
+    llm_config=ollama_llm_config,
+)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=75449531">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This agent uses Granite 3.2 to synthesize the information returned by the <code>ragproxyagent</code> agent. The document we provide to the RAG agent as additional context is the raw README Markdown file found in the AutoGen repository on GitHub. Additionally, we can pass a new dictionary of configurations specific to the retrieval agent. Some additional keys that you might find useful are <code>vector_db</code>, <code>chunk_token_size</code> and <code>embedding_model</code>. For a full list of configuration keys, refer to the <a href="https://microsoft.github.io/autogen/0.2/docs/reference/agentchat/contrib/retrieve_user_proxy_agent/">official documentation</a>.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9241f677">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">ragproxyagent</span> <span class="o">=</span> <span class="n">RetrieveUserProxyAgent</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"ragproxyagent"</span><span class="p">,</span>
+    <span class="n">max_consecutive_auto_reply</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">is_termination_msg</span><span class="o">=</span><span class="k">lambda</span> <span class="n">msg</span><span class="p">:</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"content"</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="s2">"TERMINATE"</span> <span class="ow">in</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"content"</span><span class="p">],</span>
+    <span class="n">system_message</span> <span class="o">=</span> <span class="s2">"Context retrieval assistant."</span><span class="p">,</span>
+    <span class="n">retrieve_config</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"task"</span><span class="p">:</span> <span class="s2">"qa"</span><span class="p">,</span>
+        <span class="s2">"docs_path"</span><span class="p">:</span> <span class="s2">"https://raw.githubusercontent.com/microsoft/autogen/main/README.md"</span><span class="p">,</span>
+        <span class="s2">"get_or_create"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>      
+        <span class="s2">"collection_name"</span><span class="p">:</span> <span class="s2">"autogen_docs"</span><span class="p">,</span>
+        <span class="s2">"overwrite"</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="p">},</span>
+    <span class="n">code_execution_config</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">human_input_mode</span><span class="o">=</span><span class="s2">"NEVER"</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-5">ragproxyagent = RetrieveUserProxyAgent(
+    name="ragproxyagent",
+    max_consecutive_auto_reply=3,
+    is_termination_msg=lambda msg: msg.get("content") is not None or "TERMINATE" in msg["content"],
+    system_message = "Context retrieval assistant.",
+    retrieve_config={
+        "task": "qa",
+        "docs_path": "https://raw.githubusercontent.com/microsoft/autogen/main/README.md",
+        "get_or_create": True,      
+        "collection_name": "autogen_docs",
+        "overwrite": True
+    },
+    code_execution_config=False,
+    human_input_mode="NEVER",
+)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0a8efc5d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now, we can initiate a chat with our RAG agent to ask a question that pertains to the document provided as context.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f948f598">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">qs</span> <span class="o">=</span> <span class="s2">"What languages does AutoGen support?"</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">ragproxyagent</span><span class="o">.</span><span class="n">initiate_chat</span><span class="p">(</span>
+    <span class="n">assistant</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">ragproxyagent</span><span class="o">.</span><span class="n">message_generator</span><span class="p">,</span> <span class="n">problem</span><span class="o">=</span><span class="n">qs</span>
+<span class="p">)</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-6">qs = "What languages does AutoGen support?"
+result = ragproxyagent.initiate_chat(
+    assistant, message=ragproxyagent.message_generator, problem=qs
+)  
+
+print(result)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Trying to create collection.
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>2025-07-21 12:20:36,125 - autogen.agentchat.contrib.retrieve_user_proxy_agent - INFO - Found 1 chunks.
+2025-07-21 12:20:36,129 - autogen.agentchat.contrib.vectordb.chromadb - INFO - No content embedding is provided. Will use the VectorDB's embedding function to generate the content embedding.
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>VectorDB returns doc_ids:  [['8e9131c7']]
+<span class="ansi-green-fg">Adding content of doc 8e9131c7 to context.</span>
+<span class="ansi-yellow-fg">ragproxyagent</span> (to assistant):
+
+You're a retrieve augmented chatbot. You answer user's questions based on your own knowledge and the
+context provided by the user.
+If you can't answer the question with or without the current context, you should reply exactly `UPDATE CONTEXT`.
+You must give as short an answer as possible.
+
+User's question is: What languages does AutoGen support?
+
+Context is: &lt;a name="readme-top"&gt;&lt;/a&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="https://microsoft.github.io/autogen/0.2/img/ag.svg" alt="AutoGen Logo" width="100"&gt;
+
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&amp;label=Follow%20%40pyautogen)](https://twitter.com/pyautogen)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Company?style=flat&amp;logo=linkedin&amp;logoColor=white)](https://www.linkedin.com/company/105812540)
+[![Discord](https://img.shields.io/badge/discord-chat-green?logo=discord)](https://aka.ms/autogen-discord)
+[![Documentation](https://img.shields.io/badge/Documentation-AutoGen-blue?logo=read-the-docs)](https://microsoft.github.io/autogen/)
+[![Blog](https://img.shields.io/badge/Blog-AutoGen-blue?logo=blogger)](https://devblogs.microsoft.com/autogen/)
+
+&lt;/div&gt;
+
+&lt;div align="center" style="background-color: rgba(255, 235, 59, 0.5); padding: 10px; border-radius: 5px; margin: 20px 0;"&gt;
+  &lt;strong&gt;Important:&lt;/strong&gt; This is the official project. We are not affiliated with any fork or startup. See our &lt;a href="https://x.com/pyautogen/status/1857264760951296210"&gt;statement&lt;/a&gt;.
+&lt;/div&gt;
+
+# AutoGen
+
+**AutoGen** is a framework for creating multi-agent AI applications that can act autonomously or work alongside humans.
+
+## Installation
+
+AutoGen requires **Python 3.10 or later**.
+
+```bash
+# Install AgentChat and OpenAI client from Extensions
+pip install -U "autogen-agentchat" "autogen-ext[openai]"
+```
+
+The current stable version is v0.4. If you are upgrading from AutoGen v0.2, please refer to the [Migration Guide](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/migration-guide.html) for detailed instructions on how to update your code and configurations.
+
+```bash
+# Install AutoGen Studio for no-code GUI
+pip install -U "autogenstudio"
+```
+
+## Quickstart
+
+### Hello World
+
+Create an assistant agent using OpenAI's GPT-4o model. See [other supported models](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/models.html).
+
+```python
+import asyncio
+from autogen_agentchat.agents import AssistantAgent
+from autogen_ext.models.openai import OpenAIChatCompletionClient
+
+async def main() -&gt; None:
+    model_client = OpenAIChatCompletionClient(model="gpt-4o")
+    agent = AssistantAgent("assistant", model_client=model_client)
+    print(await agent.run(task="Say 'Hello World!'"))
+    await model_client.close()
+
+asyncio.run(main())
+```
+
+### Web Browsing Agent Team
+
+Create a group chat team with a web surfer agent and a user proxy agent
+for web browsing tasks. You need to install [playwright](https://playwright.dev/python/docs/library).
+
+```python
+# pip install -U autogen-agentchat autogen-ext[openai,web-surfer]
+# playwright install
+import asyncio
+from autogen_agentchat.agents import UserProxyAgent
+from autogen_agentchat.conditions import TextMentionTermination
+from autogen_agentchat.teams import RoundRobinGroupChat
+from autogen_agentchat.ui import Console
+from autogen_ext.models.openai import OpenAIChatCompletionClient
+from autogen_ext.agents.web_surfer import MultimodalWebSurfer
+
+async def main() -&gt; None:
+    model_client = OpenAIChatCompletionClient(model="gpt-4o")
+    # The web surfer will open a Chromium browser window to perform web browsing tasks.
+    web_surfer = MultimodalWebSurfer("web_surfer", model_client, headless=False, animate_actions=True)
+    # The user proxy agent is used to get user input after each step of the web surfer.
+    # NOTE: you can skip input by pressing Enter.
+    user_proxy = UserProxyAgent("user_proxy")
+    # The termination condition is set to end the conversation when the user types 'exit'.
+    termination = TextMentionTermination("exit", sources=["user_proxy"])
+    # Web surfer and user proxy take turns in a round-robin fashion.
+    team = RoundRobinGroupChat([web_surfer, user_proxy], termination_condition=termination)
+    try:
+        # Start the team and wait for it to terminate.
+        await Console(team.run_stream(task="Find information about AutoGen and write a short summary."))
+    finally:
+        await web_surfer.close()
+        await model_client.close()
+
+asyncio.run(main())
+```
+
+### AutoGen Studio
+
+Use AutoGen Studio to prototype and run multi-agent workflows without writing code.
+
+```bash
+# Run AutoGen Studio on http://localhost:8080
+autogenstudio ui --port 8080 --appdir ./my-app
+```
+
+## Why Use AutoGen?
+
+&lt;div align="center"&gt;
+  &lt;img src="autogen-landing.jpg" alt="AutoGen Landing" width="500"&gt;
+&lt;/div&gt;
+
+The AutoGen ecosystem provides everything you need to create AI agents, especially multi-agent workflows -- framework, developer tools, and applications.
+
+The _framework_ uses a layered and extensible design. Layers have clearly divided responsibilities and build on top of layers below. This design enables you to use the framework at different levels of abstraction, from high-level APIs to low-level components.
+
+- [Core API](./python/packages/autogen-core/) implements message passing, event-driven agents, and local and distributed runtime for flexibility and power. It also support cross-language support for .NET and Python.
+- [AgentChat API](./python/packages/autogen-agentchat/) implements a simpler but opinionated API for rapid prototyping. This API is built on top of the Core API and is closest to what users of v0.2 are familiar with and supports common multi-agent patterns such as two-agent chat or group chats.
+- [Extensions API](./python/packages/autogen-ext/) enables first- and third-party extensions continuously expanding framework capabilities. It support specific implementation of LLM clients (e.g., OpenAI, AzureOpenAI), and capabilities such as code execution.
+
+The ecosystem also supports two essential _developer tools_:
+
+&lt;div align="center"&gt;
+  &lt;img src="https://media.githubusercontent.com/media/microsoft/autogen/refs/heads/main/python/packages/autogen-studio/docs/ags_screen.png" alt="AutoGen Studio Screenshot" width="500"&gt;
+&lt;/div&gt;
+
+- [AutoGen Studio](./python/packages/autogen-studio/) provides a no-code GUI for building multi-agent applications.
+- [AutoGen Bench](./python/packages/agbench/) provides a benchmarking suite for evaluating agent performance.
+
+You can use the AutoGen framework and developer tools to create applications for your domain. For example, [Magentic-One](./python/packages/magentic-one-cli/) is a state-of-the-art multi-agent team built using AgentChat API and Extensions API that can handle a variety of tasks that require web browsing, code execution, and file handling.
+
+With AutoGen you get to join and contribute to a thriving ecosystem. We host weekly office hours and talks with maintainers and community. We also have a [Discord server](https://aka.ms/autogen-discord) for real-time chat, GitHub Discussions for Q&amp;A, and a blog for tutorials and updates.
+
+## Where to go next?
+
+&lt;div align="center"&gt;
+
+|               | [![Python](https://img.shields.io/badge/AutoGen-Python-blue?logo=python&amp;logoColor=white)](./python)                                                                                                                                                                                                                                                                                                                | [![.NET](https://img.shields.io/badge/AutoGen-.NET-green?logo=.net&amp;logoColor=white)](./dotnet) | [![Studio](https://img.shields.io/badge/AutoGen-Studio-purple?logo=visual-studio&amp;logoColor=white)](./python/packages/autogen-studio)                     |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Installation  | [![Installation](https://img.shields.io/badge/Install-blue)](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/installation.html)                                                                                                                                                                                                                                                            | [![Install](https://img.shields.io/badge/Install-green)](https://microsoft.github.io/autogen/dotnet/dev/core/installation.html) | [![Install](https://img.shields.io/badge/Install-purple)](https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html) |
+| Quickstart    | [![Quickstart](https://img.shields.io/badge/Quickstart-blue)](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/quickstart.html#)                                                                                                                                                                                                                                                            | [![Quickstart](https://img.shields.io/badge/Quickstart-green)](https://microsoft.github.io/autogen/dotnet/dev/core/index.html) | [![Usage](https://img.shields.io/badge/Quickstart-purple)](https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/usage.html#)        |
+| Tutorial      | [![Tutorial](https://img.shields.io/badge/Tutorial-blue)](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/index.html)                                                                                                                                                                                                                                                            | [![Tutorial](https://img.shields.io/badge/Tutorial-green)](https://microsoft.github.io/autogen/dotnet/dev/core/tutorial.html) | [![Usage](https://img.shields.io/badge/Tutorial-purple)](https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/usage.html#)        |
+| API Reference | [![API](https://img.shields.io/badge/Docs-blue)](https://microsoft.github.io/autogen/stable/reference/index.html#)                                                                                                                                                                                                                                                                                                    | [![API](https://img.shields.io/badge/Docs-green)](https://microsoft.github.io/autogen/dotnet/dev/api/Microsoft.AutoGen.Contracts.html) | [![API](https://img.shields.io/badge/Docs-purple)](https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/usage.html)               |
+| Packages      | [![PyPi autogen-core](https://img.shields.io/badge/PyPi-autogen--core-blue?logo=pypi)](https://pypi.org/project/autogen-core/) &lt;br&gt; [![PyPi autogen-agentchat](https://img.shields.io/badge/PyPi-autogen--agentchat-blue?logo=pypi)](https://pypi.org/project/autogen-agentchat/) &lt;br&gt; [![PyPi autogen-ext](https://img.shields.io/badge/PyPi-autogen--ext-blue?logo=pypi)](https://pypi.org/project/autogen-ext/) | [![NuGet Contracts](https://img.shields.io/badge/NuGet-Contracts-green?logo=nuget)](https://www.nuget.org/packages/Microsoft.AutoGen.Contracts/) &lt;br&gt; [![NuGet Core](https://img.shields.io/badge/NuGet-Core-green?logo=nuget)](https://www.nuget.org/packages/Microsoft.AutoGen.Core/) &lt;br&gt; [![NuGet Core.Grpc](https://img.shields.io/badge/NuGet-Core.Grpc-green?logo=nuget)](https://www.nuget.org/packages/Microsoft.AutoGen.Core.Grpc/) &lt;br&gt; [![NuGet RuntimeGateway.Grpc](https://img.shields.io/badge/NuGet-RuntimeGateway.Grpc-green?logo=nuget)](https://www.nuget.org/packages/Microsoft.AutoGen.RuntimeGateway.Grpc/) | [![PyPi autogenstudio](https://img.shields.io/badge/PyPi-autogenstudio-purple?logo=pypi)](https://pypi.org/project/autogenstudio/)                       |
+
+&lt;/div&gt;
+
+
+Interested in contributing? See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to get started. We welcome contributions of all kinds, including bug fixes, new features, and documentation improvements. Join our community and help us make AutoGen better!
+
+Have questions? Check out our [Frequently Asked Questions (FAQ)](./FAQ.md) for answers to common queries. If you don't find what you're looking for, feel free to ask in our [GitHub Discussions](https://github.com/microsoft/autogen/discussions) or join our [Discord server](https://aka.ms/autogen-discord) for real-time support. You can also read our [blog](https://devblogs.microsoft.com/autogen/) for updates.
+
+## Legal Notices
+
+Microsoft and any contributors grant you a license to the Microsoft documentation and other content
+in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
+see the [LICENSE](LICENSE) file, and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
+[LICENSE-CODE](LICENSE-CODE) file.
+
+Microsoft, Windows, Microsoft Azure, and/or other Microsoft products and services referenced in the documentation
+may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries.
+The licenses for this project do not grant you rights to use any Microsoft names, logos, or trademarks.
+Microsoft's general trademark guidelines can be found at &lt;http://go.microsoft.com/fwlink/?LinkID=254653&gt;.
+
+Privacy information can be found at &lt;https://go.microsoft.com/fwlink/?LinkId=521839&gt;
+
+Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
+or trademarks, whether by implication, estoppel, or otherwise.
+
+&lt;p align="right" style="font-size: 14px; color: #555; margin-top: 20px;"&gt;
+  &lt;a href="#readme-top" style="text-decoration: none; color: blue; font-weight: bold;"&gt;
+    ↑ Back to Top ↑
+  &lt;/a&gt;
+&lt;/p&gt;
+
+
+
+--------------------------------------------------------------------------------
+<span class="ansi-yellow-fg">assistant</span> (to ragproxyagent):
+
+The provided text appears to be a README file for the AutoGen project, an open-source initiative by Microsoft. Here's a summary of its content:
+
+1. **Project Overview**: AutoGen is a system for creating and managing complex, distributed applications. It supports multiple languages (C#, Python) and provides a runtime environment for deploying and scaling these applications.
+
+2. **Key Components**:
+   - **AutoGen Core**: The core library containing the fundamental classes and interfaces for building AutoGen applications.
+   - **AutoGen Agent**: A runtime component responsible for managing the lifecycle of AutoGen applications.
+   - **AutoGen Runtime Gateway**: A service that facilitates communication between agents and enables load balancing, scaling, and fault tolerance.
+
+3. **Languages Supported**: C# and Python are currently supported.
+
+4. **Getting Started**: The README provides instructions on how to install the necessary packages, create a new project, and build/run an AutoGen application.
+
+5. **Documentation**: Links to detailed documentation for reference, including API references, guides, and tutorials.
+
+6. **Community &amp; Contribution**: Guidelines for contributing to the project, including information on issue tracking, pull requests, and coding standards.
+
+7. **Legal Notices**: Licensing information and trademark notices.
+
+8. **Support &amp; FAQ**: Information on how to ask questions, report issues, and find answers to common queries.
+
+The README also includes a table summarizing the available packages for each supported language (C# and Python) and their respective package managers (NuGet and PyPI). This makes it easy for developers to quickly identify the necessary components for getting started with AutoGen in their preferred language.
+
+--------------------------------------------------------------------------------
+<span class="ansi-red-fg">
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; TERMINATING RUN (601a53dc-8a5d-4e19-8503-1517fe3c7634): Termination message condition on agent 'ragproxyagent' met</span>
+ChatResult(chat_id=None, chat_history=[{'content': 'You\'re a retrieve augmented chatbot. You answer user\'s questions based on your own knowledge and the\ncontext provided by the user.\nIf you can\'t answer the question with or without the current context, you should reply exactly `UPDATE CONTEXT`.\nYou must give as short an answer as possible.\n\nUser\'s question is: What languages does AutoGen support?\n\nContext is: &lt;a name="readme-top"&gt;&lt;/a&gt;\n\n&lt;div align="center"&gt;\n&lt;img src="https://microsoft.github.io/autogen/0.2/img/ag.svg" alt="AutoGen Logo" width="100"&gt;\n\n[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&amp;label=Follow%20%40pyautogen)](https://twitter.com/pyautogen)\n[![LinkedIn](https://img.shields.io/badge/LinkedIn-Company?style=flat&amp;logo=linkedin&amp;logoColor=white)](https://www.linkedin.com/company/105812540)\n[![Discord](https://img.shields.io/badge/discord-chat-green?logo=discord)](https://aka.ms/autogen-discord)\n[![Documentation](https://img.shields.io/badge/Documentation-AutoGen-blue?logo=read-the-docs)](https://microsoft.github.io/autogen/)\n[![Blog](https://img.shields.io/badge/Blog-AutoGen-blue?logo=blogger)](https://devblogs.microsoft.com/autogen/)\n\n&lt;/div&gt;\n\n&lt;div align="center" style="background-color: rgba(255, 235, 59, 0.5); padding: 10px; border-radius: 5px; margin: 20px 0;"&gt;\n  &lt;strong&gt;Important:&lt;/strong&gt; This is the official project. We are not affiliated with any fork or startup. See our &lt;a href="https://x.com/pyautogen/status/1857264760951296210"&gt;statement&lt;/a&gt;.\n&lt;/div&gt;\n\n# AutoGen\n\n**AutoGen** is a framework for creating multi-agent AI applications that can act autonomously or work alongside humans.\n\n## Installation\n\nAutoGen requires **Python 3.10 or later**.\n\n```bash\n# Install AgentChat and OpenAI client from Extensions\npip install -U "autogen-agentchat" "autogen-ext[openai]"\n```\n\nThe current stable version is v0.4. If you are upgrading from AutoGen v0.2, please refer to the [Migration Guide](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/migration-guide.html) for detailed instructions on how to update your code and configurations.\n\n```bash\n# Install AutoGen Studio for no-code GUI\npip install -U "autogenstudio"\n```\n\n## Quickstart\n\n### Hello World\n\nCreate an assistant agent using OpenAI\'s GPT-4o model. See [other supported models](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/models.html).\n\n```python\nimport asyncio\nfrom autogen_agentchat.agents import AssistantAgent\nfrom autogen_ext.models.openai import OpenAIChatCompletionClient\n\nasync def main() -&gt; None:\n    model_client = OpenAIChatCompletionClient(model="gpt-4o")\n    agent = AssistantAgent("assistant", model_client=model_client)\n    print(await agent.run(task="Say \'Hello World!\'"))\n    await model_client.close()\n\nasyncio.run(main())\n```\n\n### Web Browsing Agent Team\n\nCreate a group chat team with a web surfer agent and a user proxy agent\nfor web browsing tasks. You need to install [playwright](https://playwright.dev/python/docs/library).\n\n```python\n# pip install -U autogen-agentchat autogen-ext[openai,web-surfer]\n# playwright install\nimport asyncio\nfrom autogen_agentchat.agents import UserProxyAgent\nfrom autogen_agentchat.conditions import TextMentionTermination\nfrom autogen_agentchat.teams import RoundRobinGroupChat\nfrom autogen_agentchat.ui import Console\nfrom autogen_ext.models.openai import OpenAIChatCompletionClient\nfrom autogen_ext.agents.web_surfer import MultimodalWebSurfer\n\nasync def main() -&gt; None:\n    model_client = OpenAIChatCompletionClient(model="gpt-4o")\n    # The web surfer will open a Chromium browser window to perform web browsing tasks.\n    web_surfer = MultimodalWebSurfer("web_surfer", model_client, headless=False, animate_actions=True)\n    # The user proxy agent is used to get user input after each step of the web surfer.\n    # NOTE: you can skip input by pressing Enter.\n    user_proxy = UserProxyAgent("user_proxy")\n    # The termination condition is set to end the conversation when the user types \'exit\'.\n    termination = TextMentionTermination("exit", sources=["user_proxy"])\n    # Web surfer and user proxy take turns in a round-robin fashion.\n    team = RoundRobinGroupChat([web_surfer, user_proxy], termination_condition=termination)\n    try:\n        # Start the team and wait for it to terminate.\n        await Console(team.run_stream(task="Find information about AutoGen and write a short summary."))\n    finally:\n        await web_surfer.close()\n        await model_client.close()\n\nasyncio.run(main())\n```\n\n### AutoGen Studio\n\nUse AutoGen Studio to prototype and run multi-agent workflows without writing code.\n\n```bash\n# Run AutoGen Studio on http://localhost:8080\nautogenstudio ui --port 8080 --appdir ./my-app\n```\n\n## Why Use AutoGen?\n\n&lt;div align="center"&gt;\n  &lt;img src="autogen-landing.jpg" alt="AutoGen Landing" width="500"&gt;\n&lt;/div&gt;\n\nThe AutoGen ecosystem provides everything you need to create AI agents, especially multi-agent workflows -- framework, developer tools, and applications.\n\nThe _framework_ uses a layered and extensible design. Layers have clearly divided responsibilities and build on top of layers below. This design enables you to use the framework at different levels of abstraction, from high-level APIs to low-level components.\n\n- [Core API](./python/packages/autogen-core/) implements message passing, event-driven agents, and local and distributed runtime for flexibility and power. It also support cross-language support for .NET and Python.\n- [AgentChat API](./python/packages/autogen-agentchat/) implements a simpler but opinionated\xa0API for rapid prototyping. This API is built on top of the Core API and is closest to what users of v0.2 are familiar with and supports common multi-agent patterns such as two-agent chat or group chats.\n- [Extensions API](./python/packages/autogen-ext/) enables first- and third-party extensions continuously expanding framework capabilities. It support specific implementation of LLM clients (e.g., OpenAI, AzureOpenAI), and capabilities such as code execution.\n\nThe ecosystem also supports two essential _developer tools_:\n\n&lt;div align="center"&gt;\n  &lt;img src="https://media.githubusercontent.com/media/microsoft/autogen/refs/heads/main/python/packages/autogen-studio/docs/ags_screen.png" alt="AutoGen Studio Screenshot" width="500"&gt;\n&lt;/div&gt;\n\n- [AutoGen Studio](./python/packages/autogen-studio/) provides a no-code GUI for building multi-agent applications.\n- [AutoGen Bench](./python/packages/agbench/) provides a benchmarking suite for evaluating agent performance.\n\nYou can use the AutoGen framework and developer tools to create applications for your domain. For example, [Magentic-One](./python/packages/magentic-one-cli/) is a state-of-the-art multi-agent team built using AgentChat API and Extensions API that can handle a variety of tasks that require web browsing, code execution, and file handling.\n\nWith AutoGen you get to join and contribute to a thriving ecosystem. We host weekly office hours and talks with maintainers and community. We also have a [Discord server](https://aka.ms/autogen-discord) for real-time chat, GitHub Discussions for Q&amp;A, and a blog for tutorials and updates.\n\n## Where to go next?\n\n&lt;div align="center"&gt;\n\n|               | [![Python](https://img.shields.io/badge/AutoGen-Python-blue?logo=python&amp;logoColor=white)](./python)                                                                                                                                                                                                                                                                                                                | [![.NET](https://img.shields.io/badge/AutoGen-.NET-green?logo=.net&amp;logoColor=white)](./dotnet) | [![Studio](https://img.shields.io/badge/AutoGen-Studio-purple?logo=visual-studio&amp;logoColor=white)](./python/packages/autogen-studio)                     |\n| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Installation  | [![Installation](https://img.shields.io/badge/Install-blue)](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/installation.html)                                                                                                                                                                                                                                                            | [![Install](https://img.shields.io/badge/Install-green)](https://microsoft.github.io/autogen/dotnet/dev/core/installation.html) | [![Install](https://img.shields.io/badge/Install-purple)](https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/installation.html) |\n| Quickstart    | [![Quickstart](https://img.shields.io/badge/Quickstart-blue)](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/quickstart.html#)                                                                                                                                                                                                                                                            | [![Quickstart](https://img.shields.io/badge/Quickstart-green)](https://microsoft.github.io/autogen/dotnet/dev/core/index.html) | [![Usage](https://img.shields.io/badge/Quickstart-purple)](https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/usage.html#)        |\n| Tutorial      | [![Tutorial](https://img.shields.io/badge/Tutorial-blue)](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/index.html)                                                                                                                                                                                                                                                            | [![Tutorial](https://img.shields.io/badge/Tutorial-green)](https://microsoft.github.io/autogen/dotnet/dev/core/tutorial.html) | [![Usage](https://img.shields.io/badge/Tutorial-purple)](https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/usage.html#)        |\n| API Reference | [![API](https://img.shields.io/badge/Docs-blue)](https://microsoft.github.io/autogen/stable/reference/index.html#)                                                                                                                                                                                                                                                                                                    | [![API](https://img.shields.io/badge/Docs-green)](https://microsoft.github.io/autogen/dotnet/dev/api/Microsoft.AutoGen.Contracts.html) | [![API](https://img.shields.io/badge/Docs-purple)](https://microsoft.github.io/autogen/stable/user-guide/autogenstudio-user-guide/usage.html)               |\n| Packages      | [![PyPi autogen-core](https://img.shields.io/badge/PyPi-autogen--core-blue?logo=pypi)](https://pypi.org/project/autogen-core/) &lt;br&gt; [![PyPi autogen-agentchat](https://img.shields.io/badge/PyPi-autogen--agentchat-blue?logo=pypi)](https://pypi.org/project/autogen-agentchat/) &lt;br&gt; [![PyPi autogen-ext](https://img.shields.io/badge/PyPi-autogen--ext-blue?logo=pypi)](https://pypi.org/project/autogen-ext/) | [![NuGet Contracts](https://img.shields.io/badge/NuGet-Contracts-green?logo=nuget)](https://www.nuget.org/packages/Microsoft.AutoGen.Contracts/) &lt;br&gt; [![NuGet Core](https://img.shields.io/badge/NuGet-Core-green?logo=nuget)](https://www.nuget.org/packages/Microsoft.AutoGen.Core/) &lt;br&gt; [![NuGet Core.Grpc](https://img.shields.io/badge/NuGet-Core.Grpc-green?logo=nuget)](https://www.nuget.org/packages/Microsoft.AutoGen.Core.Grpc/) &lt;br&gt; [![NuGet RuntimeGateway.Grpc](https://img.shields.io/badge/NuGet-RuntimeGateway.Grpc-green?logo=nuget)](https://www.nuget.org/packages/Microsoft.AutoGen.RuntimeGateway.Grpc/) | [![PyPi autogenstudio](https://img.shields.io/badge/PyPi-autogenstudio-purple?logo=pypi)](https://pypi.org/project/autogenstudio/)                       |\n\n&lt;/div&gt;\n\n\nInterested in contributing? See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to get started. We welcome contributions of all kinds, including bug fixes, new features, and documentation improvements. Join our community and help us make AutoGen better!\n\nHave questions? Check out our [Frequently Asked Questions (FAQ)](./FAQ.md) for answers to common queries. If you don\'t find what you\'re looking for, feel free to ask in our [GitHub Discussions](https://github.com/microsoft/autogen/discussions) or join our [Discord server](https://aka.ms/autogen-discord) for real-time support. You can also read our [blog](https://devblogs.microsoft.com/autogen/) for updates.\n\n## Legal Notices\n\nMicrosoft and any contributors grant you a license to the Microsoft documentation and other content\nin this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),\nsee the [LICENSE](LICENSE) file, and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the\n[LICENSE-CODE](LICENSE-CODE) file.\n\nMicrosoft, Windows, Microsoft Azure, and/or other Microsoft products and services referenced in the documentation\nmay be either trademarks or registered trademarks of Microsoft in the United States and/or other countries.\nThe licenses for this project do not grant you rights to use any Microsoft names, logos, or trademarks.\nMicrosoft\'s general trademark guidelines can be found at &lt;http://go.microsoft.com/fwlink/?LinkID=254653&gt;.\n\nPrivacy information can be found at &lt;https://go.microsoft.com/fwlink/?LinkId=521839&gt;\n\nMicrosoft and any contributors reserve all other rights, whether under their respective copyrights, patents,\nor trademarks, whether by implication, estoppel, or otherwise.\n\n&lt;p align="right" style="font-size: 14px; color: #555; margin-top: 20px;"&gt;\n  &lt;a href="#readme-top" style="text-decoration: none; color: blue; font-weight: bold;"&gt;\n    ↑ Back to Top ↑\n  &lt;/a&gt;\n&lt;/p&gt;\n\n', 'role': 'assistant', 'name': 'ragproxyagent'}, {'content': "The provided text appears to be a README file for the AutoGen project, an open-source initiative by Microsoft. Here's a summary of its content:\n\n1. **Project Overview**: AutoGen is a system for creating and managing complex, distributed applications. It supports multiple languages (C#, Python) and provides a runtime environment for deploying and scaling these applications.\n\n2. **Key Components**:\n   - **AutoGen Core**: The core library containing the fundamental classes and interfaces for building AutoGen applications.\n   - **AutoGen Agent**: A runtime component responsible for managing the lifecycle of AutoGen applications.\n   - **AutoGen Runtime Gateway**: A service that facilitates communication between agents and enables load balancing, scaling, and fault tolerance.\n\n3. **Languages Supported**: C# and Python are currently supported.\n\n4. **Getting Started**: The README provides instructions on how to install the necessary packages, create a new project, and build/run an AutoGen application.\n\n5. **Documentation**: Links to detailed documentation for reference, including API references, guides, and tutorials.\n\n6. **Community &amp; Contribution**: Guidelines for contributing to the project, including information on issue tracking, pull requests, and coding standards.\n\n7. **Legal Notices**: Licensing information and trademark notices.\n\n8. **Support &amp; FAQ**: Information on how to ask questions, report issues, and find answers to common queries.\n\nThe README also includes a table summarizing the available packages for each supported language (C# and Python) and their respective package managers (NuGet and PyPI). This makes it easy for developers to quickly identify the necessary components for getting started with AutoGen in their preferred language.", 'role': 'user', 'name': 'assistant'}], summary="The provided text appears to be a README file for the AutoGen project, an open-source initiative by Microsoft. Here's a summary of its content:\n\n1. **Project Overview**: AutoGen is a system for creating and managing complex, distributed applications. It supports multiple languages (C#, Python) and provides a runtime environment for deploying and scaling these applications.\n\n2. **Key Components**:\n   - **AutoGen Core**: The core library containing the fundamental classes and interfaces for building AutoGen applications.\n   - **AutoGen Agent**: A runtime component responsible for managing the lifecycle of AutoGen applications.\n   - **AutoGen Runtime Gateway**: A service that facilitates communication between agents and enables load balancing, scaling, and fault tolerance.\n\n3. **Languages Supported**: C# and Python are currently supported.\n\n4. **Getting Started**: The README provides instructions on how to install the necessary packages, create a new project, and build/run an AutoGen application.\n\n5. **Documentation**: Links to detailed documentation for reference, including API references, guides, and tutorials.\n\n6. **Community &amp; Contribution**: Guidelines for contributing to the project, including information on issue tracking, pull requests, and coding standards.\n\n7. **Legal Notices**: Licensing information and trademark notices.\n\n8. **Support &amp; FAQ**: Information on how to ask questions, report issues, and find answers to common queries.\n\nThe README also includes a table summarizing the available packages for each supported language (C# and Python) and their respective package managers (NuGet and PyPI). This makes it easy for developers to quickly identify the necessary components for getting started with AutoGen in their preferred language.", cost={'usage_including_cached_inference': {'total_cost': 0.0, 'granite3.2:8b': {'cost': 0.0, 'prompt_tokens': 2048, 'completion_tokens': 357, 'total_tokens': 2405}}, 'usage_excluding_cached_inference': {'total_cost': 0.0, 'granite3.2:8b': {'cost': 0.0, 'prompt_tokens': 2048, 'completion_tokens': 357, 'total_tokens': 2405}}}, human_input=[])
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=160805b8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Great! Our assistant agent and RAG agent successfully synthesized the additional context to correctly respond to the user query with the programming languages currently supported by AutoGen. You can think of this as a group chat between agents exchanging information. This example is a simple demontration of implementing agentic RAG locally with AutoGen.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9bc046e9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="step-3-install-open-webui">Step 3. Install Open WebUI<a class="anchor-link" href="#step-3-install-open-webui">¶</a></h3><p>Now, let’s move on to building a more advanced agentic RAG system. In your terminal, install and run Open WebUI.</p>
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>open-webui
+open-webui<span class="w"> </span>serve
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=99a58a3f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="step-4-set-up-web-search">Step 4. Set up web search<a class="anchor-link" href="#step-4-set-up-web-search">¶</a></h3><p>For web search, we will leverage the built-in web search capabilities in Open WebUI.</p>
+<p>Open WebUI supports a number of search providers. Broadly, you can either use a 3rd-party application programming interface (API) service, for which you will need to obtain an API key, or you can locally set up a SearXNG <a href="https://www.ibm.com/think/topics/docker">Docker</a> container. In either case, you will need to configure your search provider in the Open WebUI console.</p>
+<p>This configuration, either a pointer to SearXNG or input of your API key, is under <strong>Admin Panel &gt; Settings &gt; Web Search</strong> in the Open WebUI console.</p>
+<p>Please refer to the instructions in the <a href="https://docs.openwebui.com/category/-web-search">Open WebUI documentation</a> for more detailed instructions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ffa58d61">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="step-5-import-the-agent-into-open-webui">Step 5. Import the agent into Open WebUI<a class="anchor-link" href="#step-5-import-the-agent-into-open-webui">¶</a></h3><ol>
+<li>In your browser, go to <a href="http://localhost:8080/">http://localhost:8080/</a> to access Open Web UI. If it is your first time opening the Open WebUI interface, register a username and password. This information is kept entirely local to your machine.</li>
+<li>After logging in, click the icon on the lower left side where your username is. From the menu, click Admin panel.</li>
+<li>In the <strong>Functions</strong> tab, click <strong>+</strong> to add a new function.</li>
+<li>Give the function a name, such as "Granite RAG Agent," and a description, both of <code>str</code> type.</li>
+<li>Paste the <a href="https://github.com/ibm-granite-community/granite-retrieval-agent/blob/main/granite_autogen_rag.py"><code>granite_autogen_rag.py</code></a> Python script into the text box provided, replacing any existing content.</li>
+<li>Click <strong>Save</strong> at the bottom of the screen.</li>
+<li>Back on the <strong>Functions</strong> page, make sure that the agent is toggled to <strong>Enabled</strong>.</li>
+<li>Click the gear icon next to the enablement toggle to customize any settings such as the inference endpoint, the SearXNG endpoint or the model ID.</li>
+</ol>
+<p>Now, your brand-new AutoGen agent shows up as a model in the Open WebUI interface. You can select it and provide it with user queries.</p>
+<h3 id="step-6-load-documents-into-open-webui">Step 6. Load documents into Open WebUI<a class="anchor-link" href="#step-6-load-documents-into-open-webui">¶</a></h3><ol>
+<li>In Open WebUI, navigate to <strong>Workspace &gt; Knowledge.</strong></li>
+<li>Click <strong>+</strong> to create a new collection.</li>
+<li>Upload documents for the Granite retrieval agent to query.</li>
+</ol>
+<h3 id="step-7-configure-web-search-in-open-webui">Step 7. Configure Web Search in Open WebUI<a class="anchor-link" href="#step-7-configure-web-search-in-open-webui">¶</a></h3><p>To set up a search provider (for example, SearXNG), follow this <a href="https://docs.openwebui.com/tutorials/web-search/searxng/#4-gui-configuration">guide</a>.</p>
+<p>The configuration parameters are as follows:</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bbf17519">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>task_model_id</td>
+<td>Primary model for task execution</td>
+<td><code>granite3.2:8b</code></td>
+</tr>
+<tr>
+<td>vision_model_id</td>
+<td>Vision model for image analysis</td>
+<td><code>granite-vision3.2:2b</code></td>
+</tr>
+<tr>
+<td>openai_api_url</td>
+<td>API endpoint for OpenAI-style model calls</td>
+<td><code>http://localhost:11434</code></td>
+</tr>
+<tr>
+<td>openai_api_key</td>
+<td>API key for authentication</td>
+<td><code>ollama</code></td>
+</tr>
+<tr>
+<td>vision_api_url</td>
+<td>Endpoint for vision-related tasks</td>
+<td><code>http://localhost:11434</code></td>
+</tr>
+<tr>
+<td>model_temperature</td>
+<td>Controls response randomness</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>max_plan_steps</td>
+<td>Maximum steps in agent planning</td>
+<td><code>6</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5f215158">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em><strong>Note</strong></em>: These parameters can be configured through the gear icon in the "Functions" section of the Open WebUI Admin Panel after adding the function.</p>
+<h3 id="step-8-query-the-agentic-system">Step 8. Query the agentic system<a class="anchor-link" href="#step-8-query-the-agentic-system">¶</a></h3><p>The Granite retrieval agent performs AG2-based RAG by querying local documents and web sources, performing multi-agent task planning and enforcing adaptive execution. Start a chat and provide your agentic system with a query related to the documents provided to see the RAG chain in action.</p>
+<h2 id="summary">Summary<a class="anchor-link" href="#summary">¶</a></h2><p>A multi-agent setup enables the creation of practical, usable tools by getting the most out of moderately sized, open source models like Granite 3.2. This agentic RAG architecture, built with fully open source tools, can serve as a launching point to design and customize your question answering agents and AI algorithms. It can also be used outside of the box for a wide array of use cases. In this tutorial, you had the opportunity to delve into simple and complex agentic systems, leveraging the capabilities of AutoGen. The Granite LLM was invoked by using Ollama, allowing for a fully local exploration of these systems. As a next step, consider integrating more custom tools into your agentic system.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e4c1fa6f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Footnotes</strong>:</p>
+<p><sup>1</sup>  Wu, Qingyun, et al. “AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation Framework.” <em>GitHub</em>, 2023, github.com/microsoft/autogen.</p>
 </div>
 </div>
 </div>
@@ -1225,6 +1874,10 @@ from .hugging_face_tool_agent import HuggingFaceToolAgent</div>
 </div> <!-- jp-Notebook -->
 </div> <!-- jupyter-wrapper -->
 
+        <style>
+        ['pre { line-height: 125%; }\ntd.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }\nspan.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }\ntd.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }\nspan.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }\n.highlight-ipynb .hll { background-color: var(--jp-cell-editor-active-background) }\n.highlight-ipynb { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }\n.highlight-ipynb .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */\n.highlight-ipynb .err { color: var(--jp-mirror-editor-error-color) } /* Error */\n.highlight-ipynb .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */\n.highlight-ipynb .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */\n.highlight-ipynb .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */\n.highlight-ipynb .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */\n.highlight-ipynb .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */\n.highlight-ipynb .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */\n.highlight-ipynb .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */\n.highlight-ipynb .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */\n.highlight-ipynb .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */\n.highlight-ipynb .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */\n.highlight-ipynb .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */\n.highlight-ipynb .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */\n.highlight-ipynb .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */\n.highlight-ipynb .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */\n.highlight-ipynb .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */\n.highlight-ipynb .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */\n.highlight-ipynb .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */\n.highlight-ipynb .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */\n.highlight-ipynb .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */\n.highlight-ipynb .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */\n.highlight-ipynb .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */\n.highlight-ipynb .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */\n.highlight-ipynb .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */\n.highlight-ipynb .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */\n.highlight-ipynb .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */\n.highlight-ipynb .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */\n.highlight-ipynb .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */\n.highlight-ipynb .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */\n.highlight-ipynb .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */\n.highlight-ipynb .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */\n.highlight-ipynb .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */\n.highlight-ipynb .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */\n.highlight-ipynb .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */\n.highlight-ipynb .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */\n.highlight-ipynb .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */\n.highlight-ipynb .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */\n.highlight-ipynb .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */\n.highlight-ipynb .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */\n.highlight-ipynb .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */']
+        </style>
+        
 
 
 
@@ -1286,10 +1939,10 @@ from .hugging_face_tool_agent import HuggingFaceToolAgent</div>
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../../../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
   </body>
