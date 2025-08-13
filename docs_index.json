@@ -1,5 +1,11 @@
 [
   {
+    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/autogen-local-multi-agent-rag",
+    "title": "Multi-agent RAG with AutoGen: Build locally with Granite",
+    "author": "** Kelly Abuelsaad, Anna Gutowska",
+    "date": "2025-08-13"
+  },
+  {
     "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/lora_on_watsonx/lora-training",
     "title": "Fine-tuning Granite with LoRA",
     "date": "2025-07-29"

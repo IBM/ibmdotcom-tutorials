@@ -1,0 +1,1016 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="IBM.com Technical Content Team">
+      
+      
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/metagpt_tutorial/example_DraftPRD/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Product Requirements Document: Wealth Manager Banking App - IBM.com Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Product Requirements Document: Wealth Manager Banking App - IBM.com Tutorials" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/metagpt_tutorial/example_DraftPRD.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/metagpt_tutorial/example_DraftPRD/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Product Requirements Document: Wealth Manager Banking App - IBM.com Tutorials" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/metagpt_tutorial/example_DraftPRD.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#product-requirements-document-wealth-manager-banking-app" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM.com Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Product Requirements Document: Wealth Manager Banking App
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../references/coc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  References
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    IBM.com Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Welcome
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../getting-started/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/coc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code of Conduct
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="product-requirements-document-wealth-manager-banking-app">Product Requirements Document: Wealth Manager Banking App</h1>
+<h2 id="1-introduction-overview">1. Introduction &amp; Overview</h2>
+<ul>
+<li><strong>Product Name:</strong> [Proposed Name - e.g., "WealthBank Pro", "Portfolio Navigator"]</li>
+<li><strong>Version:</strong> v0.1 (Initial Draft)</li>
+<li><strong>Author:</strong> [Your Team/Name]</li>
+<li><strong>Date:</strong> October 26, 2</li>
+<li><strong>Status:</strong> Draft</li>
+</ul>
+<h2 id="2-purpose-goals">2. Purpose &amp; Goals</h2>
+<p>The purpose of this app is to solve key pain points faced by wealth managers and their clients with a seamless, integrated digital platform for managing assets, monitoring portfolio performance, accessing banking services, and facilitating communication within the financial advisory context.</p>
+<h3 id="key-goals">Key Goals:</h3>
+<ol>
+<li><strong>Enhance Advisor Efficiency:</strong> Streamline investment management tasks (monitoring, reporting, client onboarding) for advisors.</li>
+<li><strong>Improve Client Experience:</strong> Offer clients a convenient, secure, and transparent way to view their portfolios, transactions, statements, and communicate with their advisor through a dedicated app channel.</li>
+<li><strong>Centralized Platform:</strong> Create a single point of access combining core banking functionalities (statements, transfers) with advanced investment tracking and insights relevant to wealth management.</li>
+<li><strong>Data Integration &amp; Analytics:</strong> Provide advisors with robust tools for data aggregation from multiple sources (banking, investments), performance analysis, risk assessment, and goal tracking.</li>
+<li><strong>Secure Collaboration:</strong> Facilitate secure communication channels between the client and their advisor regarding financial matters.</li>
+</ol>
+<h2 id="3-target-audience">3. Target Audience</h2>
+<ul>
+<li><strong>Primary Users:</strong><ul>
+<li><strong>Wealth Managers/Financial Advisors:</strong> Professionals managing client portfolios, requiring tools for performance analysis, portfolio management (potential integration), reporting generation, transaction monitoring, and efficient client communication.</li>
+<li><strong>High-Net-Worth Clients:</strong> Individuals with complex financial needs who benefit from personalized dashboards, detailed portfolio insights, secure messaging with their advisor, access to investment summaries without needing direct broker details, and convenience of managing finances alongside advisory services.</li>
+</ul>
+</li>
+<li><strong>Secondary Users:</strong><ul>
+<li><strong>Administrative Staff (optional):</strong> May assist advisors in onboarding clients or generating reports if required.</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-scope">4. Scope</h2>
+<p>This document outlines the requirements for a mobile banking application designed specifically for use by wealth managers and their high-net-worth clients within an integrated financial service context. The app will be built upon [Mention Existing Platform, e.g., "the existing WealthBank platform"] or as a standalone solution.</p>
+<h3 id="core-features-functional-requirements">Core Features (Functional Requirements)</h3>
+<ul>
+<li><strong>Advisor Dashboard:</strong><ul>
+<li>Overview of client portfolios assigned to the advisor.</li>
+<li>Performance metrics and key indicators for all managed clients/portsfolios at a glance.</li>
+<li>Notifications/alerts related to client activities, transactions, market events relevant to their advice.</li>
+<li>Quick access to portfolio details, transaction history, statements, and client profiles.</li>
+</ul>
+</li>
+<li><strong>Client Portfolio Tracking:</strong><ul>
+<li>Real-time view of client's investment performance across different asset classes (stocks, bonds, mutual funds, ETFs) within the advisor's platform.</li>
+<li>Performance attribution analysis showing drivers of returns.</li>
+<li>Risk assessment visualizations (e.g., radar charts).</li>
+<li>Allocation tracking against target models.</li>
+</ul>
+</li>
+<li><strong>Client Account Management:</strong><ul>
+<li>View summary of all client accounts linked to the advisor or firm, including account numbers and balances.</li>
+<li>Access transaction history for each account with filtering capabilities (time period, type, status).</li>
+<li>Ability to view recent transactions in detail (counterparty, value date, description).</li>
+</ul>
+</li>
+<li><strong>Secure Messaging Platform:</strong><ul>
+<li>In-app messaging system exclusively between the client and their assigned advisor or team.</li>
+<li>Secure end-to-end encryption for messages.</li>
+<li>Message history accessible from both user perspectives.</li>
+<li>Option to attach relevant documents (statements, reports) directly to messages.</li>
+</ul>
+</li>
+<li><strong>Document Access &amp; Viewing:</strong><ul>
+<li>View official account statements provided by the bank via secure download or in-app viewing.</li>
+<li>Access performance reports generated by the advisor through the platform.</li>
+<li>Securely view investment research papers and market insights relevant to their portfolio (if applicable).</li>
+</ul>
+</li>
+<li><strong>Integrated Banking Services:</strong><ul>
+<li>Transaction Initiation:<ul>
+<li>Funds Transfer between client accounts (requires multi-factor authentication).</li>
+<li>Bill Payment functionality for recurring expenses or specific payments (optional, depending on bank's offerings).</li>
+</ul>
+</li>
+<li>Account Information Service:<ul>
+<li>Real-time balance inquiries.</li>
+<li>Transaction history retrieval.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="non-core-features">Non-Core Features</h3>
+<ul>
+<li><strong>Portfolio Management Tools:</strong> Potentially integrating with external platforms or providing basic allocation adjustment UI (requires careful consideration of regulatory implications and data flow).</li>
+<li><strong>Investment Research Hub:</strong> Aggregating insights from various sources for the advisor's reference.</li>
+<li><strong>Market Updates Feed:</strong> Curated news relevant to investment decisions.</li>
+</ul>
+<h3 id="out-of-scope">Out of Scope</h3>
+<ul>
+<li>Direct market order execution capabilities unless explicitly developed as part of a broader integration strategy (this PRD focuses on monitoring and advisory services).</li>
+<li>Peer-to-peer payments outside the client-advisor relationship.</li>
+<li>Complex loan application processes; basic account-based loans might be considered if aligned with platform strategy.</li>
+<li>Independent investment advice generation without human oversight.</li>
+</ul>
+<h2 id="5-functional-requirements">5. Functional Requirements</h2>
+<h3 id="51-user-authentication-profile-management">5.1 User Authentication &amp; Profile Management</h3>
+<pre><code>*   Secure login for both advisors and clients (different credentials).
+*   Role-based access control: Advisors see client portfolios linked to them, clients see their own data.
+*   Option for advisors to designate primary contact persons or teams.
+</code></pre>
+<h3 id="52-advisor-dashboard-module">5.2 Advisor Dashboard Module</h3>
+<pre><code>*   Display list of assigned client portfolios with key metrics (NAV, ROI, YTD return).
+*   Ability to drill down into individual portfolio details: holdings breakdown, performance charts, risk profile.
+*   View transaction alerts for significant movements (&gt; threshold) or advisor actions.
+*   Access client communication history directly from the dashboard.
+</code></pre>
+<h3 id="53-portfolio-tracking-module">5.3 Portfolio Tracking Module</h3>
+<pre><code>*   Client-specific dashboard showing portfolio value, allocation by asset class, performance trends (line/bar charts).
+*   Performance attribution section highlighting contributions/attributions.
+*   Risk assessment tools displaying current risk level and comparison to targets/benchmarks.
+*   Goal tracking visualizations if client goals are set within the system.
+</code></pre>
+<h3 id="54-account-management-module">5.4 Account Management Module</h3>
+<pre><code>*   List of linked accounts with balances, account numbers (masked for security), and types.
+*   Paginated transaction history view with filters (date range, transaction type - debit/credit, status).
+*   Ability to sort transactions chronologically or by other criteria.
+</code></pre>
+<h3 id="55-secure-messaging-module">5.5 Secure Messaging Module</h3>
+<pre><code>*   Compose, send, receive messages securely between client and advisor.
+*   Message threads organized per client or portfolio.
+*   Read receipts confirmation (optional, depending on feasibility/requirements).
+*   Secure attachment of documents with preview capability.
+</code></pre>
+<h3 id="56-document-access-viewing-module">5.6 Document Access &amp; Viewing Module</h3>
+<pre><code>*   Download official account statements from the bank's core system via secure API.
+*   View performance reports created by the advisor within the platform.
+*   Secure viewing and downloading of investment research (if applicable).
+</code></pre>
+<h3 id="57-integrated-banking-services-module">5.7 Integrated Banking Services Module</h3>
+<pre><code>*   Funds Transfer: Interface to initiate transfers between linked accounts or potentially external accounts (requires clear instructions).
+*   Bill Payment: Optional module if deemed necessary, with secure payment processing.
+</code></pre>
+<h2 id="6-non-functional-requirements">6. Non-Functional Requirements</h2>
+<ul>
+<li><strong>Performance:</strong> App should load data quickly (&lt;3 seconds for critical dashboards). Real-time updates via push notifications where feasible.</li>
+<li><strong>Security:</strong> Implement robust security measures including:<ul>
+<li>Multi-factor authentication (MFA) for login.</li>
+<li>End-to-end encryption for all communications and stored sensitive data.</li>
+<li>Compliance with GDPR, CCPA, or other relevant data privacy regulations.</li>
+<li>Role-based access control strictly enforced.</li>
+<li>Regular security audits and vulnerability scanning.</li>
+</ul>
+</li>
+<li><strong>Usability:</strong> Intuitive navigation. Clear visual hierarchy. Consistent design language (following platform guidelines). Easy-to-understand dashboards for both advisors and clients. Minimal clicks to achieve common tasks.</li>
+<li><strong>Reliability:</strong> High uptime (&gt;99%) during business hours. Data consistency across modules. Error handling mechanisms in place.</li>
+<li><strong>Scalability:</strong> System architecture should support a growing number of users, portfolios, and data volume without performance degradation.</li>
+<li><strong>Maintainability &amp; Extensibility:</strong> Codebase adheres to best practices for maintainability (modular design). APIs designed for easy integration with future systems or modules.</li>
+</ul>
+<h2 id="7-acceptance-criteria">7. Acceptance Criteria</h2>
+<h3 id="for-advisors">For Advisors:</h3>
+<pre><code>*   Can log in securely using their credentials.
+*   Dashboard shows all assigned client portfolios and key metrics.
+*   Can easily navigate between dashboard, portfolio tracking, account management, messaging, and document viewing sections.
+*   Portfolio tracking provides real-time data and visualizations (charts).
+*   Performance attribution is clearly displayed for the selected period.
+*   Risk assessment tools are functional and provide actionable insights.
+*   Secure messaging allows efficient communication with clients.
+*   Can view client account details and transaction history accurately.
+</code></pre>
+<h3 id="for-clients">For Clients:</h3>
+<pre><code>*   Can log in securely using their credentials (potentially different from advisor's).
+*   Dashboard provides a clear overview of portfolio performance, allocation, risk, and goals.
+*   Account management section shows linked accounts and recent transactions clearly.
+*   Secure messaging allows them to reach out to their assigned advisor easily.
+*   Can securely view official statements provided by the bank.
+</code></pre>
+<h3 id="for-both">For Both:</h3>
+<pre><code>*   All sensitive data is encrypted in transit and at rest.
+*   Login process enforces MFA if enabled.
+*   The app provides a consistent user experience across platforms (iOS/Android).
+*   Error messages are clear and helpful where applicable.
+*   Data synchronization between advisor view and client view occurs accurately.
+</code></pre>
+<h2 id="8-design-user-interface">8. Design &amp; User Interface</h2>
+<ul>
+<li><strong>UI Style:</strong> Clean, professional, modern design reflecting the wealth management brand. Use of established color schemes and visual hierarchy principles.</li>
+<li><strong>UX Flow:</strong><ul>
+<li>Login flow (secure with MFA option).</li>
+<li>Navigation structure between main modules.</li>
+<li>Portfolio overview screen for advisors/clients.</li>
+<li>Transaction history view.</li>
+<li>Messaging interface design.</li>
+<li>Statement viewing experience.</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-integration-requirements">9. Integration Requirements</h2>
+<ul>
+<li><strong>Core Banking System:</strong> Essential integration to retrieve account balances, transaction histories, and official statements securely via APIs (e.g., SWIFT, CAMTEL).</li>
+<li><strong>Wealth Management Platform/Database:</strong> Integration with the system storing client portfolio data, holdings, performance metrics, risk profiles, etc.<ul>
+<li>This could be a separate CRM or investment platform database.</li>
+</ul>
+</li>
+<li><strong>Secure File Transfer Protocol (SFTP):</strong> Potential requirement for securely transferring documents between systems.</li>
+</ul>
+<h2 id="10-data-requirements">10. Data Requirements</h2>
+<ul>
+<li><strong>Sources:</strong> Core Banking System, Wealth Management Platform/Database, Investment Research Vendors (optional).</li>
+<li><strong>Data Types:</strong><ul>
+<li>Client Portfolio Details (holdings, performance data, risk profile)</li>
+<li>Account Balances and Transaction Histories</li>
+<li>Official Statements (PDF format)</li>
+<li>Secure Messages with attachments metadata</li>
+<li>User Authentication Data</li>
+</ul>
+</li>
+</ul>
+<h2 id="11-technical-architecture-platform">11. Technical Architecture &amp; Platform</h2>
+<ul>
+<li><strong>Target Platforms:</strong> iOS (iPhone/iPad), Android.</li>
+<li><strong>Backend Technology Stack:</strong> [Specify e.g., Node.js, Python/Django, Java Spring Boot] for API development; database technology ([e.g., PostgreSQL, MySQL]).</li>
+<li><strong>Frontend Technology Stack:</strong> React Native or Flutter for cross-platform mobile app development.</li>
+</ul>
+<h2 id="12-release-schedule">12. Release Schedule</h2>
+<ul>
+<li><strong>Phase 1 (MVP):</strong> Focus on core functionalities - Advisor Dashboard, Portfolio Tracking, Account Management, Secure Messaging.<ul>
+<li>Target Launch: Q4 [Specify Year/Month]</li>
+</ul>
+</li>
+<li><strong>Phase 2:</strong> Add official statement viewing and basic integrated banking services (Funds Transfer).<ul>
+<li>Target Launch: Q1 [Specify Year] / End of Phase 1</li>
+</ul>
+</li>
+<li><strong>Phase 3:</strong> Potential enhancements based on user feedback.</li>
+</ul>
+<h2 id="13-success-metrics">13. Success Metrics</h2>
+<ul>
+<li>Number of active users (both advisors and clients) per month.</li>
+<li>User satisfaction scores from usability testing and surveys.</li>
+<li>Average time to load advisor dashboard/portfolio pages.</li>
+<li>Percentage of client inquiries handled via in-app messaging.</li>
+<li>Reduction in manual reporting tasks for advisors.</li>
+</ul>
+<h2 id="14-assumptions">14. Assumptions</h2>
+<ul>
+<li>Clear distinction between the bank's brand and the wealth management firm's branding can be made visually within the app.</li>
+<li>The core banking system provides necessary APIs for account data retrieval securely.</li>
+<li>There are established processes for client onboarding into this specific advisor channel via the platform.</li>
+</ul>
+<h2 id="15-dependencies">15. Dependencies</h2>
+<ul>
+<li>Access to backend development resources (API endpoints, database).</li>
+<li>Collaboration with [Mention Bank Name] technical team for API integration and security protocols.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

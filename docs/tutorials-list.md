@@ -15,6 +15,7 @@
 - [Graph RAG](./tutorials/generative-ai/graphrag.ipynb)
 - [Evaluate RAG pipeline using Ragas in Python with watsonx](./tutorials/generative-ai/rag-evaluation-ragas.ipynb)
 - [Implement RAG chunking strategies with LangChain and watsonx.ai](./tutorials/generative-ai/rag-chunking-strategies.ipynb)
+- [Multi-agent RAG with AutoGen: Build locally with Granite](./tutorials/generative-ai/autogen-local-multi-agent-rag.ipynb)
 
 ### Granite
 
