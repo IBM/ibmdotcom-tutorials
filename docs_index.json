@@ -1,5 +1,10 @@
 [
   {
+    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/ollama_tools",
+    "title": "Clearscope Report: https://www.clearscope.io/ibm1/reports/6a089ed51a38c460/editor",
+    "date": "2025-08-18"
+  },
+  {
     "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/autogen-local-multi-agent-rag",
     "title": "Multi-agent RAG with AutoGen: Build locally with Granite",
     "author": "** Kelly Abuelsaad, Anna Gutowska",
@@ -67,11 +72,6 @@
   {
     "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/llm-guardrails",
     "title": "Use LLM guardrails with Llama Guard 3-11b-vision using watsonx",
-    "date": "2025-05-22"
-  },
-  {
-    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/ollama_tools",
-    "title": "Tool calling in large language models (LLMs) is the ability of the LLM to interact with external tools, services or application programming interfaces (APIs) to perform tasks. This relationship allows LLMs to extend their functionality, enhancing their ability to handle real-world tasks that might require access to external data, real-time information or specific applications. When an LLM uses a web search tool, it can call the web to fetch real-time data that isn’t available in the model's training data. Other types of tools might include Python for calculations, data analysis or visualization, or calling a service endpoint for data. Tool calling can make a chatbot more dynamic and adaptable allowing it to provide more accurate, relevant and detailed responses based on live data or specialized tasks outside its immediate knowledge base. Popular frameworks for tool-calling include Langchain and now Ollama.",
     "date": "2025-05-22"
   },
   {
