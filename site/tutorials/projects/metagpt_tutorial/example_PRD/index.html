@@ -1,0 +1,1075 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="IBM.com Technical Content Team">
+      
+      
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/metagpt_tutorial/example_PRD/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Product Requirements Document: Wealth Manager Banking App - IBM.com Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Product Requirements Document: Wealth Manager Banking App - IBM.com Tutorials" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/metagpt_tutorial/example_PRD.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/metagpt_tutorial/example_PRD/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Product Requirements Document: Wealth Manager Banking App - IBM.com Tutorials" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/metagpt_tutorial/example_PRD.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#product-requirements-document-wealth-manager-banking-app" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM.com Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Product Requirements Document: Wealth Manager Banking App
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../references/coc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  References
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    IBM.com Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Welcome
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../getting-started/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/coc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code of Conduct
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="product-requirements-document-wealth-manager-banking-app">Product Requirements Document: Wealth Manager Banking App</h1>
+<h2 id="1-introduction-overview">1. Introduction &amp; Overview</h2>
+<ul>
+<li><strong>Product Name:</strong> WealthBank Pro (or Portfolio Navigator - to be confirmed)</li>
+<li><strong>Version:</strong> v0.2</li>
+<li><strong>Author:</strong> [Your Team/Name]</li>
+<li><strong>Date:</strong> October 26, 2023</li>
+<li><strong>Status:</strong> Draft</li>
+<li><strong>Document Revision Notes:</strong> Addressed reviewer suggestions by clarifying terms, adding measurable goals, expanding integrations, including user stories, and added missing sections (User Roles, Data Flow).</li>
+</ul>
+<h2 id="2-purpose-goals">2. Purpose &amp; Goals</h2>
+<p>This app provides a secure digital platform for financial advisors to manage client portfolios and offers clients an intuitive interface to monitor their investments alongside core banking services.</p>
+<h3 id="measurable-key-goals">Measurable Key Goals:</h3>
+<ol>
+<li><strong>Enhance Advisor Efficiency:</strong> Reduce investment monitoring time by [Specify %]%, decrease report generation time by [Specify %]%.</li>
+<li><strong>Improve Client Experience:</strong> Achieve a Net Promoter Score (NPS) of [Target NPS score], increase client engagement via app to [Target percentage]%.</li>
+<li><strong>Secure Collaboration:</strong> Reduce email inquiries between advisor and clients by [Target reduction %]%, ensure all messages are traceable within the platform.</li>
+</ol>
+<h2 id="3-user-roles">3. User Roles</h2>
+<ul>
+<li><strong>Wealth Manager/Financial Advisor:</strong><ul>
+<li>Access level: Full read/write for assigned client portfolios, restricted access to other clients' data.</li>
+<li>Actions: Monitor performance, analyze risk, generate reports, communicate with clients, manage transactions (within limits).</li>
+</ul>
+</li>
+<li><strong>High-Net-Worth Client:</strong><ul>
+<li>Access level: View-only access to their own portfolio and account information.</li>
+<li>Actions: Check balances, review transaction history, view statements, send secure messages to advisor, initiate limited transactions (if enabled).</li>
+</ul>
+</li>
+<li><strong>Administrative Staff (Optional):</strong><ul>
+<li>Access level: Read-only access for reporting/client onboarding support tasks.</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-scope">4. Scope</h2>
+<p>This document outlines requirements for a mobile banking application designed specifically for use by financial advisors and their high-net-worth clients within an integrated financial service context, built upon [Existing Platform Name] or as a standalone solution (architecture TBD).</p>
+<h3 id="core-functional-modules">Core Functional Modules:</h3>
+<h4 id="41-advisor-dashboard">4.1 Advisor Dashboard</h4>
+<pre><code>*   Provides overview of assigned client portfolios.
+*   Shows performance metrics, alerts, quick access to portfolio details and messaging.
+</code></pre>
+<p><strong>User Story:</strong> "As an advisor, I want to see my clients' portfolio summaries at a glance so that I can quickly assess their performance status."</p>
+<h4 id="42-portfolio-tracking">4.2 Portfolio Tracking</h4>
+<pre><code>*   Tracks client investments across asset classes.
+*   Analyzes performance attribution and risk assessment.
+</code></pre>
+<p><strong>User Story:</strong> "As an advisor, I need detailed performance charts for each client's portfolio to understand market trends impacting their holdings."<br />
+"As a client, I want to see my portfolio allocation by asset class so that I can easily monitor diversification."</p>
+<h4 id="43-account-management">4.3 Account Management</h4>
+<pre><code>*   Manages linked accounts (balances, transactions).
+*   Provides filtering/sorting capabilities.
+</code></pre>
+<p><strong>User Story:</strong> "As an advisor, I need access to all client accounts associated with a portfolio for comprehensive financial oversight."<br />
+"As a client, I want to view my transaction history sorted chronologically so that I can easily find specific payments or deposits."</p>
+<h4 id="44-secure-messaging">4.4 Secure Messaging</h4>
+<pre><code>*   Facilitates secure communication between advisor and clients.
+*   Supports message threads with read receipts.
+</code></pre>
+<p><strong>User Story:</strong> "As an advisor, I need a secure way to respond to client questions without resorting to unsecured email channels."<br />
+"As a client, I want the ability to send encrypted messages directly to my financial advisor via the app for quick clarification."</p>
+<h4 id="44-statement-viewing">4.4 Statement Viewing</h4>
+<pre><code>*   View official statements provided by core banking system.
+</code></pre>
+<p><strong>User Story:</strong> "As an advisor, I need access to official PDF statements from the bank so that I can provide them securely to clients."<br />
+"As a client, I want to view my account statement within the app for easy reference without needing separate logins."</p>
+<h4 id="45-transaction-management-phase-2">4.5 Transaction Management (Phase 2)</h4>
+<pre><code>*   Handles funds transfer between accounts (limited functionality).
+</code></pre>
+<h3 id="non-core-features">Non-Core Features:</h3>
+<ul>
+<li>Client onboarding setup via platform portal</li>
+<li>Mobile-responsive design</li>
+</ul>
+<h2 id="5-functional-requirements-core-module-details">5. Functional Requirements - Core Module Details</h2>
+<p><strong>User Story:</strong> "As a client, I need to securely view my account balances across all linked investment and savings accounts so that I can track spending and investment growth."</p>
+<h3 id="non-functional-requirements">Non-Functional Requirements:</h3>
+<h4 id="431-performance-tracking">4.3.1 Performance Tracking</h4>
+<pre><code>*   **Functionality:** Display performance data (returns, volatility) for stocks/bonds/alternative assets.
+*   **Integration:** Wealth Management Platform API.
+</code></pre>
+<h4 id="432-risk-assessment-module">4.3.2 Risk Assessment Module</h4>
+<pre><code>*   **Functionality:** Visualize risk profile scores and diversification metrics.
+*   **Integration:** Investment Database/API.
+</code></pre>
+<h2 id="5-integration-requirements">5. Integration Requirements</h2>
+<h3 id="core-integrations">Core Integrations:</h3>
+<ol>
+<li><strong>Core Banking System (CBS):</strong><ul>
+<li><strong>Purpose:</strong> Retrieve account balances, transaction histories, official statements securely via APIs ([e.g., CAMTEL]).</li>
+<li><strong>Data Flow:</strong> CBS → App Backend<ul>
+<li>Data: Account Balances, Transaction Histories, Statements.</li>
+</ul>
+</li>
+<li><strong>Security:</strong> Implement secure authentication protocols (OAuth 2.0) and end-to-end encryption for data transfer.</li>
+</ul>
+</li>
+</ol>
+<p><strong>User Story:</strong> "As an advisor, I need to securely pull real-time account balances from the bank's system so that my client reports reflect accurate current values."</p>
+<h4 id="431-transaction-management">4.3.1 Transaction Management</h4>
+<pre><code>*   **Functionality (Phase 2):** Facilitates funds transfers between accounts.
+*   **Integration:** Requires integration with CBS transaction API.
+</code></pre>
+<h2 id="6-integration-requirements">6. Integration Requirements</h2>
+<ul>
+<li><strong>Core Banking System:</strong><ul>
+<li>Provides secure APIs for account data retrieval via CAMTEL/SWIFT standards.</li>
+<li>Handles user authentication and adheres to bank's security protocols (PKI, tokenization).</li>
+</ul>
+</li>
+<li><strong>Wealth Management Platform/Database:</strong><ul>
+<li>Integrates with [Platform Name] CRM system or dedicated investment database ([Specify Database Type]).</li>
+<li>Provides client portfolio data via secure API calls.</li>
+</ul>
+</li>
+<li><strong>Secure File Transfer Protocol (SFTP):</strong> Used for transferring sensitive documents between the app backend and third-party vendors securely.</li>
+</ul>
+<h2 id="7-data-requirements">7. Data Requirements</h2>
+<h3 id="core-data-flows">Core Data Flows:</h3>
+<ol>
+<li>Client Portfolio Details → Synced from Wealth Management Platform to Advisor View.</li>
+<li>Account Balances/Transactions → Sourced via secure API calls from CBS (CAMTEL) to App Backend.</li>
+<li>Official Statements → Stored in Secure File Transfer Protocol (SFTP) or retrieved via dedicated Statement API.</li>
+</ol>
+<h2 id="8-technical-architecture-platform">8. Technical Architecture &amp; Platform</h2>
+<ul>
+<li><strong>Target Platforms:</strong> iOS, Android</li>
+<li><strong>Backend Technology Stack:</strong> Node.js/Python/Django for APIs; PostgreSQL database ([Specify version]).</li>
+<li><strong>Frontend Technology Stack:</strong> React Native (or Flutter - to be confirmed) with specific performance targets: load advisor dashboard in under [X] seconds.</li>
+</ul>
+<h2 id="9-release-schedule">9. Release Schedule</h2>
+<h3 id="phased-approach">Phased Approach:</h3>
+<h4 id="phase-1-mvp">Phase 1 (MVP):</h4>
+<pre><code>*   Deliverable Features:
+    *   Login &amp; User Authentication
+    *   Advisor Dashboard
+    *   Portfolio Tracking
+    *   Secure Messaging Interface
+    *   Basic Account Management (viewing)
+*   **Target Launch:** Q4 [Specify Year] / November 2023
+</code></pre>
+<h4 id="10-release-schedule">10. Release Schedule</h4>
+<ul>
+<li><strong>Phase 1 (MVP):</strong> Focus on core functionalities - Advisor Dashboard, Portfolio Tracking, Account Management, Secure Messaging.<ul>
+<li>Target Launch: December 2023</li>
+</ul>
+</li>
+<li><strong>Phase 2:</strong> Add official statement viewing and enhanced transaction capabilities (Funds Transfer).<ul>
+<li>Target Launch: January 2024</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="research">Research</h2>
+<h1 id="comprehensive-research-report-for-product-requirements-document-prd">Comprehensive Research Report for Product Requirements Document (PRD)</h1>
+<h2 id="1-executive-summary">1. Executive Summary</h2>
+<p>This research report provides critical market intelligence, user insights, competitive analysis, technical feasibility assessments, and regulatory considerations essential for developing a comprehensive Product Requirements Document (PRD). The findings indicate a significant opportunity in the target market segment with growing demand for [Product Type], driven by trends such as [Mention Key Trend 1] and [Mention Key Trend 2]. Our proposed product aligns strategically with user needs identified through detailed analysis, offering solutions to pain points including [List Specific Pain Point 1] and [List Specific Pain Point 2]. The competitive landscape presents both challenges from established players like [Competitor Name A] and opportunities for differentiation against newer entrants such as [Competitor Name B]. Technological advancements in [Relevant Technology Area] support the product's development, though integration complexities remain a key consideration. Regulatory frameworks require careful navigation to ensure compliance while maintaining user trust.</p>
+<h2 id="2-market-overview">2. Market Overview</h2>
+<p>The global market for [Product Category] is experiencing substantial growth, projected to reach $[Value or Range] billion by [Year], growing at a CAGR of approximately X% from current levels (Source: [Market Research Firm Name/Report Title]). This growth trajectory is fueled primarily by increasing consumer adoption of digital solutions and the rising demand for personalized experiences. Key market drivers include:</p>
+<ul>
+<li><strong>Technological Advancements</strong>: Innovations in [Specific Technology] are enabling more sophisticated features at lower costs.</li>
+<li><strong>Consumer Trends</strong>: Growing preference for convenient, on-demand services (Source: Accenture Consumer Trends).</li>
+<li><strong>Industry Shifts</strong>: The shift towards subscription-based models is transforming the traditional landscape of this industry.</li>
+</ul>
+<p>Market trends point towards a consolidation of user preferences around core functionalities while demanding continuous innovation. Sustainability concerns are increasingly influencing purchasing decisions within this sector according to recent studies by [Relevant Research Body]. This indicates that incorporating environmentally conscious design elements could be a differentiating factor for future products in this space.</p>
+<h2 id="3-target-audience-analysis">3. Target Audience Analysis</h2>
+<p>Our primary target audience consists of:</p>
+<ul>
+<li><strong>Demographics</strong>: Individuals aged X-Y (approx.) with an estimated market share of Z%, representing approximately $[Amount] billion in annual consumer spending globally.</li>
+<li><strong>Psychographics</strong>: Typically tech-savvy, value-driven consumers seeking innovative solutions that address specific pain points. These individuals prioritize [Specific Value 1], [Specific Value 2], and [Specific Value 3].</li>
+<li><strong>Behavior Patterns</strong>: Heavy users of digital platforms for [Relevant Activity] with a monthly frequency of approximately X times (Source: SimilarTech). They actively seek out new tools to enhance their experience.</li>
+</ul>
+<h3 id="user-needs-pain-points">User Needs &amp; Pain Points</h3>
+<p>Through qualitative research including interviews, surveys, and usability testing:</p>
+<ol>
+<li><strong>Primary Need</strong>: Users require solutions that address the challenge of [Specific Problem 1]. Our product can provide this by implementing [Feature Area].</li>
+<li><strong>Secondary Need</strong>: There is a significant need for products that integrate seamlessly with existing digital ecosystems (Source: User Interview Data).</li>
+<li><strong>Pain Point Analysis</strong>:</li>
+<li>Existing solutions often fail to adequately address [Specific Pain Point 1] due to limitations in [Existing Solution Limitation].</li>
+<li>Users frequently report frustration with [Another Pain Point], citing issues such as [Issue Description].</li>
+</ol>
+<h3 id="purchase-intent-willingness">Purchase Intent &amp; Willingness</h3>
+<p>Quantitative research indicates strong purchase intent:</p>
+<ul>
+<li>A survey of N potential users found that X% expressed interest in our product concept.</li>
+<li>Willingness-to-pay analysis suggests target customers would pay up to $[Amount] for the core functionality (Source: Market Research).</li>
+<li>Adoption projections estimate a market penetration rate of [Percentage]% within Y years.</li>
+</ul>
+<h2 id="4-competitor-landscape-analysis">4. Competitor Landscape Analysis</h2>
+<p>The competitive environment includes:</p>
+<h3 id="direct-competitors">Direct Competitors</h3>
+<ul>
+<li><strong>Competitor A</strong>: Offers similar features but with limitations in [Specific Area]. Their product has an average rating of X across major review platforms (Source: Gartner/Forrester).</li>
+<li><strong>Competitor B</strong>: Focuses on the same user segment, achieving a market share of approximately Z% through their established presence.</li>
+</ul>
+<h3 id="indirect-competitors">Indirect Competitors</h3>
+<ul>
+<li>Products from companies like [Company Name C] provide alternative solutions to similar problems.</li>
+<li>Emerging entrants such as [New Company Name D] are disrupting traditional approaches with innovative features targeting younger demographics.</li>
+</ul>
+<h3 id="competitive-differentiation">Competitive Differentiation</h3>
+<p>Our product will differentiate itself by:</p>
+<ol>
+<li>Offering superior performance in addressing the key pain point of [Specific Problem].</li>
+<li>Incorporating unique features like [Proposed Unique Feature 1], which competitors have not effectively implemented.</li>
+<li>Providing enhanced user experience through a focus on [UX Element] (Source: User Experience Benchmarks).</li>
+</ol>
+<h3 id="market-positioning">Market Positioning</h3>
+<p>Based on analysis, our product should be positioned as:</p>
+<ul>
+<li>A premium solution for users seeking advanced capabilities and reliability.</li>
+<li>An innovative alternative to existing offerings that provides better value proposition.</li>
+</ul>
+<h2 id="5-technological-feasibility-assessment">5. Technological Feasibility Assessment</h2>
+<p>The proposed technology leverages advancements in [Relevant Technology Area]:</p>
+<h3 id="current-capabilities">Current Capabilities</h3>
+<ul>
+<li>Existing tools can provide a foundation for core functionalities, though limitations exist particularly around [Specific Limitation].</li>
+<li>Key technical requirements include [List Technical Requirement 1], [Technical Requirement 2].</li>
+</ul>
+<h3 id="implementation-challenges">Implementation Challenges</h3>
+<ul>
+<li>The most significant implementation challenge appears to be the integration of [Complex System] with our product.</li>
+<li>Potential roadblocks include: <ul>
+<li>Compatibility issues with existing infrastructure (Source: Tech Benchmarks)</li>
+<li>Need for specialized expertise in [Specific Domain]</li>
+</ul>
+</li>
+</ul>
+<h3 id="resource-requirements">Resource Requirements</h3>
+<ul>
+<li>Development requires approximately X months using current methodologies and available resources.</li>
+<li>Estimated team requirements:<ul>
+<li>Core development: 5 developers, 2 UX designers, 1 QA engineer</li>
+<li>Infrastructure support: 3 backend specialists</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-regulatory-compliance-considerations">6. Regulatory &amp; Compliance Considerations</h2>
+<p>Our product must comply with:</p>
+<h3 id="applicable-regulations">Applicable Regulations</h3>
+<ul>
+<li><strong>GDPR/CCPA</strong>: Must implement robust data privacy controls (Source: GDPR Documentation).</li>
+<li><strong>Industry Standards</strong>: Adherence to [Specific Standard] is required for certification.</li>
+<li><strong>Local Requirements</strong>: Specific regulations in regions such as [Region Name] may impose additional requirements.</li>
+</ul>
+<h3 id="compliance-strategy">Compliance Strategy</h3>
+<ol>
+<li>Implement end-to-end encryption for all sensitive data processing (Standard requirement per ISO 27001).</li>
+<li>Design user interface elements that clearly communicate privacy controls and options.</li>
+<li>Establish a compliance review process with quarterly audits by legal experts specializing in [Relevant Law Area].</li>
+</ol>
+<h2 id="7-economic-viability-analysis">7. Economic Viability Analysis</h2>
+<h3 id="cost-structure">Cost Structure</h3>
+<ul>
+<li>Development costs estimated at $[Amount] million (excluding R&amp;D)</li>
+<li>Annual operational costs projected to be approximately $[Amount] million, including:<ul>
+<li>Infrastructure maintenance ($X million/year)</li>
+<li>Customer support operations ($Y million/year)</li>
+</ul>
+</li>
+</ul>
+<h3 id="revenue-projections">Revenue Projections</h3>
+<p>Based on market analysis and purchase intent data:</p>
+<ol>
+<li><strong>Initial Launch</strong>: Projected revenue of $[Amount] in the first year.</li>
+<li><strong>Growth Trajectory</strong>:<ul>
+<li>Year 2: Estimated growth to $[Increased Amount]</li>
+<li>Year 3: Anticipated further expansion to $[Higher Amount]</li>
+</ul>
+</li>
+</ol>
+<h3 id="pricing-strategy">Pricing Strategy</h3>
+<ul>
+<li>Recommended base price point: $[Price Range]</li>
+<li>Tiered subscription model appears viable given market willingness-to-pay data (Source: Competitor Analysis)</li>
+</ul>
+<h2 id="references">References</h2>
+<ol>
+<li>Global Market Trends for [Product Category] (2023) - [Market Research Firm Name], accessed via [URL or Database Reference]</li>
+<li>Consumer Behavior Study: Digital Adoption Patterns and Preferences (Q[X]) - Accenture, available at [URL]</li>
+<li>Technology Benchmarks Report ([Year]) - [Tech Publication/Research Body], reference provided by [Source Identifier]</li>
+<li>Regulatory Compliance Guidelines for Data Privacy in [Relevant Sector] - GDPR Documentation ([Link])</li>
+<li>Competitor Analysis: Key Players and Their Offerings (2023) - Gartner Magic Quadrant/[Specific Report Name], accessed via [URL]</li>
+<li>User Experience Benchmarks ([Year]) - Nielsen Norman Group, reference provided by [Source Identifier]</li>
+</ol>
+<h2 id="data-points-summary">Data Points Summary</h2>
+<ul>
+<li>Market Size: $[Value] billion opportunity</li>
+<li>Target Users: X-Y age demographic (Z% market share)</li>
+<li>Purchase Intent: X% expressed interest in concept</li>
+<li>Willingness-to-Pay: Up to $[Amount]</li>
+<li>CAGR Projection: Approximately X%</li>
+<li>Development Timeline: ~X months</li>
+<li>Required Team Size: 8 core developers + supporting roles</li>
+</ul>
+<h2 id="implementation-recommendations">Implementation Recommendations</h2>
+<ol>
+<li>Prioritize development of the [Feature Area] functionality as it addresses the most critical user pain point.</li>
+<li>Focus UX design efforts on simplifying complex processes, particularly around [Specific Process].</li>
+<li>Implement a phased rollout strategy to manage technical debt accumulation and allow for iterative improvements based on early feedback.</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>The research indicates strong market potential with clear opportunities for differentiation against existing competitors. The target audience demonstrates significant interest in the proposed solution concept, though implementation challenges require careful management. Regulatory compliance must be proactively addressed throughout development. Economic viability appears favorable given projected revenue growth and acceptable cost structure.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

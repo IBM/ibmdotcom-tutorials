@@ -105,7 +105,7 @@ In an asynchronous main method using `asyncio`, let's incorporate the ChatModel 
 
 ```python 
 async def main() -> None:
-    llm = ChatModel.from_name("ollama:granite3.3-dense:8b")
+    llm = ChatModel.from_name("ollama:granite3.3:8b")
     workflow = AgentWorkflow(name="Procurement")
 ```
 
@@ -286,7 +286,7 @@ from typing import Any
 
 async def main() -> None:
 
-    llm = ChatModel.from_name("ollama:granite3.1-dense:8b")
+    llm = ChatModel.from_name("ollama:granite3.3:8b")
 
     workflow = AgentWorkflow(name="Procurement Agent")
 
