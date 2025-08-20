@@ -1142,24 +1142,25 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Tool calling in large language models (LLMs) is the ability of the LLM to interact with external tools, services or application programming interfaces (APIs) to perform tasks. This relationship allows LLMs to extend their functionality, enhancing their ability to handle real-world tasks that might require access to external data, real-time information or specific applications. When an LLM uses a web search tool, it can call the web to fetch real-time data that isn’t available in the model's training data. Other types of tools might include Python for calculations, data analysis or visualization, or calling a service endpoint for data. Tool calling can make a chatbot more dynamic and adaptable allowing it to provide more accurate, relevant and detailed responses based on live data or specialized tasks outside its immediate knowledge base. Popular frameworks for tool-calling include Langchain and now Ollama.</p>
-<p>Ollama is a platform that offers open source, local AI models for use on personal devices so that users can run LLMs directly on their computers. Unlike a service such as the OpenAI API, there’s no need for an account because the model is on your local machine. Ollama focuses on privacy, performance and ease of use, enabling users to access and interact with AI models without sending data to external servers. This approach can be particularly appealing for those users concerned about data privacy or who want to avoid the reliance on external APIs. Ollama’s platform is designed to be easy to set up and use, supporting various models. This gives users a range of tools for natural language processing, code generation and other AI tasks directly on their own hardware. It is well suited to a tool calling architecture because it can access all the capabilities of a local environment including data, programs and custom software.</p>
-<p>In this tutorial, you'll learn how to set up tool calling by using Ollama to look through a local file system, a task that would be difficult to do with a remote LLM. Many Ollama models are available for tool calling and building AI agents such as Mistral and Llama 3.2, a full list is available at <a href="https://ollama.com/library">https://ollama.com/library</a>. In this case, we'll use IBM® Granite™ 3.2 Dense that has tool support. The 2B and 8B models are text-only dense LLMs trained on designed to support tool-based use cases and for retrieval augmented generation (RAG), streamlining code generation, translation and bug fixing.</p>
-<h1 id="step-1">Step 1<a class="anchor-link" href="#step-1">¶</a></h1><p>First, download Ollama from <a href="https://ollama.com/download">https://ollama.com/download</a> and install it for your operating system. On OSX this download is done via a .dmg file, on Linux® through a single shell command and on Windows with an installer. You might need admin access on your machine to run the installer.</p>
-<p>You can test that Ollama is correctly installed by opening a terminal or command prompt and entering:</p>
+<p>Clearscope Report: <a href="https://www.clearscope.io/ibm1/reports/6a089ed51a38c460/editor">https://www.clearscope.io/ibm1/reports/6a089ed51a38c460/editor</a></p>
+<p>Tool calling in Large Language Models (LLMs) is the ability of the LLM to interact with external tools, services, or APIs to perform tasks. This  allows LLMs to extend their functionality, enhancing their ability to handle real-world tasks that may require access to external data, real-time information, or specific applications. When an LLM uses a web search tool, it can call the web to fetch real-time data that aren't available in the model's training data. Other types of tools might include Python for calculations, data analysis, or visualization, or calling a service endpoint for data. Tool calling can make a chatbot more dynamic and adaptable, allowing it to provide more accurate, relevant, and detailed responses based on live data or specialized tasks outside its immediate knowledge base. Popular frameworks for tool-calling include Langchain and now ollama.</p>
+<p>Ollama is a platform that offers open-source, local AI models for use on personal devices so that users can run LLMs directly on their computers. Unlike a service like the OpenAI api, there’s no need for an account since the model is on your local machine. Ollama focuses on privacy, performance, and ease of use, enabling users to access and interact with AI models without sending data to external servers. This can be particularly appealing for those concerned about data privacy or who want to avoid the reliance on external APIs. Ollama’s platform is designed to be easy to set up and use, and it supports various models, giving users a range of tools for natural language processing, code generation, and other AI tasks directly on their own hardware. It is well suited to a tool calling architecture because it can access all the capabilities of a local environment including data, programs, and custom software.</p>
+<p>In this tutorial you'll learn how to set up tool calling by using ollama to look through a local filesystem, a task which would be difficult to do with a remote LLM. Many ollama models are available for tool calling and building AI agents like Mistral and Llama 3.2, a full list is available at <a href="https://ollama.com/library">https://ollama.com/library</a>. In this case we'll use IBM Granite 3.3 Dense which has tool support. The 2B and 8B models are text-only dense LLMs trained on designed to support tool-based use cases and for retrieval augmented generation (RAG), streamlining code generation, translation and bug fixing.</p>
+<h1 id="step-1">Step 1<a class="anchor-link" href="#step-1">¶</a></h1><p>First you'll download ollama from <a href="https://ollama.com/download">https://ollama.com/download</a> and install it for your operating system. On OSX this is done via a .dmg file, on Linux via a single shell command, and on Windows with an installer. You may need admin access on your machine in order to run the installer.</p>
+<p>You can test that ollama is correctly installed by opening a terminal or command prompt and entering:</p>
 <pre><code>ollama -v 
 </code></pre>
-<h1 id="step-2">Step 2<a class="anchor-link" href="#step-2">¶</a></h1><p>Next, add the initial imports. This demo uses the Ollama Python library to communicate with Ollama and the pymupdf library to read PDF files in the file system.</p>
+<h1 id="step-2">Step 2<a class="anchor-link" href="#step-2">¶</a></h1><p>Next, you'll add the initial imports. This demo will use the ollama python library to communicate with ollama and the pymupdf library to read PDF files in the file system.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-1">
@@ -1172,38 +1173,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pymupdf</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">ollama</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ollama</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pymupdf</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">!pip install pymupdf
-
-import ollama
+<div class="clipboard-copy-txt" id="cell-1">import ollama
 import os
 import pymupdf</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Collecting pymupdf
-  Downloading pymupdf-1.25.4-cp39-abi3-macosx_11_0_arm64.whl.metadata (3.4 kB)
-Downloading pymupdf-1.25.4-cp39-abi3-macosx_11_0_arm64.whl (18.6 MB)
-   <span class="ansi-black-intense-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">18.6/18.6 MB</span> <span class="ansi-red-fg">20.8 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>a <span class="ansi-cyan-fg">0:00:01</span>
-Installing collected packages: pymupdf
-Successfully installed pymupdf-1.25.4
-
-<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">25.0</span> -&gt; <span class="ansi-green-fg">25.0.1</span>
-<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> To update, run: <span class="ansi-green-fg">pip install --upgrade pip</span>
-</pre>
 </div>
 </div>
 </div>
@@ -1216,7 +1192,12 @@ Successfully installed pymupdf-1.25.4
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Next you'll pull the model that you'll be using throughout this tutorial. This downloads the model weights from ollama to your local computer and stores them for use without needing to make any remote API calls later on.</p>
+<h1 id="step-3-define-the-tools">Step 3: Define the tools<a class="anchor-link" href="#step-3-define-the-tools">¶</a></h1><p>Now you'll define the tools that the ollama tools instance will have access. Since the intent of the tools is to read files and look through images in the local file system, you'll create two python functions for each of those tools. The first is called <code>search_text_files</code> and it takes a keyword to search for in the local files. For the purposes of this demo, the code only searches for files in a specific folder but it could be extended to include a second parameter that sets which folder the tool will search in.</p>
+<p>You could use simple string matching to see whether the keyword is in the document but because ollama makes calling local llms easily, <code>search_text_files</code> will use Granite 3.3 to determine whether the keyword describes the document text. This is done by reading the document into a string called <code>document_text</code>. The function then calls ollama.chat and prompts the model with the following:</p>
+<pre><code>"Respond only 'yes' or 'no', do not add any additional information. Is the following text about " + keyword + "? " + document_text 
+</code></pre>
+<p>If the model responds 'yes', then the function returns the name of the file that contains the keyword that the user indicated in the prompt. If none of the files seem to contain the information, then the function returns 'None' as a string.</p>
+<p>This function may run slowly the first time because ollama will download Granite 3.3.</p>
 </div>
 </div>
 </div>
@@ -1230,51 +1211,6 @@ Successfully installed pymupdf-1.25.4
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-2">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="err">!</span><span class="n">ollama</span> <span class="n">pull</span> <span class="n">granite3</span><span class="mf">.2</span>
-<span class="err">!</span><span class="n">ollama</span> <span class="n">pull</span> <span class="n">granite3</span><span class="mf">.2</span><span class="o">-</span><span class="n">vision</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-2">!ollama pull granite3.2
-!ollama pull granite3.2-vision</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="step-3-define-the-tools">Step 3: Define the tools<a class="anchor-link" href="#step-3-define-the-tools">¶</a></h1><p>Now you'll define the tools that the Ollama tools instance has access to. Because the intent of the tools is to read files and look through images in the local file system, you'll create two Python functions for each of those tools. The first is called <code>search_text_files</code> and it takes a keyword to search for in the local files. For the purposes of this demo, the code searches only for files in a specific folder but it can be extended to include a second parameter that sets which folder the tool searches in.</p>
-<p>You can use simple string matching to see whether the keyword is in the document. And because Ollama makes calling local LLMs easy, <code>search_text_files</code> uses Granite 3.2 to determine whether the keyword describes the document text. This step is done by reading the document into a string called <code>document_text</code>. The function then calls ollama.chat and prompts the model with the following:</p>
-<pre><code>"Respond only 'yes' or 'no', do not add any additional information. Is the following text about " + keyword + "? " + document_text 
-</code></pre>
-<p>If the model responds 'yes', then the function returns the name of the file that contains the keyword that the user indicated in the prompt. If none of the files seem to contain the information, then the function returns 'None' as a string.</p>
-<p>This function might run slowly the first time because Ollama downloads Granite 3.2 Dense.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-3">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1305,7 +1241,7 @@ Successfully installed pymupdf-1.25.4
            <span class="n">prompt</span> <span class="o">=</span> <span class="s2">"Respond only 'yes' or 'no', do not add any additional information. Is the following text about "</span> <span class="o">+</span> <span class="n">keyword</span> <span class="o">+</span> <span class="s2">"? "</span> <span class="o">+</span> <span class="n">document_text</span> 
 
            <span class="n">res</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span>
-                <span class="n">model</span><span class="o">=</span><span class="s2">"granite3.2:8b"</span><span class="p">,</span>
+                <span class="n">model</span><span class="o">=</span><span class="s2">"granite3.3:2b"</span><span class="p">,</span>
                 <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s1">'role'</span><span class="p">:</span> <span class="s1">'user'</span><span class="p">,</span> <span class="s1">'content'</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}]</span>
             <span class="p">)</span>
 
@@ -1320,7 +1256,7 @@ Successfully installed pymupdf-1.25.4
             <span class="n">prompt</span> <span class="o">=</span> <span class="s2">"Respond only 'yes' or 'no', do not add any additional information. Is the following text about "</span> <span class="o">+</span> <span class="n">keyword</span> <span class="o">+</span> <span class="s2">"? "</span> <span class="o">+</span> <span class="n">file_content</span> 
 
             <span class="n">res</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span>
-                <span class="n">model</span><span class="o">=</span><span class="s2">"granite3.2:8b"</span><span class="p">,</span>
+                <span class="n">model</span><span class="o">=</span><span class="s2">"granite3.3:2b"</span><span class="p">,</span>
                 <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s1">'role'</span><span class="p">:</span> <span class="s1">'user'</span><span class="p">,</span> <span class="s1">'content'</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}]</span>
             <span class="p">)</span>
            
@@ -1330,7 +1266,7 @@ Successfully installed pymupdf-1.25.4
 
   <span class="k">return</span> <span class="s2">"None"</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">def search_text_files(keyword: str) -&gt; str:
+<div class="clipboard-copy-txt" id="cell-2">def search_text_files(keyword: str) -&gt; str:
   
   directory = os.listdir("./files/")
   for fname in directory:
@@ -1351,7 +1287,7 @@ Successfully installed pymupdf-1.25.4
            prompt = "Respond only 'yes' or 'no', do not add any additional information. Is the following text about " + keyword + "? " + document_text 
 
            res = ollama.chat(
-                model="granite3.2:8b",
+                model="granite3.3:2b",
                 messages=[{'role': 'user', 'content': prompt}]
             )
 
@@ -1366,7 +1302,7 @@ Successfully installed pymupdf-1.25.4
             prompt = "Respond only 'yes' or 'no', do not add any additional information. Is the following text about " + keyword + "? " + file_content 
 
             res = ollama.chat(
-                model="granite3.2:8b",
+                model="granite3.3:2b",
                 messages=[{'role': 'user', 'content': prompt}]
             )
            
@@ -1387,13 +1323,13 @@ Successfully installed pymupdf-1.25.4
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The second tool is called <code>search_image_files</code> and it takes a keyword to search for in the local photos. The search is done by using the <a href="https://ollama.com/library/granite3.2-vision">Granite 3.2 Vision</a> image description model via ollama. This model returns a text description of each image file in the folder and searches for the keyword in the description. One of the strengths of using Ollama is that multiagent systems can easily be built to call one model with another.</p>
+<p>The second tool is called <code>search_image_files</code> and it takes a keyword to search for in the local photos. The search is done by using the llava image description model via ollama. This model will return a text description of each image file in the folder and search for the keyword in the description. One of the strengths of using ollama is that multi-agent systems can easily be built to call one model with another.</p>
 <p>The function returns a string, which is the name of the file whose description contains the keyword that the user indicated in the prompt.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1401,7 +1337,7 @@ Successfully installed pymupdf-1.25.4
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-4">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-3">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1420,7 +1356,7 @@ Successfully installed pymupdf-1.25.4
 
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">"./files/"</span> <span class="o">+</span> <span class="n">fname</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">fname</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">fname</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">image_file_types</span><span class="p">):</span>
             <span class="n">res</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span>
-                <span class="n">model</span><span class="o">=</span><span class="s2">"granite3.2-vision"</span><span class="p">,</span>
+                <span class="n">model</span><span class="o">=</span><span class="s2">"llava"</span><span class="p">,</span>
                 <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
                     <span class="p">{</span>
                         <span class="s1">'role'</span><span class="p">:</span> <span class="s1">'user'</span><span class="p">,</span>
@@ -1435,8 +1371,7 @@ Successfully installed pymupdf-1.25.4
     
     <span class="k">return</span> <span class="s2">"None"</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">
-def search_image_files(keyword:str) -&gt; str:
+<div class="clipboard-copy-txt" id="cell-3">def search_image_files(keyword:str) -&gt; str:
 
     directory = os.listdir("./files/")
     image_file_types = ("jpg", "png", "jpeg")
@@ -1445,7 +1380,7 @@ def search_image_files(keyword:str) -&gt; str:
 
         if os.path.isfile("./files/" + fname) and not fname.startswith('.') and fname.endswith(image_file_types):
             res = ollama.chat(
-                model="granite3.2-vision",
+                model="llava",
                 messages=[
                     {
                         'role': 'user',
@@ -1464,28 +1399,6 @@ def search_image_files(keyword:str) -&gt; str:
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>pulling manifest ⠋ pulling manifest ⠙ pulling manifest ⠹ pulling manifest 
-pulling 170370233dd5... 100% ▕████████████████▏ 4.1 GB                         
-pulling 72d6f08a42f6... 100% ▕████████████████▏ 624 MB                         
-pulling 43070e2d4e53... 100% ▕████████████████▏  11 KB                         
-pulling c43332387573... 100% ▕████████████████▏   67 B                         
-pulling ed11eda7790d... 100% ▕████████████████▏   30 B                         
-pulling 7c658f9561e5... 100% ▕████████████████▏  564 B                         
-verifying sha256 digest 
-writing manifest 
-success 
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
@@ -1494,7 +1407,7 @@ success
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="step-4-define-the-tools-for-ollama">Step 4: Define the tools for ollama<a class="anchor-link" href="#step-4-define-the-tools-for-ollama">¶</a></h1><p>Now that the functions for Ollama to call have been defined, you'll configure the tool information for Ollama itself. The first step is to create an object that maps the name of the tool to the functions for Ollama function calling:</p>
+<h1 id="step-4-define-the-tools-for-ollama">Step 4: Define the tools for ollama<a class="anchor-link" href="#step-4-define-the-tools-for-ollama">¶</a></h1><p>Now that the functions for ollama to call have been defined, you'll configure the tool information for ollama itself. The first step is to create an object that maps the name of the tool to the functions for ollama function calling:</p>
 </div>
 </div>
 </div>
@@ -1504,10 +1417,10 @@ success
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [114]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-4">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1522,7 +1435,7 @@ success
   <span class="s1">'Search inside image files'</span><span class="p">:</span><span class="n">search_image_files</span>
 <span class="p">}</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">available_functions = {
+<div class="clipboard-copy-txt" id="cell-4">available_functions = {
   'Search inside text files':search_text_files,
   'Search inside image files':search_image_files
 }
@@ -1539,8 +1452,8 @@ success
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Next, configure a tools array to tell Ollama what tools it will have access to and what those tools require. This array has one object schema per tool that tells the Ollama tool calling framework how to call the tool and what it returns.</p>
-<p>In the case of both tools that you created earlier, they are functions that require a <code>keyword</code> parameter. Currently, only functions are supported although this can change in the future. The description of the function and of the parameter help the model call the tool correctly. The <code>description</code> field for the function of each tool is passed to the LLM when it selects which tool to use. The <code>description</code> of the keyword is passed to the model when it generates the parameters that will be passed to the tool. Both are places you may look to fine-tune prompts when you create your own tool calling applications with Ollama.</p>
+<p>Next, configure a tools array to tell ollama what tools it will have access to and what those tools require. This is an array with one object schema per tool that tells the ollama tool calling framework how to call the tool and what it returns.</p>
+<p>In the case of both of the tools that you created earlier, they are functions that require a <code>keyword</code> parameter. Currently only functions are supported although this may change in the future. The description of the function and of the parameter help the model call the tool correctly. The <code>description</code> field for the function of each tool is passed to the LLM when it selects which tool to use. The <code>description</code> of the keyword is passed to the model when it generates the parameters that will be passed to the tool. Both of these are places you may look to fine tune prompts when you create your own tool calling applications with ollama.</p>
 </div>
 </div>
 </div>
@@ -1550,10 +1463,10 @@ success
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [115]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1602,7 +1515,7 @@ success
     <span class="p">},</span>
   <span class="p">]</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6"># tools don't need to be defined as an object but this helps pass the correct parameters
+<div class="clipboard-copy-txt" id="cell-5"># tools don't need to be defined as an object but this helps pass the correct parameters
 # to the tool call itself by giving the model a prompt of how the tool is to be used
 ollama_tools=[
      {
@@ -1652,8 +1565,8 @@ ollama_tools=[
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>You'll use this tools definition when you call Ollama with user input.</p>
-<h1 id="step-5-pass-user-input-to-ollama">Step 5: Pass user input to ollama<a class="anchor-link" href="#step-5-pass-user-input-to-ollama">¶</a></h1><p>Now it’s time to pass user input to Ollama and have it return the results of the tool calls. First, make sure that Ollama is running on your system:</p>
+<p>You'll use this tools definition when you call ollama with user input.</p>
+<h1 id="step-5-pass-user-input-to-ollama">Step 5: Pass user input to ollama<a class="anchor-link" href="#step-5-pass-user-input-to-ollama">¶</a></h1><p>Now its time to pass user input to ollama and have it return the results of the tool calls. First, make sure that ollama is running on your system:</p>
 </div>
 </div>
 </div>
@@ -1663,10 +1576,10 @@ ollama_tools=[
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1680,7 +1593,7 @@ ollama_tools=[
 <span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">"ollama"</span><span class="p">,</span><span class="s2">"serve"</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-7"># if ollama is not currently running, start it
+<div class="clipboard-copy-txt" id="cell-6"># if ollama is not currently running, start it
 import subprocess
 subprocess.Popen(["ollama","serve"], stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)</div>
 </div>
@@ -1692,7 +1605,7 @@ subprocess.Popen(["ollama","serve"], stdout=subprocess.DEVNULL, stderr=subproces
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;Popen: returncode: None args: ['ollama', 'serve']&gt;</pre>
 </div>
@@ -1707,7 +1620,7 @@ subprocess.Popen(["ollama","serve"], stdout=subprocess.DEVNULL, stderr=subproces
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now ask the user for input. You can also hardcode the input or retrieve from a chat interface depending on how you configure your application. The <code>input</code> function waits for user input before continuing.</p>
+<p>Now ask the user for input. You can also hardcode the input or retrieve from a chat interface depdending on you configure your application. The <code>input</code> function will wait for user input before continuing on.</p>
 </div>
 </div>
 </div>
@@ -1717,10 +1630,10 @@ subprocess.Popen(["ollama","serve"], stdout=subprocess.DEVNULL, stderr=subproces
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [98]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1734,7 +1647,7 @@ subprocess.Popen(["ollama","serve"], stdout=subprocess.DEVNULL, stderr=subproces
 <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"What would you like to search for?"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-8"># input
+<div class="clipboard-copy-txt" id="cell-7"># input
 user_input = input("What would you like to search for?")
 print(user_input)</div>
 </div>
@@ -1748,7 +1661,7 @@ print(user_input)</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>dog
+<pre>Information about dogs
 </pre>
 </div>
 </div>
@@ -1762,8 +1675,8 @@ print(user_input)</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now, the user query is passed to Ollama itself. The messages need a role for the user and the content that the user inputs. This input is passed to Ollama by using the <code>chat</code> function. The first parameter is the model that you want to use, in this case Granite 3.1 Dense, then the message with the user input, and finally the tools array that you configured earlier.</p>
-<p>The <code>chat</code> function generates an output selecting which tool to use and what parameters should be passed to it in the subsequent tool calls.</p>
+<p>Now the user query is passed to ollama itself. The messages need a role for the user and the content that the user input. This is passed to ollama using the <code>chat</code> function. The first parameter is the model you want to use, in this case Granite 3.3, then the message with the user input, and finally the tools array that you configured earlier.</p>
+<p>The <code>chat</code> function will generate an output selecting which tool to use and what parameters should be passed to it in the subsequent tool calls.</p>
 </div>
 </div>
 </div>
@@ -1776,7 +1689,7 @@ print(user_input)</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1791,7 +1704,7 @@ print(user_input)</div>
 <span class="n">response</span><span class="p">:</span> <span class="n">ollama</span><span class="o">.</span><span class="n">ChatResponse</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span>
    
   <span class="c1"># set which model we're using</span>
-  <span class="s1">'granite3.2:8b'</span><span class="p">,</span>
+  <span class="s1">'granite3.3:2b'</span><span class="p">,</span>
 
   <span class="c1"># use the message from the user</span>
   <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
@@ -1799,13 +1712,12 @@ print(user_input)</div>
   <span class="n">tools</span><span class="o">=</span><span class="n">ollama_tools</span>
 <span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-9">
-messages = [{'role': 'user', 'content':user_input}]
+<div class="clipboard-copy-txt" id="cell-8">messages = [{'role': 'user', 'content':user_input}]
 
 response: ollama.ChatResponse = ollama.chat(
    
   # set which model we're using
-  'granite3.2:8b',
+  'granite3.3:2b',
 
   # use the message from the user
   messages=messages,
@@ -1824,13 +1736,13 @@ response: ollama.ChatResponse = ollama.chat(
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now that the model has generated tool calls in the output, run the tool calls with the parameters that the model generated and check the output. In this application, Granite 3.1 Dense is used to generate the final output. The results of the tool calls are added to the initial user input and then passed to the model.</p>
-<p>Multiple tool calls can return file matches, so the responses are collected in an array that is then passed to Granite 3.1 to generate a response. The prompt that precedes the data instructs the model how to respond:</p>
+<p>Now that the model has generated tool calls in the output, run all of the tool calls with the parameters that the model generated and check the output. In this application Granite 3.3 is used to generate the final output as well, so the results of the tool calls are added to the initial user input and then passed to the model.</p>
+<p>Multiple tool calls may return file matches, so the responses are collected in an array which is then passed to Granite 3.3 to generate a response. The prompt that precedes the data instructs the model how to respond:</p>
 <p>'''
 If the tool output contains one or more file names, then give the user only the filename found. Do not add additional details.
 If the tool output is empty ask the user to try again. Here is the tool output:
 '''</p>
-<p>The final output is then generated using either the returned file names or the string "None" indicating that no files could be found.</p>
+<p>The final output is then generated using either the returned file names or</p>
 </div>
 </div>
 </div>
@@ -1840,10 +1752,10 @@ If the tool output is empty ask the user to try again. Here is the tool output:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-10">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1879,14 +1791,17 @@ If the tool output is empty ask the user to try again. Here is the tool output:
   <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
 
   <span class="n">prompt</span> <span class="o">=</span> <span class="s1">'''</span>
-<span class="s1">    If the tool output contains one or more file names, then give the user only the filename found. Do not add additional details. </span>
-<span class="s1">    If the tool output is empty ask the user to try again. Here is the tool output: </span>
+<span class="s1">    Give the user the file names found and their search query.</span>
+<span class="s1">    *Important*: Do not add additional details. Do not change the file name given in tool output. </span>
+<span class="s1">    If the tool output is 'None' then apologize and ask the user to try again. </span>
+<span class="s1">    If the tool output contains a file name, output the file name.</span>
+<span class="s1">    Here is the tool output:</span>
 <span class="s1">  '''</span>
 
   <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'role'</span><span class="p">:</span> <span class="s1">'tool'</span><span class="p">,</span> <span class="s1">'content'</span><span class="p">:</span> <span class="n">prompt</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">output</span><span class="p">)})</span>
   
   <span class="c1"># Get a response from model with function outputs</span>
-  <span class="n">final_response</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="s1">'granite3.2:8b'</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+  <span class="n">final_response</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="s1">'granite3.3:2b'</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">'Final response:'</span><span class="p">,</span> <span class="n">final_response</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
 
 <span class="k">else</span><span class="p">:</span>
@@ -1894,7 +1809,7 @@ If the tool output is empty ask the user to try again. Here is the tool output:
   <span class="c1"># the model wasn't able to pick the correct tool from the prompt</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">'No tool calls returned from model'</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-10"># this is a place holder that to use to see whether the tools return anything 
+<div class="clipboard-copy-txt" id="cell-9"># this is a place holder that to use to see whether the tools return anything 
 output = []
 
 if response.message.tool_calls:
@@ -1920,14 +1835,17 @@ if response.message.tool_calls:
   messages.append(response.message)
 
   prompt = '''
-    If the tool output contains one or more file names, then give the user only the filename found. Do not add additional details. 
-    If the tool output is empty ask the user to try again. Here is the tool output: 
+    Give the user the file names found and their search query.
+    *Important*: Do not add additional details. Do not change the file name given in tool output. 
+    If the tool output is 'None' then apologize and ask the user to try again. 
+    If the tool output contains a file name, output the file name.
+    Here is the tool output:
   '''
 
   messages.append({'role': 'tool', 'content': prompt + " " + ", ".join(str(x) for x in output)})
   
   # Get a response from model with function outputs
-  final_response = ollama.chat('granite3.2:8b', messages=messages)
+  final_response = ollama.chat('granite3.3:2b', messages=messages)
   print('Final response:', final_response.message.content)
 
 else:
@@ -1946,14 +1864,13 @@ else:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Calling tool:  Search inside text files  
- with arguments:  {'keyword': 'dog'}
+ with arguments:  {'keyword': 'dogs'}
  Tool response is ./files/File4.pdf
 Search inside text files  has output:  ['./files/File4.pdf']
 Calling tool:  Search inside image files  
- with arguments:  {'keyword': 'dog'}
- Tool response is ./files/three.jpg
-Search inside image files  has output:  ['./files/File4.pdf', './files/three.jpg']
-Final response: The files containing the keyword "dog" were found in File4.pdf and three.jpg.
+ with arguments:  {'keyword': 'dogs'}
+ Tool response is None
+Final response: The keyword "dogs" was found in File4.pdf.
 </pre>
 </div>
 </div>
@@ -1967,7 +1884,7 @@ Final response: The files containing the keyword "dog" were found in File4.pdf a
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>You can see that Granite 3.2 picked the correct keyword from the input, 'dogs', and searched through the files in the folder, finding the keyword in a PDF file. Since LLM results are not purely deterministic, you may get slightly different results with the same prompt or very similar prompts.</p>
+<p>You can see that Granite 3.3 picked the correct keyword from the input, 'dogs', and searched through the files in the folder, finding the keyword in a PDF file. Since LLM results are not purely deterministic, you may get slightly different results with the same prompt or very similar prompts.</p>
 </div>
 </div>
 </div>
