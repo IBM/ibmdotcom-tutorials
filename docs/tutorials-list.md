@@ -36,6 +36,10 @@
 
 - [Use LLM guardrails with Llama Guard 3-11b-vision using watsonx](./tutorials/generative-ai/llm-guardrails.ipynb)
 
+### Model Context Protocol (MCP)
+
+- [Building a Model Context Protocol (MCP) Server](https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/ibmtutorialmcpserver)
+
 
 ### Multimodal AI
 
