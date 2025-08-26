@@ -35,10 +35,11 @@
 ### Guardrails and safety
 
 - [Use LLM guardrails with Llama Guard 3-11b-vision using watsonx](./tutorials/generative-ai/llm-guardrails.ipynb)
+- [The Hidden World of AI Safety](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/ai-models/granite-guardian/granite-guardian-webapp)
 
 ### Model Context Protocol (MCP)
 
-- [Building a Model Context Protocol (MCP) Server](https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/ibmtutorialmcpserver)
+- [Building a Model Context Protocol (MCP) Server](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/generative-ai/ibmtutorialmcpserver)
 
 
 ### Multimodal AI

@@ -30,7 +30,7 @@ There are many remote MCP servers available as well as plenty of reference imple
 
 # Steps
 
-This step-by-step guide can be found on our [GitHub repository](https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/ibmtutorialmcpserver) along with the `server.py` script you'll reference when creating your MCP server. In this tutorial we’ll walk through building a basic custom MCP Server that does the following:
+This step-by-step guide can be found on our [GitHub repository](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/generative-ai/ibmtutorialmcpserver) along with the `server.py` script you'll reference when creating your MCP server. In this tutorial we’ll walk through building a basic custom MCP Server that does the following:
 
 - Connects to our Github repository of tutorials
 - Performs a search for topics that the user may be interested in 
