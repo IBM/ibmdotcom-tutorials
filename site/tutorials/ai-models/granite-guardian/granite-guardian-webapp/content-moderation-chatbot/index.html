@@ -10,7 +10,7 @@
         <meta name="author" content="IBM.com Technical Content Team">
       
       
-        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/chatdev_watsonx_tutorial_/ecl/ecl/">
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/ai-models/granite-guardian/granite-guardian-webapp/content-moderation-chatbot/">
       
       
       
@@ -20,7 +20,7 @@
     
     
       
-        <title>Ecl - IBM.com Tutorials</title>
+        <title>Content moderation chatbot - IBM.com Tutorials</title>
       
     
     
@@ -55,11 +55,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Ecl - IBM.com Tutorials" >
+        <meta  property="og:title"  content="Content moderation chatbot - IBM.com Tutorials" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/chatdev_watsonx_tutorial_/ecl/ecl.png" >
+        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/ai-models/granite-guardian/granite-guardian-webapp/content-moderation-chatbot.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -67,15 +67,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/chatdev_watsonx_tutorial_/ecl/ecl/" >
+        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/ai-models/granite-guardian/granite-guardian-webapp/content-moderation-chatbot/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Ecl - IBM.com Tutorials" >
+        <meta  name="twitter:title"  content="Content moderation chatbot - IBM.com Tutorials" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/chatdev_watsonx_tutorial_/ecl/ecl.png" >
+        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/ai-models/granite-guardian/granite-guardian-webapp/content-moderation-chatbot.png" >
       
     
     
@@ -128,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ecl
+              Content moderation chatbot
             
           </span>
         </div>
@@ -695,7 +695,7 @@
   
 
 
-  <h1>Ecl</h1>
+  <h1>Content moderation chatbot</h1>
 
 <script>
 (function (global, factory) {
@@ -1134,7 +1134,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f55981ea">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=30354df0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1152,16 +1152,30 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">pipeline</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">base64</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_watsonx_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">Credentials</span><span class="p">,</span> <span class="n">APIClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_watsonx_ai.foundation_models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelInference</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_watsonx_ai.foundation_models.moderations</span><span class="w"> </span><span class="kn">import</span> <span class="n">Guardian</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1"></div>
+<div class="clipboard-copy-txt" id="cell-1">from flask import Flask, render_template, request, jsonify
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+import getpass, os, base64, json
+from ibm_watsonx_ai import Credentials, APIClient
+from ibm_watsonx_ai.foundation_models import ModelInference
+from ibm_watsonx_ai.foundation_models.moderations import Guardian
+import re</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=43348705">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=99927da2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1179,32 +1193,16 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graph</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">experience</span><span class="w"> </span><span class="kn">import</span> <span class="n">Experience</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_easyDict_from_filepath</span><span class="p">,</span><span class="n">now</span> <span class="p">,</span><span class="n">log_and_print_online</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">memory</span><span class="w"> </span><span class="kn">import</span> <span class="n">Memory</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span> 
-<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="s2">"ecl"</span><span class="p">))</span>
+<div class="highlight-ipynb hl-python"><pre><span></span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">import argparse
-from graph import Graph
-from experience import Experience
-from utils import get_easyDict_from_filepath,now ,log_and_print_online
-from memory import Memory
-import sys
-import os 
-import logging
-sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
+<div class="clipboard-copy-txt" id="cell-2"></div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=290c55f4">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5757165e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1222,88 +1220,24 @@ sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">memorize</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-    <span class="n">cfg</span> <span class="o">=</span> <span class="n">get_easyDict_from_filepath</span><span class="p">(</span><span class="s2">"./ecl/config.yaml"</span><span class="p">)</span>
-    
-    <span class="n">folder_path</span> <span class="o">=</span> <span class="s2">"ecl/logs"</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder_path</span><span class="p">):</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
-    <span class="n">log_filename</span> <span class="o">=</span> <span class="n">folder_path</span><span class="o">+</span><span class="s2">"/ecl_</span><span class="si">{}</span><span class="s2">.log"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">directory</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">log_filename</span><span class="p">)</span>
-    <span class="n">root_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="n">root_logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">[:]:</span>
-        <span class="n">root_logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
-    <span class="n">file_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">log_filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
-    <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">'[</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">'%Y-</span><span class="si">%d</span><span class="s1">-%m %H:%M:%S'</span><span class="p">)</span>
-    <span class="n">file_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
-    <span class="n">root_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handler</span><span class="p">)</span>
-    <span class="n">root_logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-
-    <span class="n">log_and_print_online</span><span class="p">(</span><span class="s2">"[Config]:"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">cfg</span><span class="p">))</span>
-    <span class="n">graph</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">()</span>
-    <span class="n">graph</span><span class="o">.</span><span class="n">create_from_log</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-    <span class="n">graph</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-
-    <span class="n">experience</span> <span class="o">=</span> <span class="n">Experience</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">log_and_print_online</span><span class="p">(</span><span class="s2">"No node or no edges constrcuted from the task execution process, maybe due to a unfinished software production or sometimes single node appears"</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">experience</span><span class="o">.</span><span class="n">reap_zombie</span><span class="p">:</span>
-            <span class="n">experience</span><span class="o">.</span><span class="n">reap_zombie</span><span class="p">()</span>
-            <span class="n">graph</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-    <span class="n">experience</span><span class="o">.</span><span class="n">estimate</span><span class="p">()</span>
-    <span class="n">experiences</span> <span class="o">=</span> <span class="n">experience</span><span class="o">.</span><span class="n">extract_thresholded_experiences</span><span class="p">()</span>
-
-    <span class="c1"># memory upload </span>
-    <span class="n">memory</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">()</span>
-    <span class="n">memory</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>
-    <span class="n">memory</span><span class="o">.</span><span class="n">upload_from_experience</span><span class="p">(</span><span class="n">experience</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">WATSONX_APIKEY</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s2">"Please enter your watsonx.ai Runtime API key (hit enter): "</span><span class="p">)</span>
+<span class="n">WATSONX_PROJECT_ID</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s2">"Please enter your project ID (hit enter): "</span><span class="p">)</span>
+<span class="c1">#Space ID for testing detectors</span>
+<span class="n">WATSONX_SPACE_ID</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s2">"Please enter your space ID (hit enter): "</span><span class="p">)</span>
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">"https://us-south.ml.cloud.ibm.com"</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">def memorize(directory):
-    print(directory)
-    cfg = get_easyDict_from_filepath("./ecl/config.yaml")
-    
-    folder_path = "ecl/logs"
-    if not os.path.exists(folder_path):
-        os.mkdir(folder_path)
-    log_filename = folder_path+"/ecl_{}.log".format(os.path.basename(directory))
-    print(log_filename)
-    root_logger = logging.getLogger()
-    for handler in root_logger.handlers[:]:
-        root_logger.removeHandler(handler)
-    file_handler = logging.FileHandler(log_filename, mode='w', encoding='utf-8')
-    formatter = logging.Formatter('[%(asctime)s %(levelname)s] %(message)s', datefmt='%Y-%d-%m %H:%M:%S')
-    file_handler.setFormatter(formatter)
-    root_logger.addHandler(file_handler)
-    root_logger.setLevel(logging.INFO)
-
-    log_and_print_online("[Config]:"+str(cfg))
-    graph = Graph()
-    graph.create_from_log(directory)
-    graph.print()
-
-    experience = Experience(graph, directory)
-    if len(graph.nodes)==0 or len(graph.edges) == 0:
-        log_and_print_online("No node or no edges constrcuted from the task execution process, maybe due to a unfinished software production or sometimes single node appears")
-    else:
-        if cfg.experience.reap_zombie:
-            experience.reap_zombie()
-            graph.print()
-    experience.estimate()
-    experiences = experience.extract_thresholded_experiences()
-
-    # memory upload 
-    memory = Memory()
-    memory.upload()
-    memory.upload_from_experience(experience)</div>
+<div class="clipboard-copy-txt" id="cell-3">WATSONX_APIKEY = getpass.getpass("Please enter your watsonx.ai Runtime API key (hit enter): ")
+WATSONX_PROJECT_ID = getpass.getpass("Please enter your project ID (hit enter): ")
+#Space ID for testing detectors
+WATSONX_SPACE_ID = getpass.getpass("Please enter your space ID (hit enter): ")
+URL = "https://us-south.ml.cloud.ibm.com"</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=73b77d6e">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e2442664">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1321,24 +1255,16 @@ sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_directory</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
-            <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
-            <span class="n">memorize</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">def process_directory(directory):
-    for root, dirs, files in os.walk(directory):
-        for directory in dirs:
-            file_path = os.path.join(root, directory)
-            memorize(file_path)</div>
+<div class="clipboard-copy-txt" id="cell-4">app = Flask(__name__)</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fc202f9a">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1d50491b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1356,34 +1282,22 @@ sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Memorize one software or softwares from the directory."</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"path"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"The file or directory to process"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">,</span> <span class="s2">"--directory"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"Process all files in the given directory."</span><span class="p">)</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-
-    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">directory</span><span class="p">:</span>
-        <span class="n">process_directory</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">memorize</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">credentials</span> <span class="o">=</span> <span class="n">Credentials</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">WATSONX_APIKEY</span>
+<span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">def main():
-    parser = argparse.ArgumentParser(description="Memorize one software or softwares from the directory.")
-    parser.add_argument("path", help="The file or directory to process")
-    parser.add_argument("-d", "--directory", action="store_true", help="Process all files in the given directory.")
-    args = parser.parse_args()
-
-    if args.directory:
-        process_directory(args.path)
-    else:
-        memorize(args.path)</div>
+<div class="clipboard-copy-txt" id="cell-5">credentials = Credentials(
+    url=URL,
+    api_key=WATSONX_APIKEY
+)</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6105684f">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c3e2a3ce">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1401,11 +1315,610 @@ sys.path.append(os.path.join(os.getcwd(),"ecl"))</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1">#For testing detectors</span>
+<span class="n">space_id</span><span class="o">=</span><span class="n">WATSONX_SPACE_ID</span>
+<span class="n">api_client</span><span class="o">=</span><span class="n">APIClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span> <span class="n">space_id</span><span class="o">=</span><span class="n">WATSONX_SPACE_ID</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">if __name__ == "__main__":
-    main()</div>
+<div class="clipboard-copy-txt" id="cell-6">#For testing detectors
+space_id=WATSONX_SPACE_ID
+api_client=APIClient(credentials, space_id=WATSONX_SPACE_ID)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=353f97b3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">detectors</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"hap"</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s2">"granite_guardian"</span><span class="p">:{</span><span class="s2">"risk_name"</span><span class="p">:</span> <span class="s2">"harm"</span><span class="p">,</span> <span class="s2">"threshold"</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">},</span>
+  <span class="s2">"topic_relevance"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"threshold"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+  <span class="s2">"pii"</span><span class="p">:</span> <span class="p">{},</span>
+<span class="p">}</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-7">detectors = {
+  "hap": {},
+  "granite_guardian":{"risk_name": "harm", "threshold": 0.6},
+  "topic_relevance": {"threshold": 0.5},
+  "pii": {},
+}</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=32a4d07c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">guardian</span> <span class="o">=</span> <span class="n">Guardian</span><span class="p">(</span>
+  <span class="n">api_client</span><span class="o">=</span><span class="n">api_client</span><span class="p">,</span>  <span class="c1"># required</span>
+  <span class="n">detectors</span><span class="o">=</span><span class="n">detectors</span>  <span class="c1"># required</span>
+<span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-8">guardian = Guardian(
+  api_client=api_client,  # required
+  detectors=detectors  # required
+)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fa5a448d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="s2">"cpu"</span> 
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-9">device = "cpu" </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8ec84606">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-10">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WatsonxPipeline</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_inference</span> <span class="o">=</span> <span class="n">ModelInference</span><span class="p">(</span>
+            <span class="n">model_id</span><span class="o">=</span><span class="n">model_id</span><span class="p">,</span>
+            <span class="n">credentials</span><span class="o">=</span><span class="n">credentials</span><span class="p">,</span>
+            <span class="n">project_id</span><span class="o">=</span><span class="n">project_id</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_text</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        
+        <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_inference</span><span class="o">.</span><span class="n">generate_text</span><span class="p">(</span><span class="n">input_text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">prediction</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-10">class WatsonxPipeline:
+    def __init__(self, model_id, credentials, project_id, params):
+        self.model_inference = ModelInference(
+            model_id=model_id,
+            credentials=credentials,
+            project_id=project_id,
+            params=params
+        )
+
+    def __call__(self, input_text, **kwargs):
+        
+        prediction = self.model_inference.generate_text(input_text)
+        return prediction</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0c93913f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-11">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-11"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=568c1393">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-12">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">qa_pipe</span> <span class="o">=</span> <span class="n">WatsonxPipeline</span><span class="p">(</span>
+    <span class="n">model_id</span><span class="o">=</span><span class="s2">"ibm/granite-3-8b-instruct"</span><span class="p">,</span>
+    <span class="n">credentials</span><span class="o">=</span><span class="n">credentials</span><span class="p">,</span>
+    <span class="n">project_id</span><span class="o">=</span><span class="n">WATSONX_PROJECT_ID</span><span class="p">,</span>
+    <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"temperature"</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="s2">"max_new_tokens"</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-12">qa_pipe = WatsonxPipeline(
+    model_id="ibm/granite-3-8b-instruct",
+    credentials=credentials,
+    project_id=WATSONX_PROJECT_ID,
+    params={
+        "temperature": 0.8,
+        "max_new_tokens": 512,
+    }
+)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a391ae1c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-13">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Granite model loaded"</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-13">print("Granite model loaded")</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9aa9b0e8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-14">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">guardian_model_id</span> <span class="o">=</span> <span class="s2">"ibm-granite/granite-guardian-3.2-3b-a800m"</span>
+<span class="n">guardian_model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+    <span class="n">guardian_model_id</span><span class="p">,</span>
+    <span class="n">torch_dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span>  
+<span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-14">guardian_model_id = "ibm-granite/granite-guardian-3.2-3b-a800m"
+guardian_model = AutoModelForCausalLM.from_pretrained(
+    guardian_model_id,
+    torch_dtype=torch.float16  
+)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0d9f102f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-15">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">guardian_model</span> <span class="o">=</span> <span class="n">guardian_model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">guardian_tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">guardian_model_id</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-15">guardian_model = guardian_model.to(device)
+guardian_tokenizer = AutoTokenizer.from_pretrained(guardian_model_id)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1129edb0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-16">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-16"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9a224b08">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-17">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_guardian_output</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">input_len</span><span class="p">):</span>
+    <span class="n">full_res</span> <span class="o">=</span> <span class="n">guardian_tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">sequences</span><span class="p">[:,</span> <span class="n">input_len</span><span class="o">+</span><span class="mi">1</span><span class="p">:][</span><span class="mi">0</span><span class="p">],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">confidence</span> <span class="o">=</span> <span class="n">full_res</span><span class="o">.</span><span class="n">removeprefix</span><span class="p">(</span><span class="s1">'&lt;confidence&gt;'</span><span class="p">)</span><span class="o">.</span><span class="n">removesuffix</span><span class="p">(</span><span class="s1">'&lt;/confidence&gt;'</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">label_token</span> <span class="o">=</span> <span class="n">guardian_tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">sequences</span><span class="p">[:,</span> <span class="n">input_len</span><span class="p">:</span><span class="n">input_len</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">label_token</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"yes"</span><span class="p">:</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">"Yes"</span>
+    <span class="k">elif</span> <span class="n">label_token</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"no"</span><span class="p">:</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">"No"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">"Failed"</span>
+    <span class="k">return</span> <span class="n">label</span><span class="p">,</span> <span class="n">confidence</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-17">def parse_guardian_output(output, input_len):
+    full_res = guardian_tokenizer.decode(output.sequences[:, input_len+1:][0], skip_special_tokens=True).strip()
+    confidence = full_res.removeprefix('<confidence>').removesuffix('</confidence>').strip()
+    label_token = guardian_tokenizer.decode(output.sequences[:, input_len:input_len+1][0], skip_special_tokens=True).strip()
+    if label_token.lower() == "yes":
+        label = "Yes"
+    elif label_token.lower() == "no":
+        label = "No"
+    else:
+        label = "Failed"
+    return label, confidence</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=64c3cda4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-18">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-18"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fd21e18a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-19">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">'chat.html'</span><span class="p">,</span> <span class="n">detector_response</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> 
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-19">@app.route('/')
+def index():
+    return render_template('chat.html', detector_response="") </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=574df9f1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-20">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">'/ask'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'POST'</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ask</span><span class="p">():</span>
+    <span class="n">user_prompt</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">'user_prompt'</span><span class="p">]</span>
+    <span class="n">conversation_history</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'conversation_history'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="n">qa_pipe</span><span class="p">(</span><span class="n">user_prompt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">assistant_response</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'generated_text'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">assistant_response</span> <span class="o">=</span> <span class="n">output</span>
+
+    <span class="n">assistant_response</span> <span class="o">=</span> <span class="n">assistant_response</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="n">detector_response</span> <span class="o">=</span> <span class="n">guardian</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">assistant_response</span><span class="p">,</span> <span class="n">detectors</span><span class="o">=</span><span class="n">detectors</span><span class="p">)</span>
+
+    <span class="n">moderation_chat_turn</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
+<span class="s2">    &lt;start_of_turn&gt;</span>
+<span class="s2">    User Message: </span><span class="si">{</span><span class="n">user_prompt</span><span class="si">}</span>
+<span class="s2">    Assistant Message: </span><span class="si">{</span><span class="n">assistant_response</span><span class="si">}</span>
+<span class="s2">    &lt;end_of_turn&gt;</span>
+
+<span class="s2">    Is the assistant message harmful based on the risk definition? Your answer must be either 'Yes' or 'No'.</span>
+<span class="s2">    """</span>
+
+
+    <span class="n">input_ids</span> <span class="o">=</span> <span class="n">guardian_tokenizer</span><span class="p">(</span><span class="n">moderation_chat_turn</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">"pt"</span><span class="p">)</span><span class="o">.</span><span class="n">input_ids</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">guardian_model</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">guardian_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">guardian_model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+            <span class="n">input_ids</span><span class="p">,</span>
+            <span class="n">do_sample</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+            <span class="n">return_dict_in_generate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">output_scores</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">moderation_text</span> <span class="o">=</span> <span class="n">guardian_tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">sequences</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">input_ids</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+      
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">"yes"</span> <span class="ow">in</span> <span class="n">moderation_text</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"harmful"</span><span class="p">,</span> <span class="s2">"details"</span><span class="p">:</span> <span class="n">moderation_text</span><span class="p">,</span> <span class="s2">"detector_response"</span><span class="p">:</span> <span class="n">detector_response</span><span class="p">})</span>
+        <span class="k">elif</span> <span class="s2">"no"</span> <span class="ow">in</span> <span class="n">moderation_text</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"safe"</span><span class="p">,</span> <span class="s2">"response"</span><span class="p">:</span> <span class="n">assistant_response</span><span class="p">,</span> <span class="s2">"detector_response"</span><span class="p">:</span> <span class="n">detector_response</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"unclear"</span><span class="p">,</span> <span class="s2">"details"</span><span class="p">:</span> <span class="n">moderation_text</span><span class="p">,</span> <span class="s2">"detector_response"</span><span class="p">:</span> <span class="n">detector_response</span><span class="p">})</span>
+    
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span>
+            <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"error"</span><span class="p">,</span>
+            <span class="s2">"response"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"An error occurred: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">})</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-20">@app.route('/ask', methods=['POST'])
+def ask():
+    user_prompt = request.form['user_prompt']
+    conversation_history = request.form.get('conversation_history', '')
+
+    output = qa_pipe(user_prompt)
+    if isinstance(output, dict):
+        assistant_response = output.get('generated_text', '')
+    else:
+        assistant_response = output
+
+    assistant_response = assistant_response.strip()
+
+    detector_response = guardian.detect(text=assistant_response, detectors=detectors)
+
+    moderation_chat_turn = f"""
+    <start_of_turn>
+    User Message: {user_prompt}
+    Assistant Message: {assistant_response}
+    <end_of_turn>
+
+    Is the assistant message harmful based on the risk definition? Your answer must be either 'Yes' or 'No'.
+    """
+
+
+    input_ids = guardian_tokenizer(moderation_chat_turn, return_tensors="pt").input_ids.to(guardian_model.device)
+    guardian_model.eval()
+    with torch.no_grad():
+        output = guardian_model.generate(
+            input_ids,
+            do_sample=False,
+            max_new_tokens=16,
+            return_dict_in_generate=True,
+            output_scores=True,
+        )
+    moderation_text = guardian_tokenizer.decode(output.sequences[0][input_ids.shape[1]:], skip_special_tokens=True).strip()
+      
+
+    try:
+        if "yes" in moderation_text.lower():
+            return jsonify({"status": "harmful", "details": moderation_text, "detector_response": detector_response})
+        elif "no" in moderation_text.lower():
+            return jsonify({"status": "safe", "response": assistant_response, "detector_response": detector_response})
+        else:
+            return jsonify({"status": "unclear", "details": moderation_text, "detector_response": detector_response})
+    
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "response": f"An error occurred: {str(e)}"
+        })</end_of_turn></start_of_turn></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=47bfd6d6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-21">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_reloader</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-21">if __name__ == '__main__':
+    app.run(debug=True, use_reloader=False)</div>
 </div>
 </div>
 </div>

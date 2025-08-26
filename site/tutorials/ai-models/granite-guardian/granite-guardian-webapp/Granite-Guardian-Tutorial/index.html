@@ -1,0 +1,929 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="IBM.com Technical Content Team">
+      
+      
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/ai-models/granite-guardian/granite-guardian-webapp/Granite-Guardian-Tutorial/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>LLM content moderation with IBM Granite Guardian - IBM.com Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="LLM content moderation with IBM Granite Guardian - IBM.com Tutorials" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/ai-models/granite-guardian/granite-guardian-webapp/Granite-Guardian-Tutorial.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/ai-models/granite-guardian/granite-guardian-webapp/Granite-Guardian-Tutorial/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="LLM content moderation with IBM Granite Guardian - IBM.com Tutorials" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/ai-models/granite-guardian/granite-guardian-webapp/Granite-Guardian-Tutorial.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llm-content-moderation-with-ibm-granite-guardian" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM.com Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM content moderation with IBM Granite Guardian
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../references/coc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  References
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    IBM.com Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Welcome
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../getting-started/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../tutorials-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../references/coc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code of Conduct
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../references/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../references/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="llm-content-moderation-with-ibm-granite-guardian">LLM content moderation with IBM Granite Guardian</h1>
+<h2 id="the-hidden-world-of-ai-safety">The hidden world of AI safety</h2>
+<p>Millions of people around the world are chatting with <a href="https://www.ibm.com/think/topics/artificial-intelligence">artificial intelligence (AI)</a> assistants, asking questions, seeking help, and receiving responses instantly every day. However, what most people that use <a href="https://www.ibm.com/think/topics/large-language-models">large language models (LLMs)</a> don't see is that behind many of their interactions there is often another <a href="https://www.ibm.com/think/topics/ai-model">AI model</a> involved. This secondary LLM is working silently in the background as a digital bodyguard. It scans for potential risks and inappropriate content and when it does its job effectively, unsafe content will not make it to your screen.</p>
+<p>What are the inner workings of this content moderation system that the average user might not see and how does it help to enhance their experience? That view is exactly what this web application tutorial reveals. Instead of hiding the safety mechanisms that protect users, this <a href="https://www.ibm.com/think/topics/open-source">open-source</a> tutorial pulls back the curtain. It shows you how two <a href="https://www.ibm.com/think/topics/machine-learning">machine learning (ML)</a> models work together to produce quality responses and moderate content, keeping you safe at the same time. Effective human-computer interaction (HCI) in LLM-based ecosystems requires that users understand not just what decisions are being made, but why they are being made. In this tutorial think of yourself as a high-profile celebrity. Your <a href="https://www.ibm.com/think/topics/chatbots">AI chatbot</a> can be imagined as your personal concierge. What high-profile celebrity doesn’t have a personal bodyguard at hand? This space is where the IBM® <a href="https://www.ibm.com/granite/docs/models/guardian/">Granite Guardian®</a> model comes into play.</p>
+<h3 id="meet-your-team">Meet your team:</h3>
+<p>“The concierge" (Granite 3-8b-instruct): This model will act as your friendly AI assistant and by using natural language, answer your every question to provide helpful information. Think of this model as your personal problem solver with almost limitless connections and information. It possesses a wide array of knowledge but might not always pause to consider that certain information could be harmful in the wrong context.</p>
+<p>“The bodyguard” (Granite Guardian 3.2-3b-a800m): This model is your security expert, your bodyguard and an LLM chaperone. Content moderation tasks are the proverbial bread and butter for this model. Anything your personal concierge wants to pass along to you needs to go through this model first. Like a comic book superhero, the model is trained to spot trouble from a mile away and make split-second decisions about what is safe or what needs to be blocked and flagged. The training data used for Granite Guardian promotes adaptability in detecting a wide variety of toxicity, including:</p>
+<p>•   HAP (Hate speech, abuse, and profanity): Detecting harmful language, racial slurs and offensive content.</p>
+<p>•   PII (Personally identifiable information): Spotting sensitive personal data that shouldn't be shared.</p>
+<p>•   Harm detection: Identifying content that could cause physical, emotional, or psychological harm. This type includes the curation of misinformation and its spread at scale on online platforms.</p>
+<p>•   Social bias: Recognizing unfair prejudices or discriminatory language that sometimes go unchecked on social media platforms and online communities.</p>
+<p>•   Jailbreak detection: Catching prompt engineering attempts to bypass AI safety measures to produce illicit responses from the model that could potentially slip by traditional human review.</p>
+<p>•   Violence: Flagging content that promotes or describes violent acts towards others as well as self-harm. </p>
+<p>•   Profanity: The model is trained in identifying and flagging inappropriate or offensive language.</p>
+<p>•   Unethical behavior: Spotting content that promotes harmful or immoral actions.</p>
+<p>•   Content safety: Overall assessment of whether content meets safety standards.</p>
+<p>The multilayered approach that Granite Guardian implements means it does not only look for obvious problems. The model is trained in moderation practices to spot subtle risks across numerous categories by using sizeable datasets, minimizing the risk of edge cases.</p>
+<p>As AI models become more powerful and their usage more widespread, the need for effective safety protocols grows exponentially. AI systems currently process billions of real-world requests daily, far too many for basic algorithms or human moderators to review. Without proper moderation tools in place, inappropriate, harmful or dangerous content could easily be passed along to users around the world.</p>
+<p>Many AI safety systems are <a href="https://www.ibm.com/think/topics/black-box-ai">black boxes</a> meaning that you either get a response, or you don't. This scenario can be troubling because users or developers receive no insight as to why. This lack of transparency makes it difficult to understand, trust or improve these critical safety systems. The following tutorial aims to fix that as well as demonstrate the capabilities offered with Granite Guardian.</p>
+<h3 id="what-makes-the-granite-guardian-model-different">What makes the Granite Guardian model different</h3>
+<p>Granite Guardian does not simply block unsafe responses and show you a generic "I can't help with that" message. Instead, the model shows you real-time risk detection as it happens, details if a risk is detected or not, and gives the user an accuracy score of the detected risk. The model has undergone <a href="https://www.ibm.com/think/topics/fine-tuning">fine-tuning</a> to detect both false positives and false negatives generated by the assistant. This demonstration is like having X-ray vision into model safety. The user can see the mechanisms of protection that usually operate invisibly behind the scenes.</p>
+<h3 id="how-the-application-works">How the application works</h3>
+<p>The web application follows this workflow:</p>
+<ol>
+<li>
+<p>User input: The model first accepts questions through user input in a local web application chatbot format.</p>
+</li>
+<li>
+<p>Assistant response: Granite 3-8b-instruct will then generate a response to answer the user’s question(s).</p>
+</li>
+<li>
+<p>Risk detection: Granite Guardian will then analyze the response. During this process it will apply its moderation rules to declare if the content is safe or unsafe.</p>
+</li>
+<li>
+<p>Display results: The results will then be displayed for the user to see what is going on during their interaction with the model. If the response given by the instruct model is deemed safe, then the user will receive the model’s output(answer) to their question and the moderation details produced by the Guardian model. However, if the response produced by the instruct model is deemed unsafe, content filtering ensures that this response is not displayed to the user. The user will also receive the moderation details produced by the Guardian model as to why this content has been deemed unsafe.</p>
+</li>
+</ol>
+<p>By the end of this tutorial, you will:</p>
+<ul>
+<li>
+<p>Understand how generative AI content moderation works.</p>
+</li>
+<li>
+<p>Learn to set up a secondary AI model as a content moderator.</p>
+</li>
+<li>
+<p>See how to implement response filtering for inappropriate content.</p>
+</li>
+<li>
+<p>Create a safer AI experience for end users.</p>
+</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>This tutorial demonstrates a web application chat bot use case. It uses a two-model AI system where “The bodyguard” (Granite-Guardian-3.2-3b-a800m) moderates responses from “The concierge” (Granite-3-8b-instruct). The appropriate risk detection and moderation policies lead to a safer AI interaction experience.</p>
+<hr />
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Familiarity with Python programming and basic understanding of LLMs.</p>
+<h2 id="steps">Steps</h2>
+<p>Ensure that you are running <a href="https://www.python.org/downloads/">Python 3.10, 3.11 or3.12</a> in a freshly created virtual environment. Note, you can also access this tutorial on GitHub.</p>
+<hr />
+<h2 id="step-1-set-up-your-environment">Step 1: Set up your environment</h2>
+<p>While you can choose from several tools, this tutorial walks you through how to set up an IBM account to use a Jupyter Notebook.</p>
+<p>Log in to <a href="https://www.ibm.com/products/watsonx-ai?utm_content=SRCWW&amp;p1=Search&amp;p4=2053649840318&amp;p5=e&amp;p9=151965724954&amp;gclsrc=aw.ds&amp;gad_source=1&amp;gad_campaignid=20116653496&amp;gbraid=0AAAAAD-_QsRiOlJj6yGUEbs9fqFQznBai&amp;gclid=CjwKCAjw7_DEBhAeEiwAWKiCC9QnJHdFucOQC4AYHUOW2s53YlNSZaEkaTG8X1OtV0GvAFlLSYQCVRoC8WcQAvD_BwE">watsonx.ai®</a>using your <a href="https://cloud.ibm.com/login">IBM Cloud® account</a>.</p>
+<p>Create a watsonx.ai project.</p>
+<p>Note: We will be running the larger instruct model using watsonx.ai to save memory for lower power machines.</p>
+<hr />
+<h2 id="step-2-set-up-a-watsonxai-runtime-instance-and-api-key">Step 2. Set up a watsonx.ai Runtime instance and API key</h2>
+<p>Create a watsonx.ai Runtime service instance (select your appropriate region and choose the Lite plan, which is a free instance).</p>
+<p>Generate an application programming interface (API) Key.</p>
+<p>Associate the watsonx.ai Runtime service instance to the project that you created in watsonx.ai.</p>
+<hr />
+<h2 id="step-3-clone-the-repository-and-activate-the-virtual-environment">Step 3. Clone the repository and activate the virtual environment</h2>
+<h3 id="clone-the-repository">Clone the repository</h3>
+<pre><code class="language-bash">
+git clone https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/ai-models/granite-guardian/granite-guardian-webapp
+
+
+cd Artificial Intelligence/AI_models/granite-guardian/granite-guardian-webapp
+
+</code></pre>
+<h3 id="create-a-virtual-environment-activate-the-environment-and-install-the-dependencies">Create a virtual environment, activate the environment and install the dependencies:</h3>
+<pre><code class="language-bash">
+python -m venv myenv
+
+source myenv/bin/activate
+
+pip install -r requirements.txt
+
+</code></pre>
+<h3 id="launch-the-application">Launch the application</h3>
+<p>Run the web app</p>
+<pre><code class="language-bash">
+python content-moderation-chatbot.py
+
+</code></pre>
+<p>The application will be accessible at http://127.0.0.1:5000</p>
+<hr />
+<h2 id="step-4-using-the-web-application">Step 4: Using the web application</h2>
+<h3 id="accessing-the-interface">Accessing the interface</h3>
+<ol>
+<li>
+<p>Open your web browser</p>
+</li>
+<li>
+<p>Navigate to http://127.0.0.1:5000</p>
+</li>
+<li>
+<p>You'll see the Granite chatbot demonstration interface</p>
+</li>
+</ol>
+<h3 id="interacting-with-the-system">Interacting with the system</h3>
+<ol>
+<li>
+<p>Enter your question: Type your question or prompt in the input field.</p>
+</li>
+<li>
+<p>Submit: Click the submit button or press enter.</p>
+</li>
+<li>
+<p>View results: The page will display:</p>
+</li>
+<li>
+<p>Guardian's moderation analysis and risk categories identified - blue text block</p>
+</li>
+<li>
+<p>The assistant's response (if deemed safe) - green text block</p>
+</li>
+</ol>
+<hr />
+<h2 id="step-5-testing-different-scenarios">Step 5: Testing different scenarios</h2>
+<h3 id="understanding-the-moderation-process">Understanding the moderation process</h3>
+<p>The web application provides transparency into how AI moderation works. Think of it like having a window into a security checkpoint. This window allows you to see how decisions are made rather than just getting a "blocked" or "approved" result.</p>
+<hr />
+<h2 id="use-cases">Use cases</h2>
+<p>Social media moderation: When social media users upload millions of posts daily, a dual-model approach ensures that harmful content gets flagged while legitimate discussions about sensitive topics remain accessible for other users on the platform. A level of transparency helps moderators understand why certain content was flagged, reducing over censorship.</p>
+<p>Environmental monitoring: Applications developed to automate the analysis of images for beech leaf disease (BLD) detection, employing <a href="https://www.ibm.com/think/topics/convolutional-neural-networks">convolutional neural networks (CNNs</a>, require the same safety principles. When these AI applications process thousands of leaf images, to identify disease patterns, the moderation layer ensures that false positives don't trigger unnecessary interventions. The transparency aspect helps forest managers understand the confidence levels behind each diagnosis.</p>
+<p>AI chatbot safety: Customer service bots and educational assistants need to refuse harmful requests while remaining helpful. This step could include jailbreaking prompts to try to trick these bots into gaining access to sensitive information. An AI ecosystem built on safety catches attempts to manipulate the bot into providing dangerous information, while explaining to users why certain topics cannot be discussed.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The effectiveness of this layered approach lies not just in its technical aspects, but in how it transforms AI safety from an abstract thought into something actionable. Whether you're protecting social media users from harmful content, ensuring chatbots respond responsibly or assisting environmentalists in making informed decisions, the fundamental principles of safety and transparency apply.</p>
+<p>You have now seen how two specialized models working in tandem can catch what solo model systems might miss. You have also learned how real-time moderation scales across applications and why transparency isn't just a nice bonus, it's an essential part of the trust-building process. This shift is not just about adding additional safety features to existing systems, it's about fundamentally rethinking how we build ethical AI systems that promote user well-being. As the adoption and advancements of AI technology grow every day, it is imperative that we are not sacrificing individuals' protection for speed.</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li>
+<p>Experiment with different types of potentially malicious questions and prompts.</p>
+</li>
+<li>
+<p>Swap the "harm" risk_name for some other categories like: social_bias, violence, jailbreak, profanity, sexual_content and unethical_behavior.</p>
+</li>
+<li>
+<p>Swap the assistant model for others of your choosing to see how it impacts the moderations. Modify the tutorial to pull models like Meta’s Llama and OpenAI’s GPT-4 and see how they stack up.</p>
+</li>
+<li>
+<p>Explore the code to understand the technical implementation and build something.</p>
+</li>
+<li>
+<p>Share your findings and experiences with the artificial intelligence community. For more information on text detection checkout <a href="https://cloud.ibm.com/apidocs/ai-openscale#textdetection">the docs</a>.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
