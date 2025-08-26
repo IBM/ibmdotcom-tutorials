@@ -1,0 +1,8 @@
+Flask
+torch
+torchvision
+torchaudio
+transformers
+accelerate
+ibm_watson
+ibm_watsonx_ai
