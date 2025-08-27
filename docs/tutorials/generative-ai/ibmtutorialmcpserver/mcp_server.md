@@ -1,6 +1,5 @@
 # Building a Model Context Protocol (MCP) Server
 
-** Authors **: Ash Minhas, PJ Hagerty
 
 *In this tutorial, you’ll build a simple [Model Context Protocol](https://www.ibm.com/think/topics/model-context-protocol) (MCP) server that exposes a single tool for searching IBM tutorials. By using the `fastmcp` framework and the requests library, the script downloads a JSON index of tutorials from a remote URL. It then searches for matches to a user’s query and returns a neatly formatted list of results. You’ll also add error handling for network issues, bad JSON and unexpected problems, making the tool robust and beginner-friendly. Finally, you’ll run the MCP server so it can be connected to and tested with a client like Cursor.*
 
