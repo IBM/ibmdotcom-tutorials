@@ -23,7 +23,7 @@ frameworks handle communication using custom or closed systems. This
 makes it difficult to connect agents across toolchains, teams or infrastructures,
 especially when combining components from different AI systems.
 
-ACP introduces a standardized, framework-agnostic messaging format for how autonomous
+ACP introduces a standardized, framework-independent messaging format for how autonomous
 agents send, recieve, and interpret messages. Messages are structured, typically
 in JSON, and contain metadata to enrich agent interactions with clarity and consistency.
 
@@ -42,7 +42,7 @@ the generated song and provides structured feedback.
 **crewAI:** An open-source framework for orchestrating mutli-agent workflows.
 Here, it's used to coordinate the research, songwriting, and Markdown
 reporting agents.  
-**`acp-sdk`:** The ACP-SDK was developed by BeeAI to promote framework-agnostic
+**`acp-sdk`:** The ACP-SDK was developed by BeeAI to promote framework-independent
 interoperability across multi-agent systems. References and implementations are
 maintained under the [ACP GitHub repository](https://github.com/i-am-bee/acp).  
 **Agent-Ops (Optional):**  A monitoring and observability platform for AI agents.
@@ -56,7 +56,7 @@ how ACP ( via the `acp-sdk`) can streamline coherent and observable collaboratio
 across agent ecosystems.  
 
 The workflow begins when the user provides a URL. From there, a modular,
-framework-agnostic system of specialized agents transforms the webpage content
+framework-independent system of specialized agents transforms the webpage content
 into a creative artifact—an original song—accompanied by professional-style critique.
 All components work in concert to combine these outputs into a single, unified
 human-readable Markdown report. This final result represents a complete transformation
@@ -223,7 +223,7 @@ making them flexible for different environments and use cases. In this tutorial,
 **OpenRouter** is the LLM provider for the BeeAI agent, while **Ollama** is used
 for the crewAI agents locally.
 
-Both frameworks are providor-agnostic, so you can switch to other LLM services
+Both frameworks are providor-independent, so you can switch to other LLM services
 by updating the configuration settings. Your setup may
 vary depending on the LLM provider you choose. Additionally, this tutorial includes
 an optional, preconfigured setup for using IBM Watsonx.ai as an alternative
@@ -709,7 +709,7 @@ ACP is an open initiative driven by the need for agents to send, receive, and in
 messages. Messages in ACP are structured—typically in formats like JSON—and
 enriched with metadata to ensure consistency and clarity across agent interactions.
 Whether you're using agents powered by OpenAI, Anthropic, or other AI models,
-ACP provides a shared messaging layer that supports framework-agnostic interoperability.
+ACP provides a shared messaging layer that supports framework-independent interoperability.
 
 By following this workflow, you’ve seen how creative and analytical agents can
 work in harmony, transforming unstructured web content into a song, professional
