@@ -25,6 +25,7 @@
 - [Function Calling](./tutorials/generative-ai/function-calling.ipynb)
 - [Agentic Chunking](./tutorials/generative-ai/Agentic-chunking.ipynb)
 - [ReWOO](./tutorials/generative-ai/ReWOO - Content Summarization.ipynb)
+- [Time Series Analysis with Granite and TSPulse](./tutorials/ai-models/tspulse/time-series-analysis-granite-time-tspulse.ipynb)
 
 ### Agent orchestration
 
