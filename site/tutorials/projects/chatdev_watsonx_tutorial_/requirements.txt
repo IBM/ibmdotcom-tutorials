@@ -9,7 +9,7 @@ requests==2.32.4
 tenacity==8.2.2
 tiktoken==0.8.0
 virtualenv==20.26.6
-Werkzeug==3.0.3
+Werkzeug==3.0.6
 Markdown==3.4.4
 Pillow==10.3.0
 Wikipedia-API==0.6.0
