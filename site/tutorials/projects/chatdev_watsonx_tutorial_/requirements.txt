@@ -8,7 +8,7 @@ regex==2023.6.3
 requests==2.31.0
 tenacity==8.2.2
 tiktoken==0.8.0
-virtualenv==20.23.0
+virtualenv==20.26.6
 Werkzeug==3.0.3
 Markdown==3.4.4
 Pillow==10.3.0
