@@ -1,0 +1,103 @@
+ErrorCode,ErrorName,ErrorMessage
+FNRAC1001W,WARN_TRACE_LOG_ENABLED,Server trace logging is enabled.
+FNRAC1002W,WARN_ADDON_CANNOT_BE_UNSELECTED,The selection of this add-on feature cannot be cleared.
+FNRAC1001E,ERR_UNEXPECTED,An unexpected error occurred.
+FNRAC1002E,ERR_LOGIN_AUTHENTICATION,The system cannot log you on right now.
+FNRAC1003E,ERR_LOGIN_ACTIVITY,You are no longer logged on.
+FNRAC1004E,ERR_UNABLE_TO_CREATE,The '{0}' object was not created.
+FNRAC1005E,ERR_UNABLE_TO_SAVE,The '{0}' object was not saved.
+FNRAC1006E,ERR_UNABLE_TO_DELETE,The '{0}' object was not deleted.
+FNRAC1007E,ERR_UNABLE_TO_DELETE_INSUFFICIENT_RIGHT,You do not have sufficient permission to delete the '{0}' object.
+FNRAC1008E,ERR_UNABLE_TO_GET_DATA,Unable to get data from server
+FNRAC1009E,ERR_BATCH_OPERATION_FAILED,One or more operations failed.
+FNRAC1011E,ERR_INVALID_IS_CONFIGURATION,The system cannot connect to the Image Services server.
+FNRAC1012E,ERR_OBJECT_REFERENCED,The object cannot be deleted because it is referenced by other objects
+FNRAC2001E,ERR_CREATE_CHILD_INSTANCE_DENIED,You do not have sufficient permission to create a child instance.
+FNRAC3001E,ERR_VALUE_REQUIRED,A value is required.
+FNRAC3002E,ERR_MINIMUM_VALUE_REQUIRED,The value you enter must be equal to or greater than the minimum value: {0}.
+FNRAC3003E,ERR_MAXIMUM_VALUE_REQUIRED,The value you enter must be equal to or less than the maximum value: {0}.
+FNRAC3004E,ERR_MINIMUM_LENGTH_REQUIRED,The length of the value you enter must be equal to or greater than the minimum length: {0}.
+FNRAC3005E,ERR_MAXIMUM_LENGTH_REQUIRED,The length of the value you enter must be equal to or less than the maximum length: {0}.
+FNRAC3006E,ERR_INVALID_DATE_FORMAT,The date format is not valid.
+FNRAC3007E,ERR_INVALID_DOUBLE_FORMAT,The value must be a number and can contain decimal places.
+FNRAC3008E,ERR_INVALID_GUID_FORMAT,The format of the globally unique identifier (GUID) is not valid.
+FNRAC3009E,ERR_INVALID_LONG_FORMAT,The value must be an integer.
+FNRAC3010E,ERR_FIELDS_NOT_MATCHING,The '{0}' and '{1}' fields must match.
+FNRAC3011E,ERR_UNIQUENESS_REQUIRED,An object with this name already exists.
+FNRAC3012E,ERR_VALUE_ALPHANUMERICONLY,The value you entered is not valid.
+FNRAC3013E,ERR_REQUIRED_USER_GROUP,You must select at least one user or group.
+FNRAC3014E,ERR_REQUIRED_USERS_GROUPS,You must select at least {0} users or groups.
+FNRAC3015E,ERR_SECURITY_INVALID_LEVEL,The access level is not valid.
+FNRAC3016E,ERR_SECURITY_INVALID_DEPTH,The inheritable depth is not valid.
+FNRAC3017E,ERR_INVALID_REALM,The '{0}' realm is not valid.
+FNRAC3018E,ERR_MIME_TYPE_INUSE,The MIME type is already in use.
+FNRAC3019E,ERR_CASTORE_TYPE_DBCONNECTION_MISS_MATCH,The selected database connection does not specify a Microsoft SQL Server database.
+FNRAC3020E,ERR_VALUE_SPACE_NOT_ALLOWED,The value you entered is not valid.
+FNRAC3021E,ERR_VALUE_IS_NOT_VALID,The value you entered is not valid.
+FNRAC3022E,ERR_WORKFLOW_DEFINITION_NOT_TRANSFERRED,"The selected workflow definition '{0}', version '{1}' has not been transferred."
+FNRAC3023E,ERR_PROPERTY_MAP_FIELD_PROPERTY_TYPES_MISS_MATCH,The data field type does not match the property type.
+FNRAC3024E,ERR_PROPERTY_MAP_MULTIPLE_MAPPING,Mapping multiple properties to the same data field '{0}' is not allowed.
+FNRAC3025E,ERR_WORKFLOW_DEFINITION_MULTIPLE_CONTENT_ELEMENTS,A workflow definition does not support multiple content elements.
+FNRAC3026E,ERR_INVALID_WORKFLOW_DEFINITION_MIME_TYPE,A workflow definition supports ''.xpdl'' and ''.pep'' formats only.
+FNRAC3027E,ERR_INVALID_CODEMODULE_MIME_TYPE,The code module you selected has an invalid format.
+FNRAC3028E,ERR_INVALID_CONTENT_ELEMENT_TYPE,INTERNAL ERROR - REFERENCE TYPE MUST BE CONTENT TRANSFER OR CONTENT REFERENCE.
+FNRAC3029E,ERR_DELETE_DEVICE_FAILED_DUE_TO_CONNECTION,The device cannot be deleted because it is associated with one or more storage areas: {0}
+FNRAC3030E,ERR_DELETE_AREA_FAILED_DUE_TO_POLICY_ASSIGNED,The storage area cannot be deleted because it is associated with one or more storage policies:<br /><br />{0}
+FNRAC3031E,ERR_DELETE_AREA_FAILED_DUE_TO_DEFAULT_AREA,The storage area cannot be deleted because it is the default storage area for one or more classes:<br /><br />{0}
+FNRAC3032E,ERR_DELETE_DEVICE_FAILED_DUE_TO_AREA_IN_STORE,The device cannot be deleted because it is associated with one or more of the following fixed storage areas: {0}
+FNRAC3033E,ERR_DELETE_CMOD_DEVICE_FAILED_DUE_TO_MAPPING,The device cannot be deleted because it is used for replication class mapping in one or more of the following object stores: {0}
+FNRAC3034E,ERR_ADVANCED_STORAGE_AREA_DISCONNECT_ALL,At least one device must be connected to the storage area.
+FNRAC3035E,ERR_DOC_FAILED_DUE_TO_NULL_AREA_AND_POLICY,A storage area or storage policy was not selected.
+FNRAC3036E,ERR_OPENSTACK_CREATE_FAILED,The OpenStack storage device {0} with container {1} cannot be created.
+FNRAC3037E,ERR_CANNOT_VALIDATE_INDEXING_LANGUAGES,IBM Content Search Services servers are not available to validate the specified indexing languages.
+FNRAC3038E,ERR_CANNOT_VALIDATE_INDEX_AREA_ROOT,IBM Content Search Services servers are not available to validate the specified root directory.
+FNRAC3039E,ERR_SELECTED_VALUE_NOT_IN_LIST,A valid entry is not selected.
+FNRAC3040E,ERR_SITESETTINGS_REPLICATYPE_NOT_SET,The replica synchronization type is not selected for one or more sites.
+FNRAC3041E,ERR_SITESETTINGS_REPLICA_NOT_ENOUGH_SYNCTYPE,Not enough synchronous replicas were selected for the site.
+FNRAC3042E,ERR_REPLICA_NOT_ENOUGH_SYNCTYPE,Not enough synchronous replicas were selected.
+FNRAC3043E,ERR_REPLICA_NOT_ENOUGH_DEVICE,The replica synchronization type is not set correctly.
+FNRAC3044E,ERR_REPLICA_CANNOT_DISCONNECT_ALL,The selected storage device cannot be disconnected.
+FNRAC3045E,ERR_ADDINDEX_MUST_HAVE_A_KEY_COLUMN,The sort order that is assigned to all of the columns in this index cannot be No sort order (included column).
+FNRAC3046E,ERR_ADDINDEX_INVALID_COLUMNNAME,A column must be selected when an index is created.
+FNRAC3047E,ERR_ADDINDEX_INVALID_SORTORDER,A sort order was not assigned to the column.
+FNRAC3048E,ERR_ADDINDEX_DUP_COL_NAME,The column name '{0}' exists and cannot be duplicated.
+FNRAC3049E,ERR_DUPLICATE_NAME_NOT_ALLOWED,The name '{0}'is a duplicate.
+FNRAC3050E,ERR_DATA_CANNOT_BE_BLANK,A value is required for property '{0}'.
+FNRAC3051E,ERR_MUST_SELECT_DATA_IN_LIST,The value that is selected for property '{0}' must be one of the values in the list.
+FNRAC3052E,ERR_VALUE_INVALID_AUTHENTICATIONREALM,The name you entered is not valid.
+FNRAC3053E,ERR_INDEX_NAME_MUST_BE_UNIQUE_OR_BLANK,The index name '{0}' exists.
+FNRAC3054E,ERR_INVALID_CONNECTIONPOINT_NAME,The connection point name is not valid.
+FNRAC3055E,ERR_INVALID_DOC_OR_FOLDER_NAME,The name that you entered contains invalid characters.
+FNRAC3056E,ERR_S3DEVICE_CREATE_FAILED,The S3 storage device {0} with container {1} cannot be created.
+FNRAC3057E,ERR_AZUREDEVICE_CREATE_FAILED,The Azure Blob storage device {0} with container {1} cannot be created.
+FNRAC4001E,ERR_SEARCH_INVALID_QUERY_NO_COLUMN_SELECTED,No search column is selected.
+FNRAC4002E,ERR_SEARCH_INVALID_QUERY_ORDERBY_NOT_IN_SELECTION,The specified ORDER BY column '{0}' is not one of the selected columns.
+FNRAC4003E,ERR_SEARCH_INVALID_QUERY_STRING_EMPTY,The query string is empty.
+FNRAC4004E,ERR_SEARCH_QUERY_NOT_INCLUDE_THIS,The query string is invalid.
+FNRAC4005E,ERR_SEARCH_INVALID_SEARCH_EXPRESSION,The syntax of the search expression is invalid.
+FNRAC4006W,ERR_SEARCH_WITHOUT_WHERE_COULD_CAUSE_LONG_RUN,A query without a WHERE clause can take a long time to finish. Do you want to continue?
+FNRAC4007E,ERR_SEARCH_INVALID_SYSTEM_PROPERTY,The following system property is used in the search expression: '{0}'.
+FNRAC4008E,ERR_SEARCH_INVALID_PROPERTY_THIS,The ''This'' property is used in the search expression.
+FNRAC4009E,ERR_SEARCH_PROPERTY_EXIST_DIFFERENT_DATATYPE,The defined data type or cardinality does not match the inferred data type or cardinality for the existing property as used in the search expression: '{0}'.
+FNRAC4010E,ERR_SEARCH_PROPERTY_NOT_FOUND,The following property that is referenced in the search expression does not exist: '{0}'.
+FNRAC4011E,ERR_CANNOT_SELECT_ENUM_PROPERTY,The SELECT clause of the search expression includes the following enum property: '{0}'.
+FNRAC4012E,ERR_SELECT_ALLOWFOREIGNOBJECT_PROPERTY,The Allows Foreign Object property is not selected for one or more object-valued properties that are referenced by the search expression.
+FNRAC4013E,ERR_SEARCH_CLASSREFERENCE_NOT_FOUND,The search expression references a class that does not exist: '{0}'.
+FNRAC4014E,ERR_INVALID_DATATYPE_MAPPING,The specified data type for the following search result property in the search expression is not compatible with the data type of the corresponding selected item: '{0}'.
+FNRAC4015E,ERR_TOP_N_NOT_ALLOWED,The Top N syntax is used in the search expression.
+FNRAC4016E,ERR_DATATYPE_BINARY_NOT_ALLOWED_AS_PARAMETER,The binary data type is specified for the following parameter property in the search expression: '{0}'.
+FNRAC4017E,ERR_INVALID_START_DATE,The effective start date is after the effective end date.
+FNRAC4100E,ERR_TRANSFER_WORKFLOW,Failed to transfer workflow.
+FNRAC4101E,ERR_WORKFLOW_NOCONTENT,The workflow has no content elements.
+FNRAC4102E,ERR_REGION_IS_LOCKED,The isolated region that is referenced by connection point '{0}' is locked.
+FNRAC4103E,ERR_TRANSFER_MINORVERSION,You cannot transfer a minor version of a workflow definition.
+FNRAC4104E,ERR_TRANSFER_PERMISSION,You do not have the access rights that are required to transfer this workflow definition.
+FNRAC5001E,ERR_NO_TARGETFOLDER_FOR_FILE_UNFILE,A target folder is not selected for the file or unfile operation.
+FNRAC5002E,ERR_INVALID_LIFECYCLE_STATE_CHANGE,The document lifecycle state is not valid.
+FNRAC5003E,MULTISELECTION_NOT_APPLICABLE_TO_OPERATION,The operation cannot be performed on one or more of the selected objects.
+FNRAC5004E,ERR_NO_REPLICATION_GROUP_SELECTED,A replication group is not selected.
+FNRAC0087E,IS_CLASS_DEFAULT_MAPPED,The class mapping cannot be updated or removed.
+FNRAC5005E,ERR_NO_RECYCLEBIN_FOR_MOVE,A recovery bin is not selected for the Move To Recovery Bin batch operation.
+FNRAC0051E,ERR_OBJECT_NOT_FOUND,The requested item was not found. Select one from the existing list for {0}.
+FNRAC0066E,ERR_MAXIMUM_SEARCH_LIMIT,The number of users or groups that were returned by a search exceeded a predefined limit.
+FNRAC6000E,ERR_INVALID_PARAMETER_VALUE,An invalid parameter value was passed to the following method: '{0}'.

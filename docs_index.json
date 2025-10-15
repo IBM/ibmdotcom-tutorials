@@ -1,5 +1,10 @@
 [
   {
+    "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/granite-troubleshooting-guide-generator/granite-troubleshooting-guide-generator",
+    "title": "Building a FileNet Troubleshooter with IBM Granite and Ollama",
+    "date": "2025-10-15"
+  },
+  {
     "url": "https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/human-in-the-loop-agent",
     "title": "Oversee a prior art search AI agent with human-in-the-loop using LangGraph and watsonx.ai",
     "author": "Anna Gutowska",

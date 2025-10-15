@@ -26,6 +26,7 @@
 - [Agentic Chunking](./tutorials/generative-ai/Agentic-chunking.ipynb)
 - [ReWOO](./tutorials/generative-ai/ReWOO - Content Summarization.ipynb)
 - [Time Series Analysis with Granite and TSPulse](./tutorials/ai-models/tspulse/time-series-analysis-granite-time-tspulse.ipynb)
+- [Building a FileNet Troubleshooter with IBM Granite and Ollama](./tutorials/generative-ai/granite-troubleshooting-guide-generator/granite-troubleshooting-guide-generator.ipynb)
 
 ### Agent orchestration
 
