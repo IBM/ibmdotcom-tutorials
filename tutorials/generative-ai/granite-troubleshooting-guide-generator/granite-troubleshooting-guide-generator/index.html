@@ -10,24 +10,24 @@
         <meta name="author" content="IBM.com Technical Content Team">
       
       
-        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/chatdev_watsonx_tutorial_/camel/messages/chat_messages/">
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/granite-troubleshooting-guide-generator/granite-troubleshooting-guide-generator/">
       
       
       
       
-      <link rel="icon" href="../../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Chat messages - IBM.com Tutorials</title>
+        <title>Building a FileNet Troubleshooter with IBM Granite and Ollama - IBM.com Tutorials</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -55,11 +55,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Chat messages - IBM.com Tutorials" >
+        <meta  property="og:title"  content="Building a FileNet Troubleshooter with IBM Granite and Ollama - IBM.com Tutorials" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/chatdev_watsonx_tutorial_/camel/messages/chat_messages.png" >
+        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/generative-ai/granite-troubleshooting-guide-generator/granite-troubleshooting-guide-generator.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -67,15 +67,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/chatdev_watsonx_tutorial_/camel/messages/chat_messages/" >
+        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/granite-troubleshooting-guide-generator/granite-troubleshooting-guide-generator/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Chat messages - IBM.com Tutorials" >
+        <meta  name="twitter:title"  content="Building a FileNet Troubleshooter with IBM Granite and Ollama - IBM.com Tutorials" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/chatdev_watsonx_tutorial_/camel/messages/chat_messages.png" >
+        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/generative-ai/granite-troubleshooting-guide-generator/granite-troubleshooting-guide-generator.png" >
       
     
     
@@ -97,6 +97,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#building-a-filenet-troubleshooter-with-ibm-granite-and-ollama" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,9 +114,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
       
-  <img src="../../../../../../assets/official_logo.png" alt="logo">
+  <img src="../../../../assets/official_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -128,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Chat messages
+              Building a FileNet Troubleshooter with IBM Granite and Ollama
             
           </span>
         </div>
@@ -235,7 +240,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../.." class="md-tabs__link">
+        <a href="../../../.." class="md-tabs__link">
           
   
   
@@ -257,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../references/coc/" class="md-tabs__link">
+        <a href="../../../../references/coc/" class="md-tabs__link">
           
   
   
@@ -301,9 +306,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
       
-  <img src="../../../../../../assets/official_logo.png" alt="logo">
+  <img src="../../../../assets/official_logo.png" alt="logo">
 
     </a>
     IBM.com Tutorials
@@ -363,7 +368,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../.." class="md-nav__link ">
+            <a href="../../../.." class="md-nav__link ">
               
   
   
@@ -398,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../about/" class="md-nav__link">
+      <a href="../../../../about/" class="md-nav__link">
         
   
   
@@ -470,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../getting-started/setup/" class="md-nav__link">
+      <a href="../../../../getting-started/setup/" class="md-nav__link">
         
   
   
@@ -501,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorials-list/" class="md-nav__link">
+      <a href="../../../../tutorials-list/" class="md-nav__link">
         
   
   
@@ -524,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../projects-list/" class="md-nav__link">
+      <a href="../../../../projects-list/" class="md-nav__link">
         
   
   
@@ -607,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../references/coc/" class="md-nav__link">
+      <a href="../../../../references/coc/" class="md-nav__link">
         
   
   
@@ -630,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../references/contributing/" class="md-nav__link">
+      <a href="../../../../references/contributing/" class="md-nav__link">
         
   
   
@@ -653,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../references/license/" class="md-nav__link">
+      <a href="../../../../references/license/" class="md-nav__link">
         
   
   
@@ -694,8 +699,6 @@
   
   
 
-
-  <h1>Chat messages</h1>
 
 <script>
 (function (global, factory) {
@@ -1133,8 +1136,200 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6f3663dd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7b0b1ce7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="building-a-filenet-troubleshooter-with-ibm-granite-and-ollama">Building a FileNet Troubleshooter with IBM Granite and Ollama<a class="anchor-link" href="#building-a-filenet-troubleshooter-with-ibm-granite-and-ollama">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9b4170ea">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>*Author - Vrunda Gadesha*</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a20510b2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Imagine the complexities that come with running a content platform engine for an enterprise level organization. Enterprise content management systems ( ECM ) such as IBM FileNet P8, securely store millions of critical documents, from contracts and financial records to patient files and engineering plans. For many organizations, that system is not just an  object store, but supports many use cases and acts as a highly structured, intelligent library. It comes with many features to accommodate many stakeholders as well as controls permissions  to control who can see what and how information flows through the business. It’s powerful, reliable, and essential.</p>
+<p>But with great power comes great complexity!</p>
+<p>These components come with their own dependencies that are time consuming to support—combing through event logs, reviewing the state of the JVM and looking at disk space. These dependencies are used to help find the root cause of issues and due to their wide use in the enterprise, they usually need to be kept operational with an SLA.</p>
+<p>When an error occurs in a system like this, it doesn’t just say "File not found." or “timeout”. Instead, a user might be met with a cryptic error code. This code contains random string of letters and numbers like FNRCA0117E. For the person facing an error  this whether they're a new developer, a junior administrator, or someone on the support team it’s like hitting a brick wall. These cryptic codes create a few major challenges:</p>
+<ul>
+<li><p>The code tells you what happened, but never why.</p>
+</li>
+<li><p>Finding the solution becomes a frustrating time sink.</p>
+</li>
+<li><p>This creates a knowledge gap that halts productivity.</p>
+</li>
+</ul>
+<p>This is where Generative AI changes the game. Imagine having a seasoned expert on call, 24/7, who can instantly translate that cryptic code into plain English. But it doesn’t stop there. A well-instructed AI can weave a story around the error, suggesting common scenarios where it occurs and, most importantly, providing a clear, step-by-step plan for how to investigate and fix it. Instead of a dead end, the error becomes the starting point of a guided solution.</p>
+<p>In this tutorial, we will build the program which will generate the full troubleshooting guide using IBM's Granite model.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c0a6a502">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="granite-40-small-model">Granite 4.0 Small model<a class="anchor-link" href="#granite-40-small-model">¶</a></h2><p>Granite 4.0 introduces the next-generation family of open, performant and trusted Granite language models (SLMs). These models deliver greater efficiency through high performance and faster inference speeds at lower operational costs compared to similar and larger frontier models.</p>
+<p>With a range of compact sizes, Granite 4.0 is built for flexibility to meet different hardware, deployment and cost requirements. It’s designed to scale, offering unconstrained context lengths for extended document processing and complex workflows.</p>
+<p>Like previous Granite models, Granite 4.0 models are open source under Apache 2.0, offering extensive transparency into the training data and processes. This design equips developers to customize the models with proprietary data for increased performance.</p>
+<p>The Granite 4.0 family consists multiple small sizes and architectures, offering developers the ability to choose the right model for their use case, while considering specific hardware, deployment, and cost requirements.</p>
+<p>In this tutorial we will be using Granite 4.0-H-Micro, a 3B parameters hybrid SSM-transformers model</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=21dfd29a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="problem-statement">Problem statement<a class="anchor-link" href="#problem-statement">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2072067a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Let's understand this scenario:</p>
+<p>A junior administrator is trying to help a user and sees the error FNRCA0117E pop up. The system tells them this means "The requested action is not authorized."</p>
+<p>This is where the real problem begins. The administrator is left with a list of frustrating questions: Which action wasn't authorized? Which user's permissions are wrong? Is the problem with the user, the document, or the folder? The error code is just a clue about the system fault. It can not provide the solution.</p>
+<p><strong>With this program we can bridge this gap. It will take error code as input and, using LLM, generate a full guide that answers those follow-up questions, providing a clear path to resolving the issue.</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=08b38d69">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="understanding-our-data">Understanding Our Data<a class="anchor-link" href="#understanding-our-data">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d998ec5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To implement this, the LLM model needs specific documentation to understand the context. It doesn't have years of FileNet experience out of the box. We give this data to LLM in a simple CSV file named <code>filenet-errors.csv</code>.</p>
+<p>It contains three columns:</p>
+<ul>
+<li><code>ErrorCode</code>: The unique identifier, like FNRCA0117E.</li>
+<li><code>ErrorName</code>: A short, human-readable title for the error, like "Authorization Failure".</li>
+<li><code>ErrorMessage</code>: The short, official description.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c9754505">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="prerequisites">Prerequisites<a class="anchor-link" href="#prerequisites">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c0484d08">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>For this tutorial you have to install the following dependencies and make sure to run them on your computer:</p>
+<ul>
+<li><p><code>Ollama</code>: This is essential to run the Granite model on your local machine. If you don't have it, you can download it from ollama.com. Make sure the application is running in the background.</p>
+</li>
+<li><p><code>Python</code>: The code is written for Python 3.7 or newer.</p>
+</li>
+<li><p><code>Jupyter Notebook</code>: This is where we'll write and run our code. If you need to install it, you can run the command: <code>pip install notebook</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d8647446">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="downloading-and-running-the-granite-4-model">Downloading and running the Granite 4 Model<a class="anchor-link" href="#downloading-and-running-the-granite-4-model">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0275a5d4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The purpose of this tutorial is to demonstrate the power of using IBM's Granite 4.0 Micro Model. In order to use that model with Ollama we need to run the command below in the terminal to download it locally to our computer</p>
+<p><code>ollama pull ibm/granite4:latest</code></p>
+<p>This command tells Ollama to pull the IBM Granite 4:Micro model and configure to be available for inferencing. Once the command is complete if you run the command</p>
+<p><code>ollama list</code></p>
+<p>You should see the model showing as being available</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cb9ff675">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="steps">Steps<a class="anchor-link" href="#steps">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dc427a5d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Here are the steps you can follow in the Jupyter Notebook to build the FileNet Troubleshooting Guide generator.</p>
+<p>To make this tutorial more interactive, you'll find a special feature. Below each code block, look for an <strong>"Explain code"</strong> button powered by Granite. Use this button to see a detailed breakdown of each line and understand the code with more depth.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=15f66b40">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1152,49 +1347,32 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========</span>
-<span class="c1"># Licensed under the Apache License, Version 2.0 (the “License”);</span>
-<span class="c1"># you may not use this file except in compliance with the License.</span>
-<span class="c1"># You may obtain a copy of the License at</span>
-<span class="c1">#</span>
-<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
-<span class="c1">#</span>
-<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
-<span class="c1"># distributed under the License is distributed on an “AS IS” BASIS,</span>
-<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span class="c1"># See the License for the specific language governing permissions and</span>
-<span class="c1"># limitations under the License.</span>
-<span class="c1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+<div class="highlight-ipynb hl-python"><pre><span></span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1"># =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========
-# Licensed under the Apache License, Version 2.0 (the “License”);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an “AS IS” BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========
-from dataclasses import dataclass
-from typing import Dict, Optional</div>
+<div class="clipboard-copy-txt" id="cell-1"></div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=053f8aea">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="step-1-install-dependencies">Step 1: Install dependencies<a class="anchor-link" href="#step-1-install-dependencies">¶</a></h3><p>First, we'll install the essential Python libraries that our project depends on.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=54de87a2">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=337b105e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-2">
@@ -1207,23 +1385,40 @@ from typing import Dict, Optional</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">camel.messages</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseMessage</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">camel.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">RoleType</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># This command installs the necessary Python libraries.</span>
+<span class="c1"># - ollama: The official client library to communicate with our local Ollama server.</span>
+<span class="c1"># - pandas: A powerful library for loading and working with data from our CSV file.</span>
+
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> <span class="n">ollama</span> <span class="n">pandas</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">from camel.messages import BaseMessage
-from camel.typing import RoleType</div>
+<div class="clipboard-copy-txt" id="cell-2"># This command installs the necessary Python libraries.
+# - ollama: The official client library to communicate with our local Ollama server.
+# - pandas: A powerful library for loading and working with data from our CSV file.
+
+!pip install -q ollama pandas</div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fcc8d6ff">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=35422e39">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="step-2-test-connection-to-the-local-model">Step 2: Test connection to the local model<a class="anchor-link" href="#step-2-test-connection-to-the-local-model">¶</a></h3><p>Now we will run a quick connection test to confirm our notebook can communicate with the local AI model.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2590d9ad">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-3">
@@ -1236,33 +1431,99 @@ from camel.typing import RoleType</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">openai.types.chat.chat_completion_message_tool_call</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatCompletionMessageToolCall</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">openai.types.chat.chat_completion_message</span><span class="w"> </span><span class="kn">import</span> <span class="n">FunctionCall</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ollama</span>
 
-    <span class="n">openai_new_api</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># new openai api version</span>
-<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="n">openai_new_api</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># old openai api version</span>
+
+<span class="n">model_name</span> <span class="o">=</span> <span class="s2">"ibm/granite4:latest"</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sending a test message to the local model: '</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">'..."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Please wait, the first response can take a moment..."</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># We send a simple chat message to the model.</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+            <span class="p">{</span><span class="s1">'role'</span><span class="p">:</span> <span class="s1">'user'</span><span class="p">,</span> <span class="s1">'content'</span><span class="p">:</span> <span class="s1">'In one short sentence, introduce yourself.'</span><span class="p">},</span>
+        <span class="p">],</span>
+        <span class="n">think</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># If successful, we print the text content from the model's response.</span>
+    <span class="n">message_content</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">'message'</span><span class="p">][</span><span class="s1">'content'</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2"> Connection Successful! Model responded:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'   "</span><span class="si">{</span><span class="n">message_content</span><span class="si">}</span><span class="s1">"'</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2"> An error occurred. Is Ollama running?"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"   Please ensure the Ollama application is running on your computer."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"   Error details: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">try:
-    from openai.types.chat.chat_completion_message_tool_call import ChatCompletionMessageToolCall
-    from openai.types.chat.chat_completion_message import FunctionCall
+<div class="clipboard-copy-txt" id="cell-3">import ollama
 
-    openai_new_api = True  # new openai api version
-except ImportError:
-    openai_new_api = False  # old openai api version</div>
+
+model_name = "ibm/granite4:latest"
+print(f"Sending a test message to the local model: '{model_name}'...")
+print("Please wait, the first response can take a moment...")
+
+try:
+    # We send a simple chat message to the model.
+    response = ollama.chat(
+        model=model_name,
+        messages=[
+            {'role': 'user', 'content': 'In one short sentence, introduce yourself.'},
+        ],
+        think=False,
+    )
+    
+    # If successful, we print the text content from the model's response.
+    message_content = response['message']['content']
+    print("\n Connection Successful! Model responded:")
+    print(f'   "{message_content}"')
+
+except Exception as e:
+    print(f"\n An error occurred. Is Ollama running?")
+    print(f"   Please ensure the Ollama application is running on your computer.")
+    print(f"   Error details: {e}")</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Sending a test message to the local model: 'ibm/granite4:latest'...
+Please wait, the first response can take a moment...
+
+ Connection Successful! Model responded:
+   "I am an AI assistant designed to help answer your questions and provide useful information."
+</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=96c58440">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e1fd812e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="step-3-load-and-prepare-the-data">Step 3: Load and prepare the data<a class="anchor-link" href="#step-3-load-and-prepare-the-data">¶</a></h3><p>As we can see the connection with local model is established successfully, now as a next step we will load <code>filenet-errors.csv</code> file into memory and clean the data to prevent any errors.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fa96229b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-4">
@@ -1275,89 +1536,163 @@ except ImportError:
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">ChatMessage</span><span class="p">(</span><span class="n">BaseMessage</span><span class="p">):</span>
-<span class="w">    </span><span class="sa">r</span><span class="sd">"""Base class for chat messages used in CAMEL chat system.</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        role_name (str): The name of the user or assistant role.</span>
-<span class="sd">        role_type (RoleType): The type of role, either</span>
-<span class="sd">            :obj:`RoleType.ASSISTANT` or :obj:`RoleType.USER`.</span>
-<span class="sd">        meta_dict (Optional[Dict[str, str]]): Additional metadata dictionary</span>
-<span class="sd">            for the message.</span>
-<span class="sd">        role (str): The role of the message in OpenAI chat system.</span>
-<span class="sd">        content (str): The content of the message. (default: :obj:`""`)</span>
-<span class="sd">        refusal (str): The refusal to build argument.</span>
-<span class="sd">        audio (object): The audio contains data about the audio response from the model.</span>
-<span class="sd">    """</span>
-    <span class="n">role_name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">role_type</span><span class="p">:</span> <span class="n">RoleType</span>
-    <span class="n">meta_dict</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span>
-    <span class="n">role</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">content</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
-    <span class="n">refusal</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">audio</span><span class="p">:</span> <span class="nb">object</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">if</span> <span class="n">openai_new_api</span><span class="p">:</span>
-        <span class="n">function_call</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FunctionCall</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">tool_calls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ChatCompletionMessageToolCall</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="c1"># Provide your data file path below</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">'filenet-errors.csv'</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">set_user_role_at_backend</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">BaseMessage</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span>
-            <span class="n">role_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">role_name</span><span class="p">,</span>
-            <span class="n">role_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">role_type</span><span class="p">,</span>
-            <span class="n">meta_dict</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">meta_dict</span><span class="p">,</span>
-            <span class="n">role</span><span class="o">=</span><span class="s2">"user"</span><span class="p">,</span>
-            <span class="n">content</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">,</span>
-            <span class="n">refusal</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">refusal</span><span class="p">,</span>
-        <span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    
+    <span class="c1"># --- Data Cleaning Best Practice ---</span>
+    <span class="c1"># Remove any leading/trailing whitespace from column names.</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Successfully loaded and cleaned data from '</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Cleaned column names:"</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">First 5 rows of data:"</span><span class="p">)</span>
+    <span class="c1"># display() provides a nice, table-like output in Jupyter.</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: The file '</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">' was not found."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"   Please make sure the CSV file is in the same folder as this Jupyter Notebook."</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"An error occurred: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">@dataclass
-class ChatMessage(BaseMessage):
-    r"""Base class for chat messages used in CAMEL chat system.
+<div class="clipboard-copy-txt" id="cell-4">import pandas as pd
 
-    Args:
-        role_name (str): The name of the user or assistant role.
-        role_type (RoleType): The type of role, either
-            :obj:`RoleType.ASSISTANT` or :obj:`RoleType.USER`.
-        meta_dict (Optional[Dict[str, str]]): Additional metadata dictionary
-            for the message.
-        role (str): The role of the message in OpenAI chat system.
-        content (str): The content of the message. (default: :obj:`""`)
-        refusal (str): The refusal to build argument.
-        audio (object): The audio contains data about the audio response from the model.
-    """
-    role_name: str
-    role_type: RoleType
-    meta_dict: Optional[Dict[str, str]]
-    role: str
-    content: str = ""
-    refusal: str = None
-    audio: object = None
-    if openai_new_api:
-        function_call: Optional[FunctionCall] = None
-        tool_calls: Optional[ChatCompletionMessageToolCall] = None
+# Provide your data file path below
+file_name = 'filenet-errors.csv'
 
-    def set_user_role_at_backend(self: BaseMessage):
-        return self.__class__(
-            role_name=self.role_name,
-            role_type=self.role_type,
-            meta_dict=self.meta_dict,
-            role="user",
-            content=self.content,
-            refusal=self.refusal,
-        )</div>
+try:
+    df = pd.read_csv(file_name)
+    
+    # --- Data Cleaning Best Practice ---
+    # Remove any leading/trailing whitespace from column names.
+    df.columns = df.columns.str.strip()
+    
+    print(f"Successfully loaded and cleaned data from '{file_name}'")
+    print("\nCleaned column names:", df.columns.tolist())
+    
+    print("\nFirst 5 rows of data:")
+    # display() provides a nice, table-like output in Jupyter.
+    display(df.head())
+
+except FileNotFoundError:
+    print(f"Error: The file '{file_name}' was not found.")
+    print("   Please make sure the CSV file is in the same folder as this Jupyter Notebook.")
+except Exception as e:
+    print(f"An error occurred: {e}")</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Successfully loaded and cleaned data from 'filenet-errors.csv'
+
+Cleaned column names: ['ErrorCode', 'ErrorName', 'ErrorMessage']
+
+First 5 rows of data:
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>ErrorCode</th>
+<th>ErrorName</th>
+<th>ErrorMessage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>FNRAC1001W</td>
+<td>WARN_TRACE_LOG_ENABLED</td>
+<td>Server trace logging is enabled.</td>
+</tr>
+<tr>
+<th>1</th>
+<td>FNRAC1002W</td>
+<td>WARN_ADDON_CANNOT_BE_UNSELECTED</td>
+<td>The selection of this add-on feature cannot be...</td>
+</tr>
+<tr>
+<th>2</th>
+<td>FNRAC1001E</td>
+<td>ERR_UNEXPECTED</td>
+<td>An unexpected error occurred.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>FNRAC1002E</td>
+<td>ERR_LOGIN_AUTHENTICATION</td>
+<td>The system cannot log you on right now.</td>
+</tr>
+<tr>
+<th>4</th>
+<td>FNRAC1003E</td>
+<td>ERR_LOGIN_ACTIVITY</td>
+<td>You are no longer logged on.</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=69623d3a">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e5b781fe">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="step-4-craft-the-ai-prompt-template">Step 4: Craft the AI prompt template<a class="anchor-link" href="#step-4-craft-the-ai-prompt-template">¶</a></h3><p>Here, we will write the master instruction set, or 'prompt,' that tells our AI expert exactly how to behave and what to create.</p>
+<p>Our prompt template will:</p>
+<ol>
+<li><strong>Define a Persona:</strong> Tell the model to act as an expert IBM FileNet administrator.</li>
+<li><strong>Provide the Input Data:</strong> Use placeholders (<code>{error_code}</code>, <code>{error_message}</code>, etc.) that we will fill in later with our data.</li>
+<li><strong>Specify the Output Format:</strong> Instruct the model to use Markdown for headings and lists, ensuring a clean, readable output.</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5a326509">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
@@ -1370,67 +1705,110 @@ class ChatMessage(BaseMessage):
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">AssistantChatMessage</span><span class="p">(</span><span class="n">ChatMessage</span><span class="p">):</span>
-<span class="w">    </span><span class="sa">r</span><span class="sd">"""Class for chat messages from the assistant role used in CAMEL chat</span>
-<span class="sd">    system.</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># This template is our master instruction set for the Granite model.</span>
+<span class="n">prompt_template</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">**Instruction:**</span>
+<span class="s2">You are an expert IBM FileNet P8 senior system administrator. Your task is to write a detailed, step-by-step troubleshooting tutorial for a junior administrator. Use the provided error details to create a realistic use-case scenario and a clear guide.</span>
 
-<span class="sd">    Attributes:</span>
-<span class="sd">        role_name (str): The name of the assistant role.</span>
-<span class="sd">        role_type (RoleType): The type of role, always</span>
-<span class="sd">            :obj:`RoleType.ASSISTANT`.</span>
-<span class="sd">        meta_dict (Optional[Dict[str, str]]): Additional metadata dictionary</span>
-<span class="sd">            for the message.</span>
-<span class="sd">        role (str): The role of the message in OpenAI chat system.</span>
-<span class="sd">            (default: :obj:`"assistant"`)</span>
-<span class="sd">        content (str): The content of the message. (default: :obj:`""`)</span>
-<span class="sd">        refusal (str): The refusal to build argument.</span>
-<span class="sd">        audio (object): The audio contains data about the audio response from the model.</span>
-<span class="sd">    """</span>
-    <span class="n">role_name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">role_type</span><span class="p">:</span> <span class="n">RoleType</span> <span class="o">=</span> <span class="n">RoleType</span><span class="o">.</span><span class="n">ASSISTANT</span>
-    <span class="n">meta_dict</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">role</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"user"</span>
-    <span class="n">content</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
-    <span class="n">refusal</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">audio</span><span class="p">:</span> <span class="nb">object</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="s2">**Input Data:**</span>
+<span class="s2">- Error Code: </span><span class="si">{error_code}</span>
+<span class="s2">- Error Name: </span><span class="si">{error_name}</span>
+<span class="s2">- Error Message: </span><span class="si">{error_message}</span>
+
+<span class="s2">**Required Output Format (Strictly use Markdown):**</span>
+
+<span class="s2">## Troubleshooting Guide: </span><span class="si">{error_code}</span>
+
+<span class="s2">### 1. Understanding the Error</span>
+<span class="s2">Provide a brief, scenario-based explanation of what this error means for a junior administrator.</span>
+
+<span class="s2">### 2. Common Scenario</span>
+<span class="s2">Describe a realistic, day-to-day situation where this error might occur. For example: "A user from the finance team is trying to add a new invoice to the system but receives this error..."</span>
+
+<span class="s2">### 3. Step-by-Step Troubleshooting</span>
+<span class="s2">1.  **First Actionable Step:** (e.g., "Verify User Permissions in ACCE"). Explain how to do this and why it's important for this specific error.</span>
+<span class="s2">2.  **Second Actionable Step:** (e.g., "Check Server Logs"). Specify which logs to check (e.g., p8_server_error.log) and what keywords to look for.</span>
+<span class="s2">3.  **Third Actionable Step:** (e.g., "Review Class Definitions or Folder Security"). Explain the process clearly.</span>
+
+<span class="s2">### 4. Summary of Solutions</span>
+<span class="s2">Briefly summarize the most likely solutions to resolve the error.</span>
+<span class="s2">"""</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Prompt template created successfully."</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">@dataclass
-class AssistantChatMessage(ChatMessage):
-    r"""Class for chat messages from the assistant role used in CAMEL chat
-    system.
+<div class="clipboard-copy-txt" id="cell-5"># This template is our master instruction set for the Granite model.
+prompt_template = """
+**Instruction:**
+You are an expert IBM FileNet P8 senior system administrator. Your task is to write a detailed, step-by-step troubleshooting tutorial for a junior administrator. Use the provided error details to create a realistic use-case scenario and a clear guide.
 
-    Attributes:
-        role_name (str): The name of the assistant role.
-        role_type (RoleType): The type of role, always
-            :obj:`RoleType.ASSISTANT`.
-        meta_dict (Optional[Dict[str, str]]): Additional metadata dictionary
-            for the message.
-        role (str): The role of the message in OpenAI chat system.
-            (default: :obj:`"assistant"`)
-        content (str): The content of the message. (default: :obj:`""`)
-        refusal (str): The refusal to build argument.
-        audio (object): The audio contains data about the audio response from the model.
-    """
-    role_name: str
-    role_type: RoleType = RoleType.ASSISTANT
-    meta_dict: Optional[Dict[str, str]] = None
-    role: str = "user"
-    content: str = ""
-    refusal: str = None
-    audio: object = None</div>
+**Input Data:**
+- Error Code: {error_code}
+- Error Name: {error_name}
+- Error Message: {error_message}
+
+**Required Output Format (Strictly use Markdown):**
+
+## Troubleshooting Guide: {error_code}
+
+### 1. Understanding the Error
+Provide a brief, scenario-based explanation of what this error means for a junior administrator.
+
+### 2. Common Scenario
+Describe a realistic, day-to-day situation where this error might occur. For example: "A user from the finance team is trying to add a new invoice to the system but receives this error..."
+
+### 3. Step-by-Step Troubleshooting
+1.  **First Actionable Step:** (e.g., "Verify User Permissions in ACCE"). Explain how to do this and why it's important for this specific error.
+2.  **Second Actionable Step:** (e.g., "Check Server Logs"). Specify which logs to check (e.g., p8_server_error.log) and what keywords to look for.
+3.  **Third Actionable Step:** (e.g., "Review Class Definitions or Folder Security"). Explain the process clearly.
+
+### 4. Summary of Solutions
+Briefly summarize the most likely solutions to resolve the error.
+"""
+
+print("Prompt template created successfully.")</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Prompt template created successfully.
+</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=72e85106">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=363499c2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="step-5-create-the-ai-generator-function">Step 5: Create the AI generator function<a class="anchor-link" href="#step-5-create-the-ai-generator-function">¶</a></h3><p>Now Let's create a reusable Python function that acts as the 'engine' for our tool, handling the AI generation process.</p>
+<p>This function will:</p>
+<ol>
+<li>Take the details of a specific error (code, message, explanation) as input.</li>
+<li>Use our <code>prompt_template</code> to format these details into a complete set of instructions.</li>
+<li>Send the final prompt to our local <code>file-net-troubleshooter</code> model via Ollama.</li>
+<li>Receive the AI-generated response and return it as clean text.</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c70614cd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
@@ -1443,53 +1821,361 @@ class AssistantChatMessage(ChatMessage):
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">UserChatMessage</span><span class="p">(</span><span class="n">ChatMessage</span><span class="p">):</span>
-<span class="w">    </span><span class="sa">r</span><span class="sd">"""Class for chat messages from the user role used in CAMEL chat system.</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ollama</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_guide</span><span class="p">(</span><span class="n">error_code</span><span class="p">,</span> <span class="n">error_message</span><span class="p">,</span> <span class="n">error_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Generates a single troubleshooting guide by calling the local Ollama model.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        role_name (str): The name of the user role.</span>
-<span class="sd">        role_type (RoleType): The type of role, always :obj:`RoleType.USER`.</span>
-<span class="sd">        meta_dict (Optional[Dict[str, str]]): Additional metadata dictionary</span>
-<span class="sd">            for the message.</span>
-<span class="sd">        role (str): The role of the message in OpenAI chat system.</span>
-<span class="sd">            (default: :obj:`"user"`)</span>
-<span class="sd">        content (str): The content of the message. (default: :obj:`""`)</span>
-<span class="sd">        refusal (str): The refusal to build argument.</span>
-<span class="sd">        audio (object): The audio contains data about the audio response from the model.</span>
+<span class="sd">        error_code (str): The error code from our DataFrame.</span>
+<span class="sd">        error_message (str): The short error message.</span>
+<span class="sd">        explanation (str): The detailed explanation of the error.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The AI-generated troubleshooting guide in Markdown format.</span>
 <span class="sd">    """</span>
-    <span class="n">role_name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">role_type</span><span class="p">:</span> <span class="n">RoleType</span> <span class="o">=</span> <span class="n">RoleType</span><span class="o">.</span><span class="n">USER</span>
-    <span class="n">meta_dict</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">role</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"user"</span>
-    <span class="n">content</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
-    <span class="n">refusal</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">audio</span><span class="p">:</span> <span class="nb">object</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># Step 1: Fill in the placeholders in our template with the specific error data.</span>
+    <span class="n">full_prompt</span> <span class="o">=</span> <span class="n">prompt_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">error_code</span><span class="o">=</span><span class="n">error_code</span><span class="p">,</span>
+        <span class="n">error_name</span><span class="o">=</span><span class="n">error_name</span><span class="p">,</span>
+        <span class="n">error_message</span><span class="o">=</span><span class="n">error_message</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Step 2: Send the complete prompt to our custom-built local model.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span> <span class="c1"># Our custom model name</span>
+            <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+                <span class="p">{</span><span class="s1">'role'</span><span class="p">:</span> <span class="s1">'user'</span><span class="p">,</span> <span class="s1">'content'</span><span class="p">:</span> <span class="n">full_prompt</span><span class="p">},</span>
+            <span class="p">],</span>
+            <span class="n">think</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># Step 3: Extract and return just the text content from the model's response.</span>
+        <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="s1">'message'</span><span class="p">][</span><span class="s1">'content'</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">error_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">" An error occurred while communicating with the Ollama model: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">error_text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">error_text</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">" Function 'generate_guide' created successfully."</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">@dataclass
-class UserChatMessage(ChatMessage):
-    r"""Class for chat messages from the user role used in CAMEL chat system.
+<div class="clipboard-copy-txt" id="cell-6">import ollama
+
+def generate_guide(error_code, error_message, error_name):
+    """
+    Generates a single troubleshooting guide by calling the local Ollama model.
 
     Args:
-        role_name (str): The name of the user role.
-        role_type (RoleType): The type of role, always :obj:`RoleType.USER`.
-        meta_dict (Optional[Dict[str, str]]): Additional metadata dictionary
-            for the message.
-        role (str): The role of the message in OpenAI chat system.
-            (default: :obj:`"user"`)
-        content (str): The content of the message. (default: :obj:`""`)
-        refusal (str): The refusal to build argument.
-        audio (object): The audio contains data about the audio response from the model.
+        error_code (str): The error code from our DataFrame.
+        error_message (str): The short error message.
+        explanation (str): The detailed explanation of the error.
+
+    Returns:
+        str: The AI-generated troubleshooting guide in Markdown format.
     """
-    role_name: str
-    role_type: RoleType = RoleType.USER
-    meta_dict: Optional[Dict[str, str]] = None
-    role: str = "user"
-    content: str = ""
-    refusal: str = None
-    audio: object = None</div>
+    # Step 1: Fill in the placeholders in our template with the specific error data.
+    full_prompt = prompt_template.format(
+        error_code=error_code,
+        error_name=error_name,
+        error_message=error_message
+    )
+
+    # Step 2: Send the complete prompt to our custom-built local model.
+    try:
+        response = ollama.chat(
+            model=model_name, # Our custom model name
+            messages=[
+                {'role': 'user', 'content': full_prompt},
+            ],
+            think=False,
+        )
+        # Step 3: Extract and return just the text content from the model's response.
+        return response['message']['content']
+    except Exception as e:
+        error_text = f" An error occurred while communicating with the Ollama model: {e}"
+        print(error_text)
+        return error_text
+
+print(" Function 'generate_guide' created successfully.")</div>
 </div>
 </div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre> Function 'generate_guide' created successfully.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5b21ec08">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="step-6-build-the-final-flow-of-the-troubleshooting-guide-generator">Step 6: Build the final flow of the troubleshooting guide generator<a class="anchor-link" href="#step-6-build-the-final-flow-of-the-troubleshooting-guide-generator">¶</a></h3><p>Finally, we will assemble all our previous steps into the final interactive application that a user can operate.</p>
+<p><strong>This code block will:</strong></p>
+<ol>
+<li>Create a continuous loop that keeps the tool running.</li>
+<li>Prompt the user to enter a FileNet error code.</li>
+<li>Search our DataFrame for the code the user entered.</li>
+<li>If the code is found, it will call our <code>generate_guide</code> function and display the detailed, AI-generated guide.</li>
+<li>If the code is not found, it will provide a helpful message and even suggest similar codes the user might have meant.</li>
+<li>Allow the user to type <code>exit</code> to quit the tool gracefully.</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9d204a33">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--- IBM FileNet AI Troubleshooter ---"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Enter a FileNet Error Code to generate a guide."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Type 'exit' or 'quit' to stop the tool."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">35</span><span class="p">)</span>
+
+<span class="c1"># This loop will run continuously until the user types 'exit' or 'quit'.</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># 1. Get input from the user.</span>
+    <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Enter the FileNet Error Code: "</span><span class="p">)</span>
+
+    <span class="c1"># 2. Check if the user wants to exit.</span>
+    <span class="k">if</span> <span class="n">user_input</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'exit'</span><span class="p">,</span> <span class="s1">'quit'</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Exiting the troubleshooter. Goodbye!"</span><span class="p">)</span>
+        <span class="k">break</span>
+
+    <span class="c1"># 3. Search for the exact error code in the DataFrame (case-insensitive).</span>
+    <span class="n">result_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'ErrorCode'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">user_input</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+
+    <span class="c1"># 4. --- SUCCESS PATH --- If a match is found:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">result_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="c1"># Get the first matching row from our data.</span>
+        <span class="n">error_details</span> <span class="o">=</span> <span class="n">result_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2"> Found '</span><span class="si">{</span><span class="n">error_details</span><span class="p">[</span><span class="s1">'ErrorCode'</span><span class="p">]</span><span class="si">}</span><span class="s2">'. Generating guide with AI, please wait..."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">35</span><span class="p">)</span>
+
+        <span class="c1"># Call our AI function to generate the guide.</span>
+        <span class="n">guide_markdown</span> <span class="o">=</span> <span class="n">generate_guide</span><span class="p">(</span>
+            <span class="n">error_code</span><span class="o">=</span><span class="n">error_details</span><span class="p">[</span><span class="s1">'ErrorCode'</span><span class="p">],</span>
+            <span class="n">error_name</span><span class="o">=</span><span class="n">error_details</span><span class="p">[</span><span class="s1">'ErrorName'</span><span class="p">],</span>
+            <span class="n">error_message</span><span class="o">=</span><span class="n">error_details</span><span class="p">[</span><span class="s1">'ErrorMessage'</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Display the formatted result in the notebook.</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">guide_markdown</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">35</span><span class="p">)</span>
+
+    <span class="c1"># 5. --- FAILURE PATH --- If no exact match is found:</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2"> Error: The code '</span><span class="si">{</span><span class="n">user_input</span><span class="si">}</span><span class="s2">' was not found."</span><span class="p">)</span>
+
+        <span class="c1"># BONUS: Suggest similar codes based on the user's input.</span>
+        <span class="n">suggestions</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'ErrorCode'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">user_input</span><span class="o">.</span><span class="n">upper</span><span class="p">())]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">suggestions</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Did you mean one of these?"</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">suggestions</span><span class="p">[</span><span class="s1">'ErrorCode'</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"- </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">35</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-7">from IPython.display import display, Markdown
+
+print("--- IBM FileNet AI Troubleshooter ---")
+print("Enter a FileNet Error Code to generate a guide.")
+print("Type 'exit' or 'quit' to stop the tool.")
+print("-" * 35)
+
+# This loop will run continuously until the user types 'exit' or 'quit'.
+while True:
+    # 1. Get input from the user.
+    user_input = input("\nEnter the FileNet Error Code: ")
+
+    # 2. Check if the user wants to exit.
+    if user_input.lower() in ['exit', 'quit']:
+        print("\nExiting the troubleshooter. Goodbye!")
+        break
+
+    # 3. Search for the exact error code in the DataFrame (case-insensitive).
+    result_df = df[df['ErrorCode'].str.lower() == user_input.lower()]
+
+    # 4. --- SUCCESS PATH --- If a match is found:
+    if not result_df.empty:
+        # Get the first matching row from our data.
+        error_details = result_df.iloc[0]
+
+        print(f"\n Found '{error_details['ErrorCode']}'. Generating guide with AI, please wait...")
+        print("-" * 35)
+
+        # Call our AI function to generate the guide.
+        guide_markdown = generate_guide(
+            error_code=error_details['ErrorCode'],
+            error_name=error_details['ErrorName'],
+            error_message=error_details['ErrorMessage']
+        )
+
+        # Display the formatted result in the notebook.
+        display(Markdown(guide_markdown))
+        print("-" * 35)
+
+    # 5. --- FAILURE PATH --- If no exact match is found:
+    else:
+        print(f"\n Error: The code '{user_input}' was not found.")
+
+        # BONUS: Suggest similar codes based on the user's input.
+        suggestions = df[df['ErrorCode'].str.contains(user_input.upper())]
+        if not suggestions.empty:
+            print("\nDid you mean one of these?")
+            for code in suggestions['ErrorCode'].tolist():
+                print(f"- {code}")
+        
+        print("-" * 35)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>--- IBM FileNet AI Troubleshooter ---
+Enter a FileNet Error Code to generate a guide.
+Type 'exit' or 'quit' to stop the tool.
+-----------------------------------
+
+ Found 'FNRAC4017E'. Generating guide with AI, please wait...
+-----------------------------------
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output" data-mime-type="text/markdown" tabindex="0">
+<h1 id="troubleshooting-guide-fnrac4017e">Troubleshooting Guide: FNRAC4017E<a class="anchor-link" href="#troubleshooting-guide-fnrac4017e">¶</a></h1><h2 id="1-understanding-the-error">1. Understanding the Error<a class="anchor-link" href="#1-understanding-the-error">¶</a></h2><p>The error code <strong>FNRAC4017E</strong> with the name <strong>ERR_INVALID_START_DATE</strong> indicates that a system operation in IBM FileNet P8 is encountering an issue because the effective start date specified for a document or task is later than its effective end date. In practical terms, this means there's a logical conflict within the data being entered: the time frame assigned to something (like an invoice period) cannot be validly defined as beginning after it ends.</p>
+<h3 id="example-scenario">Example Scenario<a class="anchor-link" href="#example-scenario">¶</a></h3><p>Imagine you are a junior administrator in charge of managing financial documents for your company’s IBM FileNet P8 system. A user from the finance team attempts to upload a new invoice with the following details:</p>
+<ul>
+<li><strong>Effective Start Date:</strong> March 15, 2024</li>
+<li><strong>Effective End Date:</strong> March 10, 2024</li>
+</ul>
+<p>When they hit “Save” or “Submit,” the system throws an error indicating that the effective start date (March 15) cannot be after the end date (March 10). This is logically impossible and therefore triggers the FNRAC4017E error.</p>
+<h2 id="2-common-scenario">2. Common Scenario<a class="anchor-link" href="#2-common-scenario">¶</a></h2><p><strong>A finance team member tries to create a new invoice document in IBM FileNet P8. They input the document's effective start and end dates but mistakenly enter an end date that precedes the start date, causing the system to throw the <code>FNRAC4017E</code> error.</strong></p>
+<p>This typically occurs due to human error (typos or misinterpretation of date ranges) or when there’s a misunderstanding about how these fields should be populated.</p>
+<h2 id="3-step-by-step-troubleshooting">3. Step-by-Step Troubleshooting<a class="anchor-link" href="#3-step-by-step-troubleshooting">¶</a></h2><h3 id="step-1-verify-user-permissions-in-acce">Step 1: Verify User Permissions in ACCE<a class="anchor-link" href="#step-1-verify-user-permissions-in-acce">¶</a></h3><p><strong>Action:</strong> Log into the Administration Console for Content Engine (ACCE). Navigate to the user management section and check if the finance team member has the necessary permissions to create or modify documents within the appropriate content types.</p>
+<p><strong>Why It Matters:</strong> The error might also stem from insufficient rights. Without proper access, even a correct date entry won’t allow the operation to complete successfully.</p>
+<h3 id="step-2-check-server-logs">Step 2: Check Server Logs<a class="anchor-link" href="#step-2-check-server-logs">¶</a></h3><p><strong>Action:</strong> Access the server logs for IBM FileNet P8. Specifically, look at <code>p8_server_error.log</code> or any other relevant log files. Search for error messages around the time of the attempted action (keyword search for “ERR_INVALID_START_DATE”).</p>
+<p><strong>What to Look For:</strong> The logs might reveal if there were additional errors related to data validation or database constraints that occurred concurrently.</p>
+<h3 id="step-3-review-class-definitions-or-folder-security">Step 3: Review Class Definitions or Folder Security<a class="anchor-link" href="#step-3-review-class-definitions-or-folder-security">¶</a></h3><p><strong>Action:</strong> Open the class definitions in the IBM FileNet P8 repository. Check the properties of the content type associated with invoices (e.g., <code>IFINVOICE</code> class). Verify if there are any field validations related to date ranges or constraints that could prevent a valid entry.</p>
+<p>If the issue persists, review the folder security settings where the documents reside to ensure they allow for creation/modification by the user in question.</p>
+<p><strong>Why It Matters:</strong> Misconfigured class definitions or restrictive folder permissions can directly cause this error if they don’t accommodate the date range values being entered.</p>
+<h2 id="4-summary-of-solutions">4. Summary of Solutions<a class="anchor-link" href="#4-summary-of-solutions">¶</a></h2><ol>
+<li><strong>Check and Correct Date Entries:</strong> Ensure that the effective start date is not later than the end date when entering data for documents.</li>
+<li><strong>Verify Permissions:</strong> Confirm that the user has adequate permissions to perform the action (creating/modifying documents).</li>
+<li><strong>Inspect Configuration Settings:</strong> Review class definitions, folder security settings, and any associated validation rules to ensure they allow for the intended operation.</li>
+</ol>
+<p>By following these steps, junior administrators can effectively troubleshoot and resolve <code>FNRAC4017E</code> errors in IBM FileNet P8, ensuring smooth operations within their content management system.</p>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>-----------------------------------
+
+Exiting the troubleshooter. Goodbye!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=54cd1c83">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=76522998">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="conclusion">Conclusion<a class="anchor-link" href="#conclusion">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2329f618">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This tutorial is about more than just building one program. We have learned the fundamental skills needed to create your own specialized AI assistants. We have tamed a powerful yet small Large Language Model, become a prompt engineer, and built a practical solution to a real-world business problem.</p>
+<p>A Note on System Resources and Configuration</p>
+<p>It’s helpful to know the kind of system this tutorial was built on and what you should consider for your own machine.</p>
+<p>This tutorial was developed and tested on a MacBook Pro with the following specifications:</p>
+<ul>
+<li>OS: macOS Sequoia</li>
+<li>Memory (RAM): 32 GB</li>
+<li>Storage (Disk) Used for Project: Approximately 4 GB</li>
+</ul>
+<p>Here's a breakdown of the resources this project will use:</p>
+<ul>
+<li>Storage: The vast majority of the disk space is used by the AI model file itself. Expect the file-net-troubleshooter model to take up about 2 GB of storage. The code and data files are very small.</li>
+<li>Memory (RAM): This is the most important resource for running the AI. When the model is active, it's loaded into your computer's RAM. For a smooth experience, a system with at least 16 GB of RAM is recommended. While the tool may function on a machine with 8 GB of RAM, it could be quite slow.</li>
+</ul>
+<p><strong>Guidance for Windows Users</strong></p>
+<p>For those of you working on a Windows machine, the good news is that the process is almost identical. All the tools we've used—Ollama, Python, and Jupyter—are fully compatible with Windows.</p>
+<p>The only minor difference is in the command-line interface. Instead of using a "Terminal," you will use "Command Prompt" or "PowerShell" to run the setup commands like ollama create. All the commands themselves, and all the Python code, are exactly the same.</p>
+<p><strong>What You Can Build Next</strong></p>
+<p>This tutorial is more than just a FileNet tool; it’s a blueprint for powerful automation. The core components—a reliable model, a defined data source, and a smart prompt—can be adapted to countless other challenges, from parsing legal documents to generating code documentation.</p>
+<p>Think of the next step in this tool’s evolution: an assistant that you could automatically trigger to enrich IT support tickets that could be turned into a production-ready version of that service to be deployed on an application server for the entire organization.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5c49ecc2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 </div>
 </div>
 </div>
@@ -1497,6 +2183,10 @@ class UserChatMessage(ChatMessage):
 </div> <!-- jp-Notebook -->
 </div> <!-- jupyter-wrapper -->
 
+        <style>
+        ['pre { line-height: 125%; }\ntd.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }\nspan.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }\ntd.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }\nspan.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }\n.highlight-ipynb .hll { background-color: var(--jp-cell-editor-active-background) }\n.highlight-ipynb { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }\n.highlight-ipynb .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */\n.highlight-ipynb .err { color: var(--jp-mirror-editor-error-color) } /* Error */\n.highlight-ipynb .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */\n.highlight-ipynb .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */\n.highlight-ipynb .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */\n.highlight-ipynb .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */\n.highlight-ipynb .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */\n.highlight-ipynb .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */\n.highlight-ipynb .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */\n.highlight-ipynb .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */\n.highlight-ipynb .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */\n.highlight-ipynb .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */\n.highlight-ipynb .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */\n.highlight-ipynb .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */\n.highlight-ipynb .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */\n.highlight-ipynb .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */\n.highlight-ipynb .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */\n.highlight-ipynb .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */\n.highlight-ipynb .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */\n.highlight-ipynb .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */\n.highlight-ipynb .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */\n.highlight-ipynb .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */\n.highlight-ipynb .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */\n.highlight-ipynb .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */\n.highlight-ipynb .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */\n.highlight-ipynb .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */\n.highlight-ipynb .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */\n.highlight-ipynb .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */\n.highlight-ipynb .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */\n.highlight-ipynb .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */\n.highlight-ipynb .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */\n.highlight-ipynb .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */\n.highlight-ipynb .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */\n.highlight-ipynb .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */\n.highlight-ipynb .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */\n.highlight-ipynb .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */\n.highlight-ipynb .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */\n.highlight-ipynb .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */\n.highlight-ipynb .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */\n.highlight-ipynb .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */\n.highlight-ipynb .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */']
+        </style>
+        
 
 
 
@@ -1558,10 +2248,10 @@ class UserChatMessage(ChatMessage):
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
   </body>
