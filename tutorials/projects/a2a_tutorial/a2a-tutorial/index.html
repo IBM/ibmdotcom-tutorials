@@ -1,0 +1,1119 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="IBM.com Technical Content Team">
+      
+      
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/a2a_tutorial/a2a-tutorial/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Use the A2A protocol for AI agent communication - IBM.com Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Use the A2A protocol for AI agent communication - IBM.com Tutorials" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/a2a_tutorial/a2a-tutorial.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://ibm.github.io/ibmdotcom-tutorials/tutorials/projects/a2a_tutorial/a2a-tutorial/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Use the A2A protocol for AI agent communication - IBM.com Tutorials" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://ibm.github.io/ibmdotcom-tutorials/assets/images/social/tutorials/projects/a2a_tutorial/a2a-tutorial.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#use-the-a2a-protocol-for-ai-agent-communication" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM.com Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Use the A2A protocol for AI agent communication
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../references/coc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  References
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    IBM.com Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Welcome
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../getting-started/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            References
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/coc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code of Conduct
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="use-the-a2a-protocol-for-ai-agent-communication">Use the A2A protocol for AI agent communication</h1>
+<p>A2A, or <a href="https://www.ibm.com/think/topics/agent2agent-protocol">Agent2Agent</a>
+protocol is an open standard that enables structured communication between AI
+agents, clients and tools. In this tutorial, you'll build an agent system where
+a chat client processess user queries and sends them to an AI agent running on
+an A2A-compliant server.  </p>
+<p>Most agentic AI applications implement custom communication between components,
+(e.g. <a href="https://www.ibm.com/think/tutorials/chatdev-chatchain-agent-communication-watsonx-ai">ChatDev's ChatChain</a>),
+making it difficult to reuse the same agent across different applications or
+integrate external tools. This lack of standardization prevents interoperability
+and limits the developement of a broader agent ecosystem.</p>
+<p>A2A solves this by separating the communication layer from the agent logic through
+a standardized protocol built on HTTP, JSON-RPC 2.0, and Server-Sent
+Events (SSE). This decoupling allows agents to collaborate with other agents,
+serve client requests, and access external tools without custom integration code.</p>
+<p>A2A supports decentralized architectures that allow teams to evolve their AI
+systems incrementally without breaking client code. Teams can update tools, swap
+models, or modify agent behavior while maintaining a consistent interface across
+complex workflows.  </p>
+<p>Agents exachange information in messages structured in JSON-RPC format that
+include metadata that enriches agent interactions with clarity and consistency.
+Each A2A server exposes an AgentCard at a well-known endpoint
+(<code>.well-known/agent-card.json</code>) that describes the agent's capabilities as
+structured JSON data. This allows clients to dynamically discover what an agent
+can do, similar to how API documentation describes available endpoints.  </p>
+<p>Follow along to build and run an A2A agent system, and gain hands-on experience with:</p>
+<ul>
+<li><strong>BeeAI</strong>: An open-source agentic framework for building AI agents.</li>
+<li><strong>A2A protocol</strong>: A standardized communication protocol for agent interoperability.</li>
+<li><strong>Ollama</strong>: A tool for running large language models (LLMs) locally.</li>
+<li><strong>Agent tools</strong>: Specialized capabilities including web search (<code>DuckDuckGo</code>),
+weather data (<code>OpenMeteo</code>), Wikipedia  access (<code>WikipediaTool</code>), and reasoning (<code>ThinkTool</code>)</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: If you've worked with ACP (<a href="https://www.ibm.com/think/topics/agent-communication-protocol">Agent Communication Protocol</a>),
+you may recognize similarities. ACP, originally developed by IBM's BeeAI, has
+joined forces with Google A2A under the Linux Foundation. BeeAI now uses A2A
+adapters (<a href="https://framework.beeai.dev/integrations/a2a#a2a-server"><code>A2AServer</code></a>
+and <a href="https://framework.beeai.dev/integrations/a2a#a2a-agent-client"><code>A2AAgent</code></a>)
+to provide A2A-compliant communication. A2A also works alongside MCP (<a href="https://www.ibm.com/think/topics/model-context-protocol">Model Context
+Protocol</a>) to enable
+agents to interact with data sources and tools, creating interoperable agent ecosystems.</p>
+</blockquote>
+<h2 id="how-the-a2a-chat-system-works">How the A2A chat system works</h2>
+<p>This project demonstrates how A2A enables clean separation between the client
+interface and agent logic.  </p>
+<p>The workflow follows this sequence:</p>
+<ol>
+<li><strong>User input</strong>: The client captures user input through the terminal interface.</li>
+<li><strong>A2A Request</strong>: The client formats the input as a JSON-RPC message payload
+and sends it to the agent server.</li>
+<li><strong>Agent Processing</strong>: The server forwards the request to the <code>RequirementAgent</code>,
+which analyzes the task and executes appropriate tools as needed.</li>
+<li><strong>A2A Response</strong>: The server returns the agent's response as structured data in
+JSON-RPC format, streaming results in real-time as they're generated.</li>
+<li><strong>Display</strong>: The client extracts and displays the response text in the terminal.</li>
+</ol>
+<p>This workflow demonstrates a reusable pattern applicable to use cases requiring
+structured client-agent communication such as chatbots, task automation systems,
+customer support agents, and research assistants with tool orchestration.  </p>
+<h3 id="a2a-agent">A2A agent</h3>
+<p>This project uses a single AI agent with multiple tool capabilities. In more complex
+systems, you could deploy multiple specialized agents, each focused on specific
+domains or tasks.</p>
+<p><strong>RequirementAgent</strong> (BeeAI): A declarative agent that dynamically selects and coordinates
+multiple tools based on the user's request. It uses:  </p>
+<ul>
+<li><code>ThinkTool</code> for reasoning and logical operations</li>
+<li><code>DuckDuckGoSearchTool</code> for web searches</li>
+<li><code>OpenMeteoTool</code> for weather data</li>
+<li><code>WikipediaTool</code> for information retrieval</li>
+</ul>
+<h3 id="the-a2a-server">The A2A Server</h3>
+<p>The A2A server (<code>beeai-a2a-server/beeai_chat_server.py</code>) exposes agent
+functionality through an HTTP API. It handles three key responsibiliites:</p>
+<ol>
+<li><strong>LLM initialization</strong>: Loads a local language model via Ollama</li>
+</ol>
+<pre><code class="language-python">llm = ChatModel.from_name(os.environ.get(&quot;BEEAI_MODEL&quot;, &quot;ollama:granite3.3:8b&quot;))
+</code></pre>
+<ol>
+<li><strong>Agent setup</strong>: Creates a <code>RequirementAgent</code> with tools and memory to handle
+the agent lifecycle</li>
+</ol>
+<pre><code class="language-python">    agent = RequirementAgent(
+        llm=llm,
+        tools=[ThinkTool(), DuckDuckGoSearchTool(), OpenMeteoTool(), WikipediaTool()],
+        memory=UnconstrainedMemory(),
+        description=&quot;An agent that can search the web, check the weather, and think through problems step-by-step.&quot;,
+</code></pre>
+<ol>
+<li><strong>Server configuration</strong>: Exposes the agent via A2A-compliant HTTP endpoints</li>
+</ol>
+<pre><code class="language-python">A2AServer(
+    config=A2AServerConfig(port=int(os.environ.get(&quot;A2A_PORT&quot;, 9999))),
+    memory_manager=LRUMemoryManager(maxsize=100)
+).register(agent).serve()
+</code></pre>
+<p>The server automatically exposes an AgentCard at <code>/.well-known/agent-card.json</code>
+that describes the agent's capabilities and helps validate agent configurations.</p>
+<h3 id="the-a2a-client">The A2A Client</h3>
+<p>The A2A client (<code>beeai-a2a-client/beeai_chat_client.py</code>) provides the user
+interface and handles communication with the server using the A2A SDK and Python's
+asyncio library for asynchronous message handling.  </p>
+<p><strong>Connection setup</strong>: Creates an A2A client adapter</p>
+<pre><code class="language-python">agent = A2AAgent(
+    url=os.environ.get(&quot;BEEAI_AGENT_URL&quot;, &quot;http://127.0.0.1:9999&quot;),
+    memory=UnconstrainedMemory()
+)
+</code></pre>
+<p>The <code>url</code> parameter specifies the endpoint of the A2A-compliant server (default:
+<code>http://127.0.0.1:9999</code>). The <code>memory</code> parameter stores conversation history locally,
+allowing the client to maintain context during interactions and support long-running
+tasks.</p>
+<p><strong>Message Exchange</strong>: Sends asynchronous prompts and processes responses:</p>
+<pre><code class="language-python">for prompt in reader:
+    response = await agent.run(prompt)
+    # Extract and display response text
+</code></pre>
+<p>The <code>A2AAgent</code> is a client-side adapter that abstracts JSON-RPC communication
+details. It's not an autonomous agent—it simply translates user input into
+A2A-compliant messages and handles server responses. This enables seamless data
+exchange and observability.</p>
+<h2 id="prerequisites-to-run-this-project">Prerequisites to run this project</h2>
+<h3 id="system-requirements">System requirements</h3>
+<p>Here are the system requirements to run this project:</p>
+<ul>
+<li><strong>Operating system</strong>: macOS, Linux, or Windows</li>
+<li><strong>Memory(RAM)</strong>: &gt;= 8GB (<strong>Recommended</strong>: 16GB or more for running local LLMs)</li>
+<li><strong>Disk space</strong>: &gt;= 5GB free space (<strong>Recommended</strong>: 10GB or more to accommodate
+the Python environment and local models)</li>
+<li><strong>Python version</strong>: &gt;= 3.11</li>
+</ul>
+<h3 id="tool-and-provider-requirements">Tool and provider requirements</h3>
+<p>Before you get started, here's an overview of the tools required for this project:</p>
+<ul>
+<li><strong>BeeAI</strong>: An open source agent development kit for building AI agents. BeeAI
+supports multiple LLM providers including Ollama (used in this tuturial), OpenAI,
+and Anthropic.</li>
+<li><strong>Ollama</strong>: For running local LLMs to power the AI agent.</li>
+<li><strong>A2A protocol</strong>: Integrated into the BeeAI framework to enable structered
+communication between the client and server.  </li>
+<li><strong>Terminal or IDE</strong>: A terminal or IDE like Visual Studio Code (recommended for
+managing multiple terminals and viewing logs).  </li>
+<li><strong>Python virtual environment</strong>: To isolate dependencies for the client and server.</li>
+</ul>
+<h3 id="llm-provider-requirements">LLM Provider requirements</h3>
+<p>This project uses <strong>Ollama</strong> as a model provider for the AI agent. Follow these
+steps to set up Ollama:</p>
+<ol>
+<li>Download and install Ollama:<ul>
+<li>Visit <a href="https://ollama.com/download">Ollama</a> and install the application for
+your operating system</li>
+</ul>
+</li>
+<li>
+<p>Start the ollama server:  </p>
+<ul>
+<li>Open a terminal and run:  </li>
+</ul>
+<p><code>bash
+ollama serve</code></p>
+</li>
+<li>
+<p>Pull the default model (requires approximately 5GB of disk space):</p>
+<p><code>bash
+ollama pull granite3.3:8b</code></p>
+</li>
+</ol>
+<blockquote>
+<p>Note: You can use any Ollama-compatible model by setting the <code>BEEAI_MODEL</code>environment
+variable. Check the <a href="https://ollama.com/search">Ollama model library</a> for available
+models and their sizes.</p>
+</blockquote>
+<h2 id="steps">Steps</h2>
+<h3 id="step-1-clone-the-github-repository">Step 1. Clone the GitHub Repository</h3>
+<p>To run this project, clone the GitHub repository by using https://github.com/IBM/ibmdotcom-tutorials.git as the HTTPS URL. For detailed steps on how to clone a repository, refer to the <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">GitHub documentation</a>.</p>
+<p>This tutorial can be found inside the <a href="https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/projects">projects directory of the repo</a>.</p>
+<p>Inside a terminal, navigate to this tutorial's directory:  </p>
+<pre><code class="language-bash">cd docs/tutorials/projects/a2a_tutorial
+</code></pre>
+<h3 id="step-2-set-up-development-environment">Step 2. Set up development environment</h3>
+<p>This project requires two separate Python scripts to run simultaneously, one
+for the server and the other for the client. You'll need to open
+two terminal windows or tabs.</p>
+<p>Keep you current terminal open, then open a second terminal and ensure
+both are are navigated to the correct project directory (the <code>a2a_tutorial</code>
+root directory).  </p>
+<p><strong>Using an IDE?</strong></p>
+<p>If you're using an IDE like Visual Studio Code, you can use the Split
+Terminal feature to manage multiple terminals side by side.</p>
+<p>Otherwise, open two stand-alone terminal windows and navigate each to the project
+directory.</p>
+<h3 id="step-3-create-and-activate-virtual-environments">Step 3. Create and activate virtual environments</h3>
+<p>Virtual environments help keep dependencies separate and maintained. To keep
+the server and client dependencies separate, create a virtual environment for
+each component.</p>
+<p><strong>For the Server:</strong></p>
+<p>Navigate to the <code>beeai-a2a-server</code> directory:</p>
+<pre><code class="language-bash">cd beeai-a2a-server
+</code></pre>
+<p>Create a virtual environment with Python 3.11:</p>
+<pre><code class="language-bash">python3.11 -m venv venv
+</code></pre>
+<p>Activate the virtual environment: </p>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<p><strong>Note for Windows users</strong>: Use <code>venv\Scripts\activate</code> to activate the virtual environment.</p>
+<p><strong>For the Client:</strong></p>
+<p>Navigate to the <code>beeai-a2a-client</code> directory:</p>
+<pre><code class="language-bash">cd beeai-a2a-client
+</code></pre>
+<p>Create and activate a virtual environment:</p>
+<pre><code class="language-bash">python3.11 -m venv venv
+source venv/bin/activate
+</code></pre>
+<h3 id="step-4-install-dependencies">Step 4. Install dependencies</h3>
+<p>Install the required dependencies for each component by running this in each terminal:</p>
+<pre><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+<p>You can run <code>pip freeze</code> in the terminal to verify that the environment is
+up-to-date with dependencies.</p>
+<h3 id="step-5-start-the-a2a-agent-server">Step 5. Start the A2A agent server</h3>
+<p>In the first terminal, start the A2A agent server:</p>
+<pre><code class="language-bash">python beeai_chat_server.py
+</code></pre>
+<p>You should see:  </p>
+<pre><code class="language-bash">INFO:     Started server process [88159]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:9999 (Press CTRL+C to quit)
+</code></pre>
+<p>The server is now listening for incoming requests from the client application, ready
+to support agent-to-agent communication.</p>
+<h3 id="step-6-start-the-a2a-client">Step 6. Start the A2A Client</h3>
+<pre><code class="language-bash">python beeai_chat_client.py
+</code></pre>
+<p>This should prompt you for input:  </p>
+<pre><code class="language-bash">Type your message (Ctrl+C to exit):
+You: 
+</code></pre>
+<h3 id="step-7-interact-with-the-agent">Step 7. Interact with the Agent</h3>
+<p>Type a message in the client terminal and press <code>Enter</code>. The agent will process your
+query and respond:  </p>
+<pre><code class="language-bash">You: What is the capital of France?
+Agent 🤖 : The capital of France is Paris.
+</code></pre>
+<p>In the server terminal, you'll see A2A protocol logs showing the communication with
+push notifications:</p>
+<pre><code class="language-bash">INFO:     127.0.0.1:49292 - &quot;GET /.well-known/agent-card.json HTTP/1.1&quot; 200 OK
+INFO:     127.0.0.1:49294 - &quot;POST / HTTP/1.1&quot; 200 OK
+</code></pre>
+<p>The first request retrieves the AgentCard that describes the agent's capabilities.
+The second request sends your message as a <code>TextPart</code> (a unit of text content within
+the A2A message) and recieves the reponse.</p>
+<blockquote>
+<p><strong>Note</strong>: Outputs from LLMs are probabalistic and can vary each time you run the
+workflow, even with the same input.</p>
+</blockquote>
+<h3 id="try-different-queries">Try different queries</h3>
+<p>Experiment with different types of queries to test the agent's various tools:</p>
+<ul>
+<li><strong>Web Search</strong>: "Search for recent news about artificial intelligence"</li>
+<li><strong>Weather Data</strong>: "What's the weather like in Tokyo?"</li>
+<li><strong>Wikipedia</strong>: "Tell me about quantum computing"</li>
+<li><strong>Reasoning</strong>: "What are three reasons why the sky is blue?"</li>
+</ul>
+<h3 id="view-the-agentcard">View the AgentCard</h3>
+<p>Navigate to <a href="http://0.0.0.0:9999/.well-known/agent-card.json"><code>http://0.0.0.0:9999/.well-known/agent-card.json</code></a>
+in your browser to view the <code>RequirementAgent</code>'s AgentCard.  </p>
+<pre><code class="language-json">{
+    &quot;capabilities&quot;: {
+        &quot;streaming&quot;: true
+    },
+    &quot;defaultInputModes&quot;: [
+        &quot;text&quot;
+    ],
+    &quot;defaultOutputModes&quot;: [
+        &quot;text&quot;
+    ],
+    &quot;description&quot;: &quot;An agent that can search the web, check the weather, and think through problems step-by-step.&quot;,
+    &quot;name&quot;: &quot;RequirementAgent&quot;,
+    &quot;preferredTransport&quot;: &quot;JSONRPC&quot;,
+    &quot;protocolVersion&quot;: &quot;0.3.0&quot;,
+    &quot;skills&quot;: [
+        {
+            &quot;description&quot;: &quot;An agent that can search the web, check the weather, and think through problems step-by-step.&quot;,
+            &quot;id&quot;: &quot;RequirementAgent&quot;,
+            &quot;name&quot;: &quot;RequirementAgent&quot;,
+            &quot;tags&quot;: []
+        }
+    ],
+    &quot;url&quot;: &quot;http://localhost:9999&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;
+}
+</code></pre>
+<p>This JSON document describes:  </p>
+<ul>
+<li>The agent's name (<code>RequirementAgent</code>) and a brief description of its capabilities.</li>
+<li>Supported communication protocols and message formats</li>
+<li>Any requirements or constraints</li>
+</ul>
+<p>This AgentCard allows any A2A-compliant client to discover and interact with the
+agent without prior knowledge of its implementation details.  </p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this tutorial, you built a chat system using an A2A-complaint server that
+exposed a structured interface for client-agent communication. By separating the
+messaging layer from internal logic, the Agent2Agent protocol enables teams to
+update agent capabilities, swap models, or modify tool configurations without
+changing client code. This flexibility is especially valuable when coordinating
+input-required tasks, tracking task status, or treating each operation as a discrete
+unit of work.  </p>
+<p>A2A works by defining a common message format that any compliant component can
+understand. This allows autonomous agents to collaborate with other agents. The
+protocol specification defines how messages are structured in JSON-RPC format and
+enriched with metadata to ensure consistency and clarity across interactions.</p>
+<p>This tutorial builds on the foundational examples provided by the <a href="https://github.com/a2aproject/a2a-samples">A2A samples
+repository</a>. For more details about the
+original implementation, refer to the README file in the repository, which
+provides additional context and examples for building A2A-compliant systems.  </p>
+<p>For real-world deployments, A2A servers can implement authentication mechanisms
+to secure agent endpoints, use server-sent events for streaming responses, and
+scale to handle production workflows. By following this workflow, you've seen
+how a command-line client can interact with an AI agent through a standardized<br />
+protocol, enabling the agent to coordinate multiple tools and provide contextual
+responses. This approach demonstrates the power of A2A to enable maintainable,
+scalable and flexible AI systems.</p>
+<h2 id="shutting-down-the-system">Shutting down the system</h2>
+<p>When you're done experimenting with the system, follow these steps to cleanly
+shut down all running components:</p>
+<h3 id="stop-each-running-server">Stop each running server</h3>
+<p>In each terminal window, press <code>Ctrl+C</code> to stop the running process.  </p>
+<p>You should see output like:  </p>
+<pre><code class="language-bash">INFO:     Shutting down
+INFO:     Finished server process
+</code></pre>
+<h2 id="if-the-server-hangs-during-shutdown">If the server hangs during shutdown</h2>
+<p>If the server becomes unresponsive or hangs on shutdown, you can forcefully
+stop it:  </p>
+<p><strong>Find the process ID (PID):</strong></p>
+<pre><code class="language-bash">ps aux | grep python
+</code></pre>
+<p>Identify the PID of the process you're trying to stop.</p>
+<p><strong>Kill the process:</strong></p>
+<pre><code class="language-bash">kill -9 &lt;PID&gt;
+</code></pre>
+<p>Repeat this process for each server if needed.</p>
+<p>That's it! You've successfully run a complete A2A-compliant chat system.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
