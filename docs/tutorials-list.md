@@ -40,6 +40,10 @@
 - [The Hidden World of AI Safety](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/ai-models/granite-guardian/granite-guardian-webapp)
 - [Oversee a prior art search AI agent with human-in-the-loop using LangGraph and watsonx.ai](./tutorials/generative-ai/human-in-the-loop-agent.ipynb)
 
+### Machine learning
+
+- [Text classification using PyTorch](./tutorials/generative-ai/text-classification-pytorch.ipynb)
+
 ### Model Context Protocol (MCP)
 
 - [Building a Model Context Protocol (MCP) Server](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/generative-ai/ibmtutorialmcpserver)
