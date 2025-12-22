@@ -1,0 +1,15 @@
+kind: native
+name: arxiv_agent
+display_name: ArXiv Agent
+description: Access to arXiv tool. 
+context_access_enabled: true
+context_variables: []
+llm: watsonx/ibm/granite-4-h-small 
+style: default
+instructions: ''
+guidelines: []
+collaborators: []
+tools:
+- arxiv
+knowledge_base: []
+spec_version: v1
