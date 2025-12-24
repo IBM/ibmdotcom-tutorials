@@ -68,6 +68,7 @@
 
 - [Gradient boosting classifiers in Scikit-Learn and Caret](./tutorials/ai-models/gradient_boosting_classifier.ipynb)
 - [Ollama Tooling](./tutorials/generative-ai/ollama_tools.ipynb)
+- [Generate unit tests for python code with watsonx code assistant](./tutorials/generative-ai/unit-test-with-wca/python_unit_test_wca.ipynb)
 
 ## Time series forecasting
 
