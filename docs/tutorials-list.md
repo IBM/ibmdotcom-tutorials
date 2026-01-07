@@ -17,6 +17,7 @@
 - [Implement RAG chunking strategies with LangChain and watsonx.ai](./tutorials/generative-ai/rag-chunking-strategies.ipynb)
 - [Multi-agent RAG with AutoGen: Build locally with Granite](./tutorials/generative-ai/autogen-local-multi-agent-rag.ipynb)
 - [Build a corrective RAG agent using IBM Granite and Tavily](./tutorials/generative-ai/correctiverag.ipynb)
+- [Build a self RAG agent with IBM Granite LLMs](./tutorials/generative-ai/self_rag.ipynb)
 
 ### Granite
 
