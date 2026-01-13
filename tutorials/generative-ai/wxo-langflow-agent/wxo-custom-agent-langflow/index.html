@@ -1,0 +1,2111 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="IBM.com Technical Content Team">
+      
+      
+        <link rel="canonical" href="https://ibm.github.io/ibmdotcom-tutorials/tutorials/generative-ai/wxo-langflow-agent/wxo-custom-agent-langflow/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Build a custom research agent with Langflow via the watsonx Orchestrate ADK and IBM Cloud - IBM.com Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#build-a-custom-research-agent-with-langflow-via-the-watsonx-orchestrate-adk-and-ibm-cloud" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-header__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM.com Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Build a custom research agent with Langflow via the watsonx Orchestrate ADK and IBM Cloud
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../references/coc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  References
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="IBM.com Tutorials" class="md-nav__button md-logo" aria-label="IBM.com Tutorials" data-md-component="logo">
+      
+  <img src="../../../../assets/official_logo.png" alt="logo">
+
+    </a>
+    IBM.com Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/IBM/ibmdotcom-tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../getting-started/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/coc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of Conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../references/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="build-a-custom-research-agent-with-langflow-via-the-watsonx-orchestrate-adk-and-ibm-cloud">Build a custom research agent with Langflow via the watsonx Orchestrate ADK and IBM Cloud</h1>
+<p><strong>Author:</strong> Anna Gutowska</p>
+<h2 id="introduction">Introduction</h2>
+<p>With the developing landscape of <a href="https://www.ibm.com/think/topics/ai-agents">AI agents</a>, some enterprises report hesitancies regarding widespread adoption of these autonomous agents.<sup>1</sup> Some challenges include governance, ethics, human-AI collaboration, deployment and scalability. However, building trustworthy AI agents does not need to be complex. With <a href="https://www.ibm.com/products/watsonx-orchestrate">IBM watsonx Orchestrate</a>, these concerns can be mitigated all in one place. In this tutorial, you will learn how to use <a href="https://www.ibm.com/think/topics/langflow">Langflow</a> and watsonx Orchestrate to build reliable and scalable enterprise-ready agents. </p>
+<h2 id="what-is-langflow">What is Langflow?</h2>
+<p><a href="https://www.ibm.com/think/topics/langflow">Langflow</a> is a Python-based, <a href="https://www.ibm.com/think/topics/open-source">open-source</a> framework for building <a href="https://www.ibm.com/think/topics/ai-agents">AI agents</a> and other AI applications. Langflow was originally built on <a href="https://www.ibm.com/think/topics/langchain">LangChain</a>, its parent framework. <a href="https://www.ibm.com/think/topics/langgraph">LangGraph</a>, another platform within the same family, is also used to build agentic systems by using graph-based architectures. What sets Langflow apart is its user-friendly drag-and-drop interface in which users can connect agent components to design personalized workflows or start with the prebuilt templates. As an alternative to this low-code or no-code approach, developers can build custom components and embed step-by-step agent flows into existing application code by using the Langflow API. In this Langflow tutorial, we explore how to build and deploy agents by:</p>
+<p>1) Importing agentic LangFlow flows as MCP servers by using IBM® watsonx Orchestrate® as a <a href="https://www.ibm.com/think/topics/saas">Software as a Service (SaaS)</a> along with IBM Cloud®. 
+2) Importing basic LangFlow flows by using the IBM watsonx Orchestrate Agent Development Kit (ADK) locally. </p>
+<p>Both approaches correspond to a section of this tutorial. Note, you can also access this tutorial on <a href="https://github.com/IBM/ibmdotcom-tutorials">GitHub</a>. </p>
+<p>Let's begin!</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This tutorial requires:
+- The latest version of <strong>Python</strong> installed. 
+- An <a href="https://cloud.ibm.com/registration"><strong>IBM Cloud® account</strong></a> to create a <a href="https://www.ibm.com/products/watsonx-ai">watsonx.ai™</a> <a href="https://www.ibm.com/docs/en/watsonx/saas?topic=projects-creating-project#create-a-project"><strong>project ID</strong></a> and <a href="https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-authentication.html?context=wx#generating-an-api-key"><strong>API key</strong></a>. Lite and Free service plans are available. 
+    - You can get your project ID from within your project. Click the <strong>Manage</strong> tab. Then, copy the project ID from the <strong>Details</strong> section of the <strong>General</strong> page. You need this ID for the ADK portion of this tutorial. 
+- A <strong>watsonx Orchestrate account</strong> (can be a trial account). If you do not have an account already, click <a href="https://www.ibm.com/account/reg/us-en/signup?formid=urx-52753">here</a> to sign up for a free 30-day trial. Check out the <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=orchestrate-accessing-trial-version#trial-access-on-ibm-cloud">documentation</a> for detailed instructions on how to receive trial access on IBM Cloud. 
+- The <strong>IBM watsonx Orchestrate ADK installed</strong>. Follow the official documentation <a href="https://developer.watson-orchestrate.ibm.com/getting_started/installing#setting-up-and-installing-the-adk">here</a> for setting up and installing the ADK. 
+    - Note: If you have previously installed watsonx Orchestrate Developer edition before ADK version 2.0, first remove all containers by running <code>orchestrate server reset</code> before upgrading. watsonx Orchestrate Developer edition no longer has a dependency on an external container engine. Failing to reset before upgrading can result in multiple installations of the application consuming unnecessary system resources and will result in port conflicts. 
+- The <strong>IBM Cloud CLI</strong> installed. The installation commands for MacOS, Linux and Windows can be found in the <a href="https://cloud.ibm.com/docs/cli?topic=cli-getting-started">getting started guide</a>.</p>
+<p>Please note that without these requirements, this tutorial will not be reproducible. </p>
+<h2 id="steps-ibm-cloud-approach-saas">Steps: IBM Cloud approach (SaaS)</h2>
+<h3 id="step-1-configure-your-ibm-cloud-environment">Step 1. Configure your IBM Cloud environment</h3>
+<p>In your terminal, run the following command. You will be prompted to log in to your IBM Cloud account by using your IBMid. If you have several accounts, you will need to select one. </p>
+<pre><code class="language-sh">ibmcloud login
+</code></pre>
+<p><strong>Note:</strong> Credentials rejected? You might be a federated user. Log in again using the <code>--sso</code> flag to use a corporate or enterprise single sign-on ID. For more information about logging in with federated IDs, refer to the <a href="https://cloud.ibm.com/docs/account?topic=account-federated_id&amp;interface=ui">documentation</a>. In short, when prompted, allow the URL to open in your default browser and paste the one-time code that appears back into your terminal. </p>
+<p>You will know that your sign on was successful upon seeing similar output.</p>
+<p><strong>Output:</strong></p>
+<pre><code class="language-sh">API endpoint:     https://cloud.ibm.com
+Region:           us-south
+User:             your.email@email.com
+Account:          itz-watsonx-event-001 (f1zzz9a2e11b432ea5316227cb901888) &lt;-&gt; 3021952
+Resource group:   No resource group targeted, use 'ibmcloud target -g RESOURCE_GROUP'
+</code></pre>
+<p><strong>Note:</strong> If you notice that the <a href="https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-regions">region</a> is not correct, run <code>ibmcloud target -r</code> followed by correct region. For example, if your regional service endpoint is <code>us-east</code>, run <code>ibmcloud target -r us-east</code>. </p>
+<p>To see your Cloud resources, run <code>ibmcloud resource groups</code>. This command should result in retrieve your resource groups and produce similar output (the names and IDs of your resources will differ).</p>
+<p><strong>Output:</strong></p>
+<pre><code class="language-sh">Retrieving all resource groups under account f1zzz9a2e11b432ea5316227cb901888 as your.email@email.com...
+OK
+Name                             ID                                 Default Group   State    
+watsonx                          93018fa55c342de104afb8jje20c222c   false           ACTIVE
+itz-wxo-69305f32086a49ee3736ff   48bbeb07ec5a4994b2fd39beb6027090   false           ACTIVE
+</code></pre>
+<p>Next, target the specific resource, by running <code>ibmcloud target -g RESOURCE_GROUP</code>. In this example, the command would be <code>ibmcloud target -g itz-wxo-69305f32086a49ee3736ff</code>. </p>
+<p>This result should be similar in output.</p>
+<p><strong>Output:</strong></p>
+<pre><code class="language-sh">Targeted resource group itz-wxo-69305f32086a49ee3736ff
+
+API endpoint:     https://cloud.ibm.com
+Region:           us-south
+User:             your.email@email.com
+Account:          itz-watsonx-event-001 (f1zzz9a2e11b432ea5316227cb901888) &lt;-&gt; 3021952
+Resource group:   itz-wxo-69305f32086a49ee3736ff
+</code></pre>
+<h3 id="step-2-install-the-ibm-cloud-code-engine-cli">Step 2. Install the IBM Cloud Code Engine CLI</h3>
+<p>With <a href="https://cloud.ibm.com/docs/codeengine">IBM Cloud® Code Engine</a>, you can run nearly any containerized workload without managing servers or infrastructure. The platform supports everything from microservices and web apps to batch jobs and event-driven functions. It also offers built-in image creation from your source code. Because all workloads share the same <a href="https://www.ibm.com/think/topics/kubernetes">Kubernetes</a> environment, they integrate naturally. Code Engine is designed to keep infrastructure out of your way so you can stay focused on building applications. Installing the Code Engine CLI is our next step. Run the following command in your terminal.</p>
+<pre><code class="language-sh">ibmcloud plugin install code-engine -f
+</code></pre>
+<p><strong>Output:</strong> </p>
+<pre><code class="language-sh">Looking up 'code-engine' from repository 'IBM Cloud'...
+Plug-in 'code-engine[ce] 1.57.0' found in repository 'IBM Cloud'
+Attempting to download the binary file...
+ 74.08 MiB / 74.08 MiB [============================================] 100.00% 1s
+77680050 bytes downloaded
+Installing binary...
+OK
+Plug-in 'code-engine 1.57.0' was successfully installed into /your/path/to/code-engine. Use 'ibmcloud plugin show code-engine' to show its details.
+</code></pre>
+<p>Great! Now, let's target a project within Code Engine. First, display the list of projects by running <code>ibmcloud ce project list</code>.</p>
+<p><strong>Output:</strong> </p>
+<pre><code class="language-sh">Getting projects...
+OK
+
+Name                               ID                                    Status  Enabled  Selected  Tags  Region    Resource Group                  Age  
+ce-itz-wxo-69305f32086a49ee3736ff  8991a30c-944f-422d-9e00-00789043e90e  active  true     false           us-south  itz-wxo-69305f32086a49ee3736ff  7m32s  
+</code></pre>
+<p>A Code Engine project group entities like applications, jobs and builds. It serves as the unit for managing resources and governing access to those entities. <strong>If you do not have any active Code Engine projects</strong>, run <code>ibmcloud ce project create --name PROJECT_NAME</code> and replace <code>CE_PROJECT_NAME</code> with any project name of your choice (for example, "code-engine-project").</p>
+<p>To target the specific project, run <code>ibmcloud ce project select --name CE_PROJECT_NAME</code>. In this example, the command would be <code>ibmcloud ce project select --name ce-itz-wxo-69305f32086a49ee3736ff</code>.</p>
+<p><strong>Output:</strong></p>
+<pre><code class="language-sh">Selecting project 'ce-itz-wxo-69305f32086a49ee3736ff'...
+OK
+</code></pre>
+<p><strong>Note:</strong> If you experience an error here, ensure you have targeted the correct environment with <code>ibmcloud target -c ACCOUNT_ID -r REGION_NAME -g RESOURCE_GROUP_NAME</code>. </p>
+<h3 id="step-3-set-up-langflow-with-the-code-engine-cli">Step 3. Set up Langflow with the Code Engine CLI</h3>
+<p>To use Langflow while using the Code Engine CLI, run the following command. </p>
+<pre><code class="language-sh">ibmcloud ce app create \
+    --name langflow \
+    --image langflowai/langflow:latest \
+    --port 7860 
+</code></pre>
+<p>This command can run for several minutes. Do not interfere and allow it to run. </p>
+<p><strong>Output:</strong></p>
+<pre><code class="language-sh">Creating application 'langflow'...
+Configuration 'langflow' is waiting for a Revision to become ready.
+Ingress has not yet been reconciled.
+Waiting for load balancer to be ready.
+Run 'ibmcloud ce application get -n langflow' to check the application status.
+OK
+
+https://langflow.23h82g3y09cp.us-south.codeengine.appdomain.cloud
+</code></pre>
+<h3 id="step-4-connect-wxo-and-activate-langflow">Step 4. Connect wxO and activate Langflow</h3>
+<p>As the Langflow set up command runs, we can add an environment to interface with our local machine and out SaaS hosted solution.</p>
+<p>In a <strong>new</strong> terminal window, activate a virtual environment in your chosen directory. You can change <code>my-env</code> to any environment name of your choice.</p>
+<pre><code class="language-sh">python -m venv my-env
+</code></pre>
+<p>Activate the virtual environment with the following command and replace <code>my-env</code> with your environment name if you used a different one:</p>
+<p>MacOS/Linux: </p>
+<pre><code class="language-sh">source my-env/bin/activate
+</code></pre>
+<p>Windows: </p>
+<pre><code class="language-sh">my-env\Scripts\activate
+</code></pre>
+<p>Now, in your preferred browser, access your IBM Cloud <a href="https://cloud.ibm.com/resources">resource list</a>, expand the <code>AI/Machine Learning</code> dropdown and select the active wxO resource. Its name should resemble "Watson Orchestrate-itz," for example, then copy the URL found in the <strong>Credentials</strong> window. Keep this page open in your browser as you will need it shortly. In the following command, replace <code>YOUR_WXO_RESOURCE_URL</code> with the retrieved URL and run the command in the activated virtual environment in your terminal.</p>
+<pre><code class="language-sh">orchestrate env add \
+    -n langflow \
+    -u YOUR_WXO_RESOURCE_URL \
+    --type ibm_iam \
+    --activate
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>[INFO] - Environment 'langflow' has been created
+Please enter WXO API key: 
+</code></pre>
+<p>When prompted for the wxO API key, return to the resource page that is open in your browser. <strong>Do not</strong> input the API key located above the URL you  copied. Instead, click the <strong>Launch watsonx Orchestrate</strong> button. Then, click the circular icon with your initials in the upper right corner of the screen and open the <strong>Settings</strong>. Select the <strong>API details</strong> tab and click the <strong>Generate API key</strong> button. Next, input any name and description for your API key and select "Disable the leaked key" in the "Leaked action" section. Most importantly, select "Yes" in the "Session management" section to enable session management for CLI logins and click "Create." Your API key should appear. Please copy and paste the key in the terminal you were using moments ago to satisfy the request to enter the wxO API key.</p>
+<p><strong>Output:</strong></p>
+<pre><code class="language-sh">[INFO] - Environment 'langflow' is now active
+</code></pre>
+<p>Great! Langflow is now active.</p>
+<h3 id="step-5-configure-your-code-engine-resources">Step 5. Configure your Code Engine resources</h3>
+<p>To establish a stable Code Engine environment that does not delete our Langflow application after a fixed timeout period, open your browser once more. Access your IBM Cloud <a href="https://cloud.ibm.com/containers/overview">containers overview</a>. You should see your Code Engine project appear as it is most recently created. Open the project. Next, open your Langflow application. In the <strong>Configuration</strong> tab, open the <strong>Resources and scaling</strong> component. The only change that we need to make here is to increase the minimum number of instances from 0 to 1. Finally, click the <strong>Deploy</strong> button to apply this configuration revision.</p>
+<p>Once you've completed this step, click the <strong>Test application</strong> button and click the <strong>Application URL</strong> hyperlink. This action will open our IBM Cloud instance of Langflow. </p>
+<p><img src="images/changing-CE-config.png" style="max-height: 1000px; max-width: 1000px; display: flex; justify-content: center;"></p>
+<h3 id="step-6-build-your-flow">Step 6. Build your flow</h3>
+<p>There are many ways to build a Langflow flow. Either use prebuilt templates or create your own from scratch. In this tutorial, we will explore the latter. To start, click <strong>+ Blank Flow</strong>. This example demonstrates a flow that you can build, but feel free to explore the plethora of components and integrations built into Langflow.</p>
+<ol>
+<li>Add the following built-in component nodes from the menu: </li>
+<li><strong>Chat Input</strong> - Receives the user input from the chat. </li>
+<li><strong>Chat Output</strong> - Returns the flow output back to the user in the chat. </li>
+<li><strong>Agent</strong> - Uses a large language model (LLM) integration to respond to user input and can be connected to several tools.<sup>2</sup></li>
+<li><strong>MCP Tools</strong> - Connects to a Model Context Protocol (MCP) server and exposes the MCP server's functions as tools for agents to use to respond to input.<sup>2</sup></li>
+<li><strong>IBM watsonx.ai</strong> - Provides access to IBM watsonx.ai® models for text generation.<sup>3</sup></li>
+<li><strong>News Search</strong> - Pulls Google News content and produces a structured DataFrame containing each article’s title, link, publication date, and summary.<sup>4</sup></li>
+<li>
+<p><strong>arXiv</strong> - Searches arXiv.org for relevant papers and outputs the results in a DataFrame format.<sup>5</sup></p>
+<p>Lastly, select <strong>+ New Custom Component</strong> at the bottom of the menu.</p>
+<p>For ease of visualization, arrange your flow in the following manner.</p>
+<p><img src="images/final-flow.png" style="max-height: 1000px; max-width: 1000px; display: flex; justify-content: center;"></p>
+</li>
+<li>
+<p>Connect the <strong>Chat Input</strong> component to the "Input" field of the <strong>Agent</strong> component.  </p>
+</li>
+<li>
+<p>Connect the <strong>Chat Output</strong> component to the "Response" field of the <strong>Agent</strong> component. </p>
+</li>
+<li>
+<p>In the <strong>Agent</strong> component, set the "Model Provider" to "Custom" from the dropdown. Depending on the Langflow version that you are using, you might see "Connect other models" instead. Either option is acceptable.</p>
+</li>
+<li>
+<p>In the <strong>IBM watsonx.ai</strong> component, select the appropriate watsonx.ai API endpoint for your API credentials. Next, paste your watsonx.ai project ID and API key in the appropriate fields. Then, select the large language model name of your choice. In this tutorial, we can select <code>openai/gpt-oss-120b</code>. Ensure that the component is set to "Language Model," rather than "Model Response." This setting is important because we want to use this model as the language model for our agent. Hence, we can now connect the <strong>IBM watsonx.ai</strong> component to the "Language Model" field of the <strong>Agent</strong> component.</p>
+<ul>
+<li><strong>Note:</strong> If you prefer to use global variables rather than pasting your API credentials directly, click your profile icon in the upper right corner of the screen and select <strong>Settings</strong>. In the <strong>Global Variables</strong> section, add your <code>WATSONX_PROJECT_ID</code> and <code>WATSONX_APIKEY</code> for your watsonx.ai connection that you generated as a prerequisite to this tutorial. Once you head back into your flow, you should see a globe icon in the "watsonx.ai Project ID" and "API key" text fields. Click the icon and select the appropriate key from the dropdown. </li>
+</ul>
+</li>
+<li>
+<p>Enable <strong>Tools Mode</strong> by using the toggle for the <strong>arXiv</strong>, <strong>News Search</strong> and <strong>Custom Component</strong>. You will see this toggle appear in the header menu by clicking anywhere on each of these components. With this mode enabled, you can now connect these components to the "Tools" field of the <strong>Agent</strong> component. The <strong>arXiv</strong> and <strong>News Search</strong> components are configured and ready to be used. We can focus on configuring the other components now.</p>
+</li>
+<li>
+<p>In the header menu of the <strong>Custom Component</strong>, select <strong>&lt;&gt; Code</strong>. Here, we can customize the component’s behavior by editing the Python code that defines it.<sup>6</sup> As a simple example, we can create a tool that returns today's date, otherwise inaccessible knowledge to an LLM. Replace the boilerplate code with the following:</p>
+<p>```python
+from langflow.custom.custom_component.component import Component
+from langflow.io import MessageTextInput, Output
+from langflow.schema.data import Data
+from datetime import date</p>
+<p>class CustomComponent(Component):
+    display_name = "Date"
+    description = "Returns today's date."
+    documentation: str = "https://docs.langflow.org/components-custom-components"
+    icon = "calendar-check"
+    name = "CustomDateComponent"</p>
+<pre><code>inputs = []  # No input needed
+
+outputs = [
+    Output(display_name="Today's Date", name="output", method="build_output"),
+]
+
+def build_output(self) -&gt; Data:
+    today = date.today()
+    data = Data(value=today)
+    self.status = data
+    return data
+</code></pre>
+<p>```</p>
+<p>Go ahead and save your changes. You should now see the component reflecting its new name, description and icon.</p>
+</li>
+<li>
+<p>The number of tools you provide to your agent is up to you. However, remember not to overwhelm your agent with too many tools as it might hinder performance and accuracy. The last tool that we will enable is an MCP server. You can connect to any server of your choice. In this tutorial, we can connect to the Alpha Vantage MCP server.<sup>7</sup> The official Alpha Vantage MCP server makes it easy for LLMs and agents to pull real-time and past stock data by using the Model Context Protocol. To connect to this server, open the "MCP Server" dropdown in your <strong>MCP Tools</strong> component and click <strong>+ Add MCP Server</strong>. In the <strong>STDIO</strong> tab, provide any name to your server, for example, "av_mcp," and paste the following command: <code>uvx av-mcp YOUR_API_KEY</code>. To generate a free Alpha Vantage API key, visit the official <a href="https://www.alphavantage.co/support/#api-key">Alpha Vantage website</a> and paste it into the command, replacing the <code>YOUR_API_KEY</code> placeholder. Once you add the server, enable the <strong>Tools Mode</strong> toggle in the component node's header menu. You will see that a vast list of tools appear as “Actions.” This result means that your connection to the MCP server is successful. You can now connect this final component to the “Tools” field of the <strong>Agent</strong> component. </p>
+<p><img src="images/av-mcp.png" style="max-height: 300px; max-width: 300px; display: flex; justify-content: center;"></p>
+</li>
+</ol>
+<p>Nice work! Your flow is complete and should resemble the following screen capture. </p>
+<p><img src="images/final-flow.png" style="max-height: 600px; max-width: 600px; display: flex; justify-content: center;"></p>
+<p>To verify that the research pipeline is functioning as expected, open the <strong>Playground</strong> and chat with your newly built agent! Ask the agent questions that require an invocation of one of the connected tools. Some sample input values include: 
+- Simple:
+    - "What is today's date?"
+    - "Find me 5 research papers on quantum computing." 
+- Moderate:
+    - "Analyze the stock price of IBM over the last 30 days."
+- Complex:
+    - "Is there any recent news that would indicate that IBM stock is bullish or bearish?"</p>
+<p>You should see the agent invoke its available tools and produce the correct output. If you experience any issues at this stage, please return to your flow and ensure that your credentials are correct and that you have followed each of the steps. </p>
+<h3 id="step-7-import-your-flow-to-wxo-as-an-mcp-server">Step 7. Import your flow to wxO as an MCP server</h3>
+<p>One way to connect this flow to watsonx Orchestrate is as an MCP server. Click the <strong>Share</strong> dropdown in the upper-right corner and select "MCP Server." Click into the "JSON" tab. You should see code similar to this example:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;lf-starter_project&quot;: {
+      &quot;command&quot;: &quot;uvx&quot;,
+      &quot;args&quot;: [
+        &quot;mcp-proxy&quot;,
+        &quot;https://langflow.23h82g3y09cp.us-south.codeengine.appdomain.cloud/api/v1/mcp/project/b797fbc9-cd21-46e9-bc23-8fa813f94810/sse&quot;
+      ]
+    }
+  }
+}
+</code></pre>
+<p>Copy the URL in your JSON snippet. Note that it will differ from the preceding example. Return to your terminal and paste your MCP server URL in place of the <code>MCP_SERVER_URL</code> placeholder. Running this following command in the watsonx Orchestrate CLI allows us to import this MCP server to the platform as a toolkit.  </p>
+<pre><code class="language-sh">orchestrate toolkits add \
+    --kind mcp \
+    --name langflow_mcp \
+    --description &quot;LangFlow MCP Server&quot; \
+    --command &quot;uvx mcp-proxy MCP_SERVER_URL&quot; \
+    --tools &quot;*&quot;
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code class="language-sh">[INFO] - Successfully imported tool kit langflow_mcp
+</code></pre>
+<h3 id="step-8-create-an-agent-and-test-the-tool-calls">Step 8. Create an agent and test the tool calls</h3>
+<p>In your browser, head over to watsonx Orchestrate and build a new agent from scratch. Enter any name and description for your agent. Once created, open the <strong>Toolset</strong> tab, click the <strong>Add tool</strong> button. From there, select to import tools from an MCP server. From the <strong>Select MCP server</strong> dropdown, select the server we imported, activate the tools by toggling the activation and close the window. Next, click <strong>Deploy</strong>. Once deployed, you can chat with your agent in the <strong>Preview</strong> chat window or in the chat interface found in the collapsed page menu. </p>
+<p>Let's ask our agent a query! For example, "Find me 5 research papers on quantum computing." </p>
+<p><img src="images/research-paper-output.png" style="max-height: 1000px; max-width: 1000px; display: flex; justify-content: center;"></p>
+<p>Awesome! The agentic chatbot is behaving as expected by not only outputting the correct response, but also invoking the correct arXiv tool. Feel free to experiment with different prompts. </p>
+<h2 id="steps-adk-approach-local">Steps: ADK approach (local)</h2>
+<p>With this approach, Code Engine is not required. This approach sets up a local development environment by using the watsonx Orchestrate Developer Edition SDK, a lightweight version of watsonx Orchestrate that functions as a local development server. </p>
+<h3 id="prerequisites_1">Prerequisites</h3>
+<ul>
+<li><strong>Machine specs</strong>: <ul>
+<li>16GB RAM</li>
+<li>8 cores</li>
+<li>25GB disk space</li>
+</ul>
+</li>
+</ul>
+<h3 id="step-1-install-the-wxo-developer-edition-sdk">Step 1. Install the wxO Developer Edition SDK</h3>
+<p>Before you start building locally with Langflow, <a href="https://developer.watson-orchestrate.ibm.com/developer_edition/wxOde_setup">install the Developer Edition</a> of the wxO ADK. Note that this Developer Edition was not required for the first approach in this tutorial. </p>
+<ol>
+<li>
+<p>In your preferred IDE, set up your environment. Create a folder named <code>wxo-langflow-agent</code> to store all agents and tools. You can find this project on <a href="https://github.com/IBM/ibmdotcom-tutorials">Github</a> to use as a reference. The folder structure should be: </p>
+<p><code>markdown
+    wxo-langflow-agent/
+    ├── .env
+    ├── tools/
+    └── agents/</code></p>
+</li>
+<li>
+<p>Open the terminal and activate a virtual environment. You can change <code>my-env</code> to be any environment name of your choice.</p>
+<p><code>sh
+python -m venv my-env</code></p>
+<p>Activate the virtual environment with the following command and replace <code>my-env</code> with your environment name if you used a different one:</p>
+<p>MacOS/Linux:
+<code>sh
+source my-env/bin/activate</code></p>
+<p>Windows:
+<code>sh
+my-env\Scripts\activate</code></p>
+</li>
+<li>
+<p>In the <code>.env</code> file, set the following environment variables. For more information, see the <a href="https://developer.watson-orchestrate.ibm.com/developer_edition/wxOde_setup">setup guide</a>. 
+    <code>sh
+    WO_DEVELOPER_EDITION_SOURCE=orchestrate
+    WO_INSTANCE=&lt;service_instance_url&gt;
+    WO_API_KEY=&lt;wxo_api_key&gt;</code></p>
+</li>
+<li>
+<p>Run the following command to install the watsonx Orchestrate Developer Edition server. We do not need to install Langflow because it is included as part of the ADK Developer Edition. The <code>--with-langflow</code> command flag enables Langflow support by pulling the necessary container images and performing the initial configuration to make Langflow accessible locally. </p>
+<p><code>sh
+orchestrate server start -e &lt;path-.env-file&gt; --with-langflow</code></p>
+<p>This command can run for several minutes if it is your first time activating a server. </p>
+<p><strong>Troubleshooting</strong>: If you installed watsonx Orchestrate Developer Edition before ADK version 2.0 in the past and you experience errors for starting containers, run:
+<code>sh
+orchestrate server reset
+orchestrate server purge
+pip install --upgrade ibm-watsonx-orchestrate</code></p>
+<p>The tail-end of your output should resemble the following example. </p>
+<p><strong>Output:</strong> 
+<code>sh
+[INFO] - Migration ran successfully.
+[INFO] - Waiting for orchestrate server to be fully initialized and ready...
+[INFO] - Orchestrate services initialized successfully
+[INFO] - no local tenant found. A default tenant is created
+[INFO] - You can run `orchestrate env activate local` to set your environment or `orchestrate chat start` to start the UI service and begin chatting.
+[INFO] - Langflow has been enabled, the Langflow UI is available at http://localhost:7861</code></p>
+</li>
+</ol>
+<h3 id="step-2-activate-local-wxo-chat-ui">Step 2. Activate local wxO chat UI</h3>
+<ol>
+<li>
+<p>The watsonx Orchestrate ADK defines environments as the watsonx Orchestrate instances you can connect to. Your environment will be a Developer Edition instance running on your laptop. You can use the <code>orchestrate env list</code> command to list all environments currently available to your CLI. By default, you have a <code>local</code> one. You can run the following command to activate the <code>local</code> environment. </p>
+<p><code>sh
+orchestrate env activate local</code>
+<strong>Output:</strong>
+<code>sh
+[INFO] - local tenant found
+[INFO] - Environment 'local' is now active</code></p>
+</li>
+<li>
+<p>Next, run this command to start the chat UI in your default browser.
+    <code>sh
+    orchestrate chat start</code>
+    <strong>Output:</strong>
+    <code>sh
+    [INFO] - Chat UI Service started successfully.
+    [INFO] - Waiting for UI component to be initialized...
+    [INFO] - Opening chat interface at http://localhost:3000/chat-lite</code></p>
+</li>
+</ol>
+<h3 id="step-3-create-a-langflow-flow">Step 3. Create a Langflow flow</h3>
+<p>The Langflow editor is available through the watsonx Orchestrate Developer Edition on port 7861, as seen in the previous output.</p>
+<ol>
+<li>
+<p>In your web browser, navigate to http://localhost:7861.</p>
+</li>
+<li>
+<p>Build your flow. We can repurpose the flow built in the first portion of this tutorial or you can build your own. You might find it helpful later in this tutorial to give your flow a custom name and description instead of the default ones. You can do so by hovering over the flow name at the top of your screen and clicking the pencil icon. </p>
+</li>
+<li>Example flow name: Research agent</li>
+<li>Example flow description: Access to news search, arXiv, today's date and the Alpha Vantage API.</li>
+</ol>
+<h3 id="step-4-import-the-flow-to-wxo">Step 4. Import the flow to wxO</h3>
+<p>We can explore two options for importing Langflow flows to our local watsonx Orchestrate server:</p>
+<p>a) Import the flow as a local MCP server.</p>
+<p>b) Import the flow as JSON. </p>
+<h4 id="option-1-import-as-a-local-mcp-server">Option 1: Import as a local MCP server</h4>
+<p>This step resembles step 7 in the first half of this tutorial with some minor changes. </p>
+<ol>
+<li>
+<p>Click the <strong>Share</strong> dropdown in the upper-right corner of your Langflow and select "MCP Server." Click into the "JSON" tab. You should see code similar to the following example:
+    <code>sh
+    {
+        "mcpServers": {
+            "lf-starter_project": {
+            "command": "uvx",
+            "args": [
+                "mcp-proxy",
+                "http://localhost:7861/api/v1/mcp/project/41c9434f-67bf-439e-8dac-b7bb09b1d1ca/sse"
+                ]
+            }
+        }
+    }</code></p>
+</li>
+<li>
+<p>Copy the URL in your JSON snippet. Note that it will differ from the preceding example. Return to your terminal and paste the following command by using your URL instead of the following example one. <strong>Unlike the command we ran when using IBM Cloud, here you must replace <code>localhost</code> with <code>host.docker.internal</code>.</strong> Here is an example:</p>
+<p><code>sh
+orchestrate toolkits add \
+    --kind mcp \
+    --name langflow_research_mcp \
+    --description "LangFlow MCP Server" \
+    --command "uvx mcp-proxy http://host.docker.internal:7861/api/v1/mcp/project/41c9434f-67bf-439e-8dac-b7bb09b1d1ca/sse" \
+    --tools "*"</code></p>
+<p><strong>Output:</strong>
+<code>sh
+[INFO] - Successfully imported tool kit langflow_research_mcp</code></p>
+</li>
+<li>
+<p>In the local instance of watsonx Orchestrate running on your browser, click "Create new agent" and enter a name and description for your new agent. Then, click the <strong>Create</strong> button. </p>
+<p><img src="images/create-agent-locally-in-ui.png" style="max-height: 800px; max-width: 800px; display: flex; justify-content: center;" ></p>
+</li>
+<li>
+<p>In the <strong>Toolset</strong> tab, click the <strong>Add tool</strong> button. Select "local instance" to add our already imported MCP server, check the box corresponding to the imported MCP server and click <strong>Add to agent</strong>. </p>
+<p><img src="images/add-mcp-server-tool-ui.png" style="max-height: 600px; max-width: 600px; display: flex; justify-content: center;" ></p>
+</li>
+<li>
+<p>Start chatting!</p>
+<p><img src="images/mcp-server-local-ui.png" style="max-height: 600px; max-width: 600px; display: flex; justify-content: center;" ></p>
+</li>
+</ol>
+<h4 id="option-2-import-as-json">Option 2: Import as JSON</h4>
+<p>As an alternative to importing flows as MCP servers, we can use the ADK to import flows as exported JSON files. </p>
+<ol>
+<li>
+<p>This approach works best for simple flows. For demonstrative purposes, let's use this flow:</p>
+<p><img src="images/arxiv-tool-langflow.png" style="max-height:400px; max-width: 400px; display: flex; justify-content: center;" ></p>
+<p>Export the flow to JSON by clicking the <strong>Share</strong> button and selecting <strong>Export</strong>. Enter any name and description for the tool/flow that you would like. The tool name must contain only alphanumeric characters and underscores and must not start with a number or underscore. </p>
+</li>
+<li>
+<p>Add the newly exported JSON file to the <code>tools</code> folder.</p>
+<p><details>
+    <summary> Click to view JSON code example </summary></p>
+<pre><code>```json
+    {
+"data": {
+    "edges": [
+    {
+        "className": "",
+        "data": {
+        "sourceHandle": {
+            "dataType": "ChatInput",
+            "id": "ChatInput-DcjSB",
+            "name": "message",
+            "output_types": [
+            "Message"
+            ]
+        },
+        "targetHandle": {
+            "fieldName": "search_query",
+            "id": "ArXivComponent-HadTW",
+            "inputTypes": [
+            "Message"
+            ],
+            "type": "str"
+        }
+        },
+        "id": "xy-edge__ChatInput-DcjSB{œdataTypeœ:œChatInputœ,œidœ:œChatInput-DcjSBœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-ArXivComponent-HadTW{œfieldNameœ:œsearch_queryœ,œidœ:œArXivComponent-HadTWœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "source": "ChatInput-DcjSB",
+        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-DcjSBœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "ArXivComponent-HadTW",
+        "targetHandle": "{œfieldNameœ:œsearch_queryœ,œidœ:œArXivComponent-HadTWœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
+    },
+    {
+        "className": "",
+        "data": {
+        "sourceHandle": {
+            "dataType": "ArXivComponent",
+            "id": "ArXivComponent-HadTW",
+            "name": "dataframe",
+            "output_types": [
+            "DataFrame"
+            ]
+        },
+        "targetHandle": {
+            "fieldName": "input_value",
+            "id": "ChatOutput-yK3ap",
+            "inputTypes": [
+            "Data",
+            "DataFrame",
+            "Message"
+            ],
+            "type": "other"
+        }
+        },
+        "id": "xy-edge__ArXivComponent-HadTW{œdataTypeœ:œArXivComponentœ,œidœ:œArXivComponent-HadTWœ,œnameœ:œdataframeœ,œoutput_typesœ:[œDataFrameœ]}-ChatOutput-yK3ap{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-yK3apœ,œinputTypesœ:[œDataœ,œDataFrameœ,œMessageœ],œtypeœ:œotherœ}",
+        "source": "ArXivComponent-HadTW",
+        "sourceHandle": "{œdataTypeœ:œArXivComponentœ,œidœ:œArXivComponent-HadTWœ,œnameœ:œdataframeœ,œoutput_typesœ:[œDataFrameœ]}",
+        "target": "ChatOutput-yK3ap",
+        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-yK3apœ,œinputTypesœ:[œDataœ,œDataFrameœ,œMessageœ],œtypeœ:œotherœ}"
+    }
+    ],
+    "nodes": [
+    {
+        "data": {
+        "id": "ChatInput-DcjSB",
+        "node": {
+            "base_classes": [
+            "Message"
+            ],
+            "beta": false,
+            "conditional_paths": [],
+            "custom_fields": {},
+            "description": "Get chat inputs from the Playground.",
+            "display_name": "Chat Input",
+            "documentation": "https://docs.langflow.org/components-io#chat-input",
+            "edited": false,
+            "field_order": [
+            "input_value",
+            "should_store_message",
+            "sender",
+            "sender_name",
+            "session_id",
+            "files",
+            "background_color",
+            "chat_icon",
+            "text_color"
+            ],
+            "frozen": false,
+            "icon": "MessagesSquare",
+            "legacy": false,
+            "lf_version": "1.5.0.post2",
+            "metadata": {},
+            "minimized": true,
+            "output_types": [],
+            "outputs": [
+            {
+                "allows_loop": false,
+                "cache": true,
+                "display_name": "Chat Message",
+                "group_outputs": false,
+                "method": "message_response",
+                "name": "message",
+                "selected": "Message",
+                "tool_mode": true,
+                "types": [
+                "Message"
+                ],
+                "value": "__UNDEFINED__"
+            }
+            ],
+            "pinned": false,
+            "template": {
+            "_type": "Component",
+            "background_color": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Background Color",
+                "dynamic": false,
+                "info": "The background color of the icon.",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "background_color",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+            },
+            "chat_icon": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Icon",
+                "dynamic": false,
+                "info": "The icon of the message.",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "chat_icon",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+            },
+            "code": {
+                "advanced": true,
+                "dynamic": true,
+                "fileTypes": [],
+                "file_path": "",
+                "info": "",
+                "list": false,
+                "load_from_db": false,
+                "multiline": true,
+                "name": "code",
+                "password": false,
+                "placeholder": "",
+                "required": true,
+                "show": true,
+                "title_case": false,
+                "type": "code",
+                "value": "from langflow.base.data.utils import IMG_FILE_TYPES, TEXT_FILE_TYPES\nfrom langflow.base.io.chat import ChatComponent\nfrom langflow.inputs.inputs import BoolInput\nfrom langflow.io import (\n    DropdownInput,\n    FileInput,\n    MessageTextInput,\n    MultilineInput,\n    Output,\n)\nfrom langflow.schema.message import Message\nfrom langflow.utils.constants import (\n    MESSAGE_SENDER_AI,\n    MESSAGE_SENDER_NAME_USER,\n    MESSAGE_SENDER_USER,\n)\n\n\nclass ChatInput(ChatComponent):\n    display_name = \"Chat Input\"\n    description = \"Get chat inputs from the Playground.\"\n    documentation: str = \"https://docs.langflow.org/components-io#chat-input\"\n    icon = \"MessagesSquare\"\n    name = \"ChatInput\"\n    minimized = True\n\n    inputs = [\n        MultilineInput(\n            name=\"input_value\",\n            display_name=\"Input Text\",\n            value=\"\",\n            info=\"Message to be passed as input.\",\n            input_types=[],\n        ),\n        BoolInput(\n            name=\"should_store_message\",\n            display_name=\"Store Messages\",\n            info=\"Store the message in the history.\",\n            value=True,\n            advanced=True,\n        ),\n        DropdownInput(\n            name=\"sender\",\n            display_name=\"Sender Type\",\n            options=[MESSAGE_SENDER_AI, MESSAGE_SENDER_USER],\n            value=MESSAGE_SENDER_USER,\n            info=\"Type of sender.\",\n            advanced=True,\n        ),\n        MessageTextInput(\n            name=\"sender_name\",\n            display_name=\"Sender Name\",\n            info=\"Name of the sender.\",\n            value=MESSAGE_SENDER_NAME_USER,\n            advanced=True,\n        ),\n        MessageTextInput(\n            name=\"session_id\",\n            display_name=\"Session ID\",\n            info=\"The session ID of the chat. If empty, the current session ID parameter will be used.\",\n            advanced=True,\n        ),\n        FileInput(\n            name=\"files\",\n            display_name=\"Files\",\n            file_types=TEXT_FILE_TYPES + IMG_FILE_TYPES,\n            info=\"Files to be sent with the message.\",\n            advanced=True,\n            is_list=True,\n            temp_file=True,\n        ),\n        MessageTextInput(\n            name=\"background_color\",\n            display_name=\"Background Color\",\n            info=\"The background color of the icon.\",\n            advanced=True,\n        ),\n        MessageTextInput(\n            name=\"chat_icon\",\n            display_name=\"Icon\",\n            info=\"The icon of the message.\",\n            advanced=True,\n        ),\n        MessageTextInput(\n            name=\"text_color\",\n            display_name=\"Text Color\",\n            info=\"The text color of the name\",\n            advanced=True,\n        ),\n    ]\n    outputs = [\n        Output(display_name=\"Chat Message\", name=\"message\", method=\"message_response\"),\n    ]\n\n    async def message_response(self) -&gt; Message:\n        background_color = self.background_color\n        text_color = self.text_color\n        icon = self.chat_icon\n\n        message = await Message.create(\n            text=self.input_value,\n            sender=self.sender,\n            sender_name=self.sender_name,\n            session_id=self.session_id,\n            files=self.files,\n            properties={\n                \"background_color\": background_color,\n                \"text_color\": text_color,\n                \"icon\": icon,\n            },\n        )\n        if self.session_id and isinstance(message, Message) and self.should_store_message:\n            stored_message = await self.send_message(\n                message,\n            )\n            self.message.value = stored_message\n            message = stored_message\n\n        self.status = message\n        return message\n"
+            },
+            "files": {
+                "_input_type": "FileInput",
+                "advanced": true,
+                "display_name": "Files",
+                "dynamic": false,
+                "fileTypes": [
+                "txt",
+                "md",
+                "mdx",
+                "csv",
+                "json",
+                "yaml",
+                "yml",
+                "xml",
+                "html",
+                "htm",
+                "pdf",
+                "docx",
+                "py",
+                "sh",
+                "sql",
+                "js",
+                "ts",
+                "tsx",
+                "jpg",
+                "jpeg",
+                "png",
+                "bmp",
+                "image"
+                ],
+                "file_path": "",
+                "info": "Files to be sent with the message.",
+                "list": true,
+                "list_add_label": "Add More",
+                "name": "files",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "temp_file": true,
+                "title_case": false,
+                "trace_as_metadata": true,
+                "type": "file",
+                "value": ""
+            },
+            "input_value": {
+                "_input_type": "MultilineInput",
+                "advanced": false,
+                "copy_field": false,
+                "display_name": "Input Text",
+                "dynamic": false,
+                "info": "Message to be passed as input.",
+                "input_types": [],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "multiline": true,
+                "name": "input_value",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+            },
+            "sender": {
+                "_input_type": "DropdownInput",
+                "advanced": true,
+                "combobox": false,
+                "dialog_inputs": {},
+                "display_name": "Sender Type",
+                "dynamic": false,
+                "info": "Type of sender.",
+                "name": "sender",
+                "options": [
+                "Machine",
+                "User"
+                ],
+                "options_metadata": [],
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "toggle": false,
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": "User"
+            },
+            "sender_name": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Sender Name",
+                "dynamic": false,
+                "info": "Name of the sender.",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "sender_name",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": "User"
+            },
+            "session_id": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Session ID",
+                "dynamic": false,
+                "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "session_id",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+            },
+            "should_store_message": {
+                "_input_type": "BoolInput",
+                "advanced": true,
+                "display_name": "Store Messages",
+                "dynamic": false,
+                "info": "Store the message in the history.",
+                "list": false,
+                "list_add_label": "Add More",
+                "name": "should_store_message",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "type": "bool",
+                "value": true
+            },
+            "text_color": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Text Color",
+                "dynamic": false,
+                "info": "The text color of the name",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "text_color",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+            }
+            },
+            "tool_mode": false
+        },
+        "showNode": false,
+        "type": "ChatInput"
+        },
+        "dragging": false,
+        "id": "ChatInput-DcjSB",
+        "measured": {
+        "height": 48,
+        "width": 192
+        },
+        "position": {
+        "x": -230.57290113214438,
+        "y": 141.22370961913822
+        },
+        "selected": false,
+        "type": "genericNode"
+    },
+    {
+        "data": {
+        "id": "ChatOutput-yK3ap",
+        "node": {
+            "base_classes": [
+            "Message"
+            ],
+            "beta": false,
+            "conditional_paths": [],
+            "custom_fields": {},
+            "description": "Display a chat message in the Playground.",
+            "display_name": "Chat Output",
+            "documentation": "https://docs.langflow.org/components-io#chat-output",
+            "edited": false,
+            "field_order": [
+            "input_value",
+            "should_store_message",
+            "sender",
+            "sender_name",
+            "session_id",
+            "data_template",
+            "background_color",
+            "chat_icon",
+            "text_color",
+            "clean_data"
+            ],
+            "frozen": false,
+            "icon": "MessagesSquare",
+            "legacy": false,
+            "lf_version": "1.5.0.post2",
+            "metadata": {},
+            "minimized": true,
+            "output_types": [],
+            "outputs": [
+            {
+                "allows_loop": false,
+                "cache": true,
+                "display_name": "Output Message",
+                "group_outputs": false,
+                "method": "message_response",
+                "name": "message",
+                "selected": "Message",
+                "tool_mode": true,
+                "types": [
+                "Message"
+                ],
+                "value": "__UNDEFINED__"
+            }
+            ],
+            "pinned": false,
+            "template": {
+            "_type": "Component",
+            "background_color": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Background Color",
+                "dynamic": false,
+                "info": "The background color of the icon.",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "background_color",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+            },
+            "chat_icon": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Icon",
+                "dynamic": false,
+                "info": "The icon of the message.",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "chat_icon",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+            },
+            "clean_data": {
+                "_input_type": "BoolInput",
+                "advanced": true,
+                "display_name": "Basic Clean Data",
+                "dynamic": false,
+                "info": "Whether to clean the data",
+                "list": false,
+                "list_add_label": "Add More",
+                "name": "clean_data",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "type": "bool",
+                "value": true
+            },
+            "code": {
+                "advanced": true,
+                "dynamic": true,
+                "fileTypes": [],
+                "file_path": "",
+                "info": "",
+                "list": false,
+                "load_from_db": false,
+                "multiline": true,
+                "name": "code",
+                "password": false,
+                "placeholder": "",
+                "required": true,
+                "show": true,
+                "title_case": false,
+                "type": "code",
+                "value": "from collections.abc import Generator\nfrom typing import Any\n\nimport orjson\nfrom fastapi.encoders import jsonable_encoder\n\nfrom langflow.base.io.chat import ChatComponent\nfrom langflow.helpers.data import safe_convert\nfrom langflow.inputs.inputs import BoolInput, DropdownInput, HandleInput, MessageTextInput\nfrom langflow.schema.data import Data\nfrom langflow.schema.dataframe import DataFrame\nfrom langflow.schema.message import Message\nfrom langflow.schema.properties import Source\nfrom langflow.template.field.base import Output\nfrom langflow.utils.constants import (\n    MESSAGE_SENDER_AI,\n    MESSAGE_SENDER_NAME_AI,\n    MESSAGE_SENDER_USER,\n)\n\n\nclass ChatOutput(ChatComponent):\n    display_name = \"Chat Output\"\n    description = \"Display a chat message in the Playground.\"\n    documentation: str = \"https://docs.langflow.org/components-io#chat-output\"\n    icon = \"MessagesSquare\"\n    name = \"ChatOutput\"\n    minimized = True\n\n    inputs = [\n        HandleInput(\n            name=\"input_value\",\n            display_name=\"Inputs\",\n            info=\"Message to be passed as output.\",\n            input_types=[\"Data\", \"DataFrame\", \"Message\"],\n            required=True,\n        ),\n        BoolInput(\n            name=\"should_store_message\",\n            display_name=\"Store Messages\",\n            info=\"Store the message in the history.\",\n            value=True,\n            advanced=True,\n        ),\n        DropdownInput(\n            name=\"sender\",\n            display_name=\"Sender Type\",\n            options=[MESSAGE_SENDER_AI, MESSAGE_SENDER_USER],\n            value=MESSAGE_SENDER_AI,\n            advanced=True,\n            info=\"Type of sender.\",\n        ),\n        MessageTextInput(\n            name=\"sender_name\",\n            display_name=\"Sender Name\",\n            info=\"Name of the sender.\",\n            value=MESSAGE_SENDER_NAME_AI,\n            advanced=True,\n        ),\n        MessageTextInput(\n            name=\"session_id\",\n            display_name=\"Session ID\",\n            info=\"The session ID of the chat. If empty, the current session ID parameter will be used.\",\n            advanced=True,\n        ),\n        MessageTextInput(\n            name=\"data_template\",\n            display_name=\"Data Template\",\n            value=\"{text}\",\n            advanced=True,\n            info=\"Template to convert Data to Text. If left empty, it will be dynamically set to the Data's text key.\",\n        ),\n        MessageTextInput(\n            name=\"background_color\",\n            display_name=\"Background Color\",\n            info=\"The background color of the icon.\",\n            advanced=True,\n        ),\n        MessageTextInput(\n            name=\"chat_icon\",\n            display_name=\"Icon\",\n            info=\"The icon of the message.\",\n            advanced=True,\n        ),\n        MessageTextInput(\n            name=\"text_color\",\n            display_name=\"Text Color\",\n            info=\"The text color of the name\",\n            advanced=True,\n        ),\n        BoolInput(\n            name=\"clean_data\",\n            display_name=\"Basic Clean Data\",\n            value=True,\n            info=\"Whether to clean the data\",\n            advanced=True,\n        ),\n    ]\n    outputs = [\n        Output(\n            display_name=\"Output Message\",\n            name=\"message\",\n            method=\"message_response\",\n        ),\n    ]\n\n    def _build_source(self, id_: str | None, display_name: str | None, source: str | None) -&gt; Source:\n        source_dict = {}\n        if id_:\n            source_dict[\"id\"] = id_\n        if display_name:\n            source_dict[\"display_name\"] = display_name\n        if source:\n            # Handle case where source is a ChatOpenAI object\n            if hasattr(source, \"model_name\"):\n                source_dict[\"source\"] = source.model_name\n            elif hasattr(source, \"model\"):\n                source_dict[\"source\"] = str(source.model)\n            else:\n                source_dict[\"source\"] = str(source)\n        return Source(**source_dict)\n\n    async def message_response(self) -&gt; Message:\n        # First convert the input to string if needed\n        text = self.convert_to_string()\n\n        # Get source properties\n        source, icon, display_name, source_id = self.get_properties_from_source_component()\n        background_color = self.background_color\n        text_color = self.text_color\n        if self.chat_icon:\n            icon = self.chat_icon\n\n        # Create or use existing Message object\n        if isinstance(self.input_value, Message):\n            message = self.input_value\n            # Update message properties\n            message.text = text\n        else:\n            message = Message(text=text)\n\n        # Set message properties\n        message.sender = self.sender\n        message.sender_name = self.sender_name\n        message.session_id = self.session_id\n        message.flow_id = self.graph.flow_id if hasattr(self, \"graph\") else None\n        message.properties.source = self._build_source(source_id, display_name, source)\n        message.properties.icon = icon\n        message.properties.background_color = background_color\n        message.properties.text_color = text_color\n\n        # Store message if needed\n        if self.session_id and self.should_store_message:\n            stored_message = await self.send_message(message)\n            self.message.value = stored_message\n            message = stored_message\n\n        self.status = message\n        return message\n\n    def _serialize_data(self, data: Data) -&gt; str:\n        \"\"\"Serialize Data object to JSON string.\"\"\"\n        # Convert data.data to JSON-serializable format\n        serializable_data = jsonable_encoder(data.data)\n        # Serialize with orjson, enabling pretty printing with indentation\n        json_bytes = orjson.dumps(serializable_data, option=orjson.OPT_INDENT_2)\n        # Convert bytes to string and wrap in Markdown code blocks\n        return \"```json\\n\" + json_bytes.decode(\"utf-8\") + \"\\n```\"\n\n    def _validate_input(self) -&gt; None:\n        \"\"\"Validate the input data and raise ValueError if invalid.\"\"\"\n        if self.input_value is None:\n            msg = \"Input data cannot be None\"\n            raise ValueError(msg)\n        if isinstance(self.input_value, list) and not all(\n            isinstance(item, Message | Data | DataFrame | str) for item in self.input_value\n        ):\n            invalid_types = [\n                type(item).__name__\n                for item in self.input_value\n                if not isinstance(item, Message | Data | DataFrame | str)\n            ]\n            msg = f\"Expected Data or DataFrame or Message or str, got {invalid_types}\"\n            raise TypeError(msg)\n        if not isinstance(\n            self.input_value,\n            Message | Data | DataFrame | str | list | Generator | type(None),\n        ):\n            type_name = type(self.input_value).__name__\n            msg = f\"Expected Data or DataFrame or Message or str, Generator or None, got {type_name}\"\n            raise TypeError(msg)\n\n    def convert_to_string(self) -&gt; str | Generator[Any, None, None]:\n        \"\"\"Convert input data to string with proper error handling.\"\"\"\n        self._validate_input()\n        if isinstance(self.input_value, list):\n            return \"\\n\".join([safe_convert(item, clean_data=self.clean_data) for item in self.input_value])\n        if isinstance(self.input_value, Generator):\n            return self.input_value\n        return safe_convert(self.input_value)\n"
+            },
+            "data_template": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Data Template",
+                "dynamic": false,
+                "info": "Template to convert Data to Text. If left empty, it will be dynamically set to the Data's text key.",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "data_template",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": "{text}"
+            },
+            "input_value": {
+                "_input_type": "HandleInput",
+                "advanced": false,
+                "display_name": "Inputs",
+                "dynamic": false,
+                "info": "Message to be passed as output.",
+                "input_types": [
+                "Data",
+                "DataFrame",
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "name": "input_value",
+                "placeholder": "",
+                "required": true,
+                "show": true,
+                "title_case": false,
+                "trace_as_metadata": true,
+                "type": "other",
+                "value": ""
+            },
+            "sender": {
+                "_input_type": "DropdownInput",
+                "advanced": true,
+                "combobox": false,
+                "dialog_inputs": {},
+                "display_name": "Sender Type",
+                "dynamic": false,
+                "info": "Type of sender.",
+                "name": "sender",
+                "options": [
+                "Machine",
+                "User"
+                ],
+                "options_metadata": [],
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "toggle": false,
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": "Machine"
+            },
+            "sender_name": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Sender Name",
+                "dynamic": false,
+                "info": "Name of the sender.",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "sender_name",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": "AI"
+            },
+            "session_id": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Session ID",
+                "dynamic": false,
+                "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "session_id",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+            },
+            "should_store_message": {
+                "_input_type": "BoolInput",
+                "advanced": true,
+                "display_name": "Store Messages",
+                "dynamic": false,
+                "info": "Store the message in the history.",
+                "list": false,
+                "list_add_label": "Add More",
+                "name": "should_store_message",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "type": "bool",
+                "value": true
+            },
+            "text_color": {
+                "_input_type": "MessageTextInput",
+                "advanced": true,
+                "display_name": "Text Color",
+                "dynamic": false,
+                "info": "The text color of the name",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "text_color",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+            }
+            },
+            "tool_mode": false
+        },
+        "showNode": false,
+        "type": "ChatOutput"
+        },
+        "dragging": false,
+        "id": "ChatOutput-yK3ap",
+        "measured": {
+        "height": 48,
+        "width": 192
+        },
+        "position": {
+        "x": 463.5472412547093,
+        "y": 197.0490210903807
+        },
+        "selected": false,
+        "type": "genericNode"
+    },
+    {
+        "data": {
+        "id": "ArXivComponent-HadTW",
+        "node": {
+            "base_classes": [
+            "DataFrame"
+            ],
+            "beta": false,
+            "category": "arxiv",
+            "conditional_paths": [],
+            "custom_fields": {},
+            "description": "Search and retrieve papers from arXiv.org",
+            "display_name": "arXiv",
+            "documentation": "",
+            "edited": false,
+            "field_order": [
+            "search_query",
+            "search_type",
+            "max_results"
+            ],
+            "frozen": false,
+            "icon": "arXiv",
+            "key": "ArXivComponent",
+            "legacy": false,
+            "metadata": {},
+            "minimized": false,
+            "output_types": [],
+            "outputs": [
+            {
+                "allows_loop": false,
+                "cache": true,
+                "display_name": "DataFrame",
+                "group_outputs": false,
+                "method": "search_papers_dataframe",
+                "name": "dataframe",
+                "selected": "DataFrame",
+                "tool_mode": true,
+                "types": [
+                "DataFrame"
+                ],
+                "value": "__UNDEFINED__"
+            }
+            ],
+            "pinned": false,
+            "score": 4.930380657631324e-32,
+            "template": {
+            "_type": "Component",
+            "code": {
+                "advanced": true,
+                "dynamic": true,
+                "fileTypes": [],
+                "file_path": "",
+                "info": "",
+                "list": false,
+                "load_from_db": false,
+                "multiline": true,
+                "name": "code",
+                "password": false,
+                "placeholder": "",
+                "required": true,
+                "show": true,
+                "title_case": false,
+                "type": "code",
+                "value": "import urllib.request\nfrom urllib.parse import urlparse\nfrom xml.etree.ElementTree import Element\n\nfrom defusedxml.ElementTree import fromstring\n\nfrom langflow.custom.custom_component.component import Component\nfrom langflow.io import DropdownInput, IntInput, MessageTextInput, Output\nfrom langflow.schema.data import Data\nfrom langflow.schema.dataframe import DataFrame\n\n\nclass ArXivComponent(Component):\n    display_name = \"arXiv\"\n    description = \"Search and retrieve papers from arXiv.org\"\n    icon = \"arXiv\"\n\n    inputs = [\n        MessageTextInput(\n            name=\"search_query\",\n            display_name=\"Search Query\",\n            info=\"The search query for arXiv papers (e.g., 'quantum computing')\",\n            tool_mode=True,\n        ),\n        DropdownInput(\n            name=\"search_type\",\n            display_name=\"Search Field\",\n            info=\"The field to search in\",\n            options=[\"all\", \"title\", \"abstract\", \"author\", \"cat\"],  # cat is for category\n            value=\"all\",\n        ),\n        IntInput(\n            name=\"max_results\",\n            display_name=\"Max Results\",\n            info=\"Maximum number of results to return\",\n            value=10,\n        ),\n    ]\n\n    outputs = [\n        Output(display_name=\"DataFrame\", name=\"dataframe\", method=\"search_papers_dataframe\"),\n    ]\n\n    def build_query_url(self) -&gt; str:\n        \"\"\"Build the arXiv API query URL.\"\"\"\n        base_url = \"http://export.arxiv.org/api/query?\"\n\n        # Build the search query\n        search_query = f\"{self.search_type}:{self.search_query}\"\n\n        # URL parameters\n        params = {\n            \"search_query\": search_query,\n            \"max_results\": str(self.max_results),\n        }\n\n        # Convert params to URL query string\n        query_string = \"&amp;\".join([f\"{k}={urllib.parse.quote(str(v))}\" for k, v in params.items()])\n\n        return base_url + query_string\n\n    def parse_atom_response(self, response_text: str) -&gt; list[dict]:\n        \"\"\"Parse the Atom XML response from arXiv.\"\"\"\n        # Parse XML safely using defusedxml\n        root = fromstring(response_text)\n\n        # Define namespace dictionary for XML parsing\n        ns = {\"atom\": \"http://www.w3.org/2005/Atom\", \"arxiv\": \"http://arxiv.org/schemas/atom\"}\n\n        papers = []\n        # Process each entry (paper)\n        for entry in root.findall(\"atom:entry\", ns):\n            paper = {\n                \"id\": self._get_text(entry, \"atom:id\", ns),\n                \"title\": self._get_text(entry, \"atom:title\", ns),\n                \"summary\": self._get_text(entry, \"atom:summary\", ns),\n                \"published\": self._get_text(entry, \"atom:published\", ns),\n                \"updated\": self._get_text(entry, \"atom:updated\", ns),\n                \"authors\": [author.find(\"atom:name\", ns).text for author in entry.findall(\"atom:author\", ns)],\n                \"arxiv_url\": self._get_link(entry, \"alternate\", ns),\n                \"pdf_url\": self._get_link(entry, \"related\", ns),\n                \"comment\": self._get_text(entry, \"arxiv:comment\", ns),\n                \"journal_ref\": self._get_text(entry, \"arxiv:journal_ref\", ns),\n                \"primary_category\": self._get_category(entry, ns),\n                \"categories\": [cat.get(\"term\") for cat in entry.findall(\"atom:category\", ns)],\n            }\n            papers.append(paper)\n\n        return papers\n\n    def _get_text(self, element: Element, path: str, ns: dict) -&gt; str | None:\n        \"\"\"Safely extract text from an XML element.\"\"\"\n        el = element.find(path, ns)\n        return el.text.strip() if el is not None and el.text else None\n\n    def _get_link(self, element: Element, rel: str, ns: dict) -&gt; str | None:\n        \"\"\"Get link URL based on relation type.\"\"\"\n        for link in element.findall(\"atom:link\", ns):\n            if link.get(\"rel\") == rel:\n                return link.get(\"href\")\n        return None\n\n    def _get_category(self, element: Element, ns: dict) -&gt; str | None:\n        \"\"\"Get primary category.\"\"\"\n        cat = element.find(\"arxiv:primary_category\", ns)\n        return cat.get(\"term\") if cat is not None else None\n\n    def run_model(self) -&gt; DataFrame:\n        return self.search_papers_dataframe()\n\n    def search_papers(self) -&gt; list[Data]:\n        \"\"\"Search arXiv and return results.\"\"\"\n        try:\n            # Build the query URL\n            url = self.build_query_url()\n\n            # Validate URL scheme and host\n            parsed_url = urlparse(url)\n            if parsed_url.scheme not in {\"http\", \"https\"}:\n                error_msg = f\"Invalid URL scheme: {parsed_url.scheme}\"\n                raise ValueError(error_msg)\n            if parsed_url.hostname != \"export.arxiv.org\":\n                error_msg = f\"Invalid host: {parsed_url.hostname}\"\n                raise ValueError(error_msg)\n\n            # Create a custom opener that only allows http/https schemes\n            class RestrictedHTTPHandler(urllib.request.HTTPHandler):\n                def http_open(self, req):\n                    return super().http_open(req)\n\n            class RestrictedHTTPSHandler(urllib.request.HTTPSHandler):\n                def https_open(self, req):\n                    return super().https_open(req)\n\n            # Build opener with restricted handlers\n            opener = urllib.request.build_opener(RestrictedHTTPHandler, RestrictedHTTPSHandler)\n            urllib.request.install_opener(opener)\n\n            # Make the request with validated URL using restricted opener\n            response = opener.open(url)\n            response_text = response.read().decode(\"utf-8\")\n\n            # Parse the response\n            papers = self.parse_atom_response(response_text)\n\n            # Convert to Data objects\n            results = [Data(data=paper) for paper in papers]\n            self.status = results\n        except (urllib.error.URLError, ValueError) as e:\n            error_data = Data(data={\"error\": f\"Request error: {e!s}\"})\n            self.status = error_data\n            return [error_data]\n        else:\n            return results\n\n    def search_papers_dataframe(self) -&gt; DataFrame:\n        \"\"\"Convert the Arxiv search results to a DataFrame.\n\n        Returns:\n            DataFrame: A DataFrame containing the search results.\n        \"\"\"\n        data = self.search_papers()\n        return DataFrame(data)\n"
+            },
+            "max_results": {
+                "_input_type": "IntInput",
+                "advanced": false,
+                "display_name": "Max Results",
+                "dynamic": false,
+                "info": "Maximum number of results to return",
+                "list": false,
+                "list_add_label": "Add More",
+                "name": "max_results",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "type": "int",
+                "value": 10
+            },
+            "search_query": {
+                "_input_type": "MessageTextInput",
+                "advanced": false,
+                "display_name": "Search Query",
+                "dynamic": false,
+                "info": "The search query for arXiv papers (e.g., 'quantum computing')",
+                "input_types": [
+                "Message"
+                ],
+                "list": false,
+                "list_add_label": "Add More",
+                "load_from_db": false,
+                "name": "search_query",
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "tool_mode": true,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": ""
+            },
+            "search_type": {
+                "_input_type": "DropdownInput",
+                "advanced": false,
+                "combobox": false,
+                "dialog_inputs": {},
+                "display_name": "Search Field",
+                "dynamic": false,
+                "info": "The field to search in",
+                "name": "search_type",
+                "options": [
+                "all",
+                "title",
+                "abstract",
+                "author",
+                "cat"
+                ],
+                "options_metadata": [],
+                "placeholder": "",
+                "required": false,
+                "show": true,
+                "title_case": false,
+                "toggle": false,
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "type": "str",
+                "value": "all"
+            }
+            },
+            "tool_mode": false
+        },
+        "showNode": true,
+        "type": "ArXivComponent"
+        },
+        "dragging": false,
+        "id": "ArXivComponent-HadTW",
+        "measured": {
+        "height": 369,
+        "width": 320
+        },
+        "position": {
+        "x": 62.75458111662917,
+        "y": -168.7968601893696
+        },
+        "selected": false,
+        "type": "genericNode"
+    }
+    ],
+    "viewport": {
+    "x": 182.67689627106301,
+    "y": 267.21081362099346,
+    "zoom": 0.8919153127652691
+    }
+},
+"description": "A tool that searches arXiv and returns up to 10 relevant research papers.",
+"endpoint_name": null,
+"id": "3b2cde04-e1d8-4e26-9da6-2012964a7b11",
+"is_component": false,
+"last_tested_version": "1.5.0.post2",
+"name": "arxiv",
+"tags": []
+}
+```
+</code></pre>
+</details>
+</li>
+<li>
+<p>Run the following command to import your flow to watsonx Orchestrate. 
+    <code>sh
+    orchestrate tools import -k langflow -f tools/arxiv.json</code></p>
+</li>
+<li>
+<p>After importing the Langflow flow as a tool, the next step is to connect it to an agent system. You could do this step by creating a new agent in the watsonx Orchestrate UI or by copying the following agent definition to a new <code>arxiv_agent.yml</code> file in your <code>agents</code> folder.</p>
+<p><code>yaml
+kind: native
+name: arxiv_agent
+display_name: ArXiv Agent
+description: Access to arXiv tool. 
+context_access_enabled: true
+context_variables: []
+llm: watsonx/ibm/granite-4-h-small 
+style: default
+instructions: ''
+guidelines: []
+collaborators: []
+tools:
+- arxiv
+knowledge_base: []
+spec_version: v1</code></p>
+<p>Now, import the simple agent by running:</p>
+<p><code>sh
+orchestrate agents import -f  agents/arxiv_agent.yml</code></p>
+</li>
+<li>
+<p>Refresh the browser of the locally running watsonx Orchestrate chat UI to see our changes reflected. In the <strong>Agents</strong> dropdown menu, select the "ArXiv Agent," and ask questions that would require the use of the arXiv tool!</p>
+<p>Example prompt: "Find me 5 research papers on quantum computing."</p>
+<p><strong>Output:</strong>
+<img src="images/local-arxiv-agent.png" style="max-height: 800px; max-width: 800px; display: flex; justify-content: center;"></p>
+<p>Great! The agent determined it was necessary to invoke the <code>arxiv</code> tool for this user query. The tool output is displayed in the collapsed reasoning flow and in the chat window as a response.</p>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>This tutorial has equipped you with the essential skills to leverage Langflow and watsonx Orchestrate for constructing robust, scalable, and enterprise-ready agents. You learned how to import agentic LangFlow flows as MCP servers by using watsonx Orchestrate as a Software as a Service (SaaS) along with IBM Cloud. Also, you are now familiar with how to import basic LangFlow flows when using the IBM watsonx Orchestrate Agent Development Kit (ADK) locally. By following the step-by-step instructions, you’ve learned to design, develop, and deploy agents that invoke custom and prebuilt tools to solve user queries. With Langflow’s intuitive visual interface, you created intricate workflows and watsonx Orchestrate has empowered you to manage and scale these agents efficiently. As a next step, apply the knowledge gained from this tutorial by working on a real-world use case. Choose a specific business problem or process within your organization that could benefit from automation and design a Langflow and watsonx Orchestrate-based solution to address it. This hands-on experience will solidify your understanding and help you identify areas for further improvement or exploration. </p>
+<p>If you encounter issues or have questions, check the documentation. Most
+common issues are covered in the <a href="https://developer.watson-orchestrate.ibm.com/developer_edition/wxOde_setup#troubleshooting">troubleshooting guide</a>.
+You can also review GitHub issues to see if others have experienced similar problems.</p>
+<h3 id="footnotes">Footnotes</h3>
+<p><sup>1</sup> Satyadhar Joshi. “Review of Autonomous Systems and Collaborative AI Agent Frameworks.” <em>International Journal of Science and Research Archive</em>, vol. 14, no. 2, 28 Feb. 2025, pp. 961–972, https://doi.org/10.30574/ijsra.2025.14.2.0439.</p>
+<p><sup>2</sup> “Agents | Langflow Documentation.” <em>Langflow.org</em>, 2025, docs.langflow.org/components-agents.</p>
+<p><sup>3</sup> “IBM | Langflow Documentation.” <em>Langflow.org</em>, 2025, docs.langflow.org/bundles-ibm. </p>
+<p><sup>4</sup> “Data | Langflow Documentation.” <em>Langflow.org</em>, 2025, docs.langflow.org/components-data. </p>
+<p><sup>5</sup> “ArXiv | Langflow Documentation.” <em>Langflow.org</em>, 2025, docs.langflow.org/bundles-arxiv.</p>
+<p><sup>6</sup> “Components Overview | Langflow Documentation.” <em>Langflow.org</em>, 2025, docs.langflow.org/concepts-components.</p>
+<p><sup>7</sup> “Alpha Vantage MCP for Stock Market Data.” <em>Alphavantage.co</em>, 2025, mcp.alphavantage.co/.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "navigation.footer", "navigation.expand"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
