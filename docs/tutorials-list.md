@@ -44,6 +44,7 @@
 ### Machine learning
 
 - [Text classification using PyTorch](./tutorials/generative-ai/text-classification-pytorch.ipynb)
+- [Python text summarization](./tutorials/generative-ai/python_text_summarization.ipynb)
 
 ### Model Context Protocol (MCP)
 
