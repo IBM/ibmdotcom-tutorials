@@ -40,7 +40,7 @@ Sign in to watsonx Orchestrate through IBM Cloud and open the watsonx Orchestrat
 In this step, create a local development environment. Throughout this tutorial, you will run a local development server, import tools, set up environments, and create agents using the orchestrate command-line interface (CLI) provided by the ADK in Powershell. Start by navigating to the directory where you want to build your project. Then create a new Python virtual environment:
 
 ```powershell
-orchestrate server start -e .env -l
+python -m venv .venv
 ```
 
 An isolated Python environment is created in a **.venv** folder. Using a virtual environment ensures that all dependencies for this tutorial are separated from Python installation in your entire system.
@@ -392,8 +392,9 @@ With the local watsonx Orchestrate server running and agent observability enable
 
 Start the chat interface by running the following command:
 
+```powershell
 orchestrate chat start
-
+``` 
 Now open the watsonx Orchestrate chat UI in your browser. From the agent selector, choose `Vendor_Risk_Intelligence_Agent` and begin asking questions related to vendor risk.
 
 ![](images/watsonx_orchestrate_vendor_risk_agent.png)
