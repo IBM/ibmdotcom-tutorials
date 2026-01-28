@@ -4,6 +4,7 @@
 * [AI Personal Trainer](./tutorials/projects/ai-personal-trainer-llama/ai-personal-trainer-llama.ipynb)
 * [Building Multi-Agent Workflows with ACP](./tutorials/projects/ai-stylist-tutorial.ipynb)
 * [ChatDev with watsonX](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/projects/chatdev_watsonx_tutorial_){:target="_blank"}
+* [Enhance AI agent observability with Langfuse using watsonx Orchestrate](./tutorials/projects/wxo_observability_langfuse/wxo_observability_langfuse_tutorial.md)
 * [Multi-agent Call Center Analysis](./tutorials/projects/multiagent-collaboration-customer-call-analysis.md)
 * [Multi-agent PRD automation with MetaGPT, Ollama, and DeepSeek](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/projects/metagpt-tutorial){:target="_blank"})
 * [My Retail Advisor](./tutorials/projects/crewAI-multiagent-retail-example.md)
