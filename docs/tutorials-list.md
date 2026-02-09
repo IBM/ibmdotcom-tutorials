@@ -49,7 +49,7 @@
 ### Model Context Protocol (MCP)
 
 - [Building a Model Context Protocol (MCP) Server](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/generative-ai/ibmtutorialmcpserver)
-
+- [MCP Integration with IBM Bob](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/generative-ai/mcp-server-integration-ibm-bob)
 
 ### Multimodal AI
 
