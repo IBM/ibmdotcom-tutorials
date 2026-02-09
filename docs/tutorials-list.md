@@ -65,6 +65,7 @@
 - [Use role prompting with IBM watsonx and Granite](./tutorials/prompt-engineering/role-prompting-tutorial.ipynb)
 - [Perform zero-shot classification with a foundation model](./tutorials/generative-ai/zero-shot-classification.ipynb)
 - [Prompt Caching](./tutorials/prompt-engineering/Prompt_Caching.ipynb)
+- [ReAct prompting](./tutorials/prompt-engineering/ReAct.ipynb)
 
 ## Tooling
 
