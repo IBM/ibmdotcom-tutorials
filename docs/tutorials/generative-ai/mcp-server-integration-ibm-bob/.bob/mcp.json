@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "watsonx-orchestrate-adk": {
+      "command": "uvx",
+      "args": [
+        "--with",
+        "ibm-watsonx-orchestrate==2.1.0",
+        "ibm-watsonx-orchestrate-mcp-server==2.1.0"
+      ],
+      "env": {
+        "WXO_MCP_WORKING_DIRECTORY": "/your/path/to/mcp-server-integration-ibm-bob",
+        "WXO_MCP_DEBUG": ""
+      },
+      "timeout": 300
+    }
+  }
+}
