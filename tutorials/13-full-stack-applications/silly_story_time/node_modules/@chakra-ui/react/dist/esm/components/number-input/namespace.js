@@ -1,0 +1,2 @@
+"use strict";
+export { NumberInputContext as Context, NumberInputControl as Control, NumberInputDecrementTrigger as DecrementTrigger, NumberInputIncrementTrigger as IncrementTrigger, NumberInputInput as Input, NumberInputLabel as Label, NumberInputPropsProvider as PropsProvider, NumberInputRoot as Root, NumberInputRootProvider as RootProvider, NumberInputScrubber as Scrubber, NumberInputValueText as ValueText } from './number-input.js';

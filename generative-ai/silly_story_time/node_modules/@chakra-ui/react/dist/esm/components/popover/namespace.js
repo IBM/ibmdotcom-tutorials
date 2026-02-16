@@ -1,2 +1,0 @@
-"use strict";
-export { PopoverAnchor as Anchor, PopoverArrow as Arrow, PopoverArrowTip as ArrowTip, PopoverBody as Body, PopoverCloseTrigger as CloseTrigger, PopoverContent as Content, PopoverContext as Context, PopoverDescription as Description, PopoverFooter as Footer, PopoverHeader as Header, PopoverPositioner as Positioner, PopoverPropsProvider as PropsProvider, PopoverRoot as Root, PopoverRootProvider as RootProvider, PopoverTitle as Title, PopoverTrigger as Trigger, usePopoverStyles } from './popover.js';

@@ -1,0 +1,15 @@
+export { NumberInputContext } from './number-input-context.js';
+export { NumberInputControl } from './number-input-control.js';
+export { NumberInputDecrementTrigger } from './number-input-decrement-trigger.js';
+export { NumberInputIncrementTrigger } from './number-input-increment-trigger.js';
+export { NumberInputInput } from './number-input-input.js';
+export { NumberInputLabel } from './number-input-label.js';
+export { NumberInputRoot } from './number-input-root.js';
+export { NumberInputRootProvider } from './number-input-root-provider.js';
+export { NumberInputScrubber } from './number-input-scrubber.js';
+export { NumberInputValueText } from './number-input-value-text.js';
+export { useNumberInput } from './use-number-input.js';
+export { useNumberInputContext } from './use-number-input-context.js';
+import * as numberInput from './number-input.js';
+export { numberInput as NumberInput };
+export { anatomy as numberInputAnatomy } from '@zag-js/number-input';

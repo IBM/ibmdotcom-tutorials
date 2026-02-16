@@ -1,0 +1,42 @@
+transcript_analysis:
+  description: >
+    Use the Text Analysis Tool to collect key information and insights to better understand customer service interactions and improve service quality. 
+    Conduct a thorough analysis of the call {transcript}.
+    Prepare a detailed report highlighting key insights, themes, and sentiment from the transcripts.
+    Identify any escalation risks and flag them for the Quality Assurance Specialist.
+    Use the sentiment analysis tool to determine the overall sentiment of the customer and the agent.
+    Use the keyword extraction tool to identify key keywords and phrases in the transcript.
+  expected_output: >
+    A detailed analysis report of the {transcript} highlighting key insights, themes, and sentiment from the transcripts.
+  agent: transcript_analyzer
+
+quality_evaluation:
+  description: >
+    Review the transcript analysis report on {transcript} from the Transcript Analyzer.
+    Utilize your expertise in customer service evaluation metrics and industry standards, and internet to
+    evaluate the quality of the customer service interaction.
+    Score the interaction based on the evaluation metrics and flag any high-risk escalations.
+    Develop expert recommendations to optimize customer service quality. 
+    Ensure the report includes customer service metrics and feedback for improvement.
+  expected_output: >
+    A detailed quality evaluation report of the {transcript} highlighting the quality of the customer service interaction,
+    scoring based on evaluation metrics, flagging any high-risk escalations, and recommendations for improvement.
+  agent: quality_assurance_specialist
+
+report_generation:
+  description: >
+    List the reports from the Transcript Analyzer and the Quality Assurance Specialist, then develop a detailed action plan for customer service managers to implement the changes.
+    Use the data from these agents output to create an organized report including a summarization and actionable recommendations for call center managers.
+    Ensure the report includes keywords and sentiment analysis from the Transcript Analyzer agents.
+    Ensure the report includes the Quality Assurance Specialist agent's report, evaluation metrics and recommendations for improving customer service quality.
+    Ensure the report is well written and easy to understand.
+    Be smart and well explained.
+    Ensure the report is comprehensive, organized, and easy to understand with labeled sections with relevant information.
+  expected_output: >
+    A comprehensive report that lists the reports from the Transcript Analyzer, then the Quality Assurance Specialist. 
+    The report should include the key insights from {transcript} and the quality evaluation report from the Quality Assurance Specialist.
+    The report should include organized sections for each agent's findings, summaries, and actionable recommendations for call center managers.
+  agent: report_generator
+  context:
+    - transcript_analysis
+    - quality_evaluation

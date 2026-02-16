@@ -1,0 +1,22 @@
+// src/components/form-label.ts
+import { defineStyle, defineStyleConfig } from "@chakra-ui/styled-system";
+var baseStyle = defineStyle({
+  fontSize: "md",
+  marginEnd: "3",
+  mb: "2",
+  fontWeight: "medium",
+  transitionProperty: "common",
+  transitionDuration: "normal",
+  opacity: 1,
+  _disabled: {
+    opacity: 0.4
+  }
+});
+var formLabelTheme = defineStyleConfig({
+  baseStyle
+});
+
+export {
+  formLabelTheme
+};
+//# sourceMappingURL=chunk-VHM7WLW6.mjs.map

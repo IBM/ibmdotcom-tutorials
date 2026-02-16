@@ -1,0 +1,22 @@
+"use strict";
+'use strict';
+
+var config = require('../../styled-system/config.cjs');
+
+const zIndices = config.defineTokens.zIndex({
+  hide: { value: -1 },
+  base: { value: 0 },
+  docked: { value: 10 },
+  dropdown: { value: 1e3 },
+  sticky: { value: 1100 },
+  banner: { value: 1200 },
+  overlay: { value: 1300 },
+  modal: { value: 1400 },
+  popover: { value: 1500 },
+  skipNav: { value: 1600 },
+  toast: { value: 1700 },
+  tooltip: { value: 1800 },
+  max: { value: 2147483647 }
+});
+
+exports.zIndices = zIndices;

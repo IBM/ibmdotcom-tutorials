@@ -1,2 +1,0 @@
-"use strict";
-export { DialogActionTrigger as ActionTrigger, DialogBackdrop as Backdrop, DialogBody as Body, DialogCloseTrigger as CloseTrigger, DialogContent as Content, DialogContext as Context, DialogDescription as Description, DialogFooter as Footer, DialogHeader as Header, DialogPositioner as Positioner, DialogPropsProvider as PropsProvider, DialogRoot as Root, DialogRootProvider as RootProvider, DialogTitle as Title, DialogTrigger as Trigger } from './dialog.js';

@@ -1,9 +1,0 @@
-[project]
-name = "acp-client-server"
-version = "0.1.0"
-description = "A framework-agnostic ACP client for orchestrating multi-agent workflows between BeeAI and CrewAI servers."
-requires-python = ">=3.11, <4.0"
-dependencies = [
-    "acp-sdk==1.0.1"
-]
-

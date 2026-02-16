@@ -1,0 +1,10 @@
+export { SplitterContext } from './splitter-context.js';
+export { SplitterPanel } from './splitter-panel.js';
+export { SplitterResizeTrigger } from './splitter-resize-trigger.js';
+export { SplitterRoot } from './splitter-root.js';
+export { SplitterRootProvider } from './splitter-root-provider.js';
+export { useSplitter } from './use-splitter.js';
+export { useSplitterContext } from './use-splitter-context.js';
+import * as splitter from './splitter.js';
+export { splitter as Splitter };
+export { anatomy as splitterAnatomy } from '@zag-js/splitter';
