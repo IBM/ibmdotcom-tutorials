@@ -19,6 +19,10 @@
 - [Build a corrective RAG agent using IBM Granite and Tavily](./tutorials/generative-ai/correctiverag.ipynb)
 - [Build a self RAG agent with IBM Granite LLMs](./tutorials/generative-ai/self_rag.ipynb)
 
+### IBM Bob
+- [LLM Code Review using IBM Bob](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/generative-ai/llm-code-review-ibm-bob/llm-code-review-ibm-bob.md)
+- [MCP Integration using IBM Bob](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/generative-ai/mcp-server-integration-ibm-bob)
+
 ### Granite
 
 - [Granite Speech 3.3](./tutorials/generative-ai/granite-speech-3.3-8b.ipynb)
@@ -90,3 +94,4 @@
 
 - [Post training quantization of Granite-3.0-8B-Instruct in Python with watsonx](./tutorials/instructional-guides/post-training-quantization.md)
 - [Fine Tuning Granite with LoRA](./tutorials/generative-ai/lora_on_watsonx/lora-training.ipynb)
+
