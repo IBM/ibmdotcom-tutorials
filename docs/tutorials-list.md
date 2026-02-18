@@ -22,6 +22,7 @@
 ### IBM Bob
 - [LLM Code Review using IBM Bob](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/generative-ai/llm-code-review-ibm-bob/llm-code-review-ibm-bob.md)
 - [MCP Integration using IBM Bob](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/generative-ai/mcp-server-integration-ibm-bob)
+- [AI documentation with IBM Bob](./tutorials/generative-ai/ai-docs-ibm-bob/ai-documentation-with-ibm-bob.md)
 
 ### Granite
 
