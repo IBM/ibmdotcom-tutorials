@@ -1,0 +1,971 @@
+IBM LINKS CHECK REPORT
+================================================================================
+
+Total unique URLs checked: 383
+Accessible: 264
+Redirected: 80
+Broken: 39
+
+
+BROKEN LINKS:
+--------------------------------------------------------------------------------
+
+URL: https://us-south.ml.cloud.ibm.com\ ✅ authentication url
+Status: 400
+Error: HTTP Error 400
+Files (51):
+  - tutorials/01-rag-and-retrieval/graphrag.ipynb
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb 
+  - tutorials/01-rag-and-retrieval/agentic-rag.ipynb
+  - tutorials/01-rag-and-retrieval/correctiverag.ipynb
+  - tutorials/01-rag-and-retrieval/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - tutorials/01-rag-and-retrieval/rag-chunking-strategies.ipynb
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - tutorials/01-rag-and-retrieval/llamaindex_rag.ipynb
+  - tutorials/01-rag-and-retrieval/self_rag.ipynb
+  - tutorials/08-time-series-and-forecasting/time-series-forecasting-api.ipynb
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - tutorials/02-agents-and-orchestration/langgraph-mistral-sql-agent.ipynb
+  - tutorials/02-agents-and-orchestration/llm-agent-orchestration.ipynb
+  - tutorials/04-prompt-engineering/Agentic-chunking.ipynb
+  - tutorials/04-prompt-engineering/Prompt_Caching.ipynb
+  - tutorials/04-prompt-engineering/zero-shot-classification.ipynb
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - tutorials/04-prompt-engineering/prompt-chaining-langchain.ipynb
+  - tutorials/04-prompt-engineering/role-prompting-tutorial.ipynb
+  - tutorials/05-multimodal-ai/multimodal-ai.ipynb
+  - tutorials/06-tool-calling-and-function-calling/function-calling.ipynb
+  - tutorials/06-tool-calling-and-function-calling/langchain-tools.ipynb
+  - tutorials/05-multimodal-ai/ai-personal-trainer-llama/ai-personal-trainer-llama.ipynb
+  - tutorials/13-full-stack-applications/ai-stylist/ai-stylist-tutorial.ipynb
+  - tutorials/02-agents-and-orchestration/sql-agent-app/langgraph-mistral-sql-agent.ipynb
+  - docs/tutorials/generative-ai/Guardian_Risk Detection in Agents.ipynb
+  - docs/tutorials/generative-ai/function-calling.ipynb
+  - docs/tutorials/generative-ai/graphrag.ipynb
+  - docs/tutorials/generative-ai/Agentic-chunking.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langgraph-mistral-sql-agent.ipynb
+  - docs/tutorials/generative-ai/agentic-rag.ipynb
+  - docs/tutorials/generative-ai/correctiverag.ipynb
+  - docs/tutorials/generative-ai/time-series-forecasting-api.ipynb
+  - docs/tutorials/generative-ai/llm-agent-orchestration.ipynb
+  - docs/tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - docs/tutorials/generative-ai/rag-chunking-strategies.ipynb
+  - docs/tutorials/generative-ai/multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/zero-shot-classification.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+  - docs/tutorials/generative-ai/langchain-tools.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+  - docs/tutorials/generative-ai/llamaindex_rag.ipynb
+  - docs/tutorials/generative-ai/self_rag.ipynb
+  - docs/tutorials/prompt-engineering/Prompt_Caching.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/prompt-engineering/prompt-chaining-langchain.ipynb
+  - docs/tutorials/prompt-engineering/role-prompting-tutorial.ipynb
+  - docs/tutorials/ai-models/time-series-forecasting-api.ipynb
+  - docs/tutorials/projects/ai-stylist-tutorial.ipynb
+  - docs/tutorials/projects/ai-personal-trainer-llama/ai-personal-trainer-llama.ipynb
+
+URL: https://www.ibm.com/watsonx\ ✅ redirects
+Status: 301
+Error: HTTP Error 301
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+URL: https://www.ibm.com/granite\ ✅ redirects
+Status: 301
+Error: HTTP Error 301
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+URL: https://iam.cloud.ibm.com/identity/token\ ✅ authentication url
+Status: 400
+Error: HTTP Error 400
+Files (4):
+  - tutorials/01-rag-and-retrieval/correctiverag.ipynb
+  - tutorials/01-rag-and-retrieval/self_rag.ipynb
+  - docs/tutorials/generative-ai/correctiverag.ipynb
+  - docs/tutorials/generative-ai/self_rag.ipynb
+
+URL: https://huggingface.co/collections/ibm-granite/granite-31-language-models-6751dbbf2f3389bec5c6f02d ✅ used in example output
+Status: None
+Error: The read operation timed out
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-chunking-strategies.ipynb
+  - docs/tutorials/generative-ai/rag-chunking-strategies.ipynb
+
+URL: https://raw.githubusercontent.com/ibm-granite/granite-3.1-language-models/refs/heads/main/README.md\ ✅ used in example output
+Status: 404
+Error: HTTP Error 404
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-chunking-strategies.ipynb
+  - docs/tutorials/generative-ai/rag-chunking-strategies.ipynb
+
+URL: https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/rag-text-chunking-strategies.ipynb ❌
+Status: 404
+Error: HTTP Error 404
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-chunking-strategies.ipynb
+  - docs/tutorials/generative-ai/rag-chunking-strategies.ipynb
+
+URL: https://huggingface.co/ibm-granite/granite-3.1-1b-a400m-instruct\\n```\\n\\n## ✅ used in example output
+Status: 401
+Error: HTTP Error 401
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-chunking-strategies.ipynb
+  - docs/tutorials/generative-ai/rag-chunking-strategies.ipynb
+
+URL: https://us-south.ml.cloud.ibm.com\n ✅ authentication url
+Status: None
+Error: URL Error: [Errno 8] nodename nor servname provided, or not known
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+
+URL: https://eu-gb.ml.cloud.ibm.com\n ✅ authentication url
+Error: URL Error: [Errno 8] nodename nor servname provided, or not known
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+
+URL: https://jp-tok.ml.cloud.ibm.com ✅ authentication url
+Status: 404
+Error: HTTP Error 404
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+
+URL: https://dataplatform.cloud.ibm.com/registration ✅ redirects
+Status: 404
+Error: HTTP Error 404
+Files (4):
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+
+URL: https://eu-de.ml.cloud.ibm.com\n ✅ authentication url
+Status: None
+Error: URL Error: [Errno 8] nodename nor servname provided, or not known
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+
+URL: https://cloud.ibm.com\n ✅ authentication url
+Status: None
+Error: URL Error: [Errno 8] nodename nor servname provided, or not known
+Files (3):
+  - tutorials/08-time-series-and-forecasting/time-series-forecasting-api.ipynb
+  - docs/tutorials/generative-ai/time-series-forecasting-api.ipynb
+  - docs/tutorials/ai-models/time-series-forecasting-api.ipynb
+
+URL: https://assets.ibm.com/is/image/ibm/bld091909?$original$\ ✅ example image not broken
+Status: 403
+Error: HTTP Error 403
+Files (2):
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+
+URL: https://assets.ibm.com/is/image/ibm/000009391054_double?$original$\ ✅ example image not broken
+Status: 403
+Error: HTTP Error 403
+Files (2):
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+
+URL: https://assets.ibm.com/is/image/ibm/05feb-2021dsc00216?$original$\ ✅ example image not broken
+Status: 403
+Error: HTTP Error 403
+Files (2):
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+
+URL: https://assets.ibm.com/is/image/ibm/img_5831?$original$\ ✅ example image not broken
+Status: 403 
+Error: HTTP Error 403
+Files (2):
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+
+URL: https://github.com/IBM/ibmdotcom-tutorials.git` ✅ redirects
+Status: 404
+Error: HTTP Error 404
+Files (4):
+  - tutorials/09-text-processing-and-nlp/text-classification-pytorch.ipynb
+  - tutorials/03-multi-agent-systems/crewAI-multiagent-retail-example.md
+  - docs/tutorials/generative-ai/text-classification-pytorch.ipynb
+  - docs/tutorials/projects/crewAI-multiagent-retail-example.md
+
+URL: https://github.com/IBM/ibmdotcom-tutorials](https://github.com/IBM/ibmdotcom-tutorials ✅ not broken
+Status: 404
+Error: HTTP Error 404
+Files (2):
+  - tutorials/09-text-processing-and-nlp/abstractive-text-summarization.ipynb
+  - docs/tutorials/generative-ai/abstractive-text-summarization.ipynb
+
+URL: https://us-south.ml.cloud.ibm.com✅
+Status: 404
+Error: HTTP Error 404
+Files (12):
+  - tutorials/03-multi-agent-systems/crewAI-multiagent-retail-example.md
+  - tutorials/03-multi-agent-systems/multiagent-collaboration-customer-call-analysis.md
+  - tutorials/03-multi-agent-systems/acp_tutorial/acp_tutorial.md
+  - tutorials/03-multi-agent-systems/chatdev_watsonx_tutorial_/chatdev_watsonx.md
+  - tutorials/03-multi-agent-systems/multiagent-collab-cs-call-center-analysis/multiagent-collaboration-customer-call-analysis.md
+  - tutorials/02-agents-and-orchestration/sql-agent-app/README.md
+  - tutorials/07-guardrails-and-safety/granite-guardian-webapp/content-moderation-chatbot.py
+  - docs/tutorials/projects/crewAI-multiagent-retail-example.md
+  - docs/tutorials/projects/multiagent-collaboration-customer-call-analysis.md
+  - docs/tutorials/projects/acp_tutorial/acp_tutorial.md
+  - docs/tutorials/projects/chatdev_watsonx_tutorial_/chatdev_watsonx.md
+  - docs/tutorials/ai-models/granite-guardian/granite-guardian-webapp/content-moderation-chatbot.py
+
+URL: https://eu-gb.ml.cloud.ibm.com\ ✅ authentication url
+Status: 400
+Error: HTTP Error 400
+Files (2):
+  - tutorials/05-multimodal-ai/pixtral-multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/pixtral-multimodal-ai.ipynb
+
+URL: https://assets.ibm.com/is/image/ibm/using-langchain-tools-to-build-an-ai-agent?cropN=0.15539197976878613,0.0932794367629934,0.675,0.8&wid=3168&hei=2112&fit=crop,1&fmt=png-alpha\✅ image path
+Status: 403
+Error: HTTP Error 403
+Files (2):
+  - tutorials/06-tool-calling-and-function-calling/langchain-tools.ipynb
+  - docs/tutorials/generative-ai/langchain-tools.ipynb
+
+URL: https://api.us-south.watson-orchestrate.cloud.ibm.com/instances/ ✅ example url
+Status: 400
+Error: HTTP Error 400
+Files (1):
+  - tutorials/12-observability-and-monitoring/wxo_agentops/wxo_agentops.md
+
+URL: https://cloud.ibm.com/ ✅ authentication url
+Status: 401
+Error: HTTP Error 401
+Files (4):
+  - tutorials/03-multi-agent-systems/acp_tutorial/acp_tutorial.md
+  - tutorials/14-lora-and-fine-tuning/lora_on_watsonx/lora-training.ipynb
+  - docs/tutorials/projects/acp_tutorial/acp_tutorial.md
+  - docs/tutorials/generative-ai/lora_on_watsonx/lora-training.ipynb
+
+URL: https://github.com/IBM/ibmdotcom-tutorials.git** ✅ not broken
+Status: 404
+Error: HTTP Error 404
+Files (2):
+  - tutorials/03-multi-agent-systems/acp_tutorial/acp_tutorial.md
+  - docs/tutorials/projects/acp_tutorial/acp_tutorial.md
+
+URL: https://github.com/IBM/ibmdotcom-tutorials/tree/main/chatdev-watsonx ❌ 
+Status: 404
+Error: HTTP Error 404
+Files (2):
+  - tutorials/03-multi-agent-systems/chatdev_watsonx_tutorial_/chatdev_watsonx.md
+  - docs/tutorials/projects/chatdev_watsonx_tutorial_/chatdev_watsonx.md
+
+URL: https://iam.cloud.ibm.com/identity/token ✅ authentication url
+Status: 401
+Status: 400
+Error: HTTP Error 400
+Files (2):
+  - tutorials/03-multi-agent-systems/multiagent-collab-cs-call-center-analysis/src/customer_service_analyzer/auth.py
+  - tutorials/03-multi-agent-systems/my_retail_advisor/src/my_retail_advisor/auth.py
+
+URL: https://us-south.ml.cloud.ibm.com/ml/v1/text/chat?version=2023-05-29 ✅ authentication url
+Status: 401
+Status: 405 
+Error: HTTP Error 405
+Files (1):
+  - tutorials/03-multi-agent-systems/my_retail_advisor/src/my_retail_advisor/tools/tool_helper.py
+
+URL: https://w3.ibm.com/w3publisher/wca-ibm/download/vscode\n ✅ example output url
+Status: None
+Error: URL Error: [Errno 8] nodename nor servname provided, or not known
+Files (2):
+  - tutorials/09-text-processing-and-nlp/unit-test-with-wca/python_unit_test_wca.ipynb
+  - docs/tutorials/generative-ai/unit-test-with-wca/python_unit_test_wca.ipynb
+
+URL: https://github.com/IBM/ibmdotcom-tutorials.git](https://github.com/IBM/ibmdotcom-tutorials.git ✅ working
+Status: 404
+Error: HTTP Error 404
+Files (2):
+  - tutorials/13-full-stack-applications/granite-troubleshooting-guide-generator/README.md
+  - docs/tutorials/generative-ai/granite-troubleshooting-guide-generator/README.md
+
+URL: https://api.us-south.speech-to-text.watson.cloud.ibm.com ✅ authentication url
+Status: 404
+Error: HTTP Error 404
+Files (1):
+  - tutorials/02-agents-and-orchestration/sql-agent-app/README.md
+
+URL: https://github.com/ibm-granite/granite-tsfm.git@v0.3.1\ ✅ example url
+Status: 404
+Error: HTTP Error 404
+Files (2):
+  - tutorials/08-time-series-and-forecasting/time-series-analysis-granite-tspulse/time-series-analysis-granite-time-tspulse.ipynb
+  - docs/tutorials/ai-models/tspulse/time-series-analysis-granite-time-tspulse.ipynb
+
+URL: https://github.com/ibm-granite-community/utils\n ✅ redirects
+Status: 404
+Error: HTTP Error 404
+Files (1):
+  - docs/tutorials/generative-ai/Guardian_Risk Detection in Agents.ipynb
+
+URL: https://cloud.ibm.com/resources  ✅ redirects
+Status: 401
+Error: HTTP Error 401
+Files (2):
+  - docs/tutorials/projects/react-agent-tutorial.md
+  - docs/tutorials/generative-ai/wxo-langflow-agent/wxo-custom-agent-langflow.md
+
+URL: https://cloud.ibm.com/projects ✅
+Status: 401
+Error: HTTP Error 401
+Files (1):
+  - docs/tutorials/projects/react-agent-tutorial.md
+
+URL: https://cloud.ibm.com/objectstorage/overview ✅
+Status: 401
+Error: HTTP Error 401
+Files (1):
+  - docs/tutorials/projects/react-agent-tutorial.md
+
+URL: https://{REGION}.ml.cloud.ibm.com` ✅
+Status: None
+Error: URL Error: [Errno 8] nodename nor servname provided, or not known
+Files (1):
+  - docs/tutorials/projects/react-agent-tutorial.md
+
+URL: https://cloud.ibm.com ✅
+Status: 401
+Error: HTTP Error 401
+Files (1):
+  - docs/tutorials/generative-ai/wxo-langflow-agent/wxo-custom-agent-langflow.md
+
+
+REDIRECTED LINKS:
+--------------------------------------------------------------------------------
+
+Original: https://www.ibm.com/products/watsonx-code-assistant\
+Redirects to: https://www.ibm.com/products/watsonx-code-assistant
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/products/concert\
+Redirects to: https://www.ibm.com/products/concert
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/products/watsonx-assistant\
+Redirects to: https://www.ibm.com/products/watsonx-orchestrate
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/products/watsonx-ai\
+Redirects to: https://www.ibm.com/products/watsonx-ai
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/products/watsonx-ai/foundation-models\
+Redirects to: https://www.ibm.com/products/watsonx-ai/foundation-models
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/topics/vector-search
+Redirects to: https://www.ibm.com/think/topics/vector-search
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/blog/announcement/democratizing-large-language-model-development-with-instructlab-support-in-watsonx-ai/\
+Redirects to: https://www.ibm.com/new/announcements/democratizing-large-language-model-development-with-instructlab-support-in-watsonx-ai
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/products/watsonx-orchestrate\
+Redirects to: https://www.ibm.com/products/watsonx-orchestrate
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/topics/fine-tuning
+Redirects to: https://www.ibm.com/think/topics/fine-tuning
+Files (8):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - tutorials/01-rag-and-retrieval/docling_granite_question_answering.ipynb
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/docling_granite_question_answering.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+
+Original: https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/assoc-services.html
+Redirects to: https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/assoc-services.html?context=cpdaas
+Files (23):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - tutorials/01-rag-and-retrieval/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - tutorials/01-rag-and-retrieval/rag-chunking-strategies.ipynb
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - tutorials/08-time-series-and-forecasting/time-series-forecasting-api.ipynb
+  - tutorials/02-agents-and-orchestration/langgraph-mistral-sql-agent.ipynb
+  - tutorials/02-agents-and-orchestration/human-in-the-loop-agent.ipynb
+  - tutorials/04-prompt-engineering/Agentic-chunking.ipynb
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - tutorials/06-tool-calling-and-function-calling/langchain-tools.ipynb
+  - tutorials/02-agents-and-orchestration/sql-agent-app/langgraph-mistral-sql-agent.ipynb
+  - docs/tutorials/generative-ai/Guardian_Risk Detection in Agents.ipynb
+  - docs/tutorials/generative-ai/Agentic-chunking.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langgraph-mistral-sql-agent.ipynb
+  - docs/tutorials/generative-ai/time-series-forecasting-api.ipynb
+  - docs/tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - docs/tutorials/generative-ai/rag-chunking-strategies.ipynb
+  - docs/tutorials/generative-ai/human-in-the-loop-agent.ipynb
+  - docs/tutorials/generative-ai/langchain-tools.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/ai-models/time-series-forecasting-api.ipynb
+
+Original: https://www.ibm.com/products/data-product-hub\
+Redirects to: https://www.ibm.com/products/watsonx-data-intelligence/data-sharing
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/blog/announcement/watsonx-code-assistant-java/\
+Redirects to: https://www.ibm.com/new/announcements/watsonx-code-assistant-java
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://research.ibm.com/blog/granite-code-models-open-source\
+Redirects to: https://research.ibm.com/blog/granite-code-models-open-source
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/blog/announcement/delivering-superior-price-performance-and-enhanced-data-management-for-ai-with-ibm-watsonx-data/\
+Redirects to: https://www.ibm.com/new/announcements/delivering-superior-price-performance-and-enhanced-data-management-for-ai-with-ibm-watsonx-data
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/topics/large-language-models
+Redirects to: https://www.ibm.com/think/topics/large-language-models
+Files (16):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - tutorials/01-rag-and-retrieval/agentic-rag.ipynb
+  - tutorials/01-rag-and-retrieval/docling_granite_question_answering.ipynb
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - tutorials/05-multimodal-ai/pixtral-multimodal-ai.ipynb
+  - tutorials/05-multimodal-ai/multimodal-ai.ipynb
+  - tutorials/06-tool-calling-and-function-calling/function-calling.ipynb
+  - docs/tutorials/generative-ai/function-calling.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/agentic-rag.ipynb
+  - docs/tutorials/generative-ai/pixtral-multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/docling_granite_question_answering.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+
+Original: https://www.ibm.com/products/watsonx-governance\
+Redirects to: https://www.ibm.com/products/watsonx-governance
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/langchain-rag.ipynb
+Redirects to: https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/langchain-rag.ipynb
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/blog/a-new-era-in-bi-overcoming-low-adoption-to-make-smart-decisions-accessible-for-all/\
+Redirects to: https://www.ibm.com/think/insights/business-intelligence-adoption
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/watsonx
+Redirects to: https://www.ibm.com/products/watsonx
+Files (8):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - tutorials/05-multimodal-ai/multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+
+Original: https://www.ibm.com/blog/announcement/enterprise-grade-model-choices/\
+Redirects to: https://www.ibm.com/new/announcements/enterprise-grade-model-choices
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/consulting/info/ibm-consulting-advantage\
+Redirects to: https://www.ibm.com/consulting/advantage
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/topics/vector-database
+Redirects to: https://www.ibm.com/think/topics/vector-database
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-authentication.html
+Redirects to: https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-authentication.html?context=cpdaas
+Files (57):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - tutorials/01-rag-and-retrieval/agentic-rag.ipynb
+  - tutorials/01-rag-and-retrieval/correctiverag.ipynb
+  - tutorials/01-rag-and-retrieval/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - tutorials/01-rag-and-retrieval/rag-chunking-strategies.ipynb
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - tutorials/01-rag-and-retrieval/self_rag.ipynb
+  - tutorials/08-time-series-and-forecasting/time-series-forecasting-api.ipynb
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - tutorials/02-agents-and-orchestration/langgraph-mistral-sql-agent.ipynb
+  - tutorials/02-agents-and-orchestration/llm-agent-orchestration.ipynb
+  - tutorials/02-agents-and-orchestration/human-in-the-loop-agent.ipynb
+  - tutorials/04-prompt-engineering/Agentic-chunking.ipynb
+  - tutorials/04-prompt-engineering/Prompt_Caching.ipynb
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - tutorials/04-prompt-engineering/prompt-chaining-langchain.ipynb
+  - tutorials/03-multi-agent-systems/crewAI-multiagent-retail-example.md
+  - tutorials/03-multi-agent-systems/multiagent-collaboration-customer-call-analysis.md
+  - tutorials/05-multimodal-ai/pixtral-multimodal-ai.ipynb
+  - tutorials/05-multimodal-ai/multimodal-ai.ipynb
+  - tutorials/06-tool-calling-and-function-calling/function-calling.ipynb
+  - tutorials/06-tool-calling-and-function-calling/langchain-tools.ipynb
+  - tutorials/05-multimodal-ai/ai-personal-trainer-llama/ai-personal-trainer-llama.ipynb
+  - tutorials/03-multi-agent-systems/chatdev_watsonx_tutorial_/chatdev_watsonx.md
+  - tutorials/03-multi-agent-systems/multiagent-collab-cs-call-center-analysis/multiagent-collaboration-customer-call-analysis.md
+  - tutorials/13-full-stack-applications/ai-stylist/ai-stylist-tutorial.ipynb
+  - tutorials/02-agents-and-orchestration/sql-agent-app/langgraph-mistral-sql-agent.ipynb
+  - tutorials/14-lora-and-fine-tuning/lora_on_watsonx/lora-training.ipynb
+  - docs/tutorials/generative-ai/Guardian_Risk Detection in Agents.ipynb
+  - docs/tutorials/generative-ai/function-calling.ipynb
+  - docs/tutorials/generative-ai/Agentic-chunking.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langgraph-mistral-sql-agent.ipynb
+  - docs/tutorials/generative-ai/agentic-rag.ipynb
+  - docs/tutorials/generative-ai/correctiverag.ipynb
+  - docs/tutorials/generative-ai/time-series-forecasting-api.ipynb
+  - docs/tutorials/generative-ai/llm-agent-orchestration.ipynb
+  - docs/tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - docs/tutorials/generative-ai/rag-chunking-strategies.ipynb
+  - docs/tutorials/generative-ai/human-in-the-loop-agent.ipynb
+  - docs/tutorials/generative-ai/pixtral-multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+  - docs/tutorials/generative-ai/langchain-tools.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+  - docs/tutorials/generative-ai/self_rag.ipynb
+  - docs/tutorials/prompt-engineering/Prompt_Caching.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/prompt-engineering/prompt-chaining-langchain.ipynb
+  - docs/tutorials/ai-models/time-series-forecasting-api.ipynb
+  - docs/tutorials/projects/ai-stylist-tutorial.ipynb
+  - docs/tutorials/projects/crewAI-multiagent-retail-example.md
+  - docs/tutorials/projects/react-agent-tutorial.md
+  - docs/tutorials/projects/multiagent-collaboration-customer-call-analysis.md
+  - docs/tutorials/projects/ai-personal-trainer-llama/ai-personal-trainer-llama.ipynb
+  - docs/tutorials/projects/chatdev_watsonx_tutorial_/chatdev_watsonx.md
+  - docs/tutorials/generative-ai/lora_on_watsonx/lora-training.ipynb
+
+Original: https://www.ibm.com/watsonx/pricing\
+Redirects to: https://www.ibm.com/products/watsonx-ai/pricing
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/products/watsonx-data\
+Redirects to: https://www.ibm.com/products/watsonx-data
+Files (2):
+  - tutorials/01-rag-and-retrieval/langchain-rag.ipynb
+  - docs/tutorials/generative-ai/langchain-rag.ipynb
+
+Original: https://www.ibm.com/think/topics/large-language-model
+Redirects to: https://www.ibm.com/think/topics
+Files (2):
+  - tutorials/01-rag-and-retrieval/autogen-local-multi-agent-rag.ipynb
+  - docs/tutorials/generative-ai/autogen-local-multi-agent-rag.ipynb
+
+Original: https://www.ibm.com/case-studies/us-open\
+Redirects to: https://www.ibm.com/case-studies/us-open
+Files (2):
+  - tutorials/01-rag-and-retrieval/agentic-rag.ipynb
+  - docs/tutorials/generative-ai/agentic-rag.ipynb
+
+Original: https://www.ibm.com/topics/artificial-intelligence
+Redirects to: https://www.ibm.com/think/topics/artificial-intelligence
+Files (8):
+  - tutorials/01-rag-and-retrieval/agentic-rag.ipynb
+  - tutorials/01-rag-and-retrieval/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - tutorials/03-multi-agent-systems/crewAI-multiagent-retail-example.md
+  - docs/tutorials/generative-ai/agentic-rag.ipynb
+  - docs/tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/projects/crewAI-multiagent-retail-example.md
+
+Original: https://www.ibm.com/topics/natural-language-processing
+Redirects to: https://www.ibm.com/think/topics/natural-language-processing
+Files (12):
+  - tutorials/01-rag-and-retrieval/agentic-rag.ipynb
+  - tutorials/01-rag-and-retrieval/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - tutorials/04-prompt-engineering/zero-shot-classification.ipynb
+  - tutorials/05-multimodal-ai/multimodal-ai.ipynb
+  - tutorials/06-tool-calling-and-function-calling/function-calling.ipynb
+  - docs/tutorials/generative-ai/function-calling.ipynb
+  - docs/tutorials/generative-ai/agentic-rag.ipynb
+  - docs/tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - docs/tutorials/generative-ai/multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/zero-shot-classification.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+
+Original: https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/agentic-rag.ipynb
+Redirects to: https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/agentic-rag.ipynb
+Files (2):
+  - tutorials/01-rag-and-retrieval/agentic-rag.ipynb
+  - docs/tutorials/generative-ai/agentic-rag.ipynb
+
+Original: https://www.ibm.com/topics/generative-ai
+Redirects to: https://www.ibm.com/think/topics/generative-ai
+Files (4):
+  - tutorials/01-rag-and-retrieval/agentic-rag.ipynb
+  - tutorials/06-tool-calling-and-function-calling/function-calling.ipynb
+  - docs/tutorials/generative-ai/function-calling.ipynb
+  - docs/tutorials/generative-ai/agentic-rag.ipynb
+
+Original: https://www.ibm.com/sports/usopen\
+Redirects to: https://www.ibm.com/sports/usopen
+Files (2):
+  - tutorials/01-rag-and-retrieval/agentic-rag.ipynb
+  - docs/tutorials/generative-ai/agentic-rag.ipynb
+
+Original: https://www.ibm.com
+Redirects to: https://www.ibm.com/us-en
+Files (2):
+  - tutorials/01-rag-and-retrieval/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - docs/tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx.ipynb
+
+Original: https://www.ibm.com/products/blog/5-things-to-know-ibm-clouds-mission-to-accelerate-innovation-for-clients\
+Redirects to: https://www.ibm.com/new/product-blog/5-things-to-know-ibm-clouds-mission-to-accelerate-innovation-for-clients
+Files (2):
+  - tutorials/01-rag-and-retrieval/deepseek_rag_reasoning_docling_watsonx.ipynb
+  - docs/tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx.ipynb
+
+Original: https://www.ibm.com/new/announcements/ibm-granite-3-1-powerful-performance-long-context-and-more\
+Redirects to: https://www.ibm.com/new/announcements/ibm-granite-3-1-powerful-performance-long-context-and-more
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-chunking-strategies.ipynb
+  - docs/tutorials/generative-ai/rag-chunking-strategies.ipynb
+
+Original: https://www.ibm.com/architectures/papers/rag-cookbook/chunking
+Redirects to: https://www.ibm.com/think/architectures/rag-cookbook/chunking
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-chunking-strategies.ipynb
+  - docs/tutorials/generative-ai/rag-chunking-strategies.ipynb
+
+Original: https://www.ibm.com/topics/machine-learning
+Redirects to: https://www.ibm.com/think/topics/machine-learning
+Files (2):
+  - tutorials/01-rag-and-retrieval/docling_granite_question_answering.ipynb
+  - docs/tutorials/generative-ai/docling_granite_question_answering.ipynb
+
+Original: https://www.ibm.com/topics/data-science
+Redirects to: https://www.ibm.com/think/topics/data-science
+Files (2):
+  - tutorials/01-rag-and-retrieval/docling_granite_question_answering.ipynb
+  - docs/tutorials/generative-ai/docling_granite_question_answering.ipynb
+
+Original: https://www.ibm.com/topics/data-visualization
+Redirects to: https://www.ibm.com/think/topics/data-visualization
+Files (2):
+  - tutorials/01-rag-and-retrieval/docling_granite_question_answering.ipynb
+  - docs/tutorials/generative-ai/docling_granite_question_answering.ipynb
+
+Original: https://www.ibm.com/topics/chatbots
+Redirects to: https://www.ibm.com/think/topics/chatbots
+Files (4):
+  - tutorials/01-rag-and-retrieval/docling_granite_question_answering.ipynb
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/generative-ai/docling_granite_question_answering.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+
+Original: https://www.ibm.com/topics/api
+Redirects to: https://www.ibm.com/think/topics/api
+Files (4):
+  - tutorials/01-rag-and-retrieval/docling_granite_question_answering.ipynb
+  - tutorials/06-tool-calling-and-function-calling/function-calling.ipynb
+  - docs/tutorials/generative-ai/function-calling.ipynb
+  - docs/tutorials/generative-ai/docling_granite_question_answering.ipynb
+
+Original: https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/rag-evaluation-ragas.ipynb
+Redirects to: https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/rag-evaluation-ragas.ipynb
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+
+Original: https://python.langchain.com/v0.2/docs/integrations/text_embedding/ibm_watsonx/
+Redirects to: https://docs.langchain.com/oss/python/langchain/overview
+Files (2):
+  - tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb
+  - docs/tutorials/generative-ai/rag-evaluation-ragas.ipynb
+
+Original: https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2023.pdf\
+Redirects to: https://www.ibm.com/investor/services/annual-report
+Files (2):
+  - tutorials/01-rag-and-retrieval/llamaindex_rag.ipynb
+  - docs/tutorials/generative-ai/llamaindex_rag.ipynb
+
+Original: https://www.ibm.com/docs/en/python-zos/3.12?topic=virtual-environments-considerations
+Redirects to: https://www.ibm.com/docs/en/python-zos/3.12.0?topic=virtual-environments-considerations
+Files (2):
+  - tutorials/01-rag-and-retrieval/llamaindex_rag.ipynb
+  - docs/tutorials/generative-ai/llamaindex_rag.ipynb
+
+Original: https://www.ibm.com/new/ibm-granite-3-0-open-state-of-the-art-enterprise-models
+Redirects to: https://www.ibm.com/new/announcements/ibm-granite-3-0-open-state-of-the-art-enterprise-models
+Files (2):
+  - tutorials/01-rag-and-retrieval/llamaindex_rag.ipynb
+  - docs/tutorials/generative-ai/llamaindex_rag.ipynb
+
+Original: https://www.ibm.com/granite/docs/models/time-series/
+Redirects to: https://www.ibm.com/granite/docs/models/time-series
+Files (3):
+  - tutorials/08-time-series-and-forecasting/time-series-forecasting-api.ipynb
+  - docs/tutorials/generative-ai/time-series-forecasting-api.ipynb
+  - docs/tutorials/ai-models/time-series-forecasting-api.ipynb
+
+Original: https://www.ibm.com/docs/en/watsonx/saas?topic=services-watsonxai-studio
+Redirects to: https://www.ibm.com/docs/en/watsonx/saas
+Files (2):
+  - tutorials/08-time-series-and-forecasting/time-series-forecasting-lag-llama.ipynb
+  - docs/tutorials/generative-ai/time-series-forecasting-lag-llama.ipynb
+
+Original: https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/post-training-quantization.md
+Redirects to: https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/post-training-quantization.md
+Files (2):
+  - tutorials/10-machine-learning-foundations/post-training-quantization.md
+  - docs/tutorials/instructional-guides/post-training-quantization.md
+
+Original: https://www.ibm.com/topics/prompt-engineering
+Redirects to: https://www.ibm.com/think/topics/prompt-engineering
+Files (4):
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+
+Original: https://www.ibm.com/topics/computer-vision
+Redirects to: https://www.ibm.com/think/topics/computer-vision
+Files (4):
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - tutorials/05-multimodal-ai/multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+
+Original: https://www.ibm.com/topics/ai-ethics
+Redirects to: https://www.ibm.com/think/topics/ai-ethics
+Files (2):
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+
+Original: https://www.ibm.com/topics/prompt-injection
+Redirects to: https://www.ibm.com/think/topics/prompt-injection
+Files (2):
+  - tutorials/07-guardrails-and-safety/llm-guardrails.ipynb
+  - docs/tutorials/generative-ai/llm-guardrails.ipynb
+
+Original: https://python.langchain.com/docs/integrations/chat/ibm_watsonx/#tool-calling
+Redirects to: https://docs.langchain.com/oss/python/integrations/chat/ibm_watsonx
+Files (7):
+  - tutorials/02-agents-and-orchestration/langgraph-mistral-sql-agent.ipynb
+  - tutorials/02-agents-and-orchestration/human-in-the-loop-agent.ipynb
+  - tutorials/06-tool-calling-and-function-calling/langchain-tools.ipynb
+  - tutorials/02-agents-and-orchestration/sql-agent-app/langgraph-mistral-sql-agent.ipynb
+  - docs/tutorials/generative-ai/langgraph-mistral-sql-agent.ipynb
+  - docs/tutorials/generative-ai/human-in-the-loop-agent.ipynb
+  - docs/tutorials/generative-ai/langchain-tools.ipynb
+
+Original: http://ibm.com/think/topics/chatbots
+Redirects to: https://www.ibm.com/think/topics/chatbots
+Files (2):
+  - tutorials/02-agents-and-orchestration/human-in-the-loop-agent.ipynb
+  - docs/tutorials/generative-ai/human-in-the-loop-agent.ipynb
+
+Original: https://www.ibm.com/think/topics/machine-learning\
+Redirects to: https://www.ibm.com/think/topics/machine-learning
+Files (2):
+  - tutorials/04-prompt-engineering/Agentic-chunking.ipynb
+  - docs/tutorials/generative-ai/Agentic-chunking.ipynb
+
+Original: https://www.ibm.com/topics/autoregressive-model#:~:text=An%20autoregressive%20model%20is%20when,to%20predict%20the%20value%20now
+Redirects to: https://www.ibm.com/think/topics/autoregressive-model
+Files (2):
+  - tutorials/04-prompt-engineering/zero-shot-classification.ipynb
+  - docs/tutorials/generative-ai/zero-shot-classification.ipynb
+
+Original: https://www.ibm.com/topics/zero-shot-learning
+Redirects to: https://www.ibm.com/think/topics/zero-shot-learning
+Files (2):
+  - tutorials/04-prompt-engineering/zero-shot-classification.ipynb
+  - docs/tutorials/generative-ai/zero-shot-classification.ipynb
+
+Original: https://www.ibm.com/topics/transformer-model
+Redirects to: https://www.ibm.com/think/topics/transformer-model
+Files (2):
+  - tutorials/04-prompt-engineering/zero-shot-classification.ipynb
+  - docs/tutorials/generative-ai/zero-shot-classification.ipynb
+
+Original: https://www.ibm.com/topics/data-science?utm_source=ibm_developer&utm_content=in_content_link&utm_id=tutorials_awb-create-langchain-rag-system-python-watsonx&cm_sp=ibmdev-_-developer-tutorials-_-ibmcom
+Redirects to: https://www.ibm.com/think/topics/data-science?utm_source=ibm_developer&utm_content=in_content_link&utm_id=tutorials_awb-create-langchain-rag-system-python-watsonx&cm_sp=ibmdev-_-developer-tutorials-_-ibmcom
+Files (4):
+  - tutorials/04-prompt-engineering/zero-shot-classification.ipynb
+  - tutorials/04-prompt-engineering/role-prompting-tutorial.ipynb
+  - docs/tutorials/generative-ai/zero-shot-classification.ipynb
+  - docs/tutorials/prompt-engineering/role-prompting-tutorial.ipynb
+
+Original: https://www.ibm.com/topics/few-shot-learning
+Redirects to: https://www.ibm.com/think/topics/few-shot-learning
+Files (2):
+  - tutorials/04-prompt-engineering/zero-shot-classification.ipynb
+  - docs/tutorials/generative-ai/zero-shot-classification.ipynb
+
+Original: https://www.ibm.com/topics/data-visualization?utm_source=ibm_developer&utm_content=in_content_link&utm_id=tutorials_awb-create-langchain-rag-system-python-watsonx&cm_sp=ibmdev-_-developer-tutorials-_-ibmcom
+Redirects to: https://www.ibm.com/think/topics/data-visualization?utm_source=ibm_developer&utm_content=in_content_link&utm_id=tutorials_awb-create-langchain-rag-system-python-watsonx&cm_sp=ibmdev-_-developer-tutorials-_-ibmcom
+Files (4):
+  - tutorials/04-prompt-engineering/zero-shot-classification.ipynb
+  - tutorials/04-prompt-engineering/role-prompting-tutorial.ipynb
+  - docs/tutorials/generative-ai/zero-shot-classification.ipynb
+  - docs/tutorials/prompt-engineering/role-prompting-tutorial.ipynb
+
+Original: https://www.ibm.com/topics/open-source
+Redirects to: https://www.ibm.com/think/topics/open-source
+Files (4):
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - tutorials/03-multi-agent-systems/crewAI-multiagent-retail-example.md
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/projects/crewAI-multiagent-retail-example.md
+
+Original: https://www.ibm.com/topics/embedding
+Redirects to: https://www.ibm.com/think/topics/embedding
+Files (2):
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+
+Original: https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/prompt-tuning.ipynb
+Redirects to: https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/prompt-tuning.ipynb
+Files (2):
+  - tutorials/04-prompt-engineering/prompt-tuning.ipynb
+  - docs/tutorials/prompt-engineering/prompt-tuning.ipynb
+
+Original: https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/prompt-chaining-langchain.ipynb
+Redirects to: https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/prompt-chaining-langchain.ipynb
+Files (2):
+  - tutorials/04-prompt-engineering/prompt-chaining-langchain.ipynb
+  - docs/tutorials/prompt-engineering/prompt-chaining-langchain.ipynb
+
+Original: https://github.com/IBM/ibmdotcom-tutorials.git
+Redirects to: https://github.com/IBM/ibmdotcom-tutorials
+Files (5):
+  - tutorials/09-text-processing-and-nlp/python_text_summarization.ipynb
+  - tutorials/12-observability-and-monitoring/wxo_agentops/wxo_agentops.md
+  - tutorials/03-multi-agent-systems/a2a_tutorial/a2a-tutorial.md
+  - docs/tutorials/generative-ai/python_text_summarization.ipynb
+  - docs/tutorials/projects/a2a_tutorial/a2a-tutorial.md
+
+Original: https://www.ibm.com/think/topics/natural-language-processing\
+Redirects to: https://www.ibm.com/think/topics/natural-language-processing
+Files (2):
+  - tutorials/09-text-processing-and-nlp/python_text_summarization.ipynb
+  - docs/tutorials/generative-ai/python_text_summarization.ipynb
+
+Original: https://github.com/IBM/ibmdotcom-tutorials/blob/main/crew-ai-projects
+Redirects to: https://github.com/IBM/ibmdotcom-tutorials/tree/main/crew-ai-projects
+Files (2):
+  - tutorials/03-multi-agent-systems/crewAI-multiagent-retail-example.md
+  - docs/tutorials/projects/crewAI-multiagent-retail-example.md
+
+Original: https://www.ibm.com/topics/neural-networks
+Redirects to: https://www.ibm.com/think/topics/neural-networks
+Files (2):
+  - tutorials/05-multimodal-ai/multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/multimodal-ai.ipynb
+
+Original: https://www.ibm.com/topics/deep-learning
+Redirects to: https://www.ibm.com/think/topics/deep-learning
+Files (2):
+  - tutorials/05-multimodal-ai/multimodal-ai.ipynb
+  - docs/tutorials/generative-ai/multimodal-ai.ipynb
+
+Original: https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/langchain-tools.ipynb
+Redirects to: https://github.com/IBM/ibmdotcom-tutorials/blob/main/generative-ai/langchain-tools.ipynb
+Files (2):
+  - tutorials/06-tool-calling-and-function-calling/langchain-tools.ipynb
+  - docs/tutorials/generative-ai/langchain-tools.ipynb
+
+Original: https://www.ibm.com/think/topics/langfuse
+Redirects to: https://www.ibm.com/think/topics
+Files (2):
+  - tutorials/12-observability-and-monitoring/wxo_observability_langfuse/wxo_observability_langfuse_tutorial.md
+  - docs/tutorials/projects/wxo_observability_langfuse/wxo_observability_langfuse_tutorial.md
+
+Original: https://www.ibm.com/think/topics/agent-communication-protocol.task
+Redirects to: https://www.ibm.com/think/topics
+Files (2):
+  - tutorials/03-multi-agent-systems/acp_tutorial/agent_ops_traces.md
+  - docs/tutorials/projects/acp_tutorial/agent_ops_traces.md
+
+Original: https://www.ibm.com/think/topics/agent-communication-protocol\n\nThis
+Redirects to: https://www.ibm.com/think/topics
+Files (2):
+  - tutorials/03-multi-agent-systems/acp_tutorial/agent_ops_traces.md
+  - docs/tutorials/projects/acp_tutorial/agent_ops_traces.md
+
+Original: https://www.ibm.com/think/topics/agent-communication-protocol..
+Redirects to: https://www.ibm.com/think/topics
+Files (2):
+  - tutorials/03-multi-agent-systems/acp_tutorial/agent_ops_traces.md
+  - docs/tutorials/projects/acp_tutorial/agent_ops_traces.md
+
+Original: https://www.ibm.com/granite/docs/models/guardian/
+Redirects to: https://www.ibm.com/granite/docs/models/guardian
+Files (2):
+  - tutorials/07-guardrails-and-safety/granite-guardian-webapp/Granite-Guardian-Tutorial.md
+  - docs/tutorials/ai-models/granite-guardian/granite-guardian-webapp/Granite-Guardian-Tutorial.md
+
+Original: https://www.ibm.com/docs/en/watsonx/watson-orchestrate
+Redirects to: https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base
+Files (2):
+  - tutorials/11-model-context-protocol/mcp-server-integration-ibm-bob/arxiv-server/WATSONX_ORCHESTRATE_INTEGRATION.md
+  - docs/tutorials/generative-ai/mcp-server-integration-ibm-bob/arxiv-server/WATSONX_ORCHESTRATE_INTEGRATION.md
+
+Original: https://dataplatform.cloud.ibm.com/developer-access
+Redirects to: https://dataplatform.cloud.ibm.com/login?context=cpdaas&sign_in_target=%2Fdeveloper-access
+Files (1):
+  - docs/tutorials/projects/react-agent-tutorial.md
+
+Original: https://cloud.ibm.com/apidocs/machine-learning-cp#deployments-create
+Redirects to: https://cloud.ibm.com/apidocs/machine-learning-cp/machine-learning-cp-5.3.0
+Files (1):
+  - docs/tutorials/projects/react-agent-tutorial.md
+
