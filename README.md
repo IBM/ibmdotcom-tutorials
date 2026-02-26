@@ -43,9 +43,6 @@ This repository contains **60+ tutorials** organized by learning intent, coverin
    # Create a virtual environment
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
-   
-   # Install dependencies (varies by tutorial)
-   pip install -r requirements.txt  # If available in tutorial directory
    ```
 
 3. **Configure credentials:**
@@ -181,14 +178,6 @@ We welcome contributions! Whether you want to:
 
 Please see our [Contributing Guide](docs/references/contributing.md) and [Code of Conduct](docs/references/coc.md).
 
-### Adding a New Tutorial
-
-1. Choose the appropriate category in [`tutorials/`](tutorials/)
-2. Follow the naming convention: `descriptive-name.ipynb` or `project-name/`
-3. Include a clear README if it's a project
-4. Test all code before submitting
-5. Update the category README with your tutorial
-
 ## 📊 Repository Structure
 
 ```
@@ -238,6 +227,4 @@ If you find these tutorials helpful, please consider giving us a star! ⭐
 ---
 
 **Maintained by:** IBM.com Technical Content Team  
-**Last Updated:** February 2026  
-**Total Tutorials:** 60+  
-**Categories:** 14
+**Last Updated:** February 2026
