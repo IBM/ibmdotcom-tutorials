@@ -1,0 +1,173 @@
+# =============================================================================
+# IBM Watsonx Tutorials - Multi-Agent Systems Requirements
+# =============================================================================
+# This file contains dependencies for multi-agent system tutorials
+# in the tutorials/03-multi-agent-systems/ directory.
+
+# Python Version: 3.10 - 3.13 (some frameworks require 3.11+)
+# Installation: pip install -r requirements-multiagent.txt
+# Estimated Time: 4-5 minutes
+# Disk Space: ~500 MB
+# Last Updated: 2026-02-27
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Base Dependencies (included via reference)
+# -----------------------------------------------------------------------------
+-r requirements.txt
+
+# -----------------------------------------------------------------------------
+# CrewAI Framework
+# -----------------------------------------------------------------------------
+crewai[tools]>=0.95.0,<1.0.0
+agentops>=0.4.19
+
+# -----------------------------------------------------------------------------
+# ACP (Agent Communication Protocol) Framework
+# -----------------------------------------------------------------------------
+acp-sdk>=1.0.1
+pydantic-ai>=0.2.14
+
+# -----------------------------------------------------------------------------
+# AutoGen Framework
+# -----------------------------------------------------------------------------
+pyautogen
+ag2[ollama]
+
+# -----------------------------------------------------------------------------
+# Pydantic (for multi-agent coordination)
+# -----------------------------------------------------------------------------
+pydantic>=2.10,<3.0.0
+
+# -----------------------------------------------------------------------------
+# ChatDev Dependencies
+# -----------------------------------------------------------------------------
+colorama>=0.4.6
+Werkzeug>=3.0.6
+Wikipedia-API>=0.6.0
+easydict>=1.10
+virtualenv>=20.26.6
+openai>=1.47.1
+regex>=2023.6.3
+
+# -----------------------------------------------------------------------------
+# Additional Utilities
+# -----------------------------------------------------------------------------
+tenacity>=8.2.2
+
+# =============================================================================
+# ⚠️ IMPORTANT: BeeAI Framework Version Conflicts
+# =============================================================================
+# Different BeeAI tutorials require INCOMPATIBLE versions.
+# DO NOT install beeai-framework here - install tutorial-specific versions.
+
+# For a2a tutorials (Agent-to-Agent communication):
+#   pip install "beeai-framework[a2a]>=0.1.36,<0.2.0"
+#   pip install "pydantic>=2.10,<3.0.0"
+
+# For beeai_agent_server:
+#   pip install "beeai-framework==0.1.29"
+#   pip install "pydantic-ai==0.2.14"
+
+# For bee-ai-multi-agent-contract-management:
+#   pip install beeai-framework
+#   pip install "beeai-framework[duckduckgo]"
+#   pip install langchain-core
+#   pip install langchain-community
+
+# See tutorial-specific README files for exact requirements.
+# =============================================================================
+
+# =============================================================================
+# Tutorial-Specific Notes
+# =============================================================================
+
+# CrewAI Tutorials:
+#   - multiagent-collab-cs-call-center-analysis
+#   - my_retail_advisor
+#   - crewAI-multiagent-retail-example
+#   All dependencies included above via crewai[tools]
+
+# BeeAI Tutorials:
+#   - a2a_tutorial (requires beeai-framework>=0.1.36)
+#   - bee-ai-multi-agent-contract-management (requires beeai-framework)
+#   - acp_tutorial/beeai_agent_server (requires beeai-framework==0.1.29)
+#   ⚠️ Install tutorial-specific versions as noted above
+
+# ACP Tutorials:
+#   - acp_tutorial
+#   All dependencies included above via acp-sdk
+
+# AutoGen Tutorials:
+#   - autogen-local-multi-agent-rag
+#   All dependencies included above
+#   For web-surfer capabilities:
+#     pip install autogen-ext[web-surfer]
+#     playwright install
+
+# ChatDev Tutorial:
+#   - chatdev_watsonx_tutorial_
+#   Uses exact version pins - see tutorial-specific requirements.txt
+#   Main dependencies included above for reference
+
+# MetaGPT Tutorial:
+#   - metagpt_tutorial
+#   Requires separate installation - see tutorial README
+
+# =============================================================================
+# Installation Instructions
+# =============================================================================
+
+# 1. Create a virtual environment (recommended):
+#    python -m venv venv
+#    source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 2. Install multi-agent dependencies:
+#    pip install -r requirements-multiagent.txt
+
+# 3. For BeeAI tutorials, install specific version:
+#    # For a2a tutorials:
+#    pip install "beeai-framework[a2a]>=0.1.36,<0.2.0"
+#    
+#    # OR for beeai_agent_server:
+#    pip install "beeai-framework==0.1.29"
+
+# 4. Navigate to multi-agent tutorials:
+#    cd tutorials/03-multi-agent-systems
+
+# 5. Launch Jupyter or run specific tutorial:
+#    jupyter lab
+
+# For more information, see tutorials/03-multi-agent-systems/README.md
+# =============================================================================
+
+# =============================================================================
+# Framework Comparison
+# =============================================================================
+
+# CrewAI:
+#   - Role-based multi-agent framework
+#   - Built-in tools and integrations
+#   - Best for: Task delegation, role-based workflows
+
+# BeeAI:
+#   - IBM's multi-agent framework
+#   - Agent-to-agent communication (a2a)
+#   - Best for: Complex agent interactions, IBM ecosystem
+
+# ACP (Agent Communication Protocol):
+#   - Framework-agnostic agent communication
+#   - Supports multiple agent frameworks
+#   - Best for: Cross-framework agent coordination
+
+# AutoGen:
+#   - Microsoft's multi-agent framework
+#   - Conversational agents
+#   - Best for: Collaborative problem-solving, code generation
+
+# ChatDev:
+#   - Software development simulation
+#   - Role-based software team
+#   - Best for: Automated software development workflows
+
+# =============================================================================
