@@ -174,6 +174,14 @@ Complete end-to-end AI applications and projects.
 ### [14 - LoRA & Fine-Tuning](tutorials/14-lora-and-fine-tuning/)
 Customize models for your specific use cases.
 
+### [15 - Docling](tutorials/15-docling/)
+Parse, convert, and process documents using IBM's open-source Docling toolkit.
+
+**Featured Tutorials:**
+- [Convert Unstructured Data to Structured Data](tutorials/15-docling/unstructured-data-conversion.ipynb) - Transform scanned documents into structured formats
+- [Docling Granite Question Answering](tutorials/01-rag-and-retrieval/docling_granite_question_answering.ipynb) - Document Q&A with Granite 3.1
+- [DeepSeek RAG Reasoning with Docling](tutorials/01-rag-and-retrieval/deepseek_rag_reasoning_docling_watsonx.ipynb) - Advanced RAG with Docling
+
 ## 🎓 Learning Paths
 
 ### Beginner Path: Getting Started with AI

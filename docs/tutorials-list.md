@@ -19,6 +19,12 @@
 - [Build a corrective RAG agent using IBM Granite and Tavily](./tutorials/generative-ai/correctiverag.ipynb)
 - [Build a self RAG agent with IBM Granite LLMs](./tutorials/generative-ai/self_rag.ipynb)
 
+### Docling
+
+- [Convert unstructured data to structured data](./tutorials/generative-ai/unstructured-data-conversion.ipynb)
+- [Docling Granite QA](./tutorials/generative-ai/docling_granite_question_answering.ipynb)
+- [DeepSeek Reasoning with RAG](./tutorials/generative-ai/deepseek_rag_reasoning_docling_watsonx.ipynb)
+
 ### Granite
 
 - [Granite Speech 3.3](./tutorials/generative-ai/granite-speech-3.3-8b.ipynb)
