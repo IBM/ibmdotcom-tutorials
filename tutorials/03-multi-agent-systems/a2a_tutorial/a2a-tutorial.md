@@ -209,7 +209,7 @@ This tutorial can be found inside the [projects directory of the repo](https://g
 Inside a terminal, navigate to this tutorial's directory:  
 
 ```bash
-cd docs/tutorials/projects/a2a_tutorial
+cd tutorials/03-multi-agent-systems/a2a_tutorial
 ```
 
 ### Step 2. Set up development environment

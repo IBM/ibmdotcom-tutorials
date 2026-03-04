@@ -13,7 +13,7 @@ We'll focus on post training quantization (PTQ) which focuses on decreasing the 
 
 When working with LLMs, model quantization allows us to convert high-precision floating-point numbers in the neural network layers to low-precision numbers that consume much less space. We'll be converting models to GPT-Generated Unified Format (GGUF) to run them efficiently in constrained resource scenarios. GGUF is a binary format optimized for quick loading and saving of models that makes it efficient for inference purposes. It achieves this efficiency by combining the model parameters (weights and biases) with more metadata for effective execution. Because it’s compatible with various programming languages such as Python and R and supports fine tuning so users can adapt LLMs to specialized applications, it has become a popular format.
 
-In this tutorial, we’ll quantize the IBM® Granite-3.0-8B-Instruct model in a few different ways to show the size of the models and compare how they perform on a task. To view more Granite tutorials, check out the [IBM Granite Community](https://github.com/ibm-granite-community). This tutorial is also available on [Github](https://github.com/IBM/ibmdotcom-tutorials/tree/main/generative-ai/post-training-quantization.md).
+In this tutorial, we’ll quantize the IBM® Granite-3.0-8B-Instruct model in a few different ways to show the size of the models and compare how they perform on a task. To view more Granite tutorials, check out the [IBM Granite Community](https://github.com/ibm-granite-community). This tutorial is also available on [Github](https://github.com/IBM/ibmdotcom-tutorials/blob/main/tutorials/10-machine-learning-foundations/post-training-quantization.md).
 
 ## Step 1. Set up your enviroment
 

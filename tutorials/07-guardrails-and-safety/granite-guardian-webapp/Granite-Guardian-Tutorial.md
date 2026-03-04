@@ -109,7 +109,7 @@ Associate the watsonx.ai Runtime service instance to the project that you create
 
 ```bash
 
-git clone https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/ai-models/granite-guardian/granite-guardian-webapp
+git clone https://github.com/IBM/ibmdotcom-tutorials/tree/main/tutorials/07-guardrails-and-safety/granite-guardian-webapp
 
 
 cd Artificial Intelligence/AI_models/granite-guardian/granite-guardian-webapp
