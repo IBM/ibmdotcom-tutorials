@@ -97,7 +97,7 @@ Advanced RAG with reasoning capabilities using DeepSeek and Docling on watsonx.
 
 ## Contributing
 
-Found an issue or want to add a new Docling tutorial? See our [Contributing Guide](../../docs/references/contributing.md).
+Found an issue or want to add a new Docling tutorial? Please open an issue or pull request in the [GitHub repository](https://github.com/IBM/ibmdotcom-tutorials).
 
 ## License
 

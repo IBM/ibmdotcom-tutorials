@@ -204,7 +204,7 @@ models and their sizes.
 
 To run this project, clone the GitHub repository by using https://github.com/IBM/ibmdotcom-tutorials.git as the HTTPS URL. For detailed steps on how to clone a repository, refer to the [GitHub documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-This tutorial can be found inside the [projects directory of the repo](https://github.com/IBM/ibmdotcom-tutorials/tree/main/docs/tutorials/projects).
+This tutorial can be found inside the [tutorials directory of the repo](https://github.com/IBM/ibmdotcom-tutorials/tree/main/tutorials/03-multi-agent-systems/a2a_tutorial).
 
 Inside a terminal, navigate to this tutorial's directory:  
 

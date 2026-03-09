@@ -1,7 +1,6 @@
 # IBM Tutorials Repository
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-mkdocs-blue)](https://ibm.github.io/ibmdotcom-tutorials/)
 
 Welcome to the IBM Tutorials repository - your comprehensive resource for learning cutting-edge AI, machine learning, and generative AI technologies through hands-on tutorials and projects.
 
@@ -81,7 +80,7 @@ This repository contains **60+ tutorials** organized by learning intent, coverin
 
 4. **Configure credentials:**
    - Most tutorials require IBM watsonx.ai credentials
-   - See our [Setup Guide](docs/getting-started/setup.md) for detailed instructions
+   - See individual tutorial READMEs for credential setup instructions
 
 5. **Start learning:**
    ```bash
@@ -213,13 +212,6 @@ Parse, convert, and process documents using IBM's open-source Docling toolkit.
 - **Chroma, Milvus** - Vector databases
 - **Ragas** - RAG evaluation framework
 
-## 📖 Documentation
-
-- **[Full Documentation](https://ibm.github.io/ibmdotcom-tutorials/)** - Complete docs site
-- **[Setup Guide](docs/getting-started/setup.md)** - Environment configuration
-- **[Contributing Guide](docs/references/contributing.md)** - How to contribute
-- **[Tutorials List](docs/tutorials-list.md)** - Complete tutorial index
-
 ## 🤝 Contributing
 
 We welcome contributions! Whether you want to:
@@ -229,7 +221,7 @@ We welcome contributions! Whether you want to:
 - 📝 Improve documentation
 - 🔧 Submit a pull request
 
-Please see our [Contributing Guide](docs/references/contributing.md) and [Code of Conduct](docs/references/coc.md).
+Please see our [Code of Conduct](CODE_OF_CONDUCT.md) for community guidelines.
 
 ## 📊 Repository Structure
 
@@ -251,7 +243,6 @@ ibmdotcom-tutorials/
 │   ├── 13-full-stack-applications/
 │   ├── 14-lora-and-fine-tuning/
 │   └── shared-assets/      # Shared data, images, and resources
-├── docs/                   # MkDocs documentation
 ├── .github/                # GitHub workflows and assets
 └── README.md              # This file
 ```
@@ -271,7 +262,6 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 - **Questions?** Open a [GitHub Discussion](https://github.com/IBM/ibmdotcom-tutorials/discussions)
 - **Issues?** Report them in [GitHub Issues](https://github.com/IBM/ibmdotcom-tutorials/issues)
-- **Documentation:** Visit our [docs site](https://ibm.github.io/ibmdotcom-tutorials/)
 
 ## 🌟 Star History
 
