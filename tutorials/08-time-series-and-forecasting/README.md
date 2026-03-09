@@ -2,15 +2,14 @@
 
 This directory contains tutorials on time series analysis, forecasting, and predictive modeling using IBM Watsonx and specialized libraries.
 
-## Installation
+## Prerequisites
 
-From the **repository root**, run:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-pip install -r requirements-optional.txt
-```
-
-**Prerequisites:** Python 3.10-3.13
+**Common requirements:**
+- Python 3.10 - 3.13
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
 
 ## Quick Start
 

@@ -12,15 +12,14 @@ Docling is an IBM open-source library for parsing documents and exporting them t
 
 Common use cases include processing medical records, banking documents, travel documents, and any scenario where unstructured data needs to be converted into a machine-readable structured format.
 
-## Installation
+## Prerequisites
 
-From the **repository root**, install the RAG-specific dependencies (which include Docling):
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-pip install -r requirements-rag.txt
-```
-
-**Prerequisites:** Python 3.10–3.13
+**Common requirements:**
+- Python 3.10 - 3.13
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
 
 ## Quick Start
 

@@ -2,15 +2,14 @@
 
 This directory contains tutorials on the Model Context Protocol (MCP), an open protocol for seamless integration between LLM applications and external data sources.
 
-## Installation
+## Prerequisites
 
-From the **repository root**, run:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-pip install -r requirements-agents.txt
-```
-
-**Prerequisites:** Python 3.10-3.13
+**Common requirements:**
+- Python 3.10 - 3.13
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
 
 ## Quick Start
 

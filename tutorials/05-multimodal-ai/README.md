@@ -2,43 +2,14 @@
 
 This directory contains tutorials on working with multimodal AI models including vision, speech, and combined modalities using IBM Granite models and other frameworks.
 
-## Installation
+## Prerequisites
 
-Multimodal AI tutorials require **specialized dependencies**. From the **repository root**, run:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-pip install -r requirements-optional.txt
-```
-
-This will install:
-- Base dependencies (IBM Watsonx, LangChain)
-- PyTorch and vision libraries
-- Image processing (Pillow)
-- Audio processing (soundfile, pytubefix)
-- Video processing (moviepy)
-- Transformers for multimodal models
-
-**Estimated installation time**: 10-15 minutes  
-**Disk space required**: ~2 GB
-
-### Python Version
-- **Minimum**: Python 3.10
-- **Recommended**: Python 3.11
-- **Maximum**: Python 3.12
-
-### GPU Support (Optional)
-
-For faster inference, install PyTorch with CUDA support:
-
-```bash
-# After installing requirements-optional.txt
-
-# For CUDA 11.8
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-
-# For CUDA 12.1
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-```
+**Common requirements:**
+- Python 3.10 - 3.13 (Python 3.11 recommended)
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
 
 ## Quick Start
 

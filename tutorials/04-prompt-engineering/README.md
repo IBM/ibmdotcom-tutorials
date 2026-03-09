@@ -2,27 +2,14 @@
 
 This directory contains tutorials on prompt engineering techniques, optimization strategies, and best practices for effective LLM communication.
 
-## Installation
+## Prerequisites
 
-Most prompt engineering tutorials only require **base dependencies**. From the **repository root**, run:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-pip install -r requirements.txt
-```
-
-For advanced tutorials (e.g., Agentic Chunking, Prompt Caching), you may need:
-
-```bash
-pip install -r requirements-rag.txt
-```
-
-**Estimated installation time**: 2-3 minutes (base), 5-7 minutes (with RAG)  
-**Disk space required**: ~150 MB (base), ~800 MB (with RAG)
-
-### Python Version
-- **Minimum**: Python 3.10
-- **Recommended**: Python 3.11
-- **Maximum**: Python 3.13
+**Common requirements:**
+- Python 3.10 - 3.13 (Python 3.11 recommended)
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
 
 ## Quick Start
 

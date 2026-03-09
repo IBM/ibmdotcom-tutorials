@@ -2,23 +2,14 @@
 
 This directory contains tutorials on building AI agents, agent orchestration, and tool-calling using IBM Watsonx, LangChain, and LangGraph.
 
-## Installation
+## Prerequisites
 
-From the **repository root**, install the agent-specific dependencies:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-pip install -r requirements-agents.txt
-```
-
-This will install:
-- Base dependencies (IBM Watsonx, LangChain)
-- Agent frameworks (LangGraph, LangGraph SDK)
-- Tools and integrations (Tavily, Google Search, Mistral)
-- Web frameworks (Streamlit for agent UIs)
-- IBM services (Watson, COS)
-
-**Estimated installation time**: 4-6 minutes  
-**Disk space required**: ~600 MB
+**Common requirements:**
+- Python 3.10 - 3.13
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
 
 ### Python Version
 - **Minimum**: Python 3.10

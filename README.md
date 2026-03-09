@@ -37,67 +37,21 @@ This repository contains **60+ tutorials** organized by learning intent, coverin
    cd ibmdotcom-tutorials
    ```
 
-2. **Set up your environment:**
+2. **Navigate to a tutorial:**
    ```bash
-   # Create a virtual environment (recommended)
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   cd tutorials/01-rag-and-retrieval  # or any other category
    ```
 
-3. **Install dependencies:**
-
-   We provide multiple requirements files for different tutorial categories:
-
-   **For most tutorials (base dependencies):**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-   **For specific tutorial categories:**
-   ```bash
-   # RAG and retrieval tutorials
-   pip install -r requirements-rag.txt
-
-   # Agent orchestration tutorials
-   pip install -r requirements-agents.txt
-
-   # Multi-agent systems tutorials
-   pip install -r requirements-multiagent.txt
-
-   # Specialized tutorials (multimodal, time series, etc.)
-   pip install -r requirements-optional.txt
-
-   # Development and testing
-   pip install -r requirements-dev.txt
-   ```
-
-   **Installation times:**
-   - Base: 2-3 minutes (~150 MB)
-   - RAG: 5-7 minutes (~800 MB)
-   - Agents: 4-6 minutes (~600 MB)
-   - Multi-agent: 4-5 minutes (~500 MB)
-   - Optional: 10-15 minutes (~2 GB)
-
-4. **Configure credentials:**
+3. **Follow the tutorial's setup instructions:**
+   - Each tutorial includes its own setup and dependency installation instructions
    - Most tutorials require IBM watsonx.ai credentials
-   - See individual tutorial READMEs for credential setup instructions
+   - See individual tutorial READMEs for specific requirements
 
-5. **Start learning:**
+4. **Start learning:**
    ```bash
    jupyter lab
-   # Navigate to tutorials/ and open any .ipynb file
+   # Open any .ipynb file in the tutorial directory
    ```
-
-### Which Requirements File Should I Use?
-
-- **Just getting started?** → `requirements.txt` (base dependencies)
-- **Working with RAG/retrieval?** → `requirements-rag.txt`
-- **Building agents?** → `requirements-agents.txt`
-- **Multi-agent systems?** → `requirements-multiagent.txt`
-- **Multimodal AI, time series, or fine-tuning?** → `requirements-optional.txt`
-- **Contributing to the repo?** → `requirements-dev.txt`
-
-Each tutorial category README has specific installation instructions. See [REQUIREMENTS_MAINTENANCE.md](REQUIREMENTS_MAINTENANCE.md) for details.
 
 ## 📚 Tutorial Categories
 

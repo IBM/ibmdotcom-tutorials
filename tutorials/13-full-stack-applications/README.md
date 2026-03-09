@@ -2,22 +2,15 @@
 
 This directory contains tutorials on building complete applications that integrate LLMs with modern web frameworks.
 
-## Installation
+## Prerequisites
 
-From the **repository root**, run:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-# For Python-based applications
-pip install -r requirements-agents.txt
-
-# For frontend applications (Node.js/React)
-cd tutorials/13-full-stack-applications/[app-directory]
-npm install
-```
-
-**Prerequisites:**
-- Python 3.10-3.13
-- Node.js 16+ (for frontend apps)
+**Common requirements:**
+- Python 3.10 - 3.13
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
+- Node.js 16+ (for frontend applications)
 
 ## Available Tutorials
 

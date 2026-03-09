@@ -2,20 +2,15 @@
 
 This directory contains tutorials on fine-tuning large language models using LoRA (Low-Rank Adaptation) and other parameter-efficient techniques.
 
-## Installation
+## Prerequisites
 
-From the **repository root**, run:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-pip install -r requirements-optional.txt
-```
-
-**GPU Support (Recommended):**
-```bash
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-```
-
-**Prerequisites:** Python 3.10-3.13
+**Common requirements:**
+- Python 3.10 - 3.13
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
+- GPU recommended for training (optional)
 
 ## Quick Start
 

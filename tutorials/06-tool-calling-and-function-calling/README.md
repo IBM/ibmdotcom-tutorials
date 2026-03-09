@@ -2,15 +2,14 @@
 
 This directory contains tutorials on extending LLM capabilities through tool calling and function calling, enabling LLMs to interact with external APIs, databases, and services.
 
-## Installation
+## Prerequisites
 
-From the **repository root**, run:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-pip install -r requirements-agents.txt
-```
-
-**Prerequisites:** Python 3.10-3.13
+**Common requirements:**
+- Python 3.10 - 3.13
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
 
 ## Quick Start
 

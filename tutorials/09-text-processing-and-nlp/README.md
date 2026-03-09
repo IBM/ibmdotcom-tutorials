@@ -2,19 +2,14 @@
 
 This directory contains tutorials on natural language processing, text analysis, classification, and summarization using IBM Watsonx and NLP frameworks.
 
-## Installation
+## Prerequisites
 
-From the **repository root**, run:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-# For basic text processing
-pip install -r requirements.txt
-
-# For ML-based tutorials (PyTorch, transformers)
-pip install -r requirements-optional.txt
-```
-
-**Prerequisites:** Python 3.10-3.13
+**Common requirements:**
+- Python 3.10 - 3.13
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
 
 ## Quick Start
 

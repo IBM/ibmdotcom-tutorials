@@ -2,23 +2,14 @@
 
 This directory contains tutorials on Retrieval-Augmented Generation (RAG) and various retrieval techniques using IBM Watsonx and LangChain.
 
-## Installation
+## Prerequisites
 
-From the **repository root**, install the RAG-specific dependencies:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-pip install -r requirements-rag.txt
-```
-
-This will install:
-- Base dependencies (IBM Watsonx, LangChain)
-- Vector stores (ChromaDB, FAISS, Neo4j)
-- Document processing (docling, PyPDF2, BeautifulSoup)
-- Text processing (sentence-transformers, transformers)
-- RAG evaluation (RAGAS)
-
-**Estimated installation time**: 5-7 minutes  
-**Disk space required**: ~800 MB
+**Common requirements:**
+- Python 3.10 - 3.13
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
 
 ### Python Version
 - **Minimum**: Python 3.10

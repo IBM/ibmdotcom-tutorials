@@ -2,24 +2,14 @@
 
 This directory contains tutorials on building multi-agent systems using various frameworks including CrewAI, BeeAI, ACP, AutoGen, ChatDev, and MetaGPT with IBM Watsonx.
 
-## Installation
+## Prerequisites
 
-From the **repository root**, install the multi-agent dependencies:
+Each tutorial in this directory includes its own setup and installation instructions. Please refer to the individual tutorial files for specific requirements.
 
-```bash
-pip install -r requirements-multiagent.txt
-```
-
-This will install:
-- Base dependencies (IBM Watsonx, LangChain)
-- CrewAI framework with tools
-- ACP SDK for agent communication
-- AutoGen framework
-- Pydantic for data validation
-- ChatDev dependencies
-
-**Estimated installation time**: 4-5 minutes  
-**Disk space required**: ~500 MB
+**Common requirements:**
+- Python 3.10 - 3.13
+- IBM watsonx.ai account
+- Jupyter Notebook or JupyterLab
 
 ### Python Version
 - **Minimum**: Python 3.10
