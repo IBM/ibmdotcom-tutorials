@@ -14,11 +14,12 @@ This repository contains **60+ tutorials** organized by learning intent, coverin
 - **Prompt Engineering** - Master the art of effective LLM communication
 - **Multimodal AI** - Work with vision, speech, and multimodal models
 - **Tool & Function Calling** - Extend LLM capabilities with external tools
-- **Guardrails & Safety** - Build responsible AI systems
+- **Guardrails & Safety** - Build responsible AI systems with security and safety mechanisms
 - **Time Series & Forecasting** - Apply AI to temporal data
 - **Text Processing & NLP** - Classic and modern NLP techniques
 - **Full-Stack AI Applications** - Complete end-to-end AI projects
 - **Observability & Monitoring** - Track and optimize AI system performance
+- **IBM Bob** - Master the AI-powered coding assistant for documentation and automation
 
 ## 🚀 Quick Start
 
@@ -97,6 +98,11 @@ Extend LLM capabilities by integrating external tools and APIs.
 ### [07 - Guardrails & Safety](tutorials/07-guardrails-and-safety/)
 Build responsible AI systems with safety mechanisms and content filtering.
 
+**Featured Tutorials:**
+- [AI Agent Security](tutorials/07-guardrails-and-safety/ai-agent-security/) - Secure AI agents with authentication, RBAC, and data protection
+- [LLM Guardrails](tutorials/07-guardrails-and-safety/llm-guardrails.ipynb) - Input/output filtering and content moderation
+- [Granite Guardian Web App](tutorials/07-guardrails-and-safety/granite-guardian-webapp/) - Real-time content filtering application
+
 ### [08 - Time Series & Forecasting](tutorials/08-time-series-and-forecasting/)
 Apply AI to temporal data for forecasting and analysis.
 
@@ -134,6 +140,13 @@ Parse, convert, and process documents using IBM's open-source Docling toolkit.
 - [Convert Unstructured Data to Structured Data](tutorials/15-docling/unstructured-data-conversion.ipynb) - Transform scanned documents into structured formats
 - [Docling Granite Question Answering](tutorials/01-rag-and-retrieval/docling_granite_question_answering.ipynb) - Document Q&A with Granite 3.1
 - [DeepSeek RAG Reasoning with Docling](tutorials/01-rag-and-retrieval/deepseek_rag_reasoning_docling_watsonx.ipynb) - Advanced RAG with Docling
+
+### [16 - IBM Bob](tutorials/16-ibm-bob/)
+Master IBM Bob, the AI-powered coding assistant for documentation, development, and automation.
+
+**Featured Tutorials:**
+- [AI Documentation with IBM Bob](tutorials/16-ibm-bob/ai-docs-ibm-bob/) - Automatically generate and maintain project documentation
+- [MCP Server Integration](tutorials/16-ibm-bob/mcp-server-integration-ibm-bob/) - Build and integrate Model Context Protocol servers
 
 ## 🎓 Learning Paths
 
@@ -196,6 +209,8 @@ ibmdotcom-tutorials/
 │   ├── 12-observability-and-monitoring/
 │   ├── 13-full-stack-applications/
 │   ├── 14-lora-and-fine-tuning/
+│   ├── 15-docling/
+│   ├── 16-ibm-bob/
 │   └── shared-assets/      # Shared data, images, and resources
 ├── .github/                # GitHub workflows and assets
 └── README.md              # This file

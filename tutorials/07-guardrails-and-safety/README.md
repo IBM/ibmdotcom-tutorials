@@ -24,6 +24,31 @@ Each tutorial in this directory includes its own setup and installation instruct
    ```
 4. Open and run your first tutorial
 
+## Tutorials
+
+### 1. **LLM Guardrails** (`llm-guardrails.ipynb`)
+Introduction to implementing guardrails for LLM applications.
+- **Topics**: Input/output filtering, content moderation, safety checks
+- **Prerequisites**: Basic LLM knowledge
+- **Estimated time**: 30-40 minutes
+
+### 2. **AI Agent Security** (`ai-agent-security/`)
+Comprehensive guide to securing AI agents and multi-agent systems.
+- **Topics**: Authentication, RBAC, secure tool execution, data protection, GDPR compliance
+- **Framework**: IBM BeeAI
+- **Prerequisites**: Agent development knowledge
+- **Estimated time**: 60-90 minutes
+- **Files**:
+  - `ai-agent-security-tutorial.ipynb` - Main tutorial notebook
+  - `secure_tool_wrapper.py` - Secure tool wrapper implementation
+  - `requirements.txt` - Dependencies
+
+### 3. **Granite Guardian Web App** (`granite-guardian-webapp/`)
+Full-stack application demonstrating content moderation with IBM Granite Guardian.
+- **Topics**: Real-time content filtering, web application security
+- **Prerequisites**: Web development basics
+- **Type**: Streamlit Application
+
 ## What are Guardrails?
 
 Safety mechanisms that:

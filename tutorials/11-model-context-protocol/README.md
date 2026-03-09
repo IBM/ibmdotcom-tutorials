@@ -24,6 +24,16 @@ Each tutorial in this directory includes its own setup and installation instruct
    ```
 4. Open and run your first tutorial
 
+## Tutorials
+
+### IBM Tutorial MCP Server (`ibmtutorialmcpserver/`)
+A custom MCP server implementation for IBM tutorials.
+- **Topics**: MCP server development, custom integrations
+- **Prerequisites**: Node.js, TypeScript
+- **Estimated time**: 45-60 minutes
+
+> **Note**: The MCP Server Integration with IBM Bob tutorial has been moved to the [IBM Bob category](../16-ibm-bob/mcp-server-integration-ibm-bob/) for better organization alongside other IBM Bob tutorials.
+
 ## What is MCP?
 
 The Model Context Protocol is an **open standard** that enables:
