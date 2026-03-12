@@ -9,7 +9,6 @@ Each tutorial in this directory includes its own setup and installation instruct
 **Common requirements:**
 - Python 3.10 - 3.13
 - IBM watsonx.ai account
-- Jupyter Notebook or JupyterLab
 
 ### Python Version
 - **Minimum**: Python 3.10
@@ -47,10 +46,7 @@ pip install langchain-core langchain-community
    ```bash
    cd tutorials/03-multi-agent-systems
    ```
-4. Launch Jupyter or run specific tutorial:
-   ```bash
-   jupyter lab  # or jupyter notebook
-   ```
+4. Follow the specific tutorial instructions
 
 ## Tutorials by Framework
 

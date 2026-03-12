@@ -27,7 +27,6 @@ This repository contains **60+ tutorials** organized by learning intent, coverin
 
 - **Python 3.10 - 3.13** (Python 3.11 recommended)
 - **IBM watsonx.ai account** (for most tutorials) - [Sign up here](https://www.ibm.com/watsonx)
-- **Jupyter Notebook** or **JupyterLab**
 - **Git** for cloning the repository
 
 ### Installation

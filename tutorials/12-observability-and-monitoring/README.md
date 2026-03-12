@@ -9,7 +9,6 @@ Each tutorial in this directory includes its own setup and installation instruct
 **Common requirements:**
 - Python 3.10 - 3.13
 - IBM watsonx.ai account
-- Jupyter Notebook or JupyterLab
 
 ## Available Tutorials
 

@@ -6,7 +6,7 @@ It's designed for developers, system administrators, and support engineers who n
 
 ## Features
 
-* **Interactive Interface:** Runs directly in a Jupyter Notebook, prompting the user for an error code and delivering a guide in real-time.
+* **Interactive Interface:** Prompts the user for an error code and delivers a guide in real-time.
 * **Powered by a Local LLM:** Uses the IBM Granite model served locally via [Ollama](https://ollama.com), ensuring your data stays private and the tool works completely offline.
 * **On-Demand Generation:** Get a complete, formatted troubleshooting guide for any error code present in the data source.
 * **Intelligent Suggestions:** If an exact error code isn't found, the tool suggests similar codes that might be what the user was looking for.
@@ -17,7 +17,6 @@ It's designed for developers, system administrators, and support engineers who n
 * **AI Model:** IBM Granite 4.0 Small (`ibm/granite4:latest`)
 * **Model Server:** [Ollama](https://ollama.com)
 * **Backend:** Python 3.7+
-* **Environment:** Jupyter Notebook
 * **Data Handling:** Pandas
 
 ## Getting Started Guide
@@ -30,7 +29,6 @@ Make sure you have the following software installed on your computer:
 
 * **Ollama:** Download and install from the official website: [ollama.com](https://ollama.com). After installation, ensure the Ollama application is running.
 * **Python:** Version 3.7 or higher.
-* **Jupyter:** You can install it with `pip install notebook`.
 
 ### 2. Setup and Installation
 
@@ -50,16 +48,10 @@ Navigate to the folder containing this notebook
 
 
 
-## Launch Jupyter Notebook
+## Usage Instructions
 
-Now, start the Jupyter Notebook server from your terminal:
-
-`jupyter notebook`
-
-## Usage Instructions**
-
-1.  **Open the Notebook:** In the Jupyter interface in your browser, click on the `granite-troubleshooting-guide-generator.ipynb` file to open it.
-2.  **Run the Cells:** Run each cell in the notebook from top to bottom by selecting a cell and pressing **Shift + Enter**.
+1.  **Open the Notebook:** Open the `granite-troubleshooting-guide-generator.ipynb` file in your code editor or notebook environment.
+2.  **Run the Cells:** Run each cell in the notebook from top to bottom.
 3.  **Interact with the Tool:** Once you run the final cell, the interactive troubleshooter will start. An input box will appear.
     * Enter an error code (e.g., `FNRAC1003E`) and press Enter to generate a guide.
     * The tool will remain active, allowing you to look up more codes.
@@ -68,7 +60,7 @@ Now, start the Jupyter Notebook server from your terminal:
 ## Project Structure and Customization
 
 ├── 📄 filenet-errors.csv                  # The data source for the error codes and explanations. <br/>
-├── 📓 local-llm-troubleshooting-generator.ipynb # The main Jupyter Notebook with all the code. <br/>
+├── 📓 local-llm-troubleshooting-generator.ipynb # The main notebook with all the code. <br/>
 ├── 🤖 Modelfile                           # The "recipe" for Ollama to create our custom model. <br/>
 └── 📖 README.md                           # You are here! <br/>
 

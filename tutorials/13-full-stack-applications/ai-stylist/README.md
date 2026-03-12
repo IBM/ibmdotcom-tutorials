@@ -7,7 +7,7 @@ This AI stylist uses various Granite models to describe and categorize your clot
 ### Setup 
 You'll need a WATSONX_APIKEY and a WATSONX_PROJECT_KEY in order to inference the model. You can set these in the `.env` file. Use the `.env.example` file as a reference for how yours should look.
 
-To follow along with the tutorial in Jupyter Notebook format, open `ai-stylist-tutorial.ipynb`.
+To follow along with the tutorial, open `ai-stylist-tutorial.ipynb` in your code editor.
 
 Alternatively, to run the app, follow these basic instructions.
 

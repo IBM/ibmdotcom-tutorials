@@ -9,7 +9,6 @@ Each tutorial in this directory includes its own setup and installation instruct
 **Common requirements:**
 - Python 3.10 - 3.13 (Python 3.11 recommended)
 - IBM watsonx.ai account
-- Jupyter Notebook or JupyterLab
 
 ## Quick Start
 
@@ -18,11 +17,7 @@ Each tutorial in this directory includes its own setup and installation instruct
    ```bash
    cd tutorials/04-prompt-engineering
    ```
-3. Open notebooks in your IDE (VS Code, PyCharm, etc.) or launch Jupyter:
-   ```bash
-   jupyter lab  # or jupyter notebook
-   ```
-4. Open and run your first tutorial: `role-prompting-tutorial.ipynb`
+3. Open and run your first tutorial: `role-prompting-tutorial.ipynb`
 
 ## Tutorials
 

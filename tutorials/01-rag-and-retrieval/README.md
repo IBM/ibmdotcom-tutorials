@@ -9,7 +9,6 @@ Each tutorial in this directory includes its own setup and installation instruct
 **Common requirements:**
 - Python 3.10 - 3.13
 - IBM watsonx.ai account
-- Jupyter Notebook or JupyterLab
 
 ### Python Version
 - **Minimum**: Python 3.10
@@ -23,11 +22,7 @@ Each tutorial in this directory includes its own setup and installation instruct
    ```bash
    cd tutorials/01-rag-and-retrieval
    ```
-3. Open notebooks in your IDE (VS Code, PyCharm, etc.) or launch Jupyter:
-   ```bash
-   jupyter lab  # or jupyter notebook
-   ```
-4. Open and run your first tutorial: `langchain-rag.ipynb`
+3. Open and run your first tutorial: `langchain-rag.ipynb`
 
 ## Tutorials
 

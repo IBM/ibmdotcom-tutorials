@@ -9,7 +9,6 @@ Each tutorial in this directory includes its own setup and installation instruct
 **Common requirements:**
 - Python 3.10 - 3.13
 - IBM watsonx.ai account
-- Jupyter Notebook or JupyterLab
 
 ### Python Version
 - **Minimum**: Python 3.10
@@ -23,11 +22,7 @@ Each tutorial in this directory includes its own setup and installation instruct
    ```bash
    cd tutorials/02-agents-and-orchestration
    ```
-3. For Jupyter notebooks:
-   ```bash
-   jupyter lab  # or jupyter notebook
-   ```
-4. For Streamlit apps (e.g., SQL agent):
+3. For Streamlit apps (e.g., SQL agent):
    ```bash
    cd sql-agent-app
    streamlit run app.py
