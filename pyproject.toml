@@ -1,0 +1,129 @@
+[project]
+name = "ibm-tutorials"
+version = "1.0.0"
+description = "IBM Tutorials Repository - AI, ML, and Generative AI Learning Resources"
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+
+[tool.ruff]
+# Set the maximum line length to 100 characters (balance between readability and modern standards)
+line-length = 100
+
+# Target Python 3.10+ (matches repository requirements)
+target-version = "py310"
+
+# Exclude common directories that shouldn't be linted
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".ruff_cache",
+    "build",
+    "dist",
+    "*.egg-info",
+    ".ipynb_checkpoints",
+    "site",
+    "node_modules",
+]
+
+[tool.ruff.lint]
+# Enable specific rule sets appropriate for educational/tutorial code
+select = [
+    "E",    # pycodestyle errors
+    "F",    # Pyflakes
+    "I",    # isort (import sorting)
+    "N",    # pep8-naming
+    "UP",   # pyupgrade (modern Python syntax)
+    "B",    # flake8-bugbear (common bugs)
+    "C4",   # flake8-comprehensions
+    "SIM",  # flake8-simplify
+    "RET",  # flake8-return
+    "PTH",  # flake8-use-pathlib
+    "S",    # flake8-bandit (security issues including hardcoded secrets)
+]
+
+# Ignore specific rules that may be too strict for tutorial code
+ignore = [
+    "E501",   # Line too long (handled by formatter)
+    "E701",   # Multiple statements on one line (common in tutorials)
+    "E712",   # Comparison to True/False (allow for clarity)
+    "B008",   # Do not perform function calls in argument defaults (common in tutorials)
+    "B007",   # Loop variable not used (common in tutorials)
+    "B023",   # Function definition does not bind loop variable
+    "B904",   # Use `raise from` to specify exception cause (too strict for tutorials)
+    "SIM108", # Use ternary operator (sometimes less readable in tutorials)
+    "SIM115", # Use context manager for opening files (allow for tutorials)
+    "PTH109", # os.getcwd() should be Path.cwd()
+    "PTH113", # os.path.isfile should be Path.is_file()
+    "PTH118", # os.path.join should be Path with / operator
+    "PTH123", # Use pathlib instead of os.path (allow both for educational purposes)
+    "N802",   # Function name should be lowercase (allow flexibility for class methods)
+    "N806",   # Variable in function should be lowercase (allow flexibility)
+    "S101",   # Use of assert (common in tutorials and tests)
+    "S104",   # Possible binding to all interfaces (common in dev servers)
+    "S105",   # Possible hardcoded password (will flag example passwords in tutorials)
+    "S106",   # Possible hardcoded password (function argument)
+    "S107",   # Possible hardcoded password (default argument)
+    "S110",   # try-except-pass (allow in tutorials)
+    "S113",   # Requests without timeout (non-critical for tutorials)
+    "S201",   # Use of debug=True in Flask (common in tutorials)
+    "S311",   # Standard pseudo-random generators (allow in tutorials)
+    "S603",   # subprocess without shell=True check (allow in tutorials)
+    "S607",   # Starting process with partial path (allow in tutorials)
+    "RET504", # Unnecessary assignment before return (allow for clarity)
+    "UP031",  # Use format specifiers (allow % formatting in tutorials)
+    "C408",   # Unnecessary dict() call (allow for clarity)
+    "F401",   # Imported but unused (common in tutorial examples)
+    "F811",   # Redefinition of unused (common in notebooks)
+    "F821",   # Undefined name (common in notebook cells)
+    "F841",   # Local variable assigned but never used (common in tutorials)
+    "E402",   # Module level import not at top (common in notebooks)
+]
+
+# Allow autofix for all enabled rules (when `--fix` is provided)
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+# Ignore import errors in __init__.py files
+"__init__.py" = ["F401", "F403"]
+# Allow print statements in tutorial scripts and examples
+"tutorials/**/*.py" = ["T201"]
+# Allow assert statements in test files
+"**/test_*.py" = ["S101"]
+"**/*_test.py" = ["S101"]
+# Allow example credentials in specific tutorial files (but still warn about real secrets)
+"tutorials/**/*example*.py" = ["S105", "S106", "S107"]
+"tutorials/**/*demo*.py" = ["S105", "S106", "S107"]
+"tutorials/**/*tutorial*.py" = ["S105", "S106", "S107"]
+
+[tool.ruff.lint.isort]
+# Configure import sorting
+known-first-party = ["customer_service_analyzer", "my_retail_advisor", "acp_client"]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[tool.ruff.lint.mccabe]
+# Set maximum complexity to 15 (reasonable for tutorial code)
+max-complexity = 15
+
+[tool.ruff.format]
+# Use double quotes for strings
+quote-style = "double"
+
+# Indent with spaces
+indent-style = "space"
+
+# Respect magic trailing commas
+skip-magic-trailing-comma = false
+
+# Automatically detect line endings
+line-ending = "auto"
+
+# Format docstrings
+docstring-code-format = true

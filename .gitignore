@@ -4,3 +4,19 @@
 .DS_Store
 .cache
 site/
+
+# Ruff cache
+.ruff_cache/
+**/.ruff_cache/
+
+# Pre-commit cache
+.pre-commit-cache/
+
+# Python build artifacts
+*.egg-info/
+dist/
+build/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
