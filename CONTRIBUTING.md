@@ -36,11 +36,12 @@ Thank you for your interest in contributing to the IBM Tutorials repository! Thi
    ```
    > **Note:** This is a one-time setup per repository clone. The pre-commit hook will run automatically on every commit after installation.
 
-3. **Verify your setup:**
+3. **Verify your setup (optional):**
    ```bash
-   pre-commit run --all-files
+   # Test that pre-commit is installed correctly
+   pre-commit run --help
    ```
-   You should see all checks pass. If any fail, the output will show you what needs to be fixed.
+   > **Note:** You don't need to run checks on all files during setup. The pre-commit hooks will automatically check your changes when you commit.
 
 4. **Create a branch for your work:**
    ```bash
@@ -104,20 +105,27 @@ git checkout -b docs/update-readme
 ### 3. Test Your Changes
 
 ```bash
-# Run linting on your changes
-ruff check .
+# Optional: Run linting manually to catch issues early (Python files only)
+ruff check path/to/your_file.py
 
-# Run formatting
-ruff format .
+# Optional: Run formatting manually (Python files only)
+ruff format path/to/your_file.py
 
-# Test pre-commit hooks
-pre-commit run --all-files
+# Optional: Test pre-commit hooks before committing (checks only staged files)
+git add path/to/your_file.py
+pre-commit run
 
 # For tutorials, test the code actually works!
 python your_tutorial.py
 # or
 jupyter notebook your_tutorial.ipynb
 ```
+
+> **Note:**
+> - All manual checks are **optional** - pre-commit hooks will automatically run when you commit
+> - **Ruff** only checks Python files (`.py`, `.pyi`, `.ipynb`)
+> - **Pre-commit hooks** automatically check and fix all file types (Python, Markdown, YAML, etc.)
+> - Many formatting issues are auto-fixed by the hooks - you'll just need to stage the changes and commit again
 
 ### 4. Commit Your Changes
 
@@ -168,8 +176,6 @@ git push origin feature/add-new-tutorial
 
 # Create PR on GitHub
 # - Use a clear, descriptive title
-# - Fill out the PR template
-# - Link any related issues
 ```
 
 ---
@@ -224,22 +230,6 @@ y = generate_response(x)
 # No comments for complex code
 c = retrieve_relevant_docs(x)
 ```
-
-### Jupyter Notebooks
-
-- Keep cells focused and well-organized
-- Add markdown cells to explain concepts
-- Clear all outputs before committing (optional but recommended)
-- Test that notebook runs from top to bottom
-
-### Documentation
-
-- Use clear, concise language
-- Include code examples
-- Add links to relevant resources
-- Keep README files up to date
-
----
 
 ## 📤 Submitting Changes
 
