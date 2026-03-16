@@ -1,0 +1,21 @@
+'use client';
+import { jsx } from 'react/jsx-runtime';
+import { mergeProps } from '@zag-js/react';
+import { forwardRef } from 'react';
+import { createSplitProps } from '../../utils/create-split-props.js';
+import { ark } from '../factory.js';
+import { splitPresenceProps } from '../presence/split-presence-props.js';
+import { usePresence } from '../presence/use-presence.js';
+import { PresenceProvider } from '../presence/use-presence-context.js';
+import { ColorPickerProvider } from './use-color-picker-context.js';
+
+const ColorPickerRootProvider = forwardRef((props, ref) => {
+  const [presenceProps, colorPickerProps] = splitPresenceProps(props);
+  const [{ value: colorPicker }, localProps] = createSplitProps()(colorPickerProps, ["value"]);
+  const presence = usePresence(mergeProps({ present: colorPicker.open }, presenceProps));
+  const mergedProps = mergeProps(colorPicker.getRootProps(), localProps);
+  return /* @__PURE__ */ jsx(ColorPickerProvider, { value: colorPicker, children: /* @__PURE__ */ jsx(PresenceProvider, { value: presence, children: /* @__PURE__ */ jsx(ark.div, { ...mergedProps, ref }) }) });
+});
+ColorPickerRootProvider.displayName = "ColorPickerRootProvider";
+
+export { ColorPickerRootProvider };

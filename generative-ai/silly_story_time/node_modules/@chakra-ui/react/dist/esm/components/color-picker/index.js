@@ -1,5 +1,0 @@
-"use strict";
-export { ColorPickerArea, ColorPickerAreaBackground, ColorPickerAreaThumb, ColorPickerChannelInput, ColorPickerChannelSlider, ColorPickerChannelSliderLabel, ColorPickerChannelSliderThumb, ColorPickerChannelSliderTrack, ColorPickerChannelSliderValueText, ColorPickerChannelText, ColorPickerContent, ColorPickerContext, ColorPickerControl, ColorPickerEyeDropper, ColorPickerEyeDropperTrigger, ColorPickerFormatSelect, ColorPickerFormatTrigger, ColorPickerHiddenInput, ColorPickerInput, ColorPickerLabel, ColorPickerPositioner, ColorPickerPropsProvider, ColorPickerRoot, ColorPickerRootProvider, ColorPickerSliders, ColorPickerSwatch, ColorPickerSwatchGroup, ColorPickerSwatchIndicator, ColorPickerSwatchTrigger, ColorPickerTransparencyGrid, ColorPickerTrigger, ColorPickerValueSwatch, ColorPickerValueText, ColorPickerView, getColorChannels, useColorPickerStyles } from './color-picker.js';
-export { parseColor, useColorPicker, useColorPickerContext } from '@ark-ui/react/color-picker';
-import * as namespace from './namespace.js';
-export { namespace as ColorPicker };

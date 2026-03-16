@@ -1,0 +1,5 @@
+beeai-framework
+beeai-framework[duckduckgo]
+langchain-core
+langchain-community
+pandas

@@ -1,0 +1,110 @@
+# Pre-commit hooks configuration for IBM Tutorials Repository
+# See https://pre-commit.com for more information
+
+# To install: pip install pre-commit && pre-commit install
+# To run manually: pre-commit run --all-files
+
+default_language_version:
+  python: python3.11
+
+repos:
+  # Ruff - Fast Python linter and formatter (replaces flake8, isort, pyupgrade, etc.)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
+    hooks:
+      # Run the Ruff linter
+      - id: ruff
+        name: ruff-lint
+        args: [--fix, --exit-non-zero-on-fix]
+        types_or: [python, pyi, jupyter]
+
+      # Run the Ruff formatter
+      - id: ruff-format
+        name: ruff-format
+        types_or: [python, pyi, jupyter]
+
+  # General file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      # Prevent committing large files (>500KB)
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+
+      # Check for files that would conflict in case-insensitive filesystems
+      - id: check-case-conflict
+
+      # Check for merge conflict strings
+      - id: check-merge-conflict
+
+      # Check YAML syntax
+      - id: check-yaml
+        args: ['--unsafe']  # Allow custom YAML tags
+        exclude: ^tutorials/.*/uv\.lock$
+
+      # Check TOML syntax
+      - id: check-toml
+
+      # Check JSON syntax
+      - id: check-json
+        exclude: 'tsconfig.*\.json$'
+
+      # Ensure files end with a newline
+      - id: end-of-file-fixer
+        exclude: '\.ipynb$'
+
+      # Remove trailing whitespace
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+        exclude: '\.ipynb$'
+
+      # Fix mixed line endings
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+        exclude: '\.ipynb$'
+
+  # Jupyter notebook specific checks
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.9.1
+    hooks:
+      # Run Ruff on Jupyter notebooks
+      - id: nbqa-ruff
+        args: [--fix]
+        additional_dependencies: [ruff==0.8.4]
+
+  # Secret detection - detect-secrets for finding hardcoded credentials
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        name: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: |
+          (?x)^(
+              .*\.lock$|
+              .*package-lock\.json$|
+              .*\.ipynb$
+          )$
+
+# Configuration for specific file types
+files: ''
+exclude: |
+  (?x)^(
+      .*\.egg-info/.*|
+      .*/__pycache__/.*|
+      .*/\.ipynb_checkpoints/.*|
+      .*/node_modules/.*|
+      .*/build/.*|
+      .*/dist/.*|
+      .*\.min\.js|
+      .*\.min\.css|
+      .*/uv\.lock$
+  )$
+
+# Fail fast - stop running hooks after first failure
+fail_fast: false
+
+# Minimum pre-commit version
+minimum_pre_commit_version: '3.0.0'
+
+# Made with Bob

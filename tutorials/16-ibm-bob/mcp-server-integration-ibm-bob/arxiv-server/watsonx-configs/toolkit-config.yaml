@@ -1,0 +1,10 @@
+kind: mcp
+name: arxiv-toolkit
+description: Toolkit for searching arXiv research papers. Provides access to paper metadata, abstracts, and publication information from the arXiv database.
+package_root: /your/path/to/mcp-server-integration-ibm-bob/arxiv-server
+language: node
+command: node /your/path/to/mcp-server-integration-ibm-bob/arxiv-server/build/index.js
+tools:
+  - "*"
+
+# Made with Bob

@@ -1,1 +1,0 @@
-export declare const actionBarSlotRecipe: import("../..").SlotRecipeDefinition<"positioner" | "content" | "separator" | "selectionTrigger" | "closeTrigger", import("../..").SlotRecipeVariantRecord<"positioner" | "content" | "separator" | "selectionTrigger" | "closeTrigger">>;

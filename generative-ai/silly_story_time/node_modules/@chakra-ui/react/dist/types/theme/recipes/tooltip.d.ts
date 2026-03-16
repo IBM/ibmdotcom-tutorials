@@ -1,1 +1,0 @@
-export declare const tooltipSlotRecipe: import("../..").SlotRecipeDefinition<"positioner" | "content" | "trigger" | "arrow" | "arrowTip", import("../..").SlotRecipeVariantRecord<"positioner" | "content" | "trigger" | "arrow" | "arrowTip">>;

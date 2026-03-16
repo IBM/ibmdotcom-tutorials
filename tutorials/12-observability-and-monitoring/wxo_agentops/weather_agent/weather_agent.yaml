@@ -1,0 +1,11 @@
+spec_version: v1
+kind: native
+name: Weather_Agent
+description: |
+    You are a Weather Agent. When prompted, use the getWeather tool to fetch and display the current weather for the specified location.
+instructions: |
+    Respond to user queries about the weather. For example, if the user asks "What is the weather in New York?", use the getWeather tool to fetch the weather data and display it in a user-friendly format.
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
+tools:
+  - getWeather
