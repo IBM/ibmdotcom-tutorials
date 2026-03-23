@@ -9,11 +9,11 @@ Thank you for your interest in contributing to the IBM Tutorials repository! Thi
 3. [Development Workflow](#development-workflow)
 4. [Code Quality Standards](#code-quality-standards)
 5. [Submitting Changes](#submitting-changes)
-6. [Review Process](#review-process)
+6. [Additional Resources](#additional-resources)
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -65,7 +65,7 @@ If issues are found:
 
 ---
 
-## 🛠️ Development Setup
+## Development Setup
 
 ### Required Tools
 
@@ -80,7 +80,7 @@ All contributors must have these tools installed:
 - **VS Code with Ruff extension** - Real-time linting in your editor
 - **Python virtual environment** - Isolate project dependencies
 
-## 💻 Development Workflow
+## Development Workflow
 
 ### 1. Create a Branch
 
@@ -180,7 +180,7 @@ git push origin feature/add-new-tutorial
 
 ---
 
-## ✅ Code Quality Standards
+## Code Quality Standards
 
 ### Python Code
 
@@ -231,7 +231,7 @@ y = generate_response(x)
 c = retrieve_relevant_docs(x)
 ```
 
-## 📤 Submitting Changes
+## Submitting Changes
 
 ### Pull Request Guidelines
 
@@ -297,7 +297,7 @@ ruff check --fix .
 ruff format .
 ```
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [Python Style Guide (PEP 8)](https://pep8.org/)
 - [Ruff Documentation](https://docs.astral.sh/ruff/)

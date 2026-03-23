@@ -187,7 +187,9 @@ We welcome contributions! Whether you want to:
 - 📝 Improve documentation
 - 🔧 Submit a pull request
 
-Please see our [Code of Conduct](CODE_OF_CONDUCT.md) for community guidelines.
+Please see our [Contributing Guide](CONTRIBUTING.md) for detailed instructions on how to contribute, including setup, development workflow, and code quality standards.
+
+Also see our [Code of Conduct](CODE_OF_CONDUCT.md) for community guidelines.
 
 ## 📊 Repository Structure
 
