@@ -69,6 +69,7 @@ Create autonomous AI agents that can plan, reason, and execute complex tasks.
 **Featured Tutorials:**
 - [LLM Agent Orchestration](tutorials/02-agents-and-orchestration/llm-agent-orchestration.ipynb)
 - [Building Agentic Workflows with LangGraph](tutorials/02-agents-and-orchestration/building-agentic-workflow-langgraph.ipynb)
+- [Text Classification Agent with watsonx Orchestrate](tutorials/02-agents-and-orchestration/wxo-text-classification/) - Build sentiment analysis agents
 - [SQL Agent Application](tutorials/02-agents-and-orchestration/sql-agent-app/) - Full-stack agent app
 
 ### [03 - Multi-Agent Systems](tutorials/03-multi-agent-systems/)

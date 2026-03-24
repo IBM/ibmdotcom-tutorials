@@ -1,0 +1,4 @@
+ibm-watsonx-orchestrate
+transformers>=4.30.0
+torch>=2.0.0
+nltk>=3.8.0
