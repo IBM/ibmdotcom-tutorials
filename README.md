@@ -48,10 +48,8 @@ This repository contains **60+ tutorials** organized by learning intent, coverin
    - See individual tutorial READMEs for specific requirements
 
 4. **Start learning:**
-   ```bash
-   jupyter lab
-   # Open any .ipynb file in the tutorial directory
-   ```
+   - Open any `.ipynb` file in your IDE (VS Code, PyCharm, etc.)
+   - Follow the tutorial's step-by-step instructions
 
 ## 📚 Tutorial Categories
 
@@ -69,6 +67,7 @@ Create autonomous AI agents that can plan, reason, and execute complex tasks.
 **Featured Tutorials:**
 - [LLM Agent Orchestration](tutorials/02-agents-and-orchestration/llm-agent-orchestration.ipynb)
 - [Building Agentic Workflows with LangGraph](tutorials/02-agents-and-orchestration/building-agentic-workflow-langgraph.ipynb)
+- [Text Classification Agent with watsonx Orchestrate](tutorials/02-agents-and-orchestration/wxo-text-classification/) - Build sentiment analysis agents
 - [SQL Agent Application](tutorials/02-agents-and-orchestration/sql-agent-app/) - Full-stack agent app
 
 ### [03 - Multi-Agent Systems](tutorials/03-multi-agent-systems/)
@@ -187,7 +186,9 @@ We welcome contributions! Whether you want to:
 - 📝 Improve documentation
 - 🔧 Submit a pull request
 
-Please see our [Code of Conduct](CODE_OF_CONDUCT.md) for community guidelines.
+Please see our [Contributing Guide](CONTRIBUTING.md) for detailed instructions on how to contribute, including setup, development workflow, and code quality standards.
+
+Also see our [Code of Conduct](CODE_OF_CONDUCT.md) for community guidelines.
 
 ## 📊 Repository Structure
 

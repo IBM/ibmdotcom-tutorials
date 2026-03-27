@@ -78,6 +78,14 @@ Explore LangChain's built-in tools and create custom tools.
 - **Estimated time**: 30-40 minutes
 - **Location**: Also in `tutorials/06-tool-calling-and-function-calling/`
 
+### 8. **Text Classification Agent with watsonx Orchestrate** (`wxo-text-classification/`)
+Build an AI agent for sentiment analysis using watsonx Orchestrate and Python.
+- **Topics**: watsonx Orchestrate, text classification, sentiment analysis, NLP, AI agents, tool calling
+- **Prerequisites**: Python 3.11+, watsonx Orchestrate Developer Edition (free 30-day trial)
+- **Estimated time**: 60-75 minutes
+- **Type**: Full Tutorial with Code
+- **What you'll build**: A sentiment analysis agent that classifies product reviews as positive, negative, or neutral using a fine-tuned DistilBERT model and IBM Granite
+
 ## Key Concepts
 
 ### What is an AI Agent?
@@ -155,7 +163,7 @@ pip install langgraph_sdk langgraph-prebuilt
 ```
 
 ### Issue: Streamlit app won't start
-**Solution**: 
+**Solution**:
 1. Check if Streamlit is installed: `pip install streamlit`
 2. Verify you're in the correct directory
 3. Check for port conflicts: `streamlit run app.py --server.port 8502`
@@ -166,7 +174,7 @@ pip install langgraph_sdk langgraph-prebuilt
 - Check tool schema format matches LLM requirements
 
 ### Issue: Agent gets stuck in loops
-**Solution**: 
+**Solution**:
 - Add max iterations limit
 - Improve tool descriptions
 - Add explicit stopping conditions
