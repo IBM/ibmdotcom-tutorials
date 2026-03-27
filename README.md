@@ -48,10 +48,8 @@ This repository contains **60+ tutorials** organized by learning intent, coverin
    - See individual tutorial READMEs for specific requirements
 
 4. **Start learning:**
-   ```bash
-   jupyter lab
-   # Open any .ipynb file in the tutorial directory
-   ```
+   - Open any `.ipynb` file in your IDE (VS Code, PyCharm, etc.)
+   - Follow the tutorial's step-by-step instructions
 
 ## 📚 Tutorial Categories
 
