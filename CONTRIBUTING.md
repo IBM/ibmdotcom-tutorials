@@ -104,28 +104,99 @@ git checkout -b docs/update-readme
 
 ### 3. Test Your Changes
 
+#### Recommended Workflow: Using Pre-commit
+
+The most efficient way to test your changes is using `pre-commit run`, which runs all configured hooks on your staged files. This workflow catches issues early and matches what will happen during commit.
+
+**Step-by-step workflow:**
+
 ```bash
-# Optional: Run linting manually to catch issues early (Python files only)
-ruff check path/to/your_file.py
+# 1. Stage your changes
+git add path/to/your_file.py path/to/your_file.md
 
-# Optional: Run formatting manually (Python files only)
-ruff format path/to/your_file.py
+# 2. Run pre-commit checks on staged files
+pre-commit run
+```
 
-# Optional: Test pre-commit hooks before committing (checks only staged files)
+**What happens next:**
+
+- **First run** - Several checks may fail, but many issues are automatically fixed:
+  - ✓ Formatting issues (spacing, indentation) - **auto-fixed**
+  - ✓ Trailing whitespace - **auto-fixed**
+  - ✓ Import sorting - **auto-fixed**
+  - ⚠️ Linting errors - **may require manual fixes**
+  - ⚠️ Secret detection - **requires manual review**
+
+```bash
+# 3. Stage the auto-fixed files
+git add path/to/your_file.py path/to/your_file.md
+
+# 4. Run pre-commit again
+pre-commit run
+```
+
+- **Second run** - Most formatting passes, but critical issues may remain:
+  - ⚠️ **Potential secrets detected** - Review and fix (see below)
+
+**Handling secret detection:**
+
+If `detect-secrets` flags a potential secret:
+
+```python
+# Option 1: Use environment variable (preferred)
+api_key = os.getenv("API_KEY")
+
+# Option 2: If it's a false-positive or tutorial example
+api_key = "example_key_12345"  # pragma: allowlist secret
+```
+
+```bash
+# 5. Stage fixes and run final check
 git add path/to/your_file.py
 pre-commit run
+```
 
-# For tutorials, test the code actually works!
+- **Final run** - All checks pass ✓
+  - Your files are ready to commit!
+
+#### Test Functionality
+
+For tutorials and code examples, always verify the code actually works:
+
+```bash
+# Test Python scripts
 python your_tutorial.py
-# or
+
+# Test Jupyter notebooks
 jupyter notebook your_tutorial.ipynb
 ```
 
+#### Optional Checks
+
+If you want to check specific issues before staging files, you can run individual tools:
+
+```bash
+# Check Python linting issues
+ruff check path/to/your_file.py
+
+# Auto-fix Python linting issues
+ruff check --fix path/to/your_file.py
+
+# Format Python code
+ruff format path/to/your_file.py
+
+# Run pre-commit on all files (not just staged)
+pre-commit run --all-files
+
+# Run a specific hook
+pre-commit run ruff --all-files
+```
+
 > **Note:**
-> - All manual checks are **optional** - pre-commit hooks will automatically run when you commit
+> - `pre-commit run` only checks **staged files** (files added with `git add`)
 > - **Ruff** only checks Python files (`.py`, `.pyi`, `.ipynb`)
-> - **Pre-commit hooks** automatically check and fix all file types (Python, Markdown, YAML, etc.)
-> - Many formatting issues are auto-fixed by the hooks - you'll just need to stage the changes and commit again
+> - **Pre-commit hooks** check **all file types** (Python, Markdown, YAML, etc.)
+> - Many issues are **auto-fixed** - just stage the changes and run again
 
 ### 4. Commit Your Changes
 
