@@ -41,6 +41,15 @@ Build and integrate Model Context Protocol (MCP) servers with IBM Bob for enhanc
   - `arxiv-server/` - Complete MCP server implementation
   - `images/` - Tutorial screenshots
 
+  ### 3. **LLM Code Review with IBM Bob** (`llm-code-review-with-ibm-bob/`)
+  Learn how to use IBM Bob to perform automated code reviews and generate actionable feedback for pull requests.
+  - **Topics**: LLM-driven code review, automated suggestions, integrating with CI/CD
+  - **Prerequisites**: IBM Bob installed, familiarity with Git and pull requests
+  - **Estimated time**: 30-60 minutes
+  - **Files**:
+    - `llm-code-review-with-ibm-bob.md` - Main tutorial
+    - `examples/` - Sample repositories and config files
+
 ## What is IBM Bob?
 
 IBM Bob is an AI-powered coding assistant that helps developers:
