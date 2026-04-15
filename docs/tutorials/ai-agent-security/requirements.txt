@@ -1,3 +1,0 @@
-beeai-framework
-beeai_framework[duckduckgo]
-ddgs
