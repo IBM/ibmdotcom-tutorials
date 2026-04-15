@@ -149,19 +149,51 @@ Master IBM Bob, the AI-powered coding assistant for documentation, development, 
 ## 🎓 Learning Paths
 
 ### Beginner Path: Getting Started with AI
-1. [LangChain RAG](tutorials/01-rag-and-retrieval/langchain-rag.ipynb)
-2. [LLM Agent Orchestration](tutorials/02-agents-and-orchestration/llm-agent-orchestration.ipynb)
-3. [Function Calling](tutorials/06-tool-calling-and-function-calling/function-calling.ipynb)
+Perfect for those new to AI and LLMs. Start here to build foundational knowledge.
+
+1. [LangChain RAG](tutorials/01-rag-and-retrieval/langchain-rag.ipynb) - Build your first document Q&A system
+2. [Docling Granite Question Answering](tutorials/01-rag-and-retrieval/docling_granite_question_answering.ipynb) - Document processing with Granite 3.1
+3. [LLM Agent Orchestration](tutorials/02-agents-and-orchestration/llm-agent-orchestration.ipynb) - Create autonomous AI agents
+4. [Function Calling](tutorials/06-tool-calling-and-function-calling/function-calling.ipynb) - Extend LLM capabilities with tools
+5. [Role Prompting](tutorials/04-prompt-engineering/role-prompting-tutorial.ipynb) - Master effective prompt techniques
 
 ### Intermediate Path: Building AI Systems
-1. [Agentic RAG](tutorials/01-rag-and-retrieval/agentic-rag.ipynb)
-2. [Building Agentic Workflows](tutorials/02-agents-and-orchestration/building-agentic-workflow-langgraph.ipynb)
-3. [RAG Evaluation](tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb)
+For developers ready to build more sophisticated AI applications.
+
+1. [Agentic RAG](tutorials/01-rag-and-retrieval/agentic-rag.ipynb) - RAG with reasoning capabilities
+2. [Building Agentic Workflows with LangGraph](tutorials/02-agents-and-orchestration/building-agentic-workflow-langgraph.ipynb) - Advanced agent orchestration
+3. [Text Classification Agent with watsonx Orchestrate](tutorials/02-agents-and-orchestration/wxo-text-classification/) - Build sentiment analysis agents
+4. [RAG Evaluation with Ragas](tutorials/01-rag-and-retrieval/rag-evaluation-ragas.ipynb) - Measure and optimize RAG performance
+5. [Multimodal AI with Granite Vision](tutorials/05-multimodal-ai/ppt-ai-analyzer-granite-vision.ipynb) - Work with vision models
+6. [LLM Guardrails](tutorials/07-guardrails-and-safety/llm-guardrails.ipynb) - Build responsible AI systems
+7. [Convert Unstructured Data with Docling](tutorials/15-docling/unstructured-data-conversion.ipynb) - Transform documents into structured formats
 
 ### Advanced Path: Production AI
-1. [Multi-Agent Systems](tutorials/03-multi-agent-systems/)
-2. [Observability & Monitoring](tutorials/12-observability-and-monitoring/)
-3. [Full-Stack Applications](tutorials/13-full-stack-applications/)
+Master enterprise-grade AI systems with multi-agent collaboration and observability.
+
+1. [Multi-Agent Customer Service Analysis](tutorials/03-multi-agent-systems/multiagent-collab-cs-call-center-analysis/) - Collaborative AI systems
+2. [BeeAI Agent-to-Agent Communication](tutorials/03-multi-agent-systems/a2a_tutorial/) - Agent collaboration protocols
+3. [AI Agent Security](tutorials/07-guardrails-and-safety/ai-agent-security/) - Secure agents with authentication and RBAC
+4. [watsonx Orchestrate with AgentOps](tutorials/12-observability-and-monitoring/wxo_agentops/) - Monitor agent performance
+5. [watsonx Observability with Langfuse](tutorials/12-observability-and-monitoring/wxo_observability_langfuse/) - Track and optimize AI systems
+6. [SQL Agent Application](tutorials/02-agents-and-orchestration/sql-agent-app/) - Full-stack agent application
+7. [DeepSeek RAG Reasoning with Docling](tutorials/01-rag-and-retrieval/deepseek_rag_reasoning_docling_watsonx.ipynb) - Advanced RAG techniques
+
+### Specialized Path: Multimodal & Full-Stack AI
+Build complete applications with vision, speech, and multimodal capabilities.
+
+1. [Granite Speech 3.3](tutorials/05-multimodal-ai/granite-speech-3.3-8b.ipynb) - Speech processing and transcription
+2. [AI Personal Trainer with Llama](tutorials/05-multimodal-ai/ai-personal-trainer-llama/) - Vision-based fitness analysis
+3. [AI Stylist](tutorials/13-full-stack-applications/ai-stylist/) - Complete multimodal fashion advisor
+4. [Silly Story Time](tutorials/13-full-stack-applications/silly_story_time/) - Interactive storytelling application
+5. [Granite Guardian Web App](tutorials/07-guardrails-and-safety/granite-guardian-webapp/) - Real-time content filtering
+
+### IBM Bob Path: AI-Powered Development
+Master IBM Bob for documentation, automation, and development workflows.
+
+1. [AI Documentation with IBM Bob](tutorials/16-ibm-bob/ai-docs-ibm-bob/) - Automatically generate project documentation
+2. [MCP Server Integration](tutorials/16-ibm-bob/mcp-server-integration-ibm-bob/) - Build Model Context Protocol servers
+3. [Model Context Protocol Basics](tutorials/11-model-context-protocol/) - Understand MCP fundamentals
 
 ## 🛠️ Technologies Used
 
