@@ -1,0 +1,15 @@
+'use client';
+import { jsx } from 'react/jsx-runtime';
+import { mergeProps } from '@zag-js/react';
+import { forwardRef } from 'react';
+import { ark } from '../factory.js';
+import { useEditableContext } from './use-editable-context.js';
+
+const EditableCancelTrigger = forwardRef((props, ref) => {
+  const editable = useEditableContext();
+  const mergedProps = mergeProps(editable.getCancelTriggerProps(), props);
+  return /* @__PURE__ */ jsx(ark.button, { ...mergedProps, ref });
+});
+EditableCancelTrigger.displayName = "EditableCancelTrigger";
+
+export { EditableCancelTrigger };

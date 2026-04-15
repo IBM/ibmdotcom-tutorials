@@ -1,1 +1,0 @@
-export declare const toastSlotRecipe: import("../..").SlotRecipeDefinition<"root" | "closeTrigger" | "title" | "description" | "indicator" | "actionTrigger", import("../..").SlotRecipeVariantRecord<"root" | "closeTrigger" | "title" | "description" | "indicator" | "actionTrigger">>;

@@ -1,1 +1,0 @@
-export declare const collapsibleSlotRecipe: import("../..").SlotRecipeDefinition<"root" | "content" | "indicator" | "trigger", import("../..").SlotRecipeVariantRecord<"root" | "content" | "indicator" | "trigger">>;

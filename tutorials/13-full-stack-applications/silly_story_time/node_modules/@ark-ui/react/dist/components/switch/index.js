@@ -1,0 +1,12 @@
+export { SwitchContext } from './switch-context.js';
+export { SwitchControl } from './switch-control.js';
+export { SwitchHiddenInput } from './switch-hidden-input.js';
+export { SwitchLabel } from './switch-label.js';
+export { SwitchRoot } from './switch-root.js';
+export { SwitchRootProvider } from './switch-root-provider.js';
+export { SwitchThumb } from './switch-thumb.js';
+export { useSwitch } from './use-switch.js';
+export { useSwitchContext } from './use-switch-context.js';
+import * as _switch from './switch.js';
+export { _switch as Switch };
+export { anatomy as switchAnatomy } from '@zag-js/switch';

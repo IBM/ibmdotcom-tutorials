@@ -1,0 +1,28 @@
+// src/components/skeleton.ts
+import {
+  cssVar,
+  defineStyle,
+  defineStyleConfig
+} from "@chakra-ui/styled-system";
+var $startColor = cssVar("skeleton-start-color");
+var $endColor = cssVar("skeleton-end-color");
+var baseStyle = defineStyle({
+  [$startColor.variable]: "colors.gray.100",
+  [$endColor.variable]: "colors.gray.400",
+  _dark: {
+    [$startColor.variable]: "colors.gray.800",
+    [$endColor.variable]: "colors.gray.600"
+  },
+  background: $startColor.reference,
+  borderColor: $endColor.reference,
+  opacity: 0.7,
+  borderRadius: "sm"
+});
+var skeletonTheme = defineStyleConfig({
+  baseStyle
+});
+
+export {
+  skeletonTheme
+};
+//# sourceMappingURL=chunk-X6XFE4TF.mjs.map

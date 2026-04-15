@@ -1,2 +1,0 @@
-"use strict";
-export { StepsCompletedContent as CompletedContent, StepsContent as Content, StepsContext as Context, StepsDescription as Description, StepsIndicator as Indicator, StepsItem as Item, StepsItemContext as ItemContext, StepsList as List, StepsNextTrigger as NextTrigger, StepsNumber as Number, StepsPrevTrigger as PrevTrigger, StepsPropsProvider as PropsProvider, StepsRoot as Root, StepsRootProvider as RootProvider, StepsSeparator as Separator, StepsStatus as Status, StepsTitle as Title, StepsTrigger as Trigger } from './steps.js';

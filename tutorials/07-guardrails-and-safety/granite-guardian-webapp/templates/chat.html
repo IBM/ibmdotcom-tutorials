@@ -1,0 +1,404 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #chat-container {
+            border: 1px solid #ccc;
+            height: 300px;
+            overflow-y: auto;
+            padding: 5px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        
+        .user-message {
+            text-align: right;
+        }
+
+        .user-message > div {
+            display: inline-block;
+            background-color: #cccccc;
+            border-radius: 5px;
+            padding: 8px;
+            max-width: 70%;
+        }
+        
+        .assistant-message {
+            text-align: left;
+            background-color: #a7f0ba;
+            border-radius: 5px;
+            padding: 8px;
+        }
+        .error-message {
+            text-align: left;
+            background-color: #a6c8ff;
+            border-radius: 5px;
+            padding: 8px;
+            color: #000611;
+        }
+        #input-container {
+            display: flex;
+            gap: 10px;
+        }
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #send-btn {
+            padding: 10px 20px;
+            background-color: #0f62fe;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #send-btn:hover {
+            background-color: #0f62fe;
+        }
+        #send-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>LLM Content Moderation with Granite Guardian</h1>
+    
+    <div id="chat-container"></div>
+    
+    <div id="input-container">
+        <input type="text" id="user-input" placeholder="Type your message here..." />
+        <button id="send-btn">Send</button>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+     function addMessage(message, isUser, isError = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : (isError ? 'error-message' : 'assistant-message')}`;
+    
+    // Create the inner bubble div
+        const bubbleDiv = document.createElement('div');
+        bubbleDiv.textContent = message;
+        messageDiv.appendChild(bubbleDiv);
+    
+        chatContainer.appendChild(messageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            // Add user message to chat
+            addMessage(message, true);
+            
+            // Clear input and disable send button
+            userInput.value = '';
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Sending...';
+
+            // Send request to Flask backend
+            const formData = new FormData();
+            formData.append('user_prompt', message);
+            formData.append('conversation_history', ''); // Consider expanding this if needed for longer demonstration
+
+        fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'safe') {
+                    // For safe content, show the response first
+                    addMessage(data.response, false);
+                    
+                    let moderationMsg = `Content flagged as safe\n`;
+                    moderationMsg += `Granite Guardian: ${data.details}\n`;
+
+                     if (data.guardian_detection && data.guardian_detection.error) {
+                        moderationMsg += `Guardian API Error: ${data.guardian_detection.error}`;
+                    } else if (data.guardian_detection) {
+                        // Remove the "text" field from guardian results before displaying
+                        let guardianCopy = JSON.parse(JSON.stringify(data.guardian_detection));
+                        if (guardianCopy.text) {
+                            delete guardianCopy.text;
+                        }
+                        
+                        moderationMsg += `\nGuardian Detectors Results:\n`;
+                        moderationMsg += JSON.stringify(guardianCopy, null, 2);
+                    }
+                    
+                    addMessage(moderationMsg, false, true);
+                    
+                } else if (data.status === 'harmful') {
+                    // For harmful content, show detailed moderation info
+                    let moderationMsg = `Content flagged as harmful\n`;
+                    moderationMsg += `Granite Guardian: ${data.details}\n`;
+                    
+                    if (data.guardian_detection && data.guardian_detection.error) {
+                        moderationMsg += `Guardian API Error: ${data.guardian_detection.error}`;
+                    } else if (data.guardian_detection) {
+                        // Remove the "text" field from guardian results before displaying
+                        let guardianCopy = JSON.parse(JSON.stringify(data.guardian_detection));
+                        if (guardianCopy.text) {
+                            delete guardianCopy.text;
+                        }
+                        
+                        moderationMsg += `\nGuardian Detectors Results:\n`;
+                        moderationMsg += JSON.stringify(guardianCopy, null, 2);
+                    }
+                    
+                    addMessage(moderationMsg, false, true);
+                    
+                } else {
+                    // For unclear or error status
+                    addMessage(`Status: ${data.status}\nDetails: ${JSON.stringify(data, null, 2)}`, false, true);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                addMessage('Error, please try again.', false, true);
+            })
+            
+            .finally(() => {
+                // Re-enable send button
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Send';
+                userInput.focus();
+            });
+        }
+
+        // Send message when clicking send button
+        sendBtn.addEventListener('click', sendMessage);
+
+        // Send message when pressing Enter
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Focus on input when page loads
+        userInput.focus();
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #chat-container {
+            border: 1px solid #ccc;
+            height: 300px;
+            overflow-y: auto;
+            padding: 5px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        
+        .user-message {
+            text-align: right;
+        }
+
+        .user-message > div {
+            display: inline-block;
+            background-color: #cccccc;
+            border-radius: 5px;
+            padding: 8px;
+            max-width: 70%;
+        }
+        
+        .assistant-message {
+            text-align: left;
+            background-color: #6fdc8c;
+            border-radius: 5px;
+            padding: 8px;
+        }
+        .error-message {
+            text-align: left;
+            background-color: #a6c8ff;
+            border-radius: 5px;
+            padding: 8px;
+            color: #000611;
+        }
+        #input-container {
+            display: flex;
+            gap: 10px;
+        }
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #send-btn {
+            padding: 10px 20px;
+            background-color: #0f62fe;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #send-btn:hover {
+            background-color: #0f62fe;
+        }
+        #send-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>LLM Content Moderation with Granite Guardian</h1>
+    
+    <div id="chat-container"></div>
+
+    <div id="assistant-response"></div>
+
+    <div id="detector-response">{{ detector_response }}</div>
+    
+    <div id="input-container">
+        <input type="text" id="user-input" placeholder="Type your message here..." />
+        <button id="send-btn">Send</button>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        let conversationHistory = [];
+
+        function addMessage(message, isUser, isError = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : (isError ? 'error-message' : 'assistant-message')}`;
+        
+            // Create the inner bubble div
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.textContent = message;
+            messageDiv.appendChild(bubbleDiv);
+        
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            // Add user message to chat
+            addMessage(message, true);
+            
+            // Clear input and disable send button
+            userInput.value = '';
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Sending...';
+
+            // Send request to Flask backend
+            const formData = new FormData();
+            formData.append('user_prompt', message);
+            formData.append('conversation_history', conversationHistory.join('\n')); // Send conversation history
+
+            fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Always show the full guardian response first
+                addMessage(`Guardian Moderation: ${JSON.stringify(data, null, 2)}`, false, true);
+                
+                // Then show the assistant response if it's safe
+                if (data.status === 'safe') {
+                    addMessage(data.response, false);
+                    conversationHistory.push(data.response); // Add assistant response to conversation history
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                addMessage('Connection error. Please check your internet connection and try again.', false, true);
+            })
+            .finally(() => {
+                // Re-enable send button
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Send';
+                userInput.focus();
+            });
+        }
+
+        // Send message when clicking send button
+        sendBtn.addEventListener('click', sendMessage);
+
+        // Send message when pressing Enter
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Focus on input when page loads
+        userInput.focus();
+    </script>
+    
+    <script>
+  $.ajax({
+    type: 'POST',
+    url: '/ask',
+    data: {
+      user_prompt: $('#user-prompt').val(),
+      conversation_history: $('#conversation-history').val()
+    },
+    success: function(data) {
+      if (data.status === 'safe') {
+        $('#assistant-response').html(data.response);
+        $('#detector-response').html(data.detector_response);
+      } else {
+        $('#assistant-response').html('');
+        $('#detector-response').html(data.details);
+      }
+    }
+  });
+</script>
+</body>
+</html>

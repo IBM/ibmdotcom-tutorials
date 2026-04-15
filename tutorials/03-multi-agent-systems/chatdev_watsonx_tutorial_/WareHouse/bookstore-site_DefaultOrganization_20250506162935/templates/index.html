@@ -1,0 +1,17 @@
+<!--
+Homepage template for Turn the Page bookstore website.
+Provides navigation links to other pages.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn the Page - Home</title>
+</head>
+<body>
+    <h1>Welcome to Turn the Page Bookstore!</h1>
+    <p>This is the homepage.</p>
+    <a href="{{ url_for('about') }}">About Us</a> | <a href="{{ url_for('products') }}">Our Products</a>
+</body>
+</html>

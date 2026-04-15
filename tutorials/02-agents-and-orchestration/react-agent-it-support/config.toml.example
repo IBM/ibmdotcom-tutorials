@@ -1,0 +1,11 @@
+
+[deployment]
+  watsonx_apikey = ""
+  watsonx_url = ""  # should follow the format: `https://{REGION}.ml.cloud.ibm.com`
+  space_id = "" # found in the "Manage" tab of your Deployment or in the Developer Access page here: https://dataplatform.cloud.ibm.com/developer-access
+
+[deployment.custom]
+# during creation of deployment additional parameters can be provided inside `CUSTOM` object for further referencing
+# please refer to the API docs: https://cloud.ibm.com/apidocs/machine-learning-cp#deployments-create
+  model_id = "ibm/granite-3-2-8b-instruct"
+  thread_id = "thread-1" # More info here: https://langchain-ai.github.io/langgraph/how-tos/persistence/

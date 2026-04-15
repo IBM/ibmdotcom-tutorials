@@ -1,0 +1,65 @@
+"use strict";
+'use strict';
+
+var anatomy = require('../../anatomy.cjs');
+var config = require('../../styled-system/config.cjs');
+
+const fieldsetSlotRecipe = config.defineSlotRecipe({
+  className: "fieldset",
+  slots: anatomy.fieldsetAnatomy.keys(),
+  base: {
+    root: {
+      display: "flex",
+      flexDirection: "column",
+      width: "full"
+    },
+    content: {
+      display: "flex",
+      flexDirection: "column",
+      width: "full"
+    },
+    legend: {
+      color: "fg",
+      fontWeight: "medium",
+      _disabled: {
+        opacity: "0.5"
+      }
+    },
+    helperText: {
+      color: "fg.muted",
+      textStyle: "sm"
+    },
+    errorText: {
+      display: "inline-flex",
+      alignItems: "center",
+      color: "fg.error",
+      gap: "2",
+      fontWeight: "medium",
+      textStyle: "sm"
+    }
+  },
+  variants: {
+    size: {
+      sm: {
+        root: { spaceY: "2" },
+        content: { gap: "1.5" },
+        legend: { textStyle: "sm" }
+      },
+      md: {
+        root: { spaceY: "4" },
+        content: { gap: "4" },
+        legend: { textStyle: "sm" }
+      },
+      lg: {
+        root: { spaceY: "6" },
+        content: { gap: "4" },
+        legend: { textStyle: "md" }
+      }
+    }
+  },
+  defaultVariants: {
+    size: "md"
+  }
+});
+
+exports.fieldsetSlotRecipe = fieldsetSlotRecipe;

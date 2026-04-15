@@ -1,0 +1,19 @@
+﻿issue,date_added,urgency,status
+Login not working,01-01-2025,high,open
+Broken link on home page,02-09-2025,medium,open
+Receiving 500 server error,11-20-2024,high,closed
+My password reset link is not working,02-15-2024,medium,open
+My computer won't turn on,11-21-2024,high,closed
+Software update failed,11-22-2024,medium,closed
+Email client keeps crashing,11-23-2024,high,open
+Printer not connecting to network,01-30-2024,medium,open
+Can't access shared drive,01-05-2024,low,open
+My internet connection is slow,02-17-2024,low,open
+The login button does not work,11-20-2024,high,closed
+My email account is not receiving emails,02-18-2024,high,open
+My printer is not printing,02-19-2025,low,open
+My account has been locked out,02-20-2024,high,open
+My software update is not installing,02-21-2025,medium,open
+My network connection is not stable,02-22-2024,high,open
+My password is not being recognized,03-09-2025,medium,open
+My computer is freezing,02-24-2024,high,open

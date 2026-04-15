@@ -1,0 +1,21 @@
+'use client';
+'use strict';
+
+Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+
+const jsxRuntime = require('react/jsx-runtime');
+const react$1 = require('@zag-js/react');
+const react = require('react');
+const factory = require('../factory.cjs');
+const useMenuContext = require('./use-menu-context.cjs');
+const useMenuOptionItemPropsContext = require('./use-menu-option-item-props-context.cjs');
+
+const MenuItemText = react.forwardRef((props, ref) => {
+  const menu = useMenuContext.useMenuContext();
+  const optionItemProps = useMenuOptionItemPropsContext.useMenuOptionItemPropsContext();
+  const mergedProps = react$1.mergeProps(menu.getItemTextProps(optionItemProps), props);
+  return /* @__PURE__ */ jsxRuntime.jsx(factory.ark.div, { ...mergedProps, ref });
+});
+MenuItemText.displayName = "MenuItemText";
+
+exports.MenuItemText = MenuItemText;

@@ -1,0 +1,10 @@
+streamlit
+git+https://github.com/huggingface/transformers
+image
+langchain
+botocore
+langchain-ibm
+ibm-watsonx-ai
+python-dotenv
+torch
+markupsafe

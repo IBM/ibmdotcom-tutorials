@@ -1,0 +1,36 @@
+// src/utils/is-chakra-theme.ts
+import { isObject } from "@chakra-ui/shared-utils";
+var requiredChakraThemeKeys = [
+  "borders",
+  "breakpoints",
+  "colors",
+  "components",
+  "config",
+  "direction",
+  "fonts",
+  "fontSizes",
+  "fontWeights",
+  "letterSpacings",
+  "lineHeights",
+  "radii",
+  "shadows",
+  "sizes",
+  "space",
+  "styles",
+  "transition",
+  "zIndices"
+];
+function isChakraTheme(unit) {
+  if (!isObject(unit)) {
+    return false;
+  }
+  return requiredChakraThemeKeys.every(
+    (propertyName) => Object.prototype.hasOwnProperty.call(unit, propertyName)
+  );
+}
+
+export {
+  requiredChakraThemeKeys,
+  isChakraTheme
+};
+//# sourceMappingURL=chunk-P56GPN75.mjs.map
