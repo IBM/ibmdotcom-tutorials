@@ -3,7 +3,6 @@ import json
 import os
 import queue
 import threading
-from datetime import datetime
 
 import pandas as pd
 import requests
