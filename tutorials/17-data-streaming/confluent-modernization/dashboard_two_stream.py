@@ -208,6 +208,7 @@ while not st.session_state.event_queue.empty():
     if event["stream"] == "high_val_claim":
         data_rows = {k: v for k, v in event.items() if k != "stream"}
         st.session_state.claims.insert(0, data_rows)
+        st.session_state.claims = st.session_state.claims[:MAX_ROWS]
 
 claims_df = pd.DataFrame(st.session_state.claims, columns=st.session_state.high_val_cols)
 
