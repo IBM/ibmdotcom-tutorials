@@ -10,7 +10,7 @@ Most agentic AI applications implement custom communication between components,
 (e.g. [ChatDev's ChatChain](https://www.ibm.com/think/tutorials/chatdev-chatchain-agent-communication-watsonx-ai)),
 making it difficult to reuse the same agent across different applications or
 integrate external tools. This lack of standardization prevents interoperability
-and limits the developement of a broader agent ecosystem.
+and limits the development of a broader agent ecosystem.
 
 A2A solves this by separating the communication layer from the agent logic through
 a standardized protocol built on HTTP, JSON-RPC 2.0, and Server-Sent
