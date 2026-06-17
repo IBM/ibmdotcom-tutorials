@@ -1,0 +1,147 @@
+---
+title: Perform LLM-Powered Code Review with IBM Bob
+description: Use IBM Bob’s chat interface to run an LLM-driven code review, view findings, apply automatic fixes, and verify changes.
+---
+
+import {
+  Download,
+} from '@carbon/icons-react';
+
+## Introduction
+
+You review code with IBM Bob’s generative AI to identify bugs, security issues, and refactoring opportunities, then let Bob apply fixes and run tests automatically.
+
+### Key features you will learn
+
+- **LLM-driven automated code review**: Bob analyzes your codebase and surfaces prioritized issues.
+- **Chat‑driven review commands**: You start reviews and control actions with slash commands.
+- **Automatic fixing and testing**: Bob applies suggested changes and validates them with targeted tests.
+
+## Prerequisites
+
+You use an MCP server project that accesses the arXiv API as the example codebase.
+
+To complete this tutorial, you need the following:
+
+<Cards>
+  <Card
+    icon={<Download />}
+    title="IBM Bob IDE"
+    description="Download and install the IBM Bob application on your computer. Bob is a standalone IDE application and not an extension."
+    href="https://bob.ibm.com/download" />
+</Cards>
+
+## Set up your workspace
+
+Prepare IBM Bob and open the project you want to review.
+
+<Steps>
+<Step>
+### Launch IBM Bob
+
+Open the IBM Bob IDE you installed.
+
+</Step>
+
+<Step>
+### Open the Bob chat panel
+
+Click the Bob icon beside the navigation bar or press <kbd>Option + Command + B</kbd> (Mac) or <kbd>Ctrl + Alt + B</kbd> (Windows).
+
+![Bob chat panel open in IBM Bob IDE](/images/open-bob.png)
+</Step>
+
+<Step>
+### Open your project folder
+
+Use the file explorer to navigate to the directory containing the MCP server code.
+
+![IBM Bob IDE start screen](/images/bob-ide-start.png)
+</Step>
+</Steps>
+
+## Start a code review
+
+Configure the chat interface and trigger Bob to analyze your changes.
+
+<Steps>
+<Step>
+### Select advanced mode
+
+In the chat panel, choose the **advanced** mode to enable full‑review capabilities.
+
+![Bob chat interface advanced mode selected](/images/bob-advanced-mode.png)
+</Step>
+
+<Step>
+### Trigger the review with a slash command
+
+Enter the built‑in review command.
+
+```text
+/review
+```
+
+<NoCopy>
+```text
+Bob starts reviewing your code. It reads changed files, runs git diff if needed, and searches for related patterns.
+```
+</NoCopy>
+
+![Typing /review in Bob chat](/images/review-slash-command-bob.png)
+</Step>
+</Steps>
+
+## Review Bob's findings
+
+Examine the issues Bob identified and prioritize them.
+
+<NoCopy>
+```text
+High Priority:
+- Hardcoded placeholder path in MCP configuration needs updating.
+
+Medium Priority:
+- HTTP protocol should be HTTPS for arXiv API.
+- Regex‑based XML parsing is fragile; use a proper XML parser.
+- Error handling loses context for non‑Axios errors.
+
+Low Priority:
+- Magic numbers need extraction to constants.
+- Long function should be refactored.
+- Missing edge case handling and documentation.
+- Performance improvements for regex loops.
+```
+</NoCopy>
+
+![Bob completed code review with identified issues](/images/bob-completed-code-review.png)
+
+## Apply a fix and run tests
+
+Use Bob’s direct‑fix feature to resolve a high‑priority issue and verify the change.
+
+<Steps>
+<Step>
+### Fix the HTTPS issue
+
+In the Findings panel, locate the HTTP‑to‑HTTPS suggestion and click **Direct fix**.
+
+![Bob applying direct fix for HTTP issue](/images/ibm-bob-resolves-http-issue.png)
+</Step>
+
+<Step>
+### Run targeted tests
+
+When Bob prompts for testing, confirm the recommended test run.
+
+![Bob testing security fix](/images/bob-testing-security-fix.png)
+</Step>
+</Steps>
+
+## Next steps
+
+In this tutorial, you performed an LLM‑powered code review, applied an automatic fix, and verified the result.
+
+- Explore Bob’s **unit test generation** feature to create tests for new modules.
+- Learn about **code generation** to scaffold full features from prompts.
+- Continue with the [Get started with IBM Bob tutorial series](/docs/ide/getting-started/tutorials/introduction) to deepen your AI‑assisted development skills.

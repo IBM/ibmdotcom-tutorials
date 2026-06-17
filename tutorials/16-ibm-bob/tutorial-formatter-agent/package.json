@@ -1,0 +1,27 @@
+{
+  "name": "tutorial-formatter-agent",
+  "version": "1.0.0",
+  "description": "CLI agent that formats IBM Bob tutorial Markdown files into bob.ibm.com MDX style using a universal template and an LLM (IBM watsonx.ai).",
+  "type": "module",
+  "bin": {
+    "format-tutorial": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node build/index.js"
+  },
+  "dependencies": {
+    "@ibm-cloud/watsonx-ai": "^1.7.14",
+    "chalk": "^5.3.0",
+    "dotenv": "^16.4.5",
+    "ora": "^8.1.0",
+    "readline": "^1.3.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

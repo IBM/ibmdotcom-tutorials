@@ -1,0 +1,182 @@
+---
+title: <Tutorial title — concise, action-oriented, e.g. "Build an MCP server">
+description: <One or two sentences. State what the reader learns, which Bob feature(s) are used, and the outcome. ~150 characters.>
+---
+
+import {
+  Download,
+  /* Add other Carbon icons used in the Cards section */
+} from '@carbon/icons-react';
+
+<!--
+  TEMPLATE USAGE NOTES
+  ─────────────────────
+  1.  Replace every <angle-bracket placeholder> with real content.
+  2.  Delete comment blocks before publishing.
+  3.  Follow the STYLE RULES at the bottom of this file.
+  4.  Keep section order; remove optional sections only when truly not applicable.
+  5.  All prose must be active voice, second-person ("you"), present tense.
+  6.  Never use "we", "let's", "our", "great", "neat", or "interesting".
+  7.  Prompts the reader sends to Bob → plain fenced code block (no language tag).
+  8.  Bob's responses → <NoCopy> fenced code block.
+  9.  Screenshots → standard markdown image syntax: ![alt text](/images/filename.png)
+  10. Steps inside a procedure → <Steps><Step> … </Step></Steps> wrapper.
+-->
+
+## Introduction
+
+<One paragraph. State the problem or context, what the tutorial covers, and what the
+reader will build or achieve. Mention the Bob feature(s) front and centre.
+Do NOT include a bio, author name, or analogy longer than one sentence.>
+
+### Key features you will learn
+
+<Name the two to four Bob capabilities the tutorial demonstrates.>
+
+- **<Feature 1>**: <One-line description.>
+- **<Feature 2>**: <One-line description.>
+- **<Feature 3 (optional)>**: <One-line description.>
+
+## Prerequisites
+
+<One sentence explaining what the tutorial uses as its example project.>
+
+To complete this tutorial, you need the following:
+
+<Cards>
+  <Card
+    icon={<Download />}
+    title="IBM Bob IDE"
+    description="Download and install the IBM Bob application on your computer. Bob is a standalone IDE application and not an extension."
+    href="https://bob.ibm.com/download" />
+  <Card
+    icon={</* Icon */>}
+    title="<Prerequisite title>"
+    description="<One-sentence description of why this prerequisite is needed.>"
+    href="<URL>" />
+  <!-- Add or remove Card entries as needed. Always keep the IBM Bob IDE card. -->
+</Cards>
+
+## Set up your workspace
+
+<One sentence orienting the reader to what this section accomplishes.>
+
+<Steps>
+<Step>
+### Launch IBM Bob
+
+Launch the IBM Bob application on your computer.
+</Step>
+
+<Step>
+### Open the Bob chat panel
+
+If the chat panel is not already open, click the Bob icon beside the navigation bar or use the shortcut <kbd>Option + Command + B</kbd> (Mac) or <kbd>Ctrl + Alt + B</kbd> (Windows).
+
+![Bob chat panel open in IBM Bob IDE](/images/open-bob.png)
+</Step>
+
+<Step>
+### <Additional setup step title>
+
+<Instructions for this step.>
+
+![<Alt text>](/images/<filename>.png)
+</Step>
+
+<!-- Add or remove <Step> blocks as needed. -->
+</Steps>
+
+## <Section 2 title — first major task>
+
+<One sentence describing what this section accomplishes.>
+
+<Steps>
+<Step>
+### <Step title>
+
+<Instructions. If the reader sends a prompt to Bob, show it in a plain fenced block:>
+
+```text
+<Prompt the reader sends to Bob>
+```
+
+<If Bob responds with output the reader should observe but not copy, wrap it:>
+
+<NoCopy>
+```text
+<Bob's response>
+```
+</NoCopy>
+
+![<Alt text>](/images/<filename>.png)
+</Step>
+
+<Step>
+### <Step title>
+
+<Instructions.>
+</Step>
+</Steps>
+
+<!-- ─── Repeat H2 sections for each major phase of the tutorial ─── -->
+
+## <Section N title — final verification or demonstration>
+
+<One sentence describing what this section accomplishes.>
+
+<Inline prose + prompts + NoCopy responses as needed.>
+
+## Next steps
+
+In this tutorial, you learned how to <one-sentence summary of what was built/achieved>.
+
+- Learn about Bob's [<feature>](/docs/ide/features/<slug>) to <brief benefit>.
+- Learn about [<another feature>](/docs/ide/features/<slug>) to <brief benefit>.
+- Explore the [Get started with IBM Bob tutorial series](/docs/ide/getting-started/tutorials/introduction) to continue learning.
+
+---
+<!--
+  ═══════════════════════════════════════════════════════════════
+  STYLE RULES — apply to every tutorial that uses this template
+  ═══════════════════════════════════════════════════════════════
+
+  FRONTMATTER
+  • title: verb phrase or noun phrase, title case, ≤ 60 chars
+  • description: includes the technology, the Bob feature(s), and the outcome
+
+  PROSE
+  • Voice: second-person active ("you", "your") — never "we", "our", "let's"
+  • Tense: present tense for instructions; past tense only in summaries
+  • Length: no paragraph longer than 4 sentences in instructional sections
+  • Avoid: filler openers ("Great", "Neat", "Interesting"), rhetorical questions,
+    marketing language, promotional conclusions
+
+  STRUCTURE
+  • Introduction → Key features → Prerequisites → Setup → Task sections → Next steps
+  • Each H2 section begins with one orienting sentence
+  • Numbered steps only inside <Steps><Step> … </Step></Steps>
+  • Bullet lists for unordered items (features, requirements, outputs)
+
+  CODE & PROMPTS
+  • Prompts the reader sends to Bob: plain fenced ```text block
+  • Bob's response text the reader should observe: <NoCopy> wrapper around fenced block
+  • File contents (code Bob generates): language-tagged fenced block (```json, ```typescript, etc.)
+  • Terminal commands: ```bash fenced block
+
+  IMAGES
+  • Always use markdown image syntax: ![descriptive alt text](/images/filename.png)
+  • Alt text must describe what is shown, not the caption
+  • Never use raw <img> HTML tags
+
+  LINKS
+  • Internal doc links: /docs/... relative paths
+  • External links: full https:// URL
+  • Never duplicate a link within the same section
+
+  OPTIONAL SECTIONS
+  • A "Key features you will learn" subsection inside Introduction is recommended
+    but may be omitted for very short tutorials (< 4 sections)
+  • An optional advanced/bonus step may be added as the last section before "Next steps"
+    and must be clearly labelled "(Optional)"
+-->

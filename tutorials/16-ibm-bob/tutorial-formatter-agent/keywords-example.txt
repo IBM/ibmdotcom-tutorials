@@ -1,0 +1,82 @@
+# example of keywords.txt — lines starting with # and blank lines are ignored
+# these keywords are for the LLM code review tutorial and copied from Clearscope
+
+llm
+
+large language models
+
+chatgpt
+
+ai agents
+
+pull requests
+
+github copilot
+
+software engineering
+
+gemini
+
+neural networks
+
+generative ai
+
+refactoring
+
+rag
+
+artificial intelligence
+
+natural language processing
+
+ide
+
+retrieval-augmented generation
+
+false positives
+
+chatbots
+
+code generation
+
+programming languages
+
+automated code review
+
+ai-powered code review
+
+nlp
+
+gpt-4
+
+coding agent
+
+foundation models
+
+embeddings
+
+prompt engineering
+
+security vulnerabilities
+
+system prompt
+
+self-attention
+
+generative pre-trained transformer
+
+debugging
+
+llm code review
+
+gitlab
+
+vector database
+
+ai-assisted code reviews
+
+transformer architecture
+
+claude code
+
+bert

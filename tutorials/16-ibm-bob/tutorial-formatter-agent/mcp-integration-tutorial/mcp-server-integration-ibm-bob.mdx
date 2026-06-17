@@ -1,0 +1,458 @@
+---
+title: Build an MCP server with IBM Bob
+description: Learn to use IBM Bob to build a custom Model Context Protocol (MCP) server that connects AI models to external tools and data sources. Covers advanced mode, approval workflow, and MCP configuration in this hands-on tutorial.
+---
+
+import {
+  Download,
+  Api,
+  Tools,
+  Play,
+} from '@carbon/icons-react';
+
+## Introduction
+
+The [Model Context Protocol (MCP)](https://www.ibm.com/think/topics/model-context-protocol), introduced by Anthropic in 2024, is an open standard that enables large language models (LLMs) to communicate with external tools, data sources, and content repositories through a unified client-server architecture. Before MCP, every AI assistant needed its own bespoke integration for each external tool — a function calling approach that scaled poorly and offered no interoperability. MCP solves this by defining a single JSON-RPC 2.0 protocol that any MCP host (such as Claude Desktop, Cursor, Claude Code, ChatGPT, or IBM Bob) can use to connect to any MCP server.
+
+In this tutorial, you use IBM Bob to build a custom MCP server that provides read-only access to [arXiv](https://arxiv.org), an open-access content repository for scientific papers. You configure the server for use inside Bob, then test it by querying the MCP server directly from the Bob chat interface. An optional section shows how to connect the same server to a [watsonx Orchestrate®](https://www.ibm.com/products/watsonx-orchestrate) AI agent.
+
+### Key features you will learn
+
+- **Advanced mode**: A Bob mode that can read, write, and execute commands — suited for multi-step tasks like MCP server creation.
+- **Approval workflow**: Review every tool Bob plans to use before it executes, so no command runs without your consent.
+- **MCP integration**: Configure local MCP servers at global or project scope, with support for STDIO and SSE transport types.
+- **Literate coding**: Write instructions in plain language directly in your editor and let Bob generate the corresponding code.
+
+## Prerequisites
+
+This tutorial builds a TypeScript MCP server that queries the arXiv API. No prior TypeScript or MCP experience is required.
+
+To complete this tutorial, you need the following:
+
+<Cards>
+  <Card
+    icon={<Download />}
+    title="IBM Bob IDE"
+    description="Download and install the IBM Bob application on your computer. Bob is a standalone IDE application and not an extension."
+    href="https://bob.ibm.com/download" />
+  <Card
+    icon={<Api />}
+    title="Node.js"
+    description="Install Node.js 22 or later to build and run the TypeScript MCP server locally."
+    href="https://nodejs.org/en/download" />
+</Cards>
+
+## Set up your workspace
+
+Launch IBM Bob, open the MCP settings panel, and prepare a working directory for the server project.
+
+<Steps>
+<Step>
+### Launch IBM Bob
+
+Launch the IBM Bob application on your computer.
+</Step>
+
+<Step>
+### Open the Bob chat panel
+
+If the chat panel is not already open, click the Bob icon beside the navigation bar or use the shortcut <kbd>Option + Command + B</kbd> (Mac) or <kbd>Ctrl + Alt + B</kbd> (Windows).
+
+![Bob chat panel open in IBM Bob IDE](/images/open-bob.png)
+</Step>
+
+<Step>
+### Open the MCP settings panel
+
+Click the three-dot menu next to the gear icon in the upper right corner of the chat window, then select **MCP servers** from the dropdown.
+
+![MCP servers option in the Bob settings dropdown](/images/bob-marketplace-mcp-servers.png)
+
+The MCP settings panel lets you enable or disable servers, auto-approve specific tools, install community servers from the Bob Marketplace, and build custom servers with the MCP SDK. MCP servers can be configured at two scopes:
+
+- **Global** — stored in `mcp_settings.json`, applied across all workspaces.
+- **Project** — stored in `.Bob/mcp.json` at the project root, shareable with your team via version control. Project-level settings override global ones.
+</Step>
+
+<Step>
+### Enable MCP server creation
+
+Confirm that the **Enable MCP Server Creation** setting is active. This setting is required to build custom MCP servers from within Bob.
+</Step>
+
+<Step>
+### Disable auto-approval
+
+Make sure auto-approval is disabled. Above the Bob chat at the bottom right of the window is a slider. If auto-approval is disabled, you see "Auto-approval disabled". If it is on, click the circle to disable it. Keeping auto-approval off lets you review each command before Bob runs it.
+</Step>
+
+<Step>
+### Open your project directory
+
+If you have a preferred directory for the project, open it in the IDE. You can also ask Bob to do it in the chat window.
+</Step>
+</Steps>
+
+## Set up a Python virtual environment
+
+It is common practice to create virtual Python environments to isolate a project's dependencies so that different projects don't conflict with each other. Switch Bob to **Advanced** mode — the mode that can read, write, and run terminal commands — then create the environment.
+
+<Steps>
+<Step>
+### Switch to Advanced mode
+
+Click the mode selector dropdown to the left of the chat input field and select **Advanced**.
+
+![Mode selector showing Advanced mode selected](/images/bob-advanced-mode.png)
+</Step>
+
+<Step>
+### Create and activate the virtual environment
+
+In the Bob chat panel, enter the following prompt:
+
+```text
+In this directory, activate a Python virtual environment.
+```
+
+Bob runs a series of terminal commands. Approve each one when prompted:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+![Bob running virtual environment commands in the terminal](/images/bob-virtual-environment.png)
+
+Bob creates and activates a new virtual environment in the `venv/` directory.
+</Step>
+</Steps>
+
+## Generate the MCP server build plan
+
+MCP follows a client-server architecture. The **MCP host** (here, IBM Bob acting as the IDE) contains an **MCP client** that translates your requests into the JSON-RPC 2.0 messages the protocol defines. The **MCP server** — the component you are building — receives those messages and calls the appropriate external tool or data source on behalf of the LLM.
+
+With the virtual environment active, submit the following prompt to Bob. Providing specific requirements up front gives Bob enough context to formulate a complete plan before writing any code:
+
+```text
+Create an MCP server that provides read-only access to arXiv. The server should:
+- Expose a search tool for querying arXiv papers
+- Limit results to paper metadata and abstracts (no PDFs)
+- Enforce reasonable query and result limits
+- Normalize responses into a clean, structured schema
+```
+
+![Bob generating a to-do list plan for the MCP server](/images/bob-to-do-list-creation.png)
+
+Bob produces a structured to-do list that covers project scaffolding, MCP server implementation, dependency installation, server configuration, and testing. Notice that Bob plans for error handling and authentication considerations automatically — even when the target API (arXiv) does not require a key, Bob notes where credentials would be injected for servers that do.
+
+## Build the MCP server
+
+Bob now executes the plan step by step. Approve each action when prompted.
+
+<Steps>
+<Step>
+### Scaffold the project structure
+
+Bob creates the project directory:
+
+```bash
+mkdir -p arxiv-server/src
+```
+</Step>
+
+<Step>
+### Review `package.json`
+
+Bob generates `arxiv-server/package.json`, the Node.js configuration hub that declares the project's metadata, scripts, and dependencies — including the official `@modelcontextprotocol/sdk`:
+
+```json
+{
+  "name": "arxiv-server",
+  "version": "0.1.0",
+  "description": "MCP server for read-only access to arXiv papers",
+  "type": "module",
+  "bin": {
+    "arxiv-server": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch"
+  },
+  "keywords": ["mcp", "arxiv", "research", "papers"],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "axios": "^1.7.9",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.3"
+  }
+}
+```
+</Step>
+
+<Step>
+### Review `tsconfig.json`
+
+Bob creates `arxiv-server/tsconfig.json` to configure the TypeScript compiler:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "outDir": "./build",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build"]
+}
+```
+</Step>
+
+<Step>
+### Review the server implementation
+
+Bob creates the main server file at `arxiv-server/src/index.ts`. This file registers the `search_arxiv` tool with the MCP SDK, implements XML-to-JSON parsing for arXiv's API responses, enforces result limits, and starts the server on the STDIO transport — the local, low-latency transport type suited for servers running on the same machine as the MCP host.
+
+The MCP SDK's `server.tool()` call is the primary integration point: it exposes the tool to any MCP client, whether that client is IBM Bob, Claude Desktop, Claude Code, Cursor, ChatGPT, or a LangChain agent:
+
+```typescript
+#!/usr/bin/env node
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+import axios from 'axios';
+
+interface ArxivEntry {
+  id: string;
+  title: string;
+  summary: string;
+  authors: Array<{ name: string }>;
+  published: string;
+  updated: string;
+  categories: string[];
+  primary_category: string;
+  links: Array<{ href: string; rel: string; type?: string }>;
+}
+
+interface ArxivSearchResult {
+  entries: ArxivEntry[];
+  totalResults: number;
+  startIndex: number;
+  itemsPerPage: number;
+}
+
+const server = new McpServer({ name: "arxiv-server", version: "0.1.0" });
+
+const arxivApi = axios.create({
+  baseURL: 'http://export.arxiv.org/api',
+  timeout: 30000,
+});
+
+// Register the search tool — visible to any MCP client
+server.tool(
+  "search_arxiv",
+  {
+    query: z.string().describe("Search query (supports arXiv query syntax)"),
+    max_results: z.number().min(1).max(50).optional()
+      .describe("Maximum results to return (1–50, default: 10)"),
+    start: z.number().min(0).optional()
+      .describe("Starting index for pagination (default: 0)"),
+    sort_by: z.enum(["relevance", "lastUpdatedDate", "submittedDate"]).optional(),
+    sort_order: z.enum(["ascending", "descending"]).optional()
+  },
+  async ({ query, max_results = 10, start = 0, sort_by = "relevance", sort_order = "descending" }) => {
+    try {
+      const params: Record<string, string | number> = {
+        search_query: query,
+        start: Math.max(start, 0),
+        max_results: Math.min(max_results, 50),
+        ...(sort_by && { sortBy: sort_by }),
+        ...(sort_order && { sortOrder: sort_order }),
+      };
+      const response = await arxivApi.get('/query', { params });
+      return {
+        content: [{ type: "text", text: formatSearchResults(parseArxivXML(response.data)) }],
+      };
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        return {
+          content: [{ type: "text", text: `arXiv API error: ${error.response?.data?.message ?? error.message}` }],
+          isError: true,
+        };
+      }
+      throw error;
+    }
+  }
+);
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
+console.error('arXiv MCP server running on stdio');
+```
+
+The `isError: true` flag in the catch block is MCP's standard error handling pattern — it signals to the MCP client that the tool call failed without crashing the server process.
+</Step>
+
+<Step>
+### Install dependencies
+
+Bob installs the Node.js dependencies inside the server directory:
+
+```bash
+cd arxiv-server && npm install
+```
+</Step>
+
+<Step>
+### Configure the MCP server in Bob
+
+Bob adds the server to the global MCP configuration file (`mcp_settings.json`). The `command` and `args` fields tell the MCP client how to start the server process using the STDIO transport. For remote servers accessible over HTTP/HTTPS, you would use the SSE transport type instead:
+
+```json
+{
+  "mcpServers": {
+    "arxiv": {
+      "command": "node",
+      "args": ["/path/to/arxiv-server/build/index.js"],
+      "disabled": false,
+      "alwaysAllow": [],
+      "disabledTools": []
+    }
+  }
+}
+```
+
+To use project-level scope instead, place the same JSON in `.Bob/mcp.json` at your project root. This makes the server configuration shareable with your team through version control.
+</Step>
+</Steps>
+
+## Test the MCP server
+
+With the server registered, Bob automatically runs two validation queries against the `search_arxiv` tool.
+
+![Bob running test queries against the MCP server](/images/bob-test-server.png)
+
+The first test queries for three quantum computing papers sorted by relevance. The second queries for two machine learning papers sorted by descending submission date. Both execute successfully, confirming the tool is reachable and that the server's error handling correctly manages different parameter combinations.
+
+![Bob task list showing all subtasks completed](/images/bob-task-completed.png)
+
+Now run your own queries to verify that Bob extracts the correct parameters from natural language. In the Bob chat panel, enter:
+
+```text
+What are the latest papers on LLM agent tracing?
+```
+
+<NoCopy>
+```text
+Bob extracted the query from your prompt, added relevant keywords to improve
+retrieval-augmented generation quality, set max_results to 10, and sorted
+results by relevance. The search_arxiv tool returned matching papers with
+titles, authors, abstracts, arXiv IDs, and direct URLs.
+```
+</NoCopy>
+
+![Bob querying the MCP server for LLM agent tracing papers](/images/bob-llm-agent-tracing-query.png)
+
+Bob does not blindly execute tool calls — it acts as an AI assistant that refines queries when initial results are unsatisfactory, iterating until the results align with the request. This collaborative loop is one of the key advantages of using an LLM-native IDE for MCP integration over standalone tools.
+
+## Document the server
+
+Open source MCP server implementations typically include documentation so others can get started quickly. Ask Bob to generate it:
+
+```text
+In this directory, create a README.md file to document this MCP server.
+Include setup and usage instructions.
+```
+
+![Bob creating a README.md for the MCP server](/images/bob-readme-task.png)
+
+Bob produces a comprehensive `README.md` covering installation, configuration for multiple MCP hosts (IBM Bob, Claude Desktop, Cursor, Claude Code), authentication guidance for servers that require API keys, local file access patterns, and troubleshooting tips.
+
+## (Optional) Create a watsonx Orchestrate AI agent
+
+You can connect the arXiv MCP server to a research-specialized [AI agent](https://www.ibm.com/think/topics/ai-agents) running on [watsonx Orchestrate®](https://www.ibm.com/products/watsonx-orchestrate). First, install the pre-built watsonx Orchestrate ADK server from the Bob Marketplace in the MCP settings panel. Then send Bob the following prompt:
+
+```text
+Create a watsonx Orchestrate agent that uses this arxiv MCP server.
+```
+
+Bob generates three files:
+
+<Steps>
+<Step>
+### `toolkit-config.yaml`
+
+This file registers the arXiv MCP server as a toolkit within the watsonx Orchestrate environment, identifying the server's language (`node`), entry point, and the tools it exposes:
+
+```yaml
+kind: mcp
+name: arxiv-toolkit
+description: >
+  Toolkit for searching arXiv research papers. Provides access to paper
+  metadata, abstracts, and publication information from the arXiv database.
+package_root: /local/path/to/arxiv-server
+language: node
+command: node /local/path/to/arxiv-server/build/index.js
+tools:
+  - "*"
+```
+</Step>
+
+<Step>
+### `research-assistant-agent.yaml`
+
+This file configures the AI agent's identity, instructions, and tool bindings. The `enable_cot: true` flag activates chain-of-thought reasoning, which improves the agent's ability to refine arXiv queries iteratively — the same pattern Bob used in the test queries above:
+
+```yaml
+name: research-assistant
+kind: native
+description: >
+  AI research assistant that finds and summarizes academic papers from arXiv.
+  Specializes in searching scientific literature and providing citations.
+title: Research Assistant
+instructions: |
+  You are an expert research assistant specializing in academic literature
+  search on arXiv. Use the search_arxiv tool to answer research questions.
+  Always provide arXiv IDs and direct URLs. Summarize abstracts in plain
+  language. Suggest follow-up searches when relevant.
+tools:
+  - search_arxiv
+config:
+  hidden: false
+  enable_cot: true
+tags:
+  - research
+  - academic
+  - arxiv
+```
+</Step>
+
+<Step>
+### `setup-instructions.md`
+
+This file documents all terminal commands, environment variables, troubleshooting steps, and links needed to run the watsonx Orchestrate agent locally or deploy it to an enterprise environment.
+</Step>
+</Steps>
+
+## Next steps
+
+In this tutorial, you used IBM Bob to build a TypeScript MCP server, configure it with STDIO transport, test it with live arXiv queries, and optionally connect it to a watsonx Orchestrate AI agent — all through natural language prompts.
+
+The same workflow applies to more complex MCP server implementations: servers that connect to PostgreSQL databases, Google Drive, local files, or any other external data source. Servers requiring authentication simply need credentials injected as environment variables in the MCP configuration JSON. For remote deployments, swap the STDIO transport for SSE.
+
+- Learn about Bob's [Code review feature](/docs/ide/features/code-reviews) to catch issues before committing your server code.
+- Learn about [modes](/docs/ide/features/modes) to understand when to use Advanced, Code, Ask, and other Bob personas.
+- Explore [MCP configuration](/docs/ide/features/mcp) for details on global vs. project scope, auto-approved tools, and SSE transport setup.
+- Work through the [Get started with IBM Bob tutorial series](/docs/ide/getting-started/tutorials/introduction) to continue learning.
