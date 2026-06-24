@@ -63,6 +63,13 @@ Reasoning WithOut Observation for efficient content summarization.
 - **Prerequisites**: Base dependencies + transformers
 - **Estimated time**: 35-45 minutes
 
+### 8. **Active Prompting** (`active-prompting/`)
+Build a procurement compliance agent using active prompting to improve model accuracy on uncertain cases.
+- **Topics**: Active prompting, uncertainty detection, chain-of-thought annotation, watsonx Orchestrate
+- **Prerequisites**: IBM watsonx Orchestrate account (free trial available)
+- **Estimated time**: 60-90 minutes
+- **Tutorial**: [Active Prompting Tutorial](active-prompting/active_prompting.md)
+
 ## Key Concepts
 
 ### What is Prompt Engineering?
