@@ -80,7 +80,7 @@ You can choose a model of your choice from the list of models given in the agent
 
 The knowledge base is what grounds the agent's reasoning in the actual company policy rather than general knowledge. Without it, the agent reasons from training data alone and will hallucinate policy rules that do not exist.
 
-Navigate to the **Manage agents** section and scroll down to the **Knowledge** section from the left sidebar. Click **Add knowledge** → **New knowledge** → **Upload files** → **upload the global_ procurement_policy.pdf**. You can find this pdf in the IBM GitHub repository. You may substitute this document with your company’s procurement policy.
+Navigate to the **Manage agents** section and scroll down to the **Knowledge** section from the left sidebar. Click **Add knowledge** → **New knowledge** → **Upload files** → upload `global_procurement_policy.pdf`. You can find this PDF in this tutorial folder in the IBM GitHub repository. You may substitute this document with your company’s procurement policy.
 
 ![](images/wxo_procurement_approval_agent_add_kb.png)
 
