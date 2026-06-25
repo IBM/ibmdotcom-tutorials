@@ -86,7 +86,7 @@ Navigate to the **Manage agents** section and scroll down to the **Knowledge** s
 
 ![](images/wxo_procurement_approval_agent_upload_kb.png)
 
-[](global_procurement_policy.pdf)
+[global_procurement_policy.pdf](global_procurement_policy.pdf)
 
 Once uploaded, fill in the knowledge source fields:
 
