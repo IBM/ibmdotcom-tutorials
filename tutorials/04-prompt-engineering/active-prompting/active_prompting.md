@@ -54,7 +54,7 @@ The entire tutorial is completed through the watsonx Orchestrate UI with no code
 
 By the end of the tutorial, you will have experienced the full active prompting loop in a real enterprise context: baseline testing, uncertainty detection, human annotation, exemplar injection, and before-and-after comparison. You will also have a reusable pattern applicable to any domain where an AI agent must reason over complex, multi-rule policy documents. All required files for this tutorial including the knowledge documents and task-specific prompts are available in the [IBM GitHub repository](https://github.com/IBM/ibmdotcom-tutorials).
 
-## Prerequisties
+## Prerequisites
 
 An IBM watsonx Orchestrate account (a free 30-day trial is sufficient). You can create one through [IBM Cloud®](https://cloud.ibm.com/registration).
 
