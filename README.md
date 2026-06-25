@@ -83,6 +83,11 @@ Implement collaborative AI systems where multiple agents work together.
 ### [04 - Prompt Engineering](tutorials/04-prompt-engineering/)
 Master techniques for effective LLM communication and optimization.
 
+**Featured Tutorials:**
+- [Role Prompting](tutorials/04-prompt-engineering/role-prompting-tutorial.ipynb) - Assign roles for better responses
+- [Active Prompting](tutorials/04-prompt-engineering/active-prompting/active_prompting.md) - Improve accuracy on uncertain cases with watsonx Orchestrate
+- [Prompt Chaining with LangChain](tutorials/04-prompt-engineering/prompt-chaining-langchain.ipynb) - Chain prompts for complex tasks
+
 ### [05 - Multimodal AI](tutorials/05-multimodal-ai/)
 Work with vision, speech, and multimodal models for diverse AI applications.
 
