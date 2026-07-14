@@ -1,381 +1,288 @@
 # Contributing to IBM Tutorials
 
-Thank you for your interest in contributing to the IBM Tutorials repository! This guide will help you get started.
-
-## 📋 Table of Contents
-
-1. [Getting Started](#getting-started)
-2. [Development Setup](#development-setup)
-3. [Development Workflow](#development-workflow)
-4. [Code Quality Standards](#code-quality-standards)
-5. [Submitting Changes](#submitting-changes)
-6. [Additional Resources](#additional-resources)
+Thank you for contributing to the IBM Tutorials repository! This guide covers everything you need to know.
 
 ---
 
-## Getting Started
+## Quick Start
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- Python 3.10 or higher
 - Git
-- Basic understanding of Python and Jupyter notebooks
+- GitHub account
 
 ### First-Time Setup
 
 1. **Fork and clone the repository:**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/repository-name.git
-   cd repository-name
+   git clone https://github.com/YOUR_USERNAME/ibmdotcom-tutorials.git
+   cd ibmdotcom-tutorials
    ```
 
-2. **Install linting tools (one-time setup):**
+2. **Install development tools:**
    ```bash
    pip install pre-commit ruff detect-secrets
    pre-commit install
    ```
-   > **Note:** This is a one-time setup per repository clone. The pre-commit hook will run automatically on every commit after installation.
 
-3. **Verify your setup (optional):**
+3. **Set up commit signing** (required):
+
+   Follow [GitHub's guide to commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification)
+
+   Quick setup for automatic signing:
    ```bash
-   # Test that pre-commit is installed correctly
-   pre-commit run --help
+   git config --global commit.gpgsign true
    ```
-   > **Note:** You don't need to run checks on all files during setup. The pre-commit hooks will automatically check your changes when you commit.
-
-4. **Create a branch for your work:**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-### What Happens When You Commit
-
-After setup, every time you run `git commit`:
-- ✅ **Ruff linter** checks your code for errors and style issues
-- ✅ **Ruff formatter** automatically fixes formatting (indentation, spacing, etc.)
-- ✅ **File checks** ensure no large files or merge conflicts
-- ✅ **Secret scanner** detects hardcoded passwords or API keys
-
-If issues are found:
-- Many are **auto-fixed** (formatting, import sorting)
-- Others require **manual fixes** (you'll see clear error messages)
-- Your commit is **blocked** until all issues are resolved
-
-**No setup needed for subsequent commits** - the hook runs automatically!
 
 ---
 
-## Development Setup
+## Contributing a Tutorial
 
-### Required Tools
-
-All contributors must have these tools installed:
-
-- **pre-commit** - Runs automated checks before commits
-- **Ruff** - Fast Python linter and formatter
-- **detect-secrets** - Scans for hardcoded credentials
-
-### Optional Tools (Recommended)
-
-- **VS Code with Ruff extension** - Real-time linting in your editor
-- **Python virtual environment** - Isolate project dependencies
-
-## Development Workflow
-
-### 1. Create a Branch
+### Step 1: Create a Branch
 
 ```bash
-# Feature branch
-git checkout -b feature/add-new-tutorial
-
-# Bug fix branch
-git checkout -b fix/correct-typo
-
-# Documentation branch
-git checkout -b docs/update-readme
+git checkout -b feature/your-tutorial-name
 ```
 
-### 2. Make Your Changes
+### Step 2: Create Tutorial Directory
 
-- Write clear, well-documented code
-- Follow existing code style and patterns
-- Add comments for complex logic
-- Update documentation as needed
-
-### 3. Test Your Changes
-
-#### Recommended Workflow: Using Pre-commit
-
-The most efficient way to test your changes is using `pre-commit run`, which runs all configured hooks on your staged files. This workflow catches issues early and matches what will happen during commit.
-
-**Step-by-step workflow:**
+Create your tutorial under the appropriate category:
 
 ```bash
-# 1. Stage your changes
-git add path/to/your_file.py path/to/your_file.md
-
-# 2. Run pre-commit checks on staged files
-pre-commit run
+mkdir -p tutorials/CATEGORY/your-tutorial-name
+cd tutorials/CATEGORY/your-tutorial-name
 ```
 
-**What happens next:**
+**Example structure:**
+```
+tutorials/01-rag-and-retrieval/my-rag-tutorial/
+├── tutorial.ipynb          # Your tutorial
+├── requirements.txt        # Python dependencies (if needed)
+├── README.md              # Setup instructions
+└── .env.example           # Environment variables template (if needed)
+```
 
-- **First run** - Several checks may fail, but many issues are automatically fixed:
-  - ✓ Formatting issues (spacing, indentation) - **auto-fixed**
-  - ✓ Trailing whitespace - **auto-fixed**
-  - ✓ Import sorting - **auto-fixed**
-  - ⚠️ Linting errors - **may require manual fixes**
-  - ⚠️ Secret detection - **requires manual review**
+### Step 3: Configure Dependabot (If You Have Dependencies)
+
+**⚠️ If your tutorial has `requirements.txt`, `pyproject.toml`, or `package.json`, do this step!**
+
+Edit `.github/dependabot.yml` and add your tutorial:
+
+**For Python tutorials:**
+```yaml
+# Add this block to the updates: section
+- package-ecosystem: "pip"
+  directory: "/tutorials/CATEGORY/your-tutorial-name"
+  schedule:
+    interval: "weekly"
+    day: "monday"
+  open-pull-requests-limit: 3
+  labels:
+    - "dependencies"
+    - "python"
+    - "tutorial"
+```
+
+**For JavaScript tutorials:**
+```yaml
+- package-ecosystem: "npm"
+  directory: "/tutorials/CATEGORY/your-tutorial-name"
+  schedule:
+    interval: "weekly"
+    day: "monday"
+  open-pull-requests-limit: 5
+  labels:
+    - "dependencies"
+    - "javascript"
+    - "tutorial"
+```
+
+**Real example:**
+```yaml
+- package-ecosystem: "pip"
+  directory: "/tutorials/01-rag-and-retrieval/my-rag-tutorial"
+  schedule:
+    interval: "weekly"
+    day: "monday"
+  open-pull-requests-limit: 3
+  labels:
+    - "dependencies"
+    - "python"
+    - "tutorial"
+```
+
+**Why this matters:** Without this, your tutorial won't get automatic security updates and dependencies will become outdated.
+
+**When to skip this:** If your tutorial only uses Python's standard library or has no dependencies, skip this step.
+
+### Step 4: Test Your Tutorial
 
 ```bash
-# 3. Stage the auto-fixed files
-git add path/to/your_file.py path/to/your_file.md
+# Install dependencies (if you have them)
+pip install -r requirements.txt
 
-# 4. Run pre-commit again
-pre-commit run
+# Run your tutorial
+python tutorial.py
+# OR
+jupyter notebook tutorial.ipynb
+
+# Verify everything works
 ```
 
-- **Second run** - Most formatting passes, but critical issues may remain:
-  - ⚠️ **Potential secrets detected** - Review and fix (see below)
+### Step 5: Update Documentation
 
-**Handling secret detection:**
+**Add to main README.md:**
 
-If `detect-secrets` flags a potential secret:
+Find your category section and add your tutorial:
 
-```python
-# Option 1: Use environment variable (preferred)
-api_key = os.getenv("API_KEY")
+```markdown
+### [01 - RAG and Retrieval](tutorials/01-rag-and-retrieval/)
 
-# Option 2: If it's a false-positive or tutorial example
-api_key = "example_key_12345"  # pragma: allowlist secret
+**Featured Tutorials:**
+- [Your Tutorial Name](tutorials/01-rag-and-retrieval/your-tutorial/) - Brief description
 ```
 
-```bash
-# 5. Stage fixes and run final check
-git add path/to/your_file.py
-pre-commit run
-```
-
-- **Final run** - All checks pass ✓
-  - Your files are ready to commit!
-
-#### Test Functionality
-
-For tutorials and code examples, always verify the code actually works:
-
-```bash
-# Test Python scripts
-python your_tutorial.py
-
-# Test Jupyter notebooks
-jupyter notebook your_tutorial.ipynb
-```
-
-#### Optional Checks
-
-If you want to check specific issues before staging files, you can run individual tools:
-
-```bash
-# Check Python linting issues
-ruff check path/to/your_file.py
-
-# Auto-fix Python linting issues
-ruff check --fix path/to/your_file.py
-
-# Format Python code
-ruff format path/to/your_file.py
-
-# Run pre-commit on all files (not just staged)
-pre-commit run --all-files
-
-# Run a specific hook
-pre-commit run ruff --all-files
-```
-
-> **Note:**
-> - `pre-commit run` only checks **staged files** (files added with `git add`)
-> - **Ruff** only checks Python files (`.py`, `.pyi`, `.ipynb`)
-> - **Pre-commit hooks** check **all file types** (Python, Markdown, YAML, etc.)
-> - Many issues are **auto-fixed** - just stage the changes and run again
-
-### 4. Commit Your Changes
-
-**Important:** This repository requires verified commit signatures. You have two options:
-- **Option 1:** Use the `-S` flag with each commit
-- **Option 2:** Configure Git to automatically sign all commits (recommended)
+### Step 5: Commit and Push
 
 ```bash
 # Stage your changes
 git add .
 
-# Option 1: Commit with -S flag (hooks run automatically)
-git commit -S -m "Add: New tutorial on RAG with LangChain"
-
-# Option 2: If you've configured automatic signing (see below)
-git commit -m "Add: New tutorial on RAG with LangChain"
+# Commit (pre-commit hooks will run automatically)
+git commit -m "Add: New tutorial on [topic]"
 
 # If hooks fail, fix issues and commit again
 git add .
-git commit -S -m "Add: New tutorial on RAG with LangChain"
-```
+git commit -m "Add: New tutorial on [topic]"
 
-#### Setting Up Commit Signing
-
-To configure commit signing and get the verified badge on GitHub, follow GitHub's official documentation:
-
-**📖 [GitHub's Complete Guide to Commit Signature Verification](https://docs.github.com/en/authentication/managing-commit-signature-verification)**
-
-This guide covers:
-- Generating a GPG key
-- Adding your GPG key to your GitHub account
-- Telling Git about your signing key
-- Signing commits (with `-S` flag or automatic signing)
-
-**Quick reference for automatic signing:**
-```bash
-# After setting up your GPG key, enable automatic signing
-git config --global commit.gpgsign true
-```
-
-With automatic signing enabled, you won't need the `-S` flag - all commits will be signed automatically.
-
-### 5. Push and Create Pull Request
-
-```bash
 # Push to your fork
-git push origin feature/add-new-tutorial
-
-# Create PR on GitHub
-# - Use a clear, descriptive title
+git push origin feature/your-tutorial-name
 ```
+
+### Step 7: Create Pull Request
+
+1. Go to GitHub and create a PR
+2. Use a clear title: `Add: New tutorial on [topic]`
+3. Describe what your tutorial teaches
+4. Wait for review
 
 ---
 
-## Code Quality Standards
+## Pre-commit Hooks
 
-### Python Code
+When you commit, these checks run automatically:
 
-#### Style Guidelines
-- **Line length:** 100 characters maximum
-- **Imports:** Organized automatically by Ruff
-- **Naming:**
-  - `snake_case` for functions and variables
-  - `PascalCase` for classes
-  - `UPPER_CASE` for constants
+- ✅ **Ruff** - Lints and formats Python code
+- ✅ **File checks** - Prevents large files, merge conflicts
+- ✅ **Secret detection** - Catches hardcoded credentials
 
-#### Required Checks
-All Python code must pass:
-- ✅ Ruff linting (no errors)
-- ✅ Ruff formatting (consistent style)
-- ✅ No hardcoded secrets
-- ✅ No syntax errors
+**If hooks fail:**
+- Many issues are auto-fixed (formatting, spacing)
+- Fix remaining issues and commit again
+- No secrets allowed (use environment variables)
 
-#### Tutorial-Specific Guidelines
+---
 
-**✅ Do:**
+## Code Standards
+
+### Python
+
+- Line length: 100 characters max
+- Use `snake_case` for functions/variables
+- Use `PascalCase` for classes
+- No hardcoded credentials
+
+**Good:**
 ```python
 import os
-from pathlib import Path
 
-# Use environment variables for credentials
 api_key = os.getenv("WATSONX_API_KEY")
-
-# Clear variable names
 user_input = "What is machine learning?"
-model_response = generate_response(user_input)
-
-# Comments for complex concepts
-# This uses RAG (Retrieval Augmented Generation) to improve accuracy
-context = retrieve_relevant_docs(user_input)
 ```
 
-**❌ Don't:**
+**Bad:**
 ```python
-# Hardcoded credentials (will be caught by detect-secrets)
-api_key = "sk-1234567890abcdef"  # pragma: allowlist secret
-
-# Unclear variable names
-x = "What is machine learning?"
-y = generate_response(x)
-
-# No comments for complex code
-c = retrieve_relevant_docs(x)
+api_key = "sk-1234567890"  # pragma: allowlist secret  Never hardcode credentials
+x = "What is machine learning?"  # Use descriptive names
 ```
 
-## Submitting Changes
+### Jupyter Notebooks
 
-### Pull Request Guidelines
+- Include clear markdown explanations
+- Show expected outputs
+- Use environment variables for credentials
 
-#### PR Title Format
-```
-<type>: <description>
+---
 
-Examples:
-- Add: New tutorial on prompt engineering
-- Fix: Correct typo in RAG tutorial
-- Update: Improve documentation for setup
-- Refactor: Simplify agent orchestration code
-```
+## Checklist Before Submitting
 
-### Before Submitting
-
-**Checklist:**
-- [ ] Code follows style guidelines
+- [ ] Created tutorial directory
+- [ ] **Added to `.github/dependabot.yml`** (if has `requirements.txt`, `pyproject.toml`, or `package.json`)
+- [ ] Tested tutorial works
+- [ ] Updated main README.md
+- [ ] Created tutorial README.md
 - [ ] Pre-commit hooks pass
-- [ ] Tutorial/code has been tested
-- [ ] Documentation is updated
-- [ ] Commit messages are clear
-- [ ] Commits are signed with verified signature
-- [ ] No merge conflicts
-- [ ] No hardcoded secrets
+- [ ] No hardcoded credentials
+- [ ] Commits are signed
 
-### Common Issues and Solutions
+---
 
-#### Issue: Pre-commit hooks fail
+## Common Issues
+
+### Issue: Pre-commit hooks fail
 
 **Solution:**
 ```bash
 # See what failed
 git commit -m "Your message"
 
-# Fix the issues (often auto-fixed)
+# Many issues are auto-fixed, just stage and commit again
 git add .
 git commit -m "Your message"
 ```
 
-#### Issue: Secret detected
+### Issue: Secret detected
 
 **Solution:**
 ```python
-# Option 1: Use environment variable
+# Use environment variables
+import os
 api_key = os.getenv("API_KEY")
 
-# Option 2: If it's a tutorial example
+# For tutorial examples, add this comment:
 api_key = "example_key"  # pragma: allowlist secret
 ```
 
-#### Issue: Linting errors
+### Issue: Forgot to add to dependabot.yml
 
 **Solution:**
 ```bash
-# See all errors
-ruff check .
-
-# Auto-fix what's possible
-ruff check --fix .
-
-# Format code
-ruff format .
+# Edit .github/dependabot.yml
+# Add your tutorial directory
+# Commit the change
+git add .github/dependabot.yml
+git commit -m "Add tutorial to Dependabot config"
 ```
+
+---
+
+## Getting Help
+
+- **Questions?** Open a [GitHub Discussion](https://github.com/IBM/ibmdotcom-tutorials/discussions)
+- **Issues?** Report in [GitHub Issues](https://github.com/IBM/ibmdotcom-tutorials/issues)
+- **Unsure about Dependabot?** Check if your tutorial has `requirements.txt`, `pyproject.toml`, or `package.json` - if yes, add to `dependabot.yml`
+
+---
 
 ## Additional Resources
 
 - [Python Style Guide (PEP 8)](https://pep8.org/)
+- [GitHub Commit Signing](https://docs.github.com/en/authentication/managing-commit-signature-verification)
 - [Ruff Documentation](https://docs.astral.sh/ruff/)
-- [pre-commit Documentation](https://pre-commit.com/)
-- [Git Best Practices](https://git-scm.com/book/en/v2)
-- [Writing Good Commit Messages](https://chris.beams.io/posts/git-commit/)
 
 ---
 
 **Happy Contributing! 🚀**
+
+Maintained by: IBM.com Technical Content Team

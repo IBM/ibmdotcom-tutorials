@@ -1,5 +1,9 @@
-beeai-framework
-beeai-framework[duckduckgo]
-langchain-core
+# BeeAI Framework Multi-Agent Contract Management Tutorial
+# Updated: 2026-05-12
+# Resolved langchain-core security vulnerability by upgrading to beeai-framework 0.1.80
+# which no longer depends on langchain-core
+
+beeai-framework==0.1.80
+beeai-framework[duckduckgo]==0.1.80
 langchain-community
 pandas

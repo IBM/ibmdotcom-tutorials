@@ -1,0 +1,62 @@
+name: Python Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 1'  # Weekly on Monday at midnight UTC
+  workflow_dispatch:  # Allows manual triggering from Actions tab
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11', '3.12', '3.13']
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install security tools
+        run: |
+          pip install pip-audit safety bandit
+
+      - name: Run pip-audit
+        continue-on-error: true
+        run: |
+          echo "Running pip-audit on all requirements.txt files..."
+          find . -name "requirements.txt" -type f | while read req; do
+            echo "Auditing $req"
+            pip-audit -r "$req" || true
+          done
+
+      - name: Run Safety check
+        continue-on-error: true
+        run: |
+          echo "Running Safety check on all requirements.txt files..."
+          find . -name "requirements.txt" -type f | while read req; do
+            echo "Safety check for $req"
+            safety check -r "$req" || true
+          done
+
+      - name: Run Bandit security linter
+        continue-on-error: true
+        run: |
+          echo "Running Bandit security linter..."
+          bandit -r tutorials/ -ll -f json -o bandit-report.json || true
+
+      - name: Upload Bandit results
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: bandit-results-${{ matrix.python-version }}
+          path: bandit-report.json
+
+# Made with Bob

@@ -1,0 +1,128 @@
+version: 2
+updates:
+  # Python pip dependencies in tutorials/03-multi-agent-systems/a2a_tutorial/beeai-a2a-client
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/a2a_tutorial/beeai-a2a-client"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: "beeai-framework"
+        # Ignore beeai-framework - causes Dependabot errors, blocking other updates
+    labels:
+      - "dependencies"
+      - "python"
+      - "tutorial"
+
+  # Python pip dependencies in tutorials/03-multi-agent-systems/a2a_tutorial/beeai-a2a-server
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/a2a_tutorial/beeai-a2a-server"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "python"
+      - "tutorial"
+
+  # Python pip dependencies in tutorials/03-multi-agent-systems/bee-ai-multi-agent-contract-management
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/bee-ai-multi-agent-contract-management"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "python"
+      - "tutorial"
+
+  # Python pip dependencies in tutorials/ai-agent-security
+  - package-ecosystem: "pip"
+    directory: "/docs/tutorials/ai-agent-security"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "python"
+      - "tutorial"
+
+  # Python projects with pyproject.toml - acp_tutorial
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/acp_tutorial"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "python"
+      - "tutorial"
+
+  # Python projects with pyproject.toml - multiagent-collab-cs-call-center-analysis
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/multiagent-collab-cs-call-center-analysis"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "python"
+      - "tutorial"
+
+  # Python projects with pyproject.toml - my_retail_advisor
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/my_retail_advisor"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "python"
+      - "tutorial"
+
+  # Python projects with pyproject.toml - crewai_agent_server
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/acp_tutorial/crewai_agent_server"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "python"
+      - "tutorial"
+
+  # JavaScript/npm dependencies - silly_story_time
+  - package-ecosystem: "npm"
+    directory: "/tutorials/13-full-stack-applications/silly_story_time"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "javascript"
+      - "tutorial"
+
+  # GitHub Actions (when workflows are added)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "github-actions"
+
+# Made with Bob

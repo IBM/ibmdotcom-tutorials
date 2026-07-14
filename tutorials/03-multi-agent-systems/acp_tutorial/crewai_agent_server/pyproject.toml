@@ -4,8 +4,8 @@ version = "0.1.0"
 description = "A CrewAI agent server for ACP-based multi-agent songwriting and Markdown reporting."
 requires-python = ">=3.11, <4.0"
 dependencies = [
-    "acp-sdk==1.0.1",
+    "acp-sdk==1.0.3",
     "crewai[tools]>=0.95.0",
-    "agentops==0.4.19"
+    "agentops==0.4.21"
 ]
 
