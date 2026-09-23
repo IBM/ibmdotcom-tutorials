@@ -8,5 +8,11 @@ dependencies = [
     "acp-sdk==1.0.1",
     "beeai-framework==0.1.29",
     "pydantic-ai==0.2.14",
-    "python-dotenv==1.0.1"  
+    "python-dotenv==1.0.1"
+]
+
+[tool.uv]
+constraint-dependencies = [
+    "litellm>=1.83.7",     # CVE-2026-37004 (critical)
+    "cryptography>=50.0.0", # CVE-2026-69247 (high), CVE-2026-69249 (high)
 ]
