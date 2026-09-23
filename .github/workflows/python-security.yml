@@ -1,0 +1,79 @@
+name: Python Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Run every Monday at 09:00 UTC
+    - cron: "0 9 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  pip-audit:
+    name: pip-audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install pip-audit
+        run: pip install pip-audit
+
+      # Audit each requirements.txt independently so one failure doesn't hide others
+      - name: Audit requirements files
+        # continue-on-error so all files are scanned even if some have vulnerabilities
+        continue-on-error: true
+        run: |
+          find . -name "requirements*.txt" \
+            -not -path "*/node_modules/*" \
+            -not -path "*/.venv/*" \
+            -not -path "*/WareHouse/*" \
+            | while read f; do
+              echo "=== $f ==="
+              pip-audit -r "$f" --desc || true
+            done
+
+  bandit:
+    name: Bandit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Bandit
+        run: pip install bandit[sarif]
+
+      - name: Run Bandit
+        # Educational content intentionally uses patterns Bandit flags (e.g. hardcoded
+        # example passwords, subprocess calls) — treat as informational, not blocking.
+        continue-on-error: true
+        run: |
+          bandit -r tutorials/ \
+            --exclude tutorials/03-multi-agent-systems/chatdev_watsonx_tutorial_/WareHouse \
+            -f sarif \
+            -o bandit-results.sarif \
+            --severity-level medium \
+            --confidence-level medium \
+            -q
+
+      - name: Upload Bandit SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: bandit-results.sarif
+          category: bandit

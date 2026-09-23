@@ -1,0 +1,28 @@
+name: Dependency Review
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          # Block PRs that introduce medium severity or higher vulnerabilities
+          fail-on-severity: moderate
+          # Allow these licenses (Apache, MIT, BSD, ISC are standard open source)
+          allow-licenses: >-
+            Apache-2.0, MIT, BSD-2-Clause, BSD-3-Clause, ISC, Python-2.0,
+            PSF-2.0, CC0-1.0, Unlicense, 0BSD
+          # Post a comment on the PR summarising any findings
+          comment-summary-in-pr: always
