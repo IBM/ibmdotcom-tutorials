@@ -21,6 +21,11 @@ build-backend = "hatchling.build"
 
 [tool.uv]
 constraint-dependencies = [
-    "litellm>=1.83.7",     # CVE-2026-37004 (critical)
-    "cryptography>=50.0.0", # CVE-2026-69247 (high), CVE-2026-69249 (high)
+    "litellm>=1.84.0",          # CVE-2026-37004, CVE-2026-49468 (critical)
+    "crewai-tools>=1.15.1",     # CVE-2026-62240 (high)
+    "cryptography>=50.0.0",     # CVE-2026-69247 (high), CVE-2026-69249 (high)
+    "anyio>=4.14.2",           # CVE-2026-63374 (critical), CVE-2026-64847 (medium)
+    "aiohttp>=3.14.3",         # CVE-2025-69223, CVE-2026-69244 (high)
+    "python-multipart>=0.0.31", # CVE-2026-53539 (high), CVE-2026-53540 (low)
+    "starlette>=1.3.1",        # CVE-2025-62727, CVE-2026-54283 (high)
 ]
