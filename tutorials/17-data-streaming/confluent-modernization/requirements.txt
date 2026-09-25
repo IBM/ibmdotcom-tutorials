@@ -1,5 +1,5 @@
 altair==6.1.0
-anyio==4.13.0
+anyio==4.14.2
 attrs==26.1.0
 Authlib==1.7.2
 blinker==1.9.0
