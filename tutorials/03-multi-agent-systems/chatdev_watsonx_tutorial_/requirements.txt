@@ -10,7 +10,7 @@ tenacity==8.2.2
 tiktoken==0.8.0
 virtualenv==20.26.6
 Werkzeug==3.0.6
-Markdown==3.4.4
+Markdown==3.8.1
 Pillow==12.3.0
 Wikipedia-API==0.6.0
 beautifulsoup4==4.12.2
