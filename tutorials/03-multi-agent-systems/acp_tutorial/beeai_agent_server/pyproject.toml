@@ -8,7 +8,7 @@ dependencies = [
     "acp-sdk==1.0.1",
     "beeai-framework==0.1.29",
     "pydantic-ai==0.2.14",
-    "python-dotenv==1.0.1"
+    "python-dotenv==1.2.2"
 ]
 
 [tool.uv]
