@@ -29,19 +29,29 @@ jobs:
       - name: Install pip-audit
         run: pip install pip-audit
 
-      # Audit each requirements.txt independently so one failure doesn't hide others
-      - name: Audit requirements files
-        # continue-on-error so all files are scanned even if some have vulnerabilities
-        continue-on-error: true
+      # Audit each requirements.txt and pyproject.toml independently
+      - name: Audit requirements and pyproject files
         run: |
-          find . -name "requirements*.txt" \
+          exit_code=0
+          while IFS= read -r f; do
+            echo "=== Auditing $f ==="
+            if [[ "$f" == *"requirements"*".txt" ]]; then
+              if ! pip-audit -r "$f" --desc; then
+                echo "❌ Vulnerabilities found in $f"
+                exit_code=1
+              fi
+            elif [[ "$f" == *"pyproject.toml" ]]; then
+              dir=$(dirname "$f")
+              if ! (cd "$dir" && pip-audit --desc); then
+                echo "❌ Vulnerabilities found in $f"
+                exit_code=1
+              fi
+            fi
+          done < <(find . \( -name "requirements*.txt" -o -name "pyproject.toml" \) \
             -not -path "*/node_modules/*" \
             -not -path "*/.venv/*" \
-            -not -path "*/WareHouse/*" \
-            | while read f; do
-              echo "=== $f ==="
-              pip-audit -r "$f" --desc || true
-            done
+            -not -path "*/WareHouse/*")
+          exit $exit_code
 
   bandit:
     name: Bandit

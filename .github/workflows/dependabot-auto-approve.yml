@@ -5,8 +5,9 @@ on:
     types: [opened, synchronize]
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
+  issues: write
 
 jobs:
   auto-approve:
@@ -32,7 +33,9 @@ jobs:
       # Label major updates so they are easy to find and prioritise
       - name: Label major updates for manual review
         if: steps.metadata.outputs.update-type == 'version-update:semver-major'
-        run: gh pr edit "$PR_URL" --add-label "major-update,needs-review"
+        run: |
+          gh pr edit "$PR_URL" --add-label "dependencies" || true
+          gh pr comment "$PR_URL" --body "⚠️ **Major version update detected.** Manual review and testing required before merging."
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

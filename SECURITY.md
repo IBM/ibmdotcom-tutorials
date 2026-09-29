@@ -16,13 +16,13 @@ Security fixes are applied to the `main` branch only. Older tutorial snapshots a
 
 This repository uses the following automated security measures:
 
-| Tool | What it does |
-|------|-------------|
-| **Dependabot** | Opens weekly PRs to update vulnerable dependencies across all 11 package locations |
-| **Dependency Review** | Blocks any PR that introduces a medium-severity or higher vulnerability |
-| **CodeQL** | Static analysis for Python and JavaScript on every push and PR |
-| **pip-audit + Bandit** | Scans Python dependencies and source code on every push and PR |
-| **detect-secrets** | Prevents accidental credential commits on every push and PR |
+| Tool | Schedule / Triggers | What it does |
+|------|--------------------|-------------|
+| **Dependabot** | Weekly (Mondays 09:00 UTC) | Scans and opens PRs to update vulnerable dependencies across all package manifests |
+| **Dependency Review** | PRs targeting `main` | Blocks any PR that introduces moderate or higher severity vulnerabilities |
+| **CodeQL** | Push/PR to `main`, weekly schedule | Static analysis for Python and JavaScript |
+| **pip-audit + Bandit** | Push/PR to `main`, weekly schedule | Scans Python dependencies for vulnerabilities and analyzes code |
+| **detect-secrets** | Push/PR to `main` | Blocks commits containing unbaselined secrets or credentials |
 
 ## For Tutorial Users
 
