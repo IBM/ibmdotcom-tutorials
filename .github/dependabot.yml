@@ -1,0 +1,191 @@
+version: 2
+
+updates:
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "github-actions"
+
+  # Root pyproject.toml
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  # requirements.txt files
+  - package-ecosystem: "pip"
+    directory: "/tutorials/17-data-streaming/confluent-modernization"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/13-full-stack-applications/ai-stylist"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/07-guardrails-and-safety/granite-guardian-webapp"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/07-guardrails-and-safety/ai-agent-security"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/bee-ai-multi-agent-contract-management"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/chatdev_watsonx_tutorial_"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/a2a_tutorial/beeai-a2a-client"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/a2a_tutorial/beeai-a2a-server"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/02-agents-and-orchestration/sql-agent-app"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/02-agents-and-orchestration/wxo-text-classification/product-review-sentiment-agent"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  # pyproject.toml files (uv / poetry / standard pip)
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/my_retail_advisor"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/multiagent-collab-cs-call-center-analysis"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/acp_tutorial"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/acp_tutorial/beeai_agent_server"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/03-multi-agent-systems/acp_tutorial/crewai_agent_server"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  - package-ecosystem: "pip"
+    directory: "/tutorials/02-agents-and-orchestration/react-agent-it-support"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "python"
+
+  # npm
+  - package-ecosystem: "npm"
+    directory: "/tutorials/13-full-stack-applications/silly_story_time"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    groups:
+      npm-all:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "javascript"
+
+  - package-ecosystem: "npm"
+    directory: "/tutorials/16-ibm-bob/mcp-server-integration-ibm-bob/arxiv-server"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "javascript"
