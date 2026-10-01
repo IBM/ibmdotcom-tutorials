@@ -46,6 +46,6 @@ streamlit-autorefresh==1.0.1
 tenacity==9.1.4
 toml==0.10.2
 typing_extensions==4.15.0
-urllib3==2.7.0
+urllib3==2.8.0
 uvicorn==0.47.0
 websockets==16.0
