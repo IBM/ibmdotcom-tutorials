@@ -24,7 +24,7 @@ makes it difficult to connect agents across toolchains, teams or infrastructures
 especially when combining components from different AI systems.
 
 ACP introduces a standardized, framework-independent messaging format for how autonomous
-agents send, recieve, and interpret messages. Messages are structured, typically
+agents send, receive, and interpret messages. Messages are structured, typically
 in JSON, and contain metadata to enrich agent interactions with clarity and consistency.
 
 By decoupling communication from an agent's internal logic, ACP allows teams to
