@@ -124,3 +124,6 @@ Found an issue or want to add a new IBM Bob tutorial? See our [Contributing Guid
 ## License
 
 See the [LICENSE](../../LICENSE) file in the repository root.
+## Git Practice
+
+This change was made as part of my first GitHub branching and contribution practice using IBM Bob.
