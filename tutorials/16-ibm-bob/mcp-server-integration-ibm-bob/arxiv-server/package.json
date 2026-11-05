@@ -21,7 +21,7 @@
     "papers"
   ],
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.4",
+    "@modelcontextprotocol/sdk": "^1.31.0",
     "axios": "^1.7.9",
     "zod": "^3.24.1"
   },
