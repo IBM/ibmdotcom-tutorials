@@ -1,0 +1,8 @@
+# Runtime dependencies — five small packages, no GPU, no model downloads.
+# Versions checked against OSV.dev for known vulnerabilities.
+fastapi==0.162.5
+uvicorn==0.54.0
+httpx==0.28.1
+python-multipart==0.0.33
+python-dotenv==1.2.4
+pypdf==7.1.0

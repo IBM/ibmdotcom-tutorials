@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice Agent</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1 id="title">Voice Agent</h1>
+      <p id="subtitle" class="muted"></p>
+    </div>
+    <label class="voice">
+      <span class="muted">Voice</span>
+      <select id="voiceSelect" aria-label="Voice for spoken answers"></select>
+    </label>
+  </header>
+
+  <main>
+    <div id="messages" class="messages" aria-live="polite"></div>
+    <div id="samples" class="samples"></div>
+
+    <div class="input-bar">
+      <input type="text" id="userInput" placeholder="Type your question..." maxlength="1000" autocomplete="off" />
+      <button id="sendBtn" class="primary" type="button">Send</button>
+      <button id="micBtn" class="mic" type="button" title="Click to record, click again to send">Mic</button>
+    </div>
+  </main>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
