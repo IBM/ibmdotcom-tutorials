@@ -1,0 +1,4 @@
+# Keeps your API key out of Bob's reach. Bob can still run the app; it just cannot open these files.
+.env
+.venv/
+storage/

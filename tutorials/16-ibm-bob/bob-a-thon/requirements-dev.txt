@@ -1,0 +1,4 @@
+# Only needed if you want to run the tests:  pip install -r requirements-dev.txt
+-r requirements.txt
+pytest==9.2.0
+httpx2==2.13.1      # used by FastAPI's test client

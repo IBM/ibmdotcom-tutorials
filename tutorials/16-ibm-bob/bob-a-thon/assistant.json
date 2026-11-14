@@ -1,0 +1,13 @@
+{
+  "title": "Farm & Food Voice Assistant",
+  "subtitle": "Ask about the FAO cookbook \"From land and water\" - type or speak, in English or Hindi.",
+  "persona": "a warm, knowledgeable assistant who talks like a friendly neighbour",
+  "topic": "women farmers, pastoralists and fishers and their traditional recipes (FAO 'From land and water')",
+  "welcome": "Hello! Ask me about the recipes and stories in the document. Try a sample below, or press Mic and speak.",
+  "sample_questions": [
+    "How do I make injera?",
+    "Which recipe uses moringa?",
+    "What is the role of women farmers in food security?",
+    "इस किताब में कौन-सी पारंपरिक रेसिपी हैं?"
+  ]
+}
