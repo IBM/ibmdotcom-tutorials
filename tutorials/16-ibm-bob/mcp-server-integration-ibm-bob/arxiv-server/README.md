@@ -14,7 +14,7 @@ A Model Context Protocol (MCP) server that provides read-only access to arXiv re
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
+- Node.js (v20 or higher)
 - npm or yarn
 
 ### Setup
