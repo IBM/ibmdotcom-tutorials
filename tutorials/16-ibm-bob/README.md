@@ -50,7 +50,7 @@ Learn how to use IBM Bob to perform automated code reviews and generate actionab
    - `llm-code-review-with-ibm-bob.md` - Main tutorial
    - `examples/` - Sample repositories and config files
      
-### Java Application Modernization with IBM Bob (`java-modernisation`)
+### 4. Java Application Modernization with IBM Bob (`java-modernisation`)
 Learn how to use IBM Bob's Premium Java Modernization mode to modernize a legacy Java 8 + Struts/JSP pharmacy dashboard. You'll upgrade the Java version and split the monolith into a REST API backend and a modern JavaScript frontend.
 - **Topics:** Java Modernization mode and workflows, Java 8 to 17/21 upgrade, Struts/JSP to REST API + modern frontend, comparing the legacy and modernized UI
 - **Prerequisites:** IBM Bob installed and authenticated, JDK 17 or 21, Apache Maven, Node.js 18+ and npm
