@@ -59,6 +59,16 @@ Learn how to use IBM Bob's Premium Java Modernization mode to modernize a legacy
    - `java-mordnization.md` - Main tutorial
    - `simple-pharmacy-legacy.zip` - Base code for the legacy Pharmacy Dashboard app (Java 8, Struts, JSP, Liberty)
 
+ ### 5. Build a Voice Agent with IBM Bob (`build-voice-agent-with-ibm-bob/`)
+Build a multilingual voice agent that answers questions aloud from your own PDF document using IBM Bob and Sarvam AI APIs.
+- **Topics:** Voice agent pipeline, Speech-to-Text (STT), Text-to-Speech (TTS), Local BM25 search (RAG), IBM Bob prompt-driven development
+- **Prerequisites:** Python 3.11+, IBM Bob, Sarvam AI API key, modern browser with microphone access
+- **Estimated time:** 30–45 minutes
+- **Files:**
+   - `README.md` - Getting started guide and repository overview
+   - `build-voice-agent.md` - Main step-by-step tutorial with copy-paste Bob prompts
+   - `voice-agent-starter.zip` - Base starter codebase package for download
+
 ## What is IBM Bob?
 
 IBM Bob is an AI-powered coding assistant that helps developers:
