@@ -1,25 +1,17 @@
-# Build a Voice Agent with Bob
+# Build a Voice Agent with IBM Bob
 
-**Goal:** go from `git clone` to a talking agent that answers questions from your own PDF,
-using Bob for almost every step. You will copy-paste a handful of prompts.
+**Goal:** go from starter code / `git clone` to a talking agent that answers questions from your own PDF, using IBM Bob for almost every step. You will copy-paste a handful of prompts.
 
 ## Overview
 
-**The use case:** a lot of useful information is locked inside long PDFs: handbooks, manuals,
-scheme guides, FAQs. Reading them takes time, and not everyone is comfortable reading, especially
-in English. This agent lets someone simply ask a question out loud (or type it) in their own
-language and hear a short answer taken from the document.
+**The use case:** a lot of useful information is locked inside long PDFs: handbooks, manuals, scheme guides, FAQs. Reading them takes time, and not everyone is comfortable reading, especially in English. This agent lets someone simply ask a question out loud (or type it) in their own language and hear a short answer taken from the document.
 
-- **Grounded:** it answers only from your PDF and shows the page numbers it used. If the answer
-  is not in the document, it says so instead of guessing.
+- **Grounded:** it answers only from your PDF and shows the page numbers it used. If the answer is not in the document, it says so instead of guessing.
 - **Voice-first:** speak the question, hear the answer. No reading or typing needed.
 - **Multilingual:** ask in English, Hindi or another Indian language and get the reply in the same language.
-- **One key, no extra infrastructure:** speech-to-text, the language model and text-to-speech all
-  run on Sarvam AI APIs. Search is a simple local keyword index, so there is no database or
-  embeddings model to set up.
+- **One key, no extra infrastructure:** speech-to-text, the language model and text-to-speech all run on Sarvam AI APIs. Search is a simple local keyword index, so there is no database or embeddings model to set up.
 
-Example uses: a college handbook helper, a product-manual assistant, an HR-policy guide, a recipe
-book you can talk to, or a village scheme guide for people who prefer listening to reading.
+Example uses: a college handbook helper, a product-manual assistant, an HR-policy guide, a recipe book you can talk to, or a village scheme guide for people who prefer listening to reading.
 
 **What you will build** (it is already written — Bob will help you run, understand and change it):
 
@@ -36,9 +28,7 @@ book you can talk to, or a village scheme guide for people who prefer listening 
 | TTS | The answer text is turned into speech | Sarvam text-to-speech |
 | Audio Answer | The answer is played back, with page numbers shown | Browser audio |
 
-**How to read this tutorial:** every block marked **PROMPT** is text to paste into Bob's chat.
-Bob's wording will differ a little each time; that is normal. If something looks wrong, tell Bob
-what you see (see [Step 9](#step-9--when-something-goes-wrong)).
+**How to read this tutorial:** every block marked **PROMPT** is text to paste into Bob's chat. Bob's wording will differ a little each time; that is normal. If something looks wrong, tell Bob what you see (see [Step 9](#step-9--when-something-goes-wrong)).
 
 ---
 
@@ -47,6 +37,7 @@ what you see (see [Step 9](#step-9--when-something-goes-wrong)).
 | You need | How to check |
 |---|---|
 | IBM Bob IDE | You are reading this in it (or open it from your Bob install) |
+| Base Codebase | Download & extract `voice-agent-starter.zip` (or clone the repository) |
 | Python 3.11 or newer | `python3 --version` (Windows: `python --version`) |
 | Git | `git --version` |
 | A browser with a microphone | Chrome, Edge or Firefox |
@@ -55,23 +46,17 @@ what you see (see [Step 9](#step-9--when-something-goes-wrong)).
 
 ---
 
-## Step 1 — Clone the repository and open it in Bob
+## Step 1 — Get the starter code and open it in Bob
 
-In a terminal:
-
+1. Download and unzip `voice-agent-starter.zip` (or clone the tutorial repository):
 ```bash
 git clone <YOUR-REPOSITORY-URL>
-cd <repository-folder>
+cd build-voice-agent-with-ibm-bob
 ```
+2. Open the project folder in Bob: **File → Open Folder…** and select the starter code folder. If Bob asks *"Do you trust the authors of the files in this folder?"*, click **Yes, I trust the authors**.
+3. Open Bob's chat panel with the Bob icon in the side bar, or **Option + Command + B** (Mac) / **Ctrl + Alt + B** (Windows).
 
-Then in Bob: **File → Open Folder…** and choose the cloned folder. If Bob asks
-*"Do you trust the authors of the files in this folder?"*, click **Yes, I trust the authors**.
-
-Open Bob's chat panel with the Bob icon in the side bar, or **Option + Command + B** (Mac) /
-**Ctrl + Alt + B** (Windows).
-
-> This project already contains an `AGENTS.md` file, so Bob knows how it is organised the moment
-> you open it. You do **not** need to run `/init`.
+> This project contains an `AGENTS.md` file, so Bob knows how it is organised the moment you open it. You do **not** need to run `/init`.
 
 ---
 
@@ -79,19 +64,17 @@ Open Bob's chat panel with the Bob icon in the side bar, or **Option + Command +
 
 1. Go to <https://dashboard.sarvam.ai>, sign in, and create an API key.
 2. In the project folder, make your own settings file from the template.
-   Mac / Linux: `cp .env.example .env`   Windows: `copy .env.example .env`
+   - Mac / Linux: `cp .env.example .env`
+   - Windows: `copy .env.example .env`
 3. Open `.env` in the editor and paste your key after `SARVAM_API_KEY=` (no quotes, no spaces). Save.
 
-**Why not ask Bob to do this?** The project ships a `.bobignore` file that stops Bob's file tools
-from reading `.env`. Your key stays between you and your computer: never paste it into a chat,
-and never commit it (`.env` is already git-ignored).
+**Why not ask Bob to do this?** The project ships a `.bobignore` file that stops Bob's file tools from reading `.env`. Your key stays between you and your computer: never paste it into a chat, and never commit it (`.env` is already git-ignored).
 
 ---
 
 ## Step 3 — Understand the project (Ask mode)
 
-Choose **Ask** in the mode selector under the chat box. Ask mode is read-only, so Bob cannot
-change anything while you explore.
+Choose **Ask** in the mode selector under the chat box. Ask mode is read-only, so Bob cannot change anything while you explore.
 
 > **PROMPT 1 — tour of the project**
 > ```text
@@ -111,15 +94,13 @@ change anything while you explore.
 > Why doesn't this project need an embeddings model?
 > ```
 
-You should now know the five moving parts: **`data/`** (the PDF), **`rag.py`** (search),
-**`sarvam.py`** (speech + LLM), **`app.py`** (the pipeline), **`static/`** (the web page).
+You should now know the five moving parts: **`data/`** (the PDF), **`rag.py`** (search), **`sarvam.py`** (speech + LLM), **`app.py`** (the pipeline), **`static/`** (the web page).
 
 ---
 
 ## Step 4 — Install and run it (Agent mode)
 
-Switch to **Agent** mode. Agent mode can create files and run commands; Bob asks for your
-approval before each action, so click **Approve** when you are happy with it.
+Switch to **Agent** mode. Agent mode can create files and run commands; Bob asks for your approval before each action, so click **Approve** when you are happy with it.
 
 > **PROMPT 4 — set up and start the app**
 > ```text
@@ -142,10 +123,8 @@ python app.py
 When you see `Voice Agent -> http://127.0.0.1:8000`, open **<http://127.0.0.1:8000>** in your browser.
 
 **Try it:**
-1. Click a **sample question** chip, then **Send**. You should see an answer, the **page numbers**
-   it came from, and hear a voice.
-2. Press **Mic**, say *"Which recipe uses moringa?"*, then press **Stop**. The page shows what it
-   heard, then answers aloud. The first time, allow microphone access in the browser.
+1. Click a **sample question** chip, then **Send**. You should see an answer, the **page numbers** it came from, and hear a voice.
+2. Press **Mic**, say *"Which recipe uses moringa?"*, then press **Stop**. The page shows what it heard, then answers aloud. The first time, allow microphone access in the browser.
 3. Change the **Voice** drop-down and ask again.
 4. Ask a question in **Hindi** or another Indian language; the answer comes back in that language.
 5. Ask something that is *not* in the PDF. A good agent says it does not know instead of making things up.
@@ -162,18 +141,15 @@ If the page says `SARVAM_API_KEY is missing`, redo Step 2 and restart the app.
 > fails and why. These tests don't use the network or my API key.
 > ```
 
-You should see all tests pass (about 45). This is also your safety net for the changes below.
-After each change, ask Bob to run them again.
+You should see all tests pass (about 45). This is also your safety net for the changes below. After each change, ask Bob to run them again.
 
 ---
 
 ## Step 6 — Swap in your own PDF 
 
-Pick a PDF with selectable text. Quick check: open it and try to highlight a sentence with the
-mouse. If you cannot, it is a scan and will not work.
+Pick a PDF with selectable text. Quick check: open it and try to highlight a sentence with the mouse. If you cannot, it is a scan and will not work.
 
-**Easiest way:** drag your PDF into the project's `data/` folder in Bob's file explorer, delete
-the sample PDF from there, then use the prompt below. Or let Bob copy it from where it is.
+**Easiest way:** drag your PDF into the project's `data/` folder in Bob's file explorer, delete the sample PDF from there, then use the prompt below. Or let Bob copy it from where it is.
 
 > **PROMPT 6a — use my PDF**
 > ```text
@@ -189,8 +165,7 @@ the sample PDF from there, then use the prompt below. Or let Bob copy it from wh
 > many pages and chunks it found. Then restart the app.
 > ```
 
-Restart the app after re-indexing (Bob can do it, or press `Ctrl + C` in the terminal and run
-`python app.py` again), then **refresh the browser page**.
+Restart the app after re-indexing (Bob can do it, or press `Ctrl + C` in the terminal and run `python app.py` again), then **refresh the browser page**.
 
 Now ask a question **about your PDF**. The answer should quote your document and show its page numbers.
 
@@ -205,8 +180,7 @@ Now ask a question **about your PDF**. The answer should quote your document and
 
 ## Step 7 — Make it yours: title, personality, sample questions
 
-The agent's identity lives in **`assistant.json`**. It still says "Farm & Food", so change it to
-match your PDF.
+The agent's identity lives in **`assistant.json`**. It still says "Farm & Food", so change it to match your PDF.
 
 > **PROMPT 7 — re-brand the agent**
 > ```text
@@ -216,8 +190,7 @@ match your PDF.
 > add 4 sample questions that my PDF can really answer. Keep it valid JSON.
 > ```
 
-Refresh the browser (restart the app if the title did not change). The new title and sample-question
-chips appear.
+Refresh the browser (restart the app if the title did not change). The new title and sample-question chips appear.
 
 ---
 
@@ -300,8 +273,7 @@ Common cases:
 
 ## Step 10 — Ideas to go further
 
-- Make an agent for **your own use case**: a college handbook, a product manual, a legal document,
-  a recipe book, a village scheme guide, your company's FAQ.
+- Make an agent for **your own use case**: a college handbook, a product manual, a legal document, a recipe book, a village scheme guide, your company's FAQ.
 - Ask Bob to add a **"clear chat" button** or **dark mode**.
 - Ask Bob to add **answer feedback buttons** (thumbs up / down) that log to a local file.
 - Ask Bob to support **uploading a PDF from the web page** instead of copying it to `data/`.
@@ -323,8 +295,6 @@ Common cases:
 
 ## A note on safety
 
-- **Never put your API key in a prompt, a screenshot or a commit.** If you do, delete it on the
-  Sarvam dashboard and create a new one.
+- **Never put your API key in a prompt, a screenshot or a commit.** If you do, delete it on the Sarvam dashboard and create a new one.
 - Bob asks for approval before running commands. Read what it is about to run.
 - This app listens on `127.0.0.1` only, so it is not reachable from other computers.
-- When the Bob-a-thon is over, **delete your key** from the Sarvam dashboard.

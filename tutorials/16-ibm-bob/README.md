@@ -41,14 +41,33 @@ Build and integrate Model Context Protocol (MCP) servers with IBM Bob for enhanc
   - `arxiv-server/` - Complete MCP server implementation
   - `images/` - Tutorial screenshots
 
-  ### 3. **LLM Code Review with IBM Bob** (`llm-code-review-with-ibm-bob/`)
-  Learn how to use IBM Bob to perform automated code reviews and generate actionable feedback for pull requests.
-  - **Topics**: LLM-driven code review, automated suggestions, integrating with CI/CD
-  - **Prerequisites**: IBM Bob installed, familiarity with Git and pull requests
-  - **Estimated time**: 30-60 minutes
-  - **Files**:
-    - `llm-code-review-with-ibm-bob.md` - Main tutorial
-    - `examples/` - Sample repositories and config files
+### 3. **LLM Code Review with IBM Bob** (`llm-code-review-with-ibm-bob/`)
+Learn how to use IBM Bob to perform automated code reviews and generate actionable feedback for pull requests.
+- **Topics**: LLM-driven code review, automated suggestions, integrating with CI/CD
+- **Prerequisites**: IBM Bob installed, familiarity with Git and pull requests
+- **Estimated time**: 30-60 minutes
+- **Files**:
+   - `llm-code-review-with-ibm-bob.md` - Main tutorial
+   - `examples/` - Sample repositories and config files
+     
+### 4. Java Application Modernization with IBM Bob (`java-modernisation`)
+Learn how to use IBM Bob's Premium Java Modernization mode to modernize a legacy Java 8 + Struts/JSP pharmacy dashboard. You'll upgrade the Java version and split the monolith into a REST API backend and a modern JavaScript frontend.
+- **Topics:** Java Modernization mode and workflows, Java 8 to 17/21 upgrade, Struts/JSP to REST API + modern frontend, comparing the legacy and modernized UI
+- **Prerequisites:** IBM Bob installed and authenticated, JDK 17 or 21, Apache Maven, Node.js 18+ and npm
+- **Estimated time:** 45-60 minutes
+- **Files:**
+   - `java-mordnization.md` - Main tutorial
+   - `simple-pharmacy-legacy.zip` - Base code for the legacy Pharmacy Dashboard app (Java 8, Struts, JSP, Liberty)
+
+ ### 5. Build a Voice Agent with IBM Bob (`build-voice-agent-with-ibm-bob/`)
+Build a multilingual voice agent that answers questions aloud from your own PDF document using IBM Bob and Sarvam AI APIs.
+- **Topics:** Voice agent pipeline, Speech-to-Text (STT), Text-to-Speech (TTS), Local BM25 search (RAG), IBM Bob prompt-driven development
+- **Prerequisites:** Python 3.11+, IBM Bob, Sarvam AI API key, modern browser with microphone access
+- **Estimated time:** 30–45 minutes
+- **Files:**
+   - `README.md` - Getting started guide and repository overview
+   - `build-voice-agent.md` - Main step-by-step tutorial with copy-paste Bob prompts
+   - `voice-agent-starter.zip` - Base starter codebase package for download
 
 ## What is IBM Bob?
 

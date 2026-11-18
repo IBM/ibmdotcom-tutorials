@@ -151,7 +151,9 @@ Master IBM Bob, the AI-powered coding assistant for documentation, development, 
 **Featured Tutorials:**
 - [AI Documentation with IBM Bob](tutorials/16-ibm-bob/ai-docs-ibm-bob/) - Automatically generate and maintain project documentation
 - [MCP Server Integration](tutorials/16-ibm-bob/mcp-server-integration-ibm-bob/) - Build and integrate Model Context Protocol servers
-
+- [Java Application Modernization](tutorials/16-ibm-bob/java-mordnisation) - Modernize a legacy Java 8 Struts application into a REST API backend and modern frontend
+- [Build a Voice Agent with IBM Bob](tutorials/16-ibm-bob/build-voice-agent-with-ibm-bob) - Build a grounded, multilingual voice agent that answers questions aloud from your PDF using Sarvam AI and IBM Bob
+    
 ### [17 - Data Streaming](tutorials/17-data-streaming/)
 Build real-time event streaming platforms and data pipelines using Apache Kafka and Confluent Cloud.
 
