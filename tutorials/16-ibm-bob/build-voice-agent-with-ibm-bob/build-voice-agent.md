@@ -298,4 +298,3 @@ Common cases:
 - **Never put your API key in a prompt, a screenshot or a commit.** If you do, delete it on the Sarvam dashboard and create a new one.
 - Bob asks for approval before running commands. Read what it is about to run.
 - This app listens on `127.0.0.1` only, so it is not reachable from other computers.
-- When the Bob-a-thon is over, **delete your key** from the Sarvam dashboard.
