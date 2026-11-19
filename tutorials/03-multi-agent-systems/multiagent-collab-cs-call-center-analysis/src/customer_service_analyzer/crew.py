@@ -1,4 +1,4 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from customer_service_analyzer.tools.custom_tool import (
     TextAnalysisTool, SentimentAnalysisTool, KeywordExtractionTool,
@@ -7,6 +7,7 @@ from customer_service_analyzer.tools.custom_tool import (
 from crewai_tools import SerperDevTool
 
 search_tool = SerperDevTool()
+llm = LLM(model="watsonx/ibm/granite-4-h-small", num_retries=5)
 
 @CrewBase
 class CustomerServiceAnalyzer():
@@ -20,6 +21,7 @@ class CustomerServiceAnalyzer():
         return Agent(
             config=self.agents_config['transcript_analyzer'],
             verbose=True,
+            llm=llm,
             tools=[TextAnalysisTool(), SentimentAnalysisTool(), KeywordExtractionTool()],
         )
 
@@ -28,6 +30,7 @@ class CustomerServiceAnalyzer():
         return Agent(
             config=self.agents_config['quality_assurance_specialist'],
             verbose=True,
+            llm=llm,
             tools=[EvaluationCriteriaTool(), PerformanceMetricsTool(), search_tool],
         )
 
@@ -36,6 +39,7 @@ class CustomerServiceAnalyzer():
         return Agent(
             config=self.agents_config['report_generator'],
             verbose=True,
+            llm=llm,
             tools=[SummaryGenerationTool(), RecommendationTool()],
         )
 
@@ -50,7 +54,7 @@ class CustomerServiceAnalyzer():
     def quality_evaluation(self) -> Task:
         return Task(
             config=self.tasks_config['quality_evaluation'],
-            tools=[EvaluationCriteriaTool(), PerformanceMetricsTool()],
+            tools=[EvaluationCriteriaTool(), PerformanceMetricsTool(), search_tool],
         )
 
     @task
