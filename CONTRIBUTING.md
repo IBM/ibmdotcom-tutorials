@@ -270,6 +270,13 @@ All Python code must pass:
 - ✅ No hardcoded secrets
 - ✅ No syntax errors
 
+### Dependency & Security Standards
+
+To keep dependencies secure across all tutorial subdirectories, PRs run automated CI checks:
+- **Dependency Review**: Blocks PRs that introduce dependencies with known moderate or higher severity vulnerabilities.
+- **CodeQL & Python Security Scan**: Automated static analysis and dependency audits (`pip-audit`, Bandit) run against pull requests.
+- **Pinning**: In tutorial `requirements.txt` or `pyproject.toml` files, ensure direct dependencies do not pin versions with known critical/high CVEs.
+
 #### Tutorial-Specific Guidelines
 
 **✅ Do:**
