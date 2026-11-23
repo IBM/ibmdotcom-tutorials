@@ -127,7 +127,7 @@ transcript_analyzer:
   backstory: >
     As the Transcript Analyzer, you are responsible for reviewing customer
     service call transcripts, identifying important information, and summarizing
-    findings into a report to pass on to the Quality Assurance Specialist. 
+    findings into a report to pass on to the Quality Assurance Specialist.
     You have access to advanced text analysis tools that help you process and
     interpret the data effectively.
 
@@ -136,7 +136,7 @@ quality_assurance_specialist:
     Quality Assurance Specialist
   goal: >
     Evaluate the quality of the customer service based the Transcript Analyzer's
-    report, call center evaluation metrics, and business standards. Flag any 
+    report, call center evaluation metrics, and business standards. Flag any
     transcripts with escalation risks as high priority.
   backstory: >
     As the Quality Assurance Specialist, you are tasked with assessing the
@@ -228,7 +228,7 @@ sequence using the detailed descriptions for each task as a guide.
 transcript_analysis:
   description: >
     Use the Text Analysis Tool to collect key information and insights to better
-    understand customer service interactions and improve service quality. 
+    understand customer service interactions and improve service quality.
     Conduct a thorough analysis of the call {transcript}.
     Prepare a detailed report highlighting key insights, themes, and sentiment
     from the transcripts.
@@ -273,7 +273,7 @@ report_generation:
     labeled sections with relevant information.
   expected_output: >
     A comprehensive report that lists the reports from the Transcript Analyzer,
-    then the Quality Assurance Specialist. 
+    then the Quality Assurance Specialist.
     The report should include the key insights from {transcript} and the quality
     evaluation report from the Quality Assurance Specialist.
     The report should include organized sections for each agent's findings,
@@ -372,7 +372,7 @@ To install crewAI, run the following command in your terminal.
 
 ```python
 
-pip install 'crewai[tools]'
+pip install 'crewai[litellm,tools]'
 
 ```
 
